@@ -11,3 +11,4 @@
 Стек: UIKit, SwiftUI, Архитектура - MVC. Дополнительно используются Яндекс.карты для ориентирования в приложении. Используется геопозиция множества людей, геопозиция созданной активности.
 
 Ссылка на общий проект фигмы: https://www.figma.com/design/Nu4TFarJ0A0CP7UPfl3BqA/YAM?node-id=0-1&t=gjDf4LHBZdktT7ZQ-1
+Ссылка на таск-трекер: https://tracker.yandex.ru/agile/board/1
