@@ -1,0 +1,5 @@
+line_length:
+- 200 #warning
+- 320 #error
+disabled_rules:
+- trailing_writespase
