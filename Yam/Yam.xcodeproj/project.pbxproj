@@ -37,6 +37,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045D13C72CE53A9C00F2A657 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		045D13C82CE53AA300F2A657 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		045D13C92CE53AB100F2A657 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		045D13CA2CE53AC300F2A657 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		045D13CB2CE53ACC00F2A657 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		045D13CC2CE53AD600F2A657 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		045D13CD2CE53AF100F2A657 /* UIkit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIkit;
+			sourceTree = "<group>";
+		};
 		5F0FFA1184379D19F4702C2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +123,13 @@
 		DF7D991C2CE122D70018E694 /* Yam */ = {
 			isa = PBXGroup;
 			children = (
+				045D13C72CE53A9C00F2A657 /* UI */,
+				045D13CD2CE53AF100F2A657 /* UIkit */,
+				045D13CC2CE53AD600F2A657 /* Views */,
+				045D13CB2CE53ACC00F2A657 /* Models */,
+				045D13CA2CE53AC300F2A657 /* Application */,
+				045D13C92CE53AB100F2A657 /* Library */,
+				045D13C82CE53AA300F2A657 /* Resources */,
 				DF7D99182CE122D70018E694 /* Preview Content */,
 				DF7D99192CE122D70018E694 /* Assets.xcassets */,
 				DF7D991A2CE122D70018E694 /* ContentView.swift */,
