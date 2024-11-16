@@ -3,12 +3,9 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab: Tab = .map
 
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
-
     var body: some View {
         ZStack {
+            // Views
             VStack {
                 switch selectedTab {
                 case .map:
@@ -18,11 +15,11 @@ struct MainView: View {
                 }
             }
 
+            // Tab bar
             VStack {
                 Spacer()
-                TabBar(selectedTab: $selectedTab)
+                TabBarView(selectedTab: $selectedTab)
             }
-
         }
     }
 }

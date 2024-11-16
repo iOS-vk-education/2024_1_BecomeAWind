@@ -3,33 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		06A1BE9B03FD4F6768DD89B5 /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */; };
-		87928DC12CE7DBC10041A934 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87928DC02CE7DBC10041A934 /* TabBar.swift */; };
-		87928DC52CE7E7BA0041A934 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87928DC42CE7E7BA0041A934 /* MapView.swift */; };
-		87928DC72CE7E7D70041A934 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87928DC62CE7E7D70041A934 /* FeedView.swift */; };
-		DF7D991D2CE122D70018E694 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D99172CE122D70018E694 /* Preview Assets.xcassets */; };
-		DF7D991E2CE122D70018E694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D99192CE122D70018E694 /* Assets.xcassets */; };
-		DF7D991F2CE122D70018E694 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991A2CE122D70018E694 /* MainView.swift */; };
+		879FFB082CE8C28C0035C161 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FFB072CE8C28C0035C161 /* MapViewModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.debug.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.debug.xcconfig"; sourceTree = "<group>"; };
-		87928DC02CE7DBC10041A934 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		87928DC42CE7E7BA0041A934 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		87928DC62CE7E7D70041A934 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		879FFB072CE8C28C0035C161 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
 		BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF7D99172CE122D70018E694 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DF7D99192CE122D70018E694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DF7D991A2CE122D70018E694 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		879FFB012CE8C1FB0035C161 /* View */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = View; sourceTree = "<group>"; };
+		879FFB032CE8C23B0035C161 /* Support */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Support; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		87E6FC072CCE2B8000B2DA3B /* Frameworks */ = {
@@ -69,24 +65,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF7D99182CE122D70018E694 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				DF7D99172CE122D70018E694 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		DF7D991C2CE122D70018E694 /* Yam */ = {
 			isa = PBXGroup;
 			children = (
-				DF7D99182CE122D70018E694 /* Preview Content */,
-				DF7D99192CE122D70018E694 /* Assets.xcassets */,
-				87928DC62CE7E7D70041A934 /* FeedView.swift */,
-				DF7D991A2CE122D70018E694 /* MainView.swift */,
-				87928DC42CE7E7BA0041A934 /* MapView.swift */,
-				87928DC02CE7DBC10041A934 /* TabBar.swift */,
+				879FFB132CE8C6D00035C161 /* Info.plist */,
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
+				879FFB072CE8C28C0035C161 /* MapViewModel.swift */,
+				879FFB012CE8C1FB0035C161 /* View */,
+				879FFB032CE8C23B0035C161 /* Support */,
 			);
 			path = Yam;
 			sourceTree = "<group>";
@@ -116,6 +102,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				879FFB012CE8C1FB0035C161 /* View */,
+				879FFB032CE8C23B0035C161 /* Support */,
 			);
 			name = Yam;
 			productName = Yam;
@@ -160,8 +150,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF7D991D2CE122D70018E694 /* Preview Assets.xcassets in Resources */,
-				DF7D991E2CE122D70018E694 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,11 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87928DC72CE7E7D70041A934 /* FeedView.swift in Sources */,
-				87928DC12CE7DBC10041A934 /* TabBar.swift in Sources */,
-				DF7D991F2CE122D70018E694 /* MainView.swift in Sources */,
-				87928DC52CE7E7BA0041A934 /* MapView.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
+				879FFB082CE8C28C0035C161 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,11 +337,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Yam/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Yam/Support/Preview Content\"";
 				DEVELOPMENT_TEAM = FP582B2GU2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yam/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -383,11 +370,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Yam/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Yam/Support/Preview Content\"";
 				DEVELOPMENT_TEAM = FP582B2GU2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yam/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
