@@ -7,7 +7,7 @@ struct MapView: View {
 
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
+            Map(coordinateRegion: $viewModel.currentLocation, showsUserLocation: true)
                 .ignoresSafeArea()
                 .onAppear {
                     viewModel.checkIfLocationServicesIsEnabled()
@@ -17,7 +17,7 @@ struct MapView: View {
             VStack {
                 // Top buttons
                 HStack {
-                    // Profile
+                    // Profile button
                     VStack {
                         Button {
                             profileActive.toggle()
@@ -36,16 +36,15 @@ struct MapView: View {
 
                     Spacer()
 
-                    // Current location
+                    // Current location button
                     VStack {
                         Button {
-                            viewModel.changeRegion()
+                            viewModel.setCurrentLocation()
                         } label: {
                             Image(systemName: "location.fill")
                                 .foregroundColor(.white)
                                 .font(.system(size: 25))
                         }
-
                     }
                     .padding(10)
                     .background(.black)

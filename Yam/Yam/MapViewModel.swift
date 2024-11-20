@@ -7,7 +7,7 @@ enum MapDetails {
 }
 
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion(
+    @Published var currentLocation = MKCoordinateRegion(
         center:
             MapDetails.startingLocation,
         span:
@@ -32,13 +32,13 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         checkLocationAuthorizationStatus()
     }
 
-    func changeRegion() {
+    func setCurrentLocation() {
         guard let location = locationManager?.location else {
             return
         }
 
         withAnimation {
-            region = MKCoordinateRegion(
+            currentLocation = MKCoordinateRegion(
                 center: location.coordinate,
                 span: MapDetails.span
             )
@@ -56,7 +56,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         case .denied:
             print("Your have denied location permission")
         case .authorizedAlways, .authorizedWhenInUse:
-            changeRegion()
+            setCurrentLocation()
         @unknown default:
             break
         }
