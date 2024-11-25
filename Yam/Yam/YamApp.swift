@@ -11,6 +11,7 @@ import SwiftUI
 struct YamApp: App {
     var body: some Scene {
         WindowGroup {
+            FeedActivityMain()
             ContentView()
         }
     }

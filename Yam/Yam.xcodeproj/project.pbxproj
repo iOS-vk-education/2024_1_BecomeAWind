@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04F294EB2CF52F09002F8813 /* FeedActivityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F294EA2CF52F09002F8813 /* FeedActivityMain.swift */; };
+		04F294ED2CF52F36002F8813 /* FeedCardFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F294EC2CF52F36002F8813 /* FeedCardFirst.swift */; };
+		04F294EF2CF533FF002F8813 /* FeedMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F294EE2CF533FF002F8813 /* FeedMainButton.swift */; };
+		04F294F12CF53477002F8813 /* FeedCardSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F294F02CF53477002F8813 /* FeedCardSecond.swift */; };
+		04F294F32CF53534002F8813 /* FeedCardThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F294F22CF53534002F8813 /* FeedCardThird.swift */; };
 		DF7D991D2CE122D70018E694 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D99172CE122D70018E694 /* Preview Assets.xcassets */; };
 		DF7D991E2CE122D70018E694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D99192CE122D70018E694 /* Assets.xcassets */; };
 		DF7D991F2CE122D70018E694 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991A2CE122D70018E694 /* ContentView.swift */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04F294EA2CF52F09002F8813 /* FeedActivityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedActivityMain.swift; sourceTree = "<group>"; };
+		04F294EC2CF52F36002F8813 /* FeedCardFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardFirst.swift; sourceTree = "<group>"; };
+		04F294EE2CF533FF002F8813 /* FeedMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMainButton.swift; sourceTree = "<group>"; };
+		04F294F02CF53477002F8813 /* FeedCardSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardSecond.swift; sourceTree = "<group>"; };
+		04F294F22CF53534002F8813 /* FeedCardThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardThird.swift; sourceTree = "<group>"; };
 		680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.debug.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.debug.xcconfig"; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +73,7 @@
 		04F294E52CF52BC2002F8813 /* FeedActivity */ = {
 			isa = PBXGroup;
 			children = (
+				04F294EA2CF52F09002F8813 /* FeedActivityMain.swift */,
 				04F294E72CF52BCA002F8813 /* Views */,
 			);
 			path = FeedActivity;
@@ -78,6 +89,10 @@
 		04F294E72CF52BCA002F8813 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04F294EC2CF52F36002F8813 /* FeedCardFirst.swift */,
+				04F294EE2CF533FF002F8813 /* FeedMainButton.swift */,
+				04F294F02CF53477002F8813 /* FeedCardSecond.swift */,
+				04F294F22CF53534002F8813 /* FeedCardThird.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,8 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F294EF2CF533FF002F8813 /* FeedMainButton.swift in Sources */,
+				04F294ED2CF52F36002F8813 /* FeedCardFirst.swift in Sources */,
 				DF7D991F2CE122D70018E694 /* ContentView.swift in Sources */,
+				04F294EB2CF52F09002F8813 /* FeedActivityMain.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
+				04F294F12CF53477002F8813 /* FeedCardSecond.swift in Sources */,
+				04F294F32CF53534002F8813 /* FeedCardThird.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
