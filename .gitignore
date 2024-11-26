@@ -140,3 +140,5 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,cocoapods,swift,xcode
+
+Yam/Yam.xcodeproj/xcuserdata/terabrim.xcuserdatad/xcschemes/xcschememanagement.plist
