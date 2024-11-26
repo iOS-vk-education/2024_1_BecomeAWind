@@ -204,6 +204,29 @@
 			path = AddEventScreen;
 			sourceTree = "<group>";
 		};
+		87EF8F832CF60FD900519CD9 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				879FFB072CE8C28C0035C161 /* LocationManager.swift */,
+				87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		87EF8F842CF60FEA00519CD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87EF8F852CF60FF100519CD9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		87FF56682CF5135F00CB5EDC /* MapScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,9 +259,10 @@
 			isa = PBXGroup;
 			children = (
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
-				879FFB072CE8C28C0035C161 /* LocationManager.swift */,
-				87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */,
 				87E73B002CF5FA560005C142 /* UI */,
+				87EF8F832CF60FD900519CD9 /* Logic */,
+				87EF8F842CF60FEA00519CD9 /* Models */,
+				87EF8F852CF60FF100519CD9 /* Mocks */,
 				87FF56712CF5136200CB5EDC /* Support */,
 			);
 			path = Yam;
