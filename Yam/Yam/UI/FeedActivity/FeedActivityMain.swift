@@ -1,10 +1,3 @@
-//
-//  FeedActivityMain.swift
-//  Yam
-//
-//  Created by Mac on 26.11.2024.
-//
-
 import SwiftUI
 
 struct FeedActivityMain: View {
@@ -30,13 +23,12 @@ struct FeedActivityMain: View {
                 Spacer()
                     .frame(height: TabBarView.itemSize * 2)
             }
-
         }
     }
 }
 
-    struct FeedActivityMain_Previews: PreviewProvider {
-        static var previews: some View {
-            FeedActivityMain()
-        }
+struct FeedActivityMain_Previews: PreviewProvider {
+    static var previews: some View {
+        FeedActivityMain()
+    }
 }

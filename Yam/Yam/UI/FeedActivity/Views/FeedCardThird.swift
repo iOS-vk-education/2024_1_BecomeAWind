@@ -1,10 +1,3 @@
-//
-//  FeedCardThird.swift
-//  Yam
-//
-//  Created by Mac on 26.11.2024.
-//
-
 import SwiftUI
 
 struct FeedCardThird: View {

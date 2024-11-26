@@ -23,6 +23,12 @@
 		87E73B032CF5FA560005C142 /* FeedCardSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AFA2CF5FA560005C142 /* FeedCardSecond.swift */; };
 		87E73B042CF5FA560005C142 /* FeedActivityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AFE2CF5FA560005C142 /* FeedActivityMain.swift */; };
 		87E73B052CF5FA560005C142 /* FeedCardFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AF92CF5FA560005C142 /* FeedCardFirst.swift */; };
+		87E73B142CF609230005C142 /* NewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73B0D2CF609230005C142 /* NewTextField.swift */; };
+		87E73B152CF609230005C142 /* AddPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73B092CF609230005C142 /* AddPhoto.swift */; };
+		87E73B162CF609230005C142 /* NewTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73B0C2CF609230005C142 /* NewTextEditor.swift */; };
+		87E73B172CF609230005C142 /* CreateIventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73B102CF609230005C142 /* CreateIventView.swift */; };
+		87E73B182CF609230005C142 /* SelectedCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73B112CF609230005C142 /* SelectedCategories.swift */; };
+		87E73B192CF609230005C142 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73B0A2CF609230005C142 /* ImagePicker.swift */; };
 		87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56642CF5135F00CB5EDC /* MainView.swift */; };
 		87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56652CF5135F00CB5EDC /* MapScreenView.swift */; };
 		87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56662CF5135F00CB5EDC /* ProfileView.swift */; };
@@ -51,6 +57,12 @@
 		87E73AFB2CF5FA560005C142 /* FeedCardThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardThird.swift; sourceTree = "<group>"; };
 		87E73AFC2CF5FA560005C142 /* FeedMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMainButton.swift; sourceTree = "<group>"; };
 		87E73AFE2CF5FA560005C142 /* FeedActivityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedActivityMain.swift; sourceTree = "<group>"; };
+		87E73B092CF609230005C142 /* AddPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoto.swift; sourceTree = "<group>"; };
+		87E73B0A2CF609230005C142 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		87E73B0C2CF609230005C142 /* NewTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextEditor.swift; sourceTree = "<group>"; };
+		87E73B0D2CF609230005C142 /* NewTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextField.swift; sourceTree = "<group>"; };
+		87E73B102CF609230005C142 /* CreateIventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIventView.swift; sourceTree = "<group>"; };
+		87E73B112CF609230005C142 /* SelectedCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategories.swift; sourceTree = "<group>"; };
 		87FF56642CF5135F00CB5EDC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		87FF56652CF5135F00CB5EDC /* MapScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
 		87FF56662CF5135F00CB5EDC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -144,21 +156,59 @@
 		87E73B002CF5FA560005C142 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				87E73B062CF6073E0005C142 /* Main */,
 				87E73AE52CF5EBBE0005C142 /* LoginScreen */,
 				87FF56682CF5135F00CB5EDC /* MapScreen */,
+				87E73B132CF609230005C142 /* AddEventScreen */,
 				87E73AFF2CF5FA560005C142 /* FeedActivity */,
 				87E73AEF2CF5EBCE0005C142 /* Common */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		87FF56682CF5135F00CB5EDC /* MapScreen */ = {
+		87E73B062CF6073E0005C142 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				87FF56642CF5135F00CB5EDC /* MainView.swift */,
+				87FF56672CF5135F00CB5EDC /* TabBarView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		87E73B0B2CF609230005C142 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				87E73B092CF609230005C142 /* AddPhoto.swift */,
+				87E73B0A2CF609230005C142 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		87E73B0E2CF609230005C142 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				87E73B0C2CF609230005C142 /* NewTextEditor.swift */,
+				87E73B0D2CF609230005C142 /* NewTextField.swift */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		87E73B132CF609230005C142 /* AddEventScreen */ = {
+			isa = PBXGroup;
+			children = (
+				87E73B0B2CF609230005C142 /* ImagePicker */,
+				87E73B0E2CF609230005C142 /* Inputs */,
+				87E73B102CF609230005C142 /* CreateIventView.swift */,
+				87E73B112CF609230005C142 /* SelectedCategories.swift */,
+			);
+			path = AddEventScreen;
+			sourceTree = "<group>";
+		};
+		87FF56682CF5135F00CB5EDC /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
 				87FF56652CF5135F00CB5EDC /* MapScreenView.swift */,
 				87FF56662CF5135F00CB5EDC /* ProfileView.swift */,
-				87FF56672CF5135F00CB5EDC /* TabBarView.swift */,
 			);
 			path = MapScreen;
 			sourceTree = "<group>";
@@ -334,6 +384,12 @@
 				87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */,
 				87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */,
 				87E73AF82CF5F0680005C142 /* Src.swift in Sources */,
+				87E73B142CF609230005C142 /* NewTextField.swift in Sources */,
+				87E73B152CF609230005C142 /* AddPhoto.swift in Sources */,
+				87E73B162CF609230005C142 /* NewTextEditor.swift in Sources */,
+				87E73B172CF609230005C142 /* CreateIventView.swift in Sources */,
+				87E73B182CF609230005C142 /* SelectedCategories.swift in Sources */,
+				87E73B192CF609230005C142 /* ImagePicker.swift in Sources */,
 				87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */,
 				87E73AF62CF5EF210005C142 /* LoginScreenIntegrator.swift in Sources */,
 				879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */,

@@ -1,13 +1,7 @@
-//
-//  FeedMainButton.swift
-//  Yam
-//
-//  Created by Mac on 26.11.2024.
-//
-
 import SwiftUI
 
 struct FeedMainButton: View {
+    @State private var addEventScreenActive = false
     var body: some View {
         VStack {
             textLent
@@ -38,8 +32,19 @@ struct FeedMainButton: View {
         )
     }
     var textLent: some View {
-        Text("Лента активностей")
-            .modifier(TextLentModifier())
+        HStack {
+            Text("Лента активностей")
+                .modifier(TextLentModifier())
+            Button {
+                addEventScreenActive.toggle()
+            } label: {
+                Image(systemName: "plus.circle")
+                    .foregroundStyle(Color.purple)
+            }
+        }
+        .sheet(isPresented: $addEventScreenActive) {
+            CreateIventView()
+        }
     }
     struct ButtonFiltrModifier: ViewModifier {
         func body(content: Content) -> some View {
