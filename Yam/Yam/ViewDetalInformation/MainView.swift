@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Main: PreviewProvider {
   static var previews: some View {
-    ContentView() // Замените ContentView на имя вашего основного View
+    ContentView()
   }
 }
 
