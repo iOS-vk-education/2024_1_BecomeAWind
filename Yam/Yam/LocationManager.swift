@@ -2,13 +2,7 @@ import MapKit
 import SwiftUI
 
 struct MapDetails {
-    static let startLatitudeLongitude = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     static let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-
-//    static let startPosition = MKCoordinateRegion(
-//        center: MapDetails.startLatitudeLongitude,
-//        span: MapDetails.span
-//    )
 }
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
