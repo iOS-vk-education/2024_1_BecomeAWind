@@ -3,84 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		06A1BE9B03FD4F6768DD89B5 /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */; };
-		879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FFB072CE8C28C0035C161 /* LocationManager.swift */; };
-		87E73AE72CF5EBBE0005C142 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AE32CF5EBBE0005C142 /* LoginViewController.swift */; };
-		87E73AE82CF5EBBE0005C142 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AE42CF5EBBE0005C142 /* RegisterViewController.swift */; };
-		87E73AF02CF5EBCE0005C142 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AEC2CF5EBCE0005C142 /* AuthTextField.swift */; };
-		87E73AF12CF5EBCE0005C142 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AEA2CF5EBCE0005C142 /* AuthButton.swift */; };
-		87E73AF22CF5EBCE0005C142 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AED2CF5EBCE0005C142 /* CircleButton.swift */; };
-		87E73AF32CF5EBCE0005C142 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AEE2CF5EBCE0005C142 /* Label.swift */; };
-		87E73AF42CF5EBCE0005C142 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AEB2CF5EBCE0005C142 /* AuthHeaderView.swift */; };
-		87E73AF62CF5EF210005C142 /* LoginScreenIntegrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */; };
-		87E73AF82CF5F0680005C142 /* Src.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AF72CF5F0680005C142 /* Src.swift */; };
-		87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56632CF5135F00CB5EDC /* FeedView.swift */; };
-		87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56642CF5135F00CB5EDC /* MainView.swift */; };
-		87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56652CF5135F00CB5EDC /* MapScreenView.swift */; };
-		87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56662CF5135F00CB5EDC /* ProfileView.swift */; };
-		87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56672CF5135F00CB5EDC /* TabBarView.swift */; };
-		87FF56722CF5136200CB5EDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FF566E2CF5136200CB5EDC /* Preview Assets.xcassets */; };
-		87FF56732CF5136200CB5EDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FF56702CF5136200CB5EDC /* Assets.xcassets */; };
-		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.debug.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.debug.xcconfig"; sourceTree = "<group>"; };
-		879FFB072CE8C28C0035C161 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		87E73AE32CF5EBBE0005C142 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		87E73AE42CF5EBBE0005C142 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		87E73AEA2CF5EBCE0005C142 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
-		87E73AEB2CF5EBCE0005C142 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
-		87E73AEC2CF5EBCE0005C142 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
-		87E73AED2CF5EBCE0005C142 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
-		87E73AEE2CF5EBCE0005C142 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenIntegrator.swift; sourceTree = "<group>"; };
-		87E73AF72CF5F0680005C142 /* Src.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Src.swift; sourceTree = "<group>"; };
-		87FF56632CF5135F00CB5EDC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
-		87FF56642CF5135F00CB5EDC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		87FF56652CF5135F00CB5EDC /* MapScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
-		87FF56662CF5135F00CB5EDC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		87FF56672CF5135F00CB5EDC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		87FF566E2CF5136200CB5EDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		87FF56702CF5136200CB5EDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
-		BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		87E6FC0C2CCE2B8000B2DA3B /* Yam */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Yam; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		87E6FC072CCE2B8000B2DA3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06A1BE9B03FD4F6768DD89B5 /* libPods-Yam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F0FFA1184379D19F4702C2A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
-				DF7D991C2CE122D70018E694 /* Yam */,
+				87E6FC0C2CCE2B8000B2DA3B /* Yam */,
 				87E6FC0B2CCE2B8000B2DA3B /* Products */,
-				FF9068E75B7E7F1807F44EA2 /* Pods */,
-				5F0FFA1184379D19F4702C2A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,81 +41,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87E73AE52CF5EBBE0005C142 /* Authorization */ = {
-			isa = PBXGroup;
-			children = (
-				87E73AE32CF5EBBE0005C142 /* LoginViewController.swift */,
-				87E73AE42CF5EBBE0005C142 /* RegisterViewController.swift */,
-			);
-			path = Authorization;
-			sourceTree = "<group>";
-		};
-		87E73AEF2CF5EBCE0005C142 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				87E73AEA2CF5EBCE0005C142 /* AuthButton.swift */,
-				87E73AEB2CF5EBCE0005C142 /* AuthHeaderView.swift */,
-				87E73AEC2CF5EBCE0005C142 /* AuthTextField.swift */,
-				87E73AED2CF5EBCE0005C142 /* CircleButton.swift */,
-				87E73AEE2CF5EBCE0005C142 /* Label.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		87FF56682CF5135F00CB5EDC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				87FF56632CF5135F00CB5EDC /* FeedView.swift */,
-				87FF56642CF5135F00CB5EDC /* MainView.swift */,
-				87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */,
-				87FF56652CF5135F00CB5EDC /* MapScreenView.swift */,
-				87FF56662CF5135F00CB5EDC /* ProfileView.swift */,
-				87FF56672CF5135F00CB5EDC /* TabBarView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		87FF566F2CF5136200CB5EDC /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				87FF566E2CF5136200CB5EDC /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		87FF56712CF5136200CB5EDC /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				87FF566F2CF5136200CB5EDC /* Preview Content */,
-				87FF56702CF5136200CB5EDC /* Assets.xcassets */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		DF7D991C2CE122D70018E694 /* Yam */ = {
-			isa = PBXGroup;
-			children = (
-				87E73AF72CF5F0680005C142 /* Src.swift */,
-				879FFB132CE8C6D00035C161 /* Info.plist */,
-				DF7D991B2CE122D70018E694 /* YamApp.swift */,
-				879FFB072CE8C28C0035C161 /* LocationManager.swift */,
-				87E73AEF2CF5EBCE0005C142 /* Common */,
-				87E73AE52CF5EBBE0005C142 /* Authorization */,
-				87FF56682CF5135F00CB5EDC /* View */,
-				87FF56712CF5136200CB5EDC /* Support */,
-			);
-			path = Yam;
-			sourceTree = "<group>";
-		};
-		FF9068E75B7E7F1807F44EA2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */,
-				961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,8 +48,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87E6FC182CCE2B8200B2DA3B /* Build configuration list for PBXNativeTarget "Yam" */;
 			buildPhases = (
-				FF5FED187FFF117194FB2DD4 /* [CP] Check Pods Manifest.lock */,
-				DF7A2CF72CE124B0000EC3A5 /* ShellScript */,
 				87E6FC062CCE2B8000B2DA3B /* Sources */,
 				87E6FC072CCE2B8000B2DA3B /* Frameworks */,
 				87E6FC082CCE2B8000B2DA3B /* Resources */,
@@ -184,7 +56,12 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				87E6FC0C2CCE2B8000B2DA3B /* Yam */,
+			);
 			name = Yam;
+			packageProductDependencies = (
+			);
 			productName = Yam;
 			productReference = 87E6FC0A2CCE2B8000B2DA3B /* Yam.app */;
 			productType = "com.apple.product-type.application";
@@ -228,76 +105,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87FF56722CF5136200CB5EDC /* Preview Assets.xcassets in Resources */,
-				87FF56732CF5136200CB5EDC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		DF7A2CF72CE124B0000EC3A5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
-		};
-		FF5FED187FFF117194FB2DD4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Yam-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87E6FC062CCE2B8000B2DA3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87E73AF02CF5EBCE0005C142 /* AuthTextField.swift in Sources */,
-				87E73AF12CF5EBCE0005C142 /* AuthButton.swift in Sources */,
-				87E73AF22CF5EBCE0005C142 /* CircleButton.swift in Sources */,
-				87E73AF32CF5EBCE0005C142 /* Label.swift in Sources */,
-				87E73AF42CF5EBCE0005C142 /* AuthHeaderView.swift in Sources */,
-				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
-				87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */,
-				87E73AE72CF5EBBE0005C142 /* LoginViewController.swift in Sources */,
-				87E73AE82CF5EBBE0005C142 /* RegisterViewController.swift in Sources */,
-				87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */,
-				87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */,
-				87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */,
-				87E73AF82CF5F0680005C142 /* Src.swift in Sources */,
-				87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */,
-				87E73AF62CF5EF210005C142 /* LoginScreenIntegrator.swift in Sources */,
-				879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +173,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -413,7 +230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -425,7 +242,6 @@
 		};
 		87E6FC192CCE2B8200B2DA3B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -434,10 +250,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Yam/Preview Content\"";
 				DEVELOPMENT_TEAM = H895Q3S3C2;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Yam/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,10 +264,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilyansky.Yam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,7 +272,6 @@
 		};
 		87E6FC1A2CCE2B8200B2DA3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,10 +280,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Yam/Preview Content\"";
 				DEVELOPMENT_TEAM = H895Q3S3C2;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Yam/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -489,10 +294,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilyansky.Yam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
