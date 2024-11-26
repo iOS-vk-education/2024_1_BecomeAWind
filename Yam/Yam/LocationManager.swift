@@ -39,7 +39,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         }
     }
 
-
 }
 
 extension LocationManager {

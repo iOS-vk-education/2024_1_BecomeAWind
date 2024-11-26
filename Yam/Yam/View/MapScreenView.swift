@@ -8,8 +8,9 @@ struct MapScreenView: View {
         if locationManager.isLocationServicesEnabled {
             if let userLocation = locationManager.userLocation {
                 MapView(locationManager: locationManager, userLocation: userLocation)
+                    .ignoresSafeArea()
             } else {
-                ProgressView("Detecting location...")
+                ProgressView("Определение геолокации...")
             }
         } else {
             DisabledLocationServicesView()
@@ -97,25 +98,28 @@ struct DisabledLocationServicesView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("Your location is disabled\nPlease, enable it in the settings")
+                Text("Определение твоей геолокации отключено.\nПожалуйста, включи его в настройках.")
                     .font(.headline)
+                    .multilineTextAlignment(.center)
             }
             .padding()
             .background(.purple)
             .cornerRadius(20)
+            .foregroundStyle(.white)
 
             Button {
                 if let appSettings = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(appSettings)
                 }
             } label: {
-                Text("Open settings")
+                Text("Перейти в настройки")
                     .padding()
                     .foregroundColor(.white)
                     .background(.black)
                     .cornerRadius(20)
             }
         }
+        .padding()
     }
 }
 
