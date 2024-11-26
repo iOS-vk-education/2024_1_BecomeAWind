@@ -9,7 +9,7 @@ struct MainView: View {
             VStack {
                 switch selectedTab {
                 case .map:
-                    MapView()
+                    MapScreenView()
                 case .feed:
                     FeedView()
                 }
