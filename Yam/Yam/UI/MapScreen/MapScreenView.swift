@@ -8,9 +8,6 @@ struct MapScreenView: View {
         if locationManager.isLocationServicesEnabled {
             if let userLocation = locationManager.userLocation {
                 MapView(locationManager: locationManager, userLocation: userLocation)
-                    .ignoresSafeArea()
-            } else {
-                ProgressView("Определение геолокации...")
             }
         } else {
             DisabledLocationServicesView()
@@ -39,7 +36,6 @@ struct MapView: View {
             Map(coordinateRegion: $mapRegion,
                 showsUserLocation: true)
             .ignoresSafeArea()
-
             // Buttons
             VStack {
                 // Top buttons
@@ -86,10 +82,12 @@ struct MapView: View {
 
     private func centerOnUserLocation() {
         if let userLocation = locationManager.userLocation {
-            mapRegion = MKCoordinateRegion(
-                center: userLocation.coordinate,
-                span: MapDetails.span
-            )
+            withAnimation {
+                mapRegion = MKCoordinateRegion(
+                    center: userLocation.coordinate,
+                    span: MapDetails.span
+                )
+            }
         }
     }
 }

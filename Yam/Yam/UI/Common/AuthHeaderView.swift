@@ -4,7 +4,7 @@ import UIKit
 class AuthHeaderView: UIView {
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "logo")
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false

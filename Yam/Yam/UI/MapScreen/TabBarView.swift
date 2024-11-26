@@ -7,7 +7,7 @@ enum Tab: String, CaseIterable {
 
 struct TabBarView: View {
     @Binding var selectedTab: Tab
-    var itemSize: CGFloat = 50
+    static let itemSize: CGFloat = 30
 
     var body: some View {
         HStack {
@@ -16,6 +16,8 @@ struct TabBarView: View {
                     Image(systemName: tab.rawValue)
                         .foregroundColor(.white)
                         .font(.system(size: 25))
+                        .frame(width: TabBarView.itemSize,
+                               height: TabBarView.itemSize)
                         .onTapGesture {
                             withAnimation(.easeIn(duration: 0.1)) {
                                 selectedTab = tab
@@ -30,14 +32,6 @@ struct TabBarView: View {
             .padding(20)
         }
 
-    }
-}
-
-private struct TabBarItem: View {
-    let imageName: String
-    var body: some View {
-        Image(systemName: imageName)
-            .resizable()
     }
 }
 

@@ -11,7 +11,7 @@ struct MainView: View {
                     case .map:
                         MapScreenView()
                     case .feed:
-                        FeedView()
+                        FeedActivityMain()
                     }
                 }
 

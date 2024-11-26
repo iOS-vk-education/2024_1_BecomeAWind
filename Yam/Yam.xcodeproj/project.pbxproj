@@ -18,7 +18,11 @@
 		87E73AF42CF5EBCE0005C142 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AEB2CF5EBCE0005C142 /* AuthHeaderView.swift */; };
 		87E73AF62CF5EF210005C142 /* LoginScreenIntegrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */; };
 		87E73AF82CF5F0680005C142 /* Src.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AF72CF5F0680005C142 /* Src.swift */; };
-		87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56632CF5135F00CB5EDC /* FeedView.swift */; };
+		87E73B012CF5FA560005C142 /* FeedCardThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AFB2CF5FA560005C142 /* FeedCardThird.swift */; };
+		87E73B022CF5FA560005C142 /* FeedMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AFC2CF5FA560005C142 /* FeedMainButton.swift */; };
+		87E73B032CF5FA560005C142 /* FeedCardSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AFA2CF5FA560005C142 /* FeedCardSecond.swift */; };
+		87E73B042CF5FA560005C142 /* FeedActivityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AFE2CF5FA560005C142 /* FeedActivityMain.swift */; };
+		87E73B052CF5FA560005C142 /* FeedCardFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E73AF92CF5FA560005C142 /* FeedCardFirst.swift */; };
 		87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56642CF5135F00CB5EDC /* MainView.swift */; };
 		87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56652CF5135F00CB5EDC /* MapScreenView.swift */; };
 		87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56662CF5135F00CB5EDC /* ProfileView.swift */; };
@@ -31,7 +35,7 @@
 /* Begin PBXFileReference section */
 		680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.debug.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.debug.xcconfig"; sourceTree = "<group>"; };
 		879FFB072CE8C28C0035C161 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E73AE32CF5EBBE0005C142 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		87E73AE42CF5EBBE0005C142 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +46,11 @@
 		87E73AEE2CF5EBCE0005C142 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenIntegrator.swift; sourceTree = "<group>"; };
 		87E73AF72CF5F0680005C142 /* Src.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Src.swift; sourceTree = "<group>"; };
-		87FF56632CF5135F00CB5EDC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		87E73AF92CF5FA560005C142 /* FeedCardFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardFirst.swift; sourceTree = "<group>"; };
+		87E73AFA2CF5FA560005C142 /* FeedCardSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardSecond.swift; sourceTree = "<group>"; };
+		87E73AFB2CF5FA560005C142 /* FeedCardThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardThird.swift; sourceTree = "<group>"; };
+		87E73AFC2CF5FA560005C142 /* FeedMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMainButton.swift; sourceTree = "<group>"; };
+		87E73AFE2CF5FA560005C142 /* FeedActivityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedActivityMain.swift; sourceTree = "<group>"; };
 		87FF56642CF5135F00CB5EDC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		87FF56652CF5135F00CB5EDC /* MapScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
 		87FF56662CF5135F00CB5EDC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -92,13 +100,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87E73AE52CF5EBBE0005C142 /* Authorization */ = {
+		87E73AE52CF5EBBE0005C142 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
 				87E73AE32CF5EBBE0005C142 /* LoginViewController.swift */,
 				87E73AE42CF5EBBE0005C142 /* RegisterViewController.swift */,
 			);
-			path = Authorization;
+			path = LoginScreen;
 			sourceTree = "<group>";
 		};
 		87E73AEF2CF5EBCE0005C142 /* Common */ = {
@@ -113,17 +121,46 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		87FF56682CF5135F00CB5EDC /* View */ = {
+		87E73AFD2CF5FA560005C142 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				87FF56632CF5135F00CB5EDC /* FeedView.swift */,
+				87E73AF92CF5FA560005C142 /* FeedCardFirst.swift */,
+				87E73AFA2CF5FA560005C142 /* FeedCardSecond.swift */,
+				87E73AFB2CF5FA560005C142 /* FeedCardThird.swift */,
+				87E73AFC2CF5FA560005C142 /* FeedMainButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		87E73AFF2CF5FA560005C142 /* FeedActivity */ = {
+			isa = PBXGroup;
+			children = (
+				87E73AFD2CF5FA560005C142 /* Views */,
+				87E73AFE2CF5FA560005C142 /* FeedActivityMain.swift */,
+			);
+			path = FeedActivity;
+			sourceTree = "<group>";
+		};
+		87E73B002CF5FA560005C142 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				87E73AE52CF5EBBE0005C142 /* LoginScreen */,
+				87FF56682CF5135F00CB5EDC /* MapScreen */,
+				87E73AFF2CF5FA560005C142 /* FeedActivity */,
+				87E73AEF2CF5EBCE0005C142 /* Common */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		87FF56682CF5135F00CB5EDC /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
 				87FF56642CF5135F00CB5EDC /* MainView.swift */,
-				87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */,
 				87FF56652CF5135F00CB5EDC /* MapScreenView.swift */,
 				87FF56662CF5135F00CB5EDC /* ProfileView.swift */,
 				87FF56672CF5135F00CB5EDC /* TabBarView.swift */,
 			);
-			path = View;
+			path = MapScreen;
 			sourceTree = "<group>";
 		};
 		87FF566F2CF5136200CB5EDC /* Preview Content */ = {
@@ -137,6 +174,8 @@
 		87FF56712CF5136200CB5EDC /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				87E73AF72CF5F0680005C142 /* Src.swift */,
+				879FFB132CE8C6D00035C161 /* Info.plist */,
 				87FF566F2CF5136200CB5EDC /* Preview Content */,
 				87FF56702CF5136200CB5EDC /* Assets.xcassets */,
 			);
@@ -146,13 +185,10 @@
 		DF7D991C2CE122D70018E694 /* Yam */ = {
 			isa = PBXGroup;
 			children = (
-				87E73AF72CF5F0680005C142 /* Src.swift */,
-				879FFB132CE8C6D00035C161 /* Info.plist */,
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
 				879FFB072CE8C28C0035C161 /* LocationManager.swift */,
-				87E73AEF2CF5EBCE0005C142 /* Common */,
-				87E73AE52CF5EBBE0005C142 /* Authorization */,
-				87FF56682CF5135F00CB5EDC /* View */,
+				87E73AF52CF5EF210005C142 /* LoginScreenIntegrator.swift */,
+				87E73B002CF5FA560005C142 /* UI */,
 				87FF56712CF5136200CB5EDC /* Support */,
 			);
 			path = Yam;
@@ -287,7 +323,11 @@
 				87E73AF32CF5EBCE0005C142 /* Label.swift in Sources */,
 				87E73AF42CF5EBCE0005C142 /* AuthHeaderView.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
-				87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */,
+				87E73B012CF5FA560005C142 /* FeedCardThird.swift in Sources */,
+				87E73B022CF5FA560005C142 /* FeedMainButton.swift in Sources */,
+				87E73B032CF5FA560005C142 /* FeedCardSecond.swift in Sources */,
+				87E73B042CF5FA560005C142 /* FeedActivityMain.swift in Sources */,
+				87E73B052CF5FA560005C142 /* FeedCardFirst.swift in Sources */,
 				87E73AE72CF5EBBE0005C142 /* LoginViewController.swift in Sources */,
 				87E73AE82CF5EBBE0005C142 /* RegisterViewController.swift in Sources */,
 				87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */,
@@ -435,7 +475,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Yam/Info.plist;
+				INFOPLIST_FILE = Yam/Support/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -473,7 +513,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Yam/Info.plist;
+				INFOPLIST_FILE = Yam/Support/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

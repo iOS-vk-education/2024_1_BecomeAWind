@@ -8,7 +8,6 @@ struct LoginScreenIntegrator: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-
     }
 }
 
