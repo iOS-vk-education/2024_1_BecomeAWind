@@ -7,21 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF6F20122CF0F79E00B04C39 /* CreateIventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6F20112CF0F78500B04C39 /* CreateIventView.swift */; };
+		DF6F20152CF1015B00B04C39 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6F20142CF1014E00B04C39 /* ImagePicker.swift */; };
 		DF7D991D2CE122D70018E694 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D99172CE122D70018E694 /* Preview Assets.xcassets */; };
 		DF7D991E2CE122D70018E694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7D99192CE122D70018E694 /* Assets.xcassets */; };
 		DF7D991F2CE122D70018E694 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991A2CE122D70018E694 /* ContentView.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
-		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
+		DFCB897C2CF1FBBA00310D68 /* SelectedCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB897B2CF1FBAD00310D68 /* SelectedCategories.swift */; };
+		DFCB897E2CF1FC2A00310D68 /* AddPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB897D2CF1FC2100310D68 /* AddPhoto.swift */; };
+		DFCB89802CF1FCC900310D68 /* NewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB897F2CF1FCBA00310D68 /* NewTextField.swift */; };
+		DFE40A3A2CF4C22F00999132 /* NewTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE40A392CF4C21900999132 /* NewTextEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.debug.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.debug.xcconfig"; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
+		DF6F20112CF0F78500B04C39 /* CreateIventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIventView.swift; sourceTree = "<group>"; };
+		DF6F20142CF1014E00B04C39 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DF7D99172CE122D70018E694 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF7D99192CE122D70018E694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF7D991A2CE122D70018E694 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
+		DFCB897B2CF1FBAD00310D68 /* SelectedCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategories.swift; sourceTree = "<group>"; };
+		DFCB897D2CF1FC2100310D68 /* AddPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoto.swift; sourceTree = "<group>"; };
+		DFCB897F2CF1FCBA00310D68 /* NewTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextField.swift; sourceTree = "<group>"; };
+		DFE40A392CF4C21900999132 /* NewTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextEditor.swift; sourceTree = "<group>"; };
 		E59208C23824848D2D5F0EF4 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -30,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +73,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DF6F20132CF0FCC100B04C39 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		DF7D99182CE122D70018E694 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,12 +91,35 @@
 		DF7D991C2CE122D70018E694 /* Yam */ = {
 			isa = PBXGroup;
 			children = (
+				DF6F20132CF0FCC100B04C39 /* Colors */,
 				DF7D99182CE122D70018E694 /* Preview Content */,
 				DF7D99192CE122D70018E694 /* Assets.xcassets */,
 				DF7D991A2CE122D70018E694 /* ContentView.swift */,
+				DF6F20112CF0F78500B04C39 /* CreateIventView.swift */,
+				DFE40A3C2CF4D4FA00999132 /* Inputs */,
+				DFE40A3B2CF4D45400999132 /* ImagePicker */,
+				DFCB897B2CF1FBAD00310D68 /* SelectedCategories.swift */,
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
 			);
 			path = Yam;
+			sourceTree = "<group>";
+		};
+		DFE40A3B2CF4D45400999132 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				DFCB897D2CF1FC2100310D68 /* AddPhoto.swift */,
+				DF6F20142CF1014E00B04C39 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		DFE40A3C2CF4D4FA00999132 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				DFE40A392CF4C21900999132 /* NewTextEditor.swift */,
+				DFCB897F2CF1FCBA00310D68 /* NewTextField.swift */,
+			);
+			path = Inputs;
 			sourceTree = "<group>";
 		};
 		FF9068E75B7E7F1807F44EA2 /* Pods */ = {
@@ -98,8 +138,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87E6FC182CCE2B8200B2DA3B /* Build configuration list for PBXNativeTarget "Yam" */;
 			buildPhases = (
-				FF5FED187FFF117194FB2DD4 /* [CP] Check Pods Manifest.lock */,
 				DF7A2CF72CE124B0000EC3A5 /* ShellScript */,
+				FF5FED187FFF117194FB2DD4 /* [CP] Check Pods Manifest.lock */,
 				87E6FC062CCE2B8000B2DA3B /* Sources */,
 				87E6FC072CCE2B8000B2DA3B /* Frameworks */,
 				87E6FC082CCE2B8000B2DA3B /* Resources */,
@@ -205,8 +245,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFCB89802CF1FCC900310D68 /* NewTextField.swift in Sources */,
+				DFCB897C2CF1FBBA00310D68 /* SelectedCategories.swift in Sources */,
 				DF7D991F2CE122D70018E694 /* ContentView.swift in Sources */,
+				DF6F20152CF1015B00B04C39 /* ImagePicker.swift in Sources */,
+				DFE40A3A2CF4C22F00999132 /* NewTextEditor.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
+				DFCB897E2CF1FC2A00310D68 /* AddPhoto.swift in Sources */,
+				DF6F20122CF0F79E00B04C39 /* CreateIventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Yam/Preview Content\"";
-				DEVELOPMENT_TEAM = FP582B2GU2;
+				DEVELOPMENT_TEAM = A7775U7695;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -372,7 +418,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Yam/Preview Content\"";
-				DEVELOPMENT_TEAM = FP582B2GU2;
+				DEVELOPMENT_TEAM = A7775U7695;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
