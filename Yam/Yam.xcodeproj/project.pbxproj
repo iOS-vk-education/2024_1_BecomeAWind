@@ -34,6 +34,7 @@
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
 		BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
+		E59208C23824848D2D5F0EF4 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
