@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HeadingView: View {
     var body: some View {
+<<<<<<< HEAD
         Heading()
     }
 }
@@ -43,6 +44,9 @@ struct backButton: View {
                 
             }
         )
+=======
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+>>>>>>> a060c68 (обновил версию ios)
     }
 }
 
