@@ -10,7 +10,6 @@ struct IndigoPurpleButtonLabel: View {
             .foregroundColor(Colors.white)
             .background(Gradients.indigoPurple)
             .cornerRadius(Sizes.coreCornerRadius)
-
     }
 }
 

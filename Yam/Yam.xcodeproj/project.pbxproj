@@ -13,7 +13,9 @@
 		871BD5952D16F39000057DF7 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5942D16F39000057DF7 /* Sizes.swift */; };
 		871BD5972D17043E00057DF7 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5962D17043E00057DF7 /* CreateEventView.swift */; };
 		871BD59B2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD59A2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift */; };
-		879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FFB072CE8C28C0035C161 /* LocationManager.swift */; };
+		871BD59F2D17211600057DF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD59D2D17211500057DF7 /* LocationManager.swift */; };
+		871BD5A12D17213B00057DF7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5A02D17213B00057DF7 /* DatabaseManager.swift */; };
+		871BD5A32D17223600057DF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 871BD5A22D17223600057DF7 /* GoogleService-Info.plist */; };
 		87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56632CF5135F00CB5EDC /* FeedView.swift */; };
 		87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56642CF5135F00CB5EDC /* MainView.swift */; };
 		87FF566B2CF5135F00CB5EDC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56652CF5135F00CB5EDC /* MapView.swift */; };
@@ -31,7 +33,9 @@
 		871BD5942D16F39000057DF7 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		871BD5962D17043E00057DF7 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		871BD59A2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndigoPurpleButtonLabel.swift; sourceTree = "<group>"; };
-		879FFB072CE8C28C0035C161 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		871BD59D2D17211500057DF7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		871BD5A02D17213B00057DF7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		871BD5A22D17223600057DF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FF56632CF5135F00CB5EDC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,15 @@
 				871BD59A2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift */,
 			);
 			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		871BD59E2D17211500057DF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				871BD59D2D17211500057DF7 /* LocationManager.swift */,
+				871BD5A02D17213B00057DF7 /* DatabaseManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		87E6FC012CCE2B8000B2DA3B = {
@@ -122,6 +135,7 @@
 				871BD58E2D16E06800057DF7 /* Colors.swift */,
 				871BD5922D16F13B00057DF7 /* Trash.swift */,
 				871BD5942D16F39000057DF7 /* Sizes.swift */,
+				871BD5A22D17223600057DF7 /* GoogleService-Info.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -131,7 +145,7 @@
 			children = (
 				879FFB132CE8C6D00035C161 /* Info.plist */,
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
-				879FFB072CE8C28C0035C161 /* LocationManager.swift */,
+				871BD59E2D17211500057DF7 /* Model */,
 				87FF56682CF5135F00CB5EDC /* View */,
 				87FF56712CF5136200CB5EDC /* Support */,
 			);
@@ -209,6 +223,7 @@
 			files = (
 				87FF56722CF5136200CB5EDC /* Preview Assets.xcassets in Resources */,
 				87FF56732CF5136200CB5EDC /* Assets.xcassets in Resources */,
+				871BD5A32D17223600057DF7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,16 +278,17 @@
 			files = (
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
 				871BD58F2D16E06800057DF7 /* Colors.swift in Sources */,
+				871BD5A12D17213B00057DF7 /* DatabaseManager.swift in Sources */,
 				87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */,
 				871BD5972D17043E00057DF7 /* CreateEventView.swift in Sources */,
 				87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */,
 				87FF566B2CF5135F00CB5EDC /* MapView.swift in Sources */,
 				871BD5932D16F13B00057DF7 /* Trash.swift in Sources */,
 				871BD5952D16F39000057DF7 /* Sizes.swift in Sources */,
+				871BD59F2D17211600057DF7 /* LocationManager.swift in Sources */,
 				87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */,
 				871BD59B2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift in Sources */,
 				87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */,
-				879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
