@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		06A1BE9B03FD4F6768DD89B5 /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */; };
+		871BD58F2D16E06800057DF7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD58E2D16E06800057DF7 /* Colors.swift */; };
+		871BD5932D16F13B00057DF7 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5922D16F13B00057DF7 /* Trash.swift */; };
+		871BD5952D16F39000057DF7 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5942D16F39000057DF7 /* Sizes.swift */; };
 		879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FFB072CE8C28C0035C161 /* LocationManager.swift */; };
 		87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56632CF5135F00CB5EDC /* FeedView.swift */; };
 		87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56642CF5135F00CB5EDC /* MainView.swift */; };
-		87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56652CF5135F00CB5EDC /* MapScreenView.swift */; };
+		87FF566B2CF5135F00CB5EDC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56652CF5135F00CB5EDC /* MapView.swift */; };
 		87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56662CF5135F00CB5EDC /* ProfileView.swift */; };
 		87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56672CF5135F00CB5EDC /* TabBarView.swift */; };
 		87FF56722CF5136200CB5EDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FF566E2CF5136200CB5EDC /* Preview Assets.xcassets */; };
@@ -21,12 +24,15 @@
 
 /* Begin PBXFileReference section */
 		680A204F62F25B52140BAEA1 /* Pods-Yam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.debug.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.debug.xcconfig"; sourceTree = "<group>"; };
+		871BD58E2D16E06800057DF7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		871BD5922D16F13B00057DF7 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
+		871BD5942D16F39000057DF7 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		879FFB072CE8C28C0035C161 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FF56632CF5135F00CB5EDC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		87FF56642CF5135F00CB5EDC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		87FF56652CF5135F00CB5EDC /* MapScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
+		87FF56652CF5135F00CB5EDC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		87FF56662CF5135F00CB5EDC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		87FF56672CF5135F00CB5EDC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		87FF566E2CF5136200CB5EDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -34,7 +40,6 @@
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
 		BA4EC040E9A4CE77C7B10178 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
-		E59208C23824848D2D5F0EF4 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +85,7 @@
 			children = (
 				87FF56632CF5135F00CB5EDC /* FeedView.swift */,
 				87FF56642CF5135F00CB5EDC /* MainView.swift */,
-				87FF56652CF5135F00CB5EDC /* MapScreenView.swift */,
+				87FF56652CF5135F00CB5EDC /* MapView.swift */,
 				87FF56662CF5135F00CB5EDC /* ProfileView.swift */,
 				87FF56672CF5135F00CB5EDC /* TabBarView.swift */,
 			);
@@ -100,6 +105,9 @@
 			children = (
 				87FF566F2CF5136200CB5EDC /* Preview Content */,
 				87FF56702CF5136200CB5EDC /* Assets.xcassets */,
+				871BD58E2D16E06800057DF7 /* Colors.swift */,
+				871BD5922D16F13B00057DF7 /* Trash.swift */,
+				871BD5942D16F39000057DF7 /* Sizes.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -240,9 +248,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
+				871BD58F2D16E06800057DF7 /* Colors.swift in Sources */,
 				87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */,
 				87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */,
-				87FF566B2CF5135F00CB5EDC /* MapScreenView.swift in Sources */,
+				87FF566B2CF5135F00CB5EDC /* MapView.swift in Sources */,
+				871BD5932D16F13B00057DF7 /* Trash.swift in Sources */,
+				871BD5952D16F39000057DF7 /* Sizes.swift in Sources */,
 				87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */,
 				87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */,
 				879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */,

@@ -1,28 +1,18 @@
-import MapKit
 import SwiftUI
-
-struct MapDetails {
-    static let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-}
+import MapKit
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
-
-    @Published var userLocation: CLLocation?
     @Published var isLocationServicesEnabled = false
 
     override init() {
         super.init()
-        locationManager.delegate = self
+        initLocationManager()
     }
 
-    func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            checkLocationAuthorizationStatus()
-        } else {
-            isLocationServicesEnabled = false
-        }
+    private func initLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
     private func checkLocationAuthorizationStatus() {
@@ -39,17 +29,10 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         }
     }
 
-}
-
-extension LocationManager {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        withAnimation {
-            userLocation = location
-        }
-    }
-
+    /*  Функция locationManagerDidChangeAuthorization(_ manager: CLLocationManager) принадлежит делегату CLLocationManagerDelegate. Она вызывается каждый раз когда создается объект класса CLLocationManager и когда меняется статус авторизации служб геолокации.
+     https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/locationmanagerdidchangeauthorization(_:)
+     */
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorizationStatus()
+        self.checkLocationAuthorizationStatus()
     }
 }
