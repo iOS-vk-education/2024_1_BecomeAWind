@@ -2,13 +2,5 @@
 platform :ios, '18.0'
 
 target 'Yam' do
-<<<<<<< HEAD
   pod 'SwiftLint', '~> 0.57'
-=======
-  # Comment the next line if you don't want to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for Yam
-  pod 'SwiftLint'
->>>>>>> main
 end
