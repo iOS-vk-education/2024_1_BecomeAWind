@@ -11,6 +11,8 @@
 		871BD58F2D16E06800057DF7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD58E2D16E06800057DF7 /* Colors.swift */; };
 		871BD5932D16F13B00057DF7 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5922D16F13B00057DF7 /* Trash.swift */; };
 		871BD5952D16F39000057DF7 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5942D16F39000057DF7 /* Sizes.swift */; };
+		871BD5972D17043E00057DF7 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD5962D17043E00057DF7 /* CreateEventView.swift */; };
+		871BD59B2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BD59A2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift */; };
 		879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FFB072CE8C28C0035C161 /* LocationManager.swift */; };
 		87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56632CF5135F00CB5EDC /* FeedView.swift */; };
 		87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FF56642CF5135F00CB5EDC /* MainView.swift */; };
@@ -27,6 +29,8 @@
 		871BD58E2D16E06800057DF7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		871BD5922D16F13B00057DF7 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		871BD5942D16F39000057DF7 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
+		871BD5962D17043E00057DF7 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
+		871BD59A2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndigoPurpleButtonLabel.swift; sourceTree = "<group>"; };
 		879FFB072CE8C28C0035C161 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		879FFB132CE8C6D00035C161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +66,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		871BD5992D171D2C00057DF7 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				871BD59A2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
@@ -83,11 +95,13 @@
 		87FF56682CF5135F00CB5EDC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				871BD5992D171D2C00057DF7 /* CommonViews */,
 				87FF56632CF5135F00CB5EDC /* FeedView.swift */,
 				87FF56642CF5135F00CB5EDC /* MainView.swift */,
 				87FF56652CF5135F00CB5EDC /* MapView.swift */,
 				87FF56662CF5135F00CB5EDC /* ProfileView.swift */,
 				87FF56672CF5135F00CB5EDC /* TabBarView.swift */,
+				871BD5962D17043E00057DF7 /* CreateEventView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,11 +264,13 @@
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
 				871BD58F2D16E06800057DF7 /* Colors.swift in Sources */,
 				87FF56692CF5135F00CB5EDC /* FeedView.swift in Sources */,
+				871BD5972D17043E00057DF7 /* CreateEventView.swift in Sources */,
 				87FF566A2CF5135F00CB5EDC /* MainView.swift in Sources */,
 				87FF566B2CF5135F00CB5EDC /* MapView.swift in Sources */,
 				871BD5932D16F13B00057DF7 /* Trash.swift in Sources */,
 				871BD5952D16F39000057DF7 /* Sizes.swift in Sources */,
 				87FF566C2CF5135F00CB5EDC /* ProfileView.swift in Sources */,
+				871BD59B2D171D3E00057DF7 /* IndigoPurpleButtonLabel.swift in Sources */,
 				87FF566D2CF5135F00CB5EDC /* TabBarView.swift in Sources */,
 				879FFB082CE8C28C0035C161 /* LocationManager.swift in Sources */,
 			);

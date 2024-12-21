@@ -1,8 +1,9 @@
 import SwiftUI
 
 enum Tab: String, CaseIterable {
-    case map = "map.fill"
     case feed = "text.page.fill"
+    case map = "map.fill"
+    case profile = "person.crop.circle.fill"
 }
 
 struct TabBarView: View {

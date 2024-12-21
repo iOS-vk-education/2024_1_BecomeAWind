@@ -42,12 +42,7 @@ struct DisabledLocationServicesView: View {
                         UIApplication.shared.open(appSettings)
                     }
                 } label: {
-                    Text("OPEN SETTINGS")
-                        .padding()
-                        .fontWeight(.heavy)
-                        .foregroundColor(Colors.white)
-                        .background(Gradients.indigoPurple)
-                        .cornerRadius(Sizes.coreCornerRadius)
+                    IndigoPurpleButtonLabel(title: "OPEN SETTINGS")
                 }
                 .padding(.bottom)
             }

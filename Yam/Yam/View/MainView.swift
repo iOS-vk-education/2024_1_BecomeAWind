@@ -8,10 +8,12 @@ struct MainView: View {
             // Views
             VStack {
                 switch selectedTab {
-                case .map:
-                    MapView()
                 case .feed:
                     FeedView()
+                case .map:
+                    MapView()
+                case .profile:
+                    ProfileView()
                 }
             }
 
