@@ -9,7 +9,40 @@ import SwiftUI
 
 struct HeadingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Heading()
+    }
+}
+
+struct Heading: View {
+    var body: some View {
+        HStack {
+            Spacer()
+            title()
+            Spacer()
+            backButton()
+        }
+        .padding()
+    }
+}
+
+struct title: View {
+    var body: some View {
+        Text("События")
+            .frame(alignment: .center)
+            .font(.largeTitle)
+            .colorInvert()
+    }
+}
+struct backButton: View {
+    var body: some View {
+        Button(
+            action:{},
+            label:{
+                Image(systemName: "x.circle.fill")
+                    .accentColor(Color.gray)
+                
+            }
+        )
     }
 }
 
