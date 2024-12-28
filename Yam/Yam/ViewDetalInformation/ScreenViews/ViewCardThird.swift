@@ -11,18 +11,27 @@ struct ViewCardThird: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Image("projectX")
-                .resizable()
-                .scaledToFill()
-                .frame(height: 200)
-                .clipped()
-                .cornerRadius(30, corners: [.topLeft, .topRight])
-            
-            Text("Тусовка по репосту")
-                .font(.system(size: 30))
-                .bold()
-                .foregroundColor(.white)
-                .padding(.horizontal)
+            ZStack(alignment: .bottomLeading) {
+                Image("projectX")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .clipped()
+                    .cornerRadius(30, corners: [.topLeft, .topRight])
+                    .overlay(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.6)]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                
+                Text("Тусовка по репосту")
+                    .font(.system(size: 30))
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding()
+            }
             
             Text("""
             Приходите на мега тусу джусу сегодня в 18:00!!! Для доп. вопросов пишите в телегу, ссылка внизу
@@ -61,7 +70,7 @@ struct ViewCardThird: View {
                     Text("Ссылка на организатора:")
                         .foregroundColor(.white)
                     Spacer()
-                    Link("t.me/bobs", destination: URL(string: "https://t.me/bobs")!)
+                    Link("ССЫЛКА НА ТГ", destination: URL(string: "https://t.me/bobs")!)
                         .foregroundColor(.blue)
                 }
             }
