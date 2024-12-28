@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct Main: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
-}
+
 
 var title:some View{
     

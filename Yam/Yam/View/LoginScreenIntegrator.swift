@@ -11,10 +11,3 @@ struct LoginScreenIntegrator: UIViewControllerRepresentable {
 
     }
 }
-
-struct ContentView: View {
-    var body: some View {
-        LoginScreenIntegrator()
-            .edgesIgnoringSafeArea(.all)
-    }
-}
