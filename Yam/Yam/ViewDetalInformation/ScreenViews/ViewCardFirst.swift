@@ -10,29 +10,6 @@ import SwiftUI
 struct ViewCardFirst: View {
     var body: some View {
         VStack(alignment: .leading) {
-<<<<<<< HEAD
-            ZStack(alignment: .bottomLeading) {
-                Image("basketball")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped()
-                    .cornerRadius(30, corners: [.topLeft, .topRight])
-                    .overlay(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.6)]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                Text("Баскетбол")
-                    .font(.system(size: 30))
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding()
-            }
-=======
-        
             Image("basketball")
                 .resizable()
                 .scaledToFill()
@@ -45,8 +22,7 @@ struct ViewCardFirst: View {
                 .bold()
                 .foregroundColor(.white)
                 .padding(.horizontal)
->>>>>>> f092466 (View Detail Inf Screen Done)
-                
+            
             Text("""
             Нужен 1+ человек на игру в “33”, хотите поиграть, но не знаете правила - объясню, только скорее приходите, мне очень скучно
             """)
@@ -84,14 +60,9 @@ struct ViewCardFirst: View {
                     HStack {
                         Text("Ссылка на организатора:")
                             .foregroundColor(.white)
-<<<<<<< HEAD
                             .frame(width: .infinity)
                         Spacer()
                         Link("ССЫЛКА НА ТГ", destination: URL(string: "https://t.me/bobs")!)
-=======
-                        Spacer()
-                        Link("t.me/bobs", destination: URL(string: "https://t.me/bobs")!)
->>>>>>> f092466 (View Detail Inf Screen Done)
                                 .foregroundColor(.blue)
                     }
             }

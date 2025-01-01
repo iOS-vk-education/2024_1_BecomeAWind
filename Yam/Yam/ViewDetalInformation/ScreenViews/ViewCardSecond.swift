@@ -10,31 +10,6 @@ import SwiftUI
 struct ViewCardSecond: View {
     var body: some View {
         VStack(alignment: .leading) {
-<<<<<<< HEAD
-            
-            ZStack(alignment: .bottomLeading) {
-                Image("football")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped()
-                    .cornerRadius(30, corners: [.topLeft, .topRight])
-                    .overlay(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.6)]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                
-                Text("Футбол")
-                    .font(.system(size: 30))
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding()
-            }
-=======
-        
             Image("football")
                 .resizable()
                 .scaledToFill()
@@ -47,8 +22,6 @@ struct ViewCardSecond: View {
                 .bold()
                 .foregroundColor(.white)
                 .padding(.horizontal)
-                
->>>>>>> f092466 (View Detail Inf Screen Done)
             Text("""
                 Привет! Сегодня в 18:00 мы с друзьями хотим провести дружеский матч, но нас не так много. Нужно 7 человек. Желающие поиграть, повеселиться и обрести новые знакомства, мы вас ждем зажидаемся!! 
                 """)
@@ -86,11 +59,7 @@ struct ViewCardSecond: View {
                     Text("Ссылка на организатора:")
                         .foregroundColor(.white)
                     Spacer()
-<<<<<<< HEAD
                     Link("ССЫЛКА НА ТГ", destination: URL(string: "https://t.me/bobs")!)
-=======
-                    Link("t.me/bobs", destination: URL(string: "https://t.me/bobs")!)
->>>>>>> f092466 (View Detail Inf Screen Done)
                     .foregroundColor(.blue)
                 }
             }
