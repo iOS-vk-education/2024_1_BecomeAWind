@@ -17,15 +17,15 @@ struct Heading: View {
     var body: some View {
         HStack {
             Spacer()
-            title()
+            Header()
             Spacer()
-            backButton()
+            BackButton()
         }
         .padding()
     }
 }
 
-struct title: View {
+struct Header: View {
     var body: some View {
         Text("События")
             .frame(alignment: .center)
@@ -33,7 +33,8 @@ struct title: View {
             .colorInvert()
     }
 }
-struct backButton: View {
+
+struct BackButton: View {
     var body: some View {
         Button(
             action:{},
