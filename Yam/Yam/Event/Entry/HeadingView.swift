@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct HeadingView: View {
-    var body: some View {
-        Heading()
-    }
-}
-
 struct Heading: View {
     var body: some View {
         HStack {
@@ -45,8 +39,4 @@ struct BackButton: View {
             }
         )
     }
-}
-
-#Preview {
-    HeadingView()
 }

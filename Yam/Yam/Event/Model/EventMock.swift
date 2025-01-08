@@ -51,8 +51,40 @@ private struct RandomEventDescription {
             Нужно 7 человек. Желающие поиграть, повеселиться и обрести новые знакомства, 
             мы вас ждем зажидаемся!! 
             """,
-            imageName: "footbal",
+            imageName: "football",
             category: .sport
+        ),
+        EventDescription(
+            title: "Тусовка по репосту",
+            description: """
+            Сделайте репост и попадайте на нашу крупнейшую тусовку в москве!!
+            """,
+            imageName: "projectX",
+            category: .entertainments
+        ),
+        EventDescription(
+            title: "Игра в шахматы",
+            description: """
+            У нас проводится турнир по шахматам с денежным призом! Приходите и сражайтесь умами за первое место!!
+            """,
+            imageName: "chess",
+            category: .sport
+        ),
+        EventDescription(
+            title: "Пати в кску",
+            description: """
+            Хочу нормально апнуть рейтинга на фейсите, нужны тиммейты!!
+            """,
+            imageName: "csgo",
+            category: .sport
+        ),
+        EventDescription(
+            title: "Фильмец",
+            description: """
+            Мой друг заболел и не сможет пойти на фильм, есть один билет кто пойдет вместо него?
+            """,
+            imageName: "film",
+            category: .entertainments
         ),
     ]
 }
