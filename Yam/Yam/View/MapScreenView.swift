@@ -24,7 +24,7 @@ struct MapView: View {
     @State private var mapRegion: MKCoordinateRegion
     @State private var profileActive = false
     var userLocation: CLLocation
-
+    
     init(locationManager: LocationManager, userLocation: CLLocation) {
         self.locationManager = locationManager
         _mapRegion = State(initialValue: MKCoordinateRegion(
@@ -33,56 +33,19 @@ struct MapView: View {
         ))
         self.userLocation = userLocation
     }
-
+    
     var body: some View {
         ZStack {
             Map(coordinateRegion: $mapRegion,
                 showsUserLocation: true)
             .ignoresSafeArea()
-
-            // Buttons
-            VStack {
-                // Top buttons
-                HStack {
-                    // Profile button
-                    VStack {
-                        Button {
-                            profileActive.toggle()
-                        } label: {
-                            Image(systemName: "person.fill")
-                                .foregroundColor(.white)
-                                .font(.system(size: 25))
-                        }
-                        .sheet(isPresented: $profileActive) {
-                            ProfileView()
-                        }
-                    }
-                    .padding(10)
-                    .background(.black)
-                    .clipShape(Circle())
-
-                    Spacer()
-
-                    // Center on user location button
-                    VStack {
-                        Button {
-                            centerOnUserLocation()
-                        } label: {
-                            Image(systemName: "location.fill")
-                                .foregroundColor(.white)
-                                .font(.system(size: 25))
-                        }
-                    }
-                    .padding(10)
-                    .background(.black)
-                    .clipShape(Circle())
-                }
-                .padding()
-
-                Spacer()
+            
+            MapButtonsView(profileActive: $profileActive) {
+                centerOnUserLocation()
             }
         }
     }
+
 
     private func centerOnUserLocation() {
         if let userLocation = locationManager.userLocation {
@@ -120,6 +83,52 @@ struct DisabledLocationServicesView: View {
             }
         }
         .padding()
+    }
+}
+
+struct MapButtonsView: View {
+    @Binding var profileActive: Bool
+    let centerOnUserLocation: () -> Void
+
+    var body: some View {
+        VStack {
+            // Профильная кнопка
+            HStack {
+                VStack {
+                    Button {
+                        profileActive.toggle()
+                    } label: {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                    }
+                    .sheet(isPresented: $profileActive) {
+                        ProfileView()
+                    }
+                }
+                .padding(10)
+                .background(.black)
+                .clipShape(Circle())
+            }
+
+            Spacer()
+
+            // Кнопка центрирования
+            VStack {
+                Button {
+                    centerOnUserLocation()
+                } label: {
+                    Image(systemName: "location.fill")
+                        .foregroundColor(.white)
+                        .font(.system(size: 25))
+                }
+            }
+            .padding(10)
+            .background(.black)
+            .clipShape(Circle())
+
+            Spacer()
+        }
     }
 }
 

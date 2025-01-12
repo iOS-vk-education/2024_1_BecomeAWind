@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-class RegisterViewController: UIViewController {
+final class RegisterViewController: UIViewController {
     private let headerView = AuthHeaderView(title: "Регистрация")
     private let loginTextField = AuthTextField(fieldType: .login)
     private let emailTextField = AuthTextField(fieldType: .email)
@@ -89,11 +89,7 @@ extension RegisterViewController {
     }
 
     private func isValidLogin(login: String) -> Bool {
-        if login != "" {
-            return true
-        } else {
-            return false
-        }
+        return login.isEmpty
     }
 
     private func isValidPassword(password: String) -> Bool {

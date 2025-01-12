@@ -6,21 +6,28 @@ struct MainView: View {
     var body: some View {
             ZStack {
                 // Views
-                VStack {
-                    switch selectedTab {
-                    case .map:
-                        MapScreenView()
-                    case .feed:
-                        FeedView()
-                    }
-                }
+                TabContentView(selectedTab: selectedTab)
 
-                // Tab bar
-                VStack {
-                    Spacer()
-                    TabBarView(selectedTab: $selectedTab)
-                }
+                            Spacer()
+
+                            // Таб-бар для переключения табов
+                            TabBarView(selectedTab: $selectedTab)
             }
+    }
+}
+
+struct TabContentView: View {
+    var selectedTab: Tab
+
+    var body: some View {
+        VStack {
+            switch selectedTab {
+            case .map:
+                MapScreenView()
+            case .feed:
+                FeedView()
+            }
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     private let headerView = AuthHeaderView(title: "Авторизация")
     private let emailTextField = AuthTextField(fieldType: .email)
     private let passwordTextField = AuthTextField(fieldType: .password)
