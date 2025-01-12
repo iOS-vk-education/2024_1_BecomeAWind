@@ -10,7 +10,6 @@ import SwiftUI
 struct Events: View {
     var body: some View {
         TabEvent()
-        Spacer()
     }
 }
 
@@ -25,6 +24,7 @@ struct TabEvent: View {
         }
         .tabViewStyle(.page)
         .cornerRadius(30)
+        .padding(.bottom, 30)
     }
 }
 

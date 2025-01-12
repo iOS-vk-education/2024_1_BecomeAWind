@@ -13,6 +13,7 @@ struct EventCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             HeaderEvent(info: event.description)
+            EventDescriptionView(descriprion: event.description.description)
             Spacer()
             ContentEventView(event: event)
         }
