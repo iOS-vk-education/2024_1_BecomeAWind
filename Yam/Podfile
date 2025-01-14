@@ -1,6 +1,0 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '18.0'
-
-target 'Yam' do
-  pod 'SwiftLint', '~> 0.57'
-end
