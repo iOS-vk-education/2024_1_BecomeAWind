@@ -116,9 +116,9 @@ final class CreateEventViewModel: ObservableObject {
 //                                place: "Место",
 //                                seats: 20,
 //                                contact: "Контакт")
-        )
-
-        return true
+//        )
+//
+//        return true
     }
 
 
