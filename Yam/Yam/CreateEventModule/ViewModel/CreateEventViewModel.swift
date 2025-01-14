@@ -98,24 +98,24 @@ final class CreateEventViewModel: ObservableObject {
     }
 
     func createEvent(_ event: Event) -> Bool {
-//        if event.title == "" ||
-//            event.description == "" ||
-//            event.place == "" ||
-//            event.seats == 0 ||
-//            event.contact == "" {
-//            emptyEventAlertIsActive.toggle()
-//            return false
-//        } else {
-//            model.createEvent(event)
-//            return true
-//        }
+        if event.title == "" ||
+            event.description == "" ||
+            event.place == "" ||
+            event.seats == 0 ||
+            event.contact == "" {
+            emptyEventAlertIsActive.toggle()
+            return false
+        } else {
+            model.createEvent(event)
+            return true
+        }
 
         // mock event creation
-        model.createEvent(Event(title: "Событие",
-                                description: "Описание описание описание",
-                                place: "Место",
-                                seats: 20,
-                                contact: "Контакт")
+//        model.createEvent(Event(title: "Событие",
+//                                description: "Описание описание описание",
+//                                place: "Место",
+//                                seats: 20,
+//                                contact: "Контакт")
         )
 
         return true
