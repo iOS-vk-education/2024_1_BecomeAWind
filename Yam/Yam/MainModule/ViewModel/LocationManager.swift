@@ -36,4 +36,3 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         self.checkLocationAuthorizationStatus()
     }
 }
-

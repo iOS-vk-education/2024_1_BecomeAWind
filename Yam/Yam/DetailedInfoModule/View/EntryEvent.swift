@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EntryEvent: View {
     var body: some View {
-        VStack{
+        VStack {
             Heading()
             Events()
         }

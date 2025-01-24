@@ -6,11 +6,11 @@ struct MapView: View {
     @State var detailedInfoViewIsActive = false
     @ObservedObject var temp = TempDatabase.shared
 
-
     var body: some View {
 
         Map(position: $position) {
             UserAnnotation()
+
             Annotation("6", coordinate: temp.location1.coordinate) {
                 Button {
                     detailedInfoViewIsActive.toggle()
@@ -47,8 +47,6 @@ struct MapView: View {
                     EntryEvent()
                 }
             }
-
-
         }
         .tint(Color.purple)
         .mapControls {

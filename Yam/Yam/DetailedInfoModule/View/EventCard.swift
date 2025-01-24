@@ -43,4 +43,3 @@ struct ContentEventView: View {
         .cornerRadius(10)
     }
 }
-

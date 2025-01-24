@@ -91,7 +91,6 @@ struct CreateEventView: View {
                         )
                         .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
-
                         HStack {
                             Spacer()
                             Button {
@@ -103,7 +102,6 @@ struct CreateEventView: View {
                             }
                             Spacer()
                         }
-
 
                     }
 
@@ -128,7 +126,6 @@ struct CreateEventView: View {
                     viewModel: viewModel,
                     isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
             }
-
 
             VStack {
                 Spacer()
@@ -184,7 +181,7 @@ extension CreateEventView {
     }
 }
 
-//#Preview {
+// #Preview {
 //    @Previewable @State var bool = true
 //    CreateEventView(viewModel: CreateEventViewModel(model: CreateEventModel()), createEventViewIsActive: $bool)
-//}
+// }

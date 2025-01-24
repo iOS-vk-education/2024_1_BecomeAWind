@@ -128,8 +128,8 @@
 		870E3C432D4388010043DA00 /* AuthorizationModule */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C412D4388010043DA00 /* LoginViewController.swift */,
 				870E3C422D4388010043DA00 /* RegisterViewController.swift */,
+				870E3C412D4388010043DA00 /* LoginViewController.swift */,
 			);
 			path = AuthorizationModule;
 			sourceTree = "<group>";

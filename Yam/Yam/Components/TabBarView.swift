@@ -37,14 +37,13 @@ struct TabBarView: View {
             .sheet(isPresented: $createEventViewIsActive) {
                 CreateEventView(viewModel: CreateEventViewModel(model: CreateEventModel()), createEventViewIsActive: $createEventViewIsActive)
                 }
-            
+
         }
         .background(GradientsPack.indigoPurple)
         .cornerRadius(BaseSizesPack.coreCornerRadius)
         .padding()
     }
 }
-
 
 private struct TabBarItem: View {
     let imageName: String

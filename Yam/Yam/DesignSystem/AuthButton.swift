@@ -12,7 +12,7 @@ final class AuthButton: UIButton {
 
     init(title: String, hasBackground: Bool = false, fontSize: FontSize) {
         super.init(frame: .zero)
-        
+
         setupTitle(title, hasBackground: hasBackground)
         setupAppearance(hasBackground: hasBackground)
         setupActivityIndicator()
@@ -46,26 +46,26 @@ private extension AuthButton {
         let titleColor: UIColor = hasBackground ? .white : .systemBlue
         self.setTitleColor(titleColor, for: .normal)
     }
-    
+
     func setupAppearance(hasBackground: Bool) {
         self.layer.cornerRadius = Src.Sizes.space10
         self.layer.masksToBounds = true
         self.backgroundColor = hasBackground ? .systemPurple : .clear
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-    
+
     func setupActivityIndicator() {
         self.addSubview(buttonActivityIndicator)
         buttonActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
         buttonActivityIndicator.style = .large
         buttonActivityIndicator.color = .white
-        
+
         NSLayoutConstraint.activate([
             buttonActivityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             buttonActivityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
-    
+
     func setupFont(for fontSize: FontSize) {
         switch fontSize {
         case .big:

@@ -22,7 +22,6 @@ struct MainView: View {
     }
 }
 
-
 struct DisabledLocationServicesView: View {
     var body: some View {
         ZStack {
@@ -56,10 +55,8 @@ struct DisabledLocationServicesView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    MainView()
-//}
+// }
 //
 //
-
-

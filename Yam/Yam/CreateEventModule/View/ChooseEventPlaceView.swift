@@ -35,7 +35,7 @@ struct ChooseEventPlaceView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    @Previewable @State var bool = true
 //    ChooseEventPlaceView(viewModel: CreateEventViewModel(model: CreateEventModel()), isActiveChooseEventPlaceView: $bool)
-//}
+// }

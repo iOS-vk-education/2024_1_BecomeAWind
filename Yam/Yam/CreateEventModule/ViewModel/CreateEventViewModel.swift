@@ -121,7 +121,6 @@ final class CreateEventViewModel: ObservableObject {
         return true
     }
 
-
 }
 
 extension CreateEventViewModel {
@@ -138,6 +137,3 @@ extension CreateEventViewModel {
         print()
     }
 }
-
-
-

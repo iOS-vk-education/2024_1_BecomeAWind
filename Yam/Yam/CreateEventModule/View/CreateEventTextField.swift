@@ -38,7 +38,7 @@ struct CreateEventTextField: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    @Previewable @State var title = ""
 //    CreateEventTextField(text: $title, title: "Текст", lineLimit: 3)
-//}
+// }

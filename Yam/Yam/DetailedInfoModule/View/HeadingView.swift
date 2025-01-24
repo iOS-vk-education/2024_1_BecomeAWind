@@ -24,13 +24,13 @@ struct Header: View {
 struct BackButton: View {
     var body: some View {
         Button(
-            action:{
+            action: {
 
             },
-            label:{
+            label: {
                 Image(systemName: "x.circle.fill")
                     .accentColor(Color.gray)
-                
+
             }
         )
     }

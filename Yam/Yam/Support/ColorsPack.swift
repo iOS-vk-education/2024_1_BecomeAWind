@@ -8,5 +8,3 @@ public enum ColorsPack {
     static let gray = Color.mgray
     static let clear = Color.clear
 }
-
-

@@ -30,9 +30,9 @@ extension RegisterViewController {
     }
 
     @objc func tapSignUp() {
-//        let mainView = MainView()
-//        let hostingController = UIHostingController(rootView: mainView)
-//        navigationController?.pushViewController(hostingController, animated: true)
+        let mainView = MainView()
+        let hostingController = UIHostingController(rootView: mainView)
+        navigationController?.pushViewController(hostingController, animated: true)
     }
 
     @objc func tapIHaveNoAccount() {
