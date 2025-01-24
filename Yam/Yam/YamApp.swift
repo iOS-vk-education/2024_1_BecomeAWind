@@ -1,17 +1,14 @@
-//
-//  YamApp.swift
-//  Yam
-//
-//  Created by Satin on 27.10.2024.
-//
-
 import SwiftUI
 
 @main
 struct YamApp: App {
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginScreenIntegrator()
+                .edgesIgnoringSafeArea(.all)
+//            MainView()
         }
     }
 }
