@@ -1,7 +1,7 @@
 import Foundation
 import MapKit
 
-struct Place {
+struct PlaceModel {
     let placemark: CLPlacemark
     let coordinate: CLLocationCoordinate2D
 }

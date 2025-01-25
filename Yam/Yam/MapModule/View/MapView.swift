@@ -7,7 +7,6 @@ struct MapView: View {
     @ObservedObject var temp = TempDatabase.shared
 
     var body: some View {
-
         Map(position: $position) {
             UserAnnotation()
 

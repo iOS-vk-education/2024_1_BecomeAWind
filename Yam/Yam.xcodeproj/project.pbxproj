@@ -17,14 +17,12 @@
 		870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C482D4388860043DA00 /* AuthTextField.swift */; };
 		870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C592D4388D40043DA00 /* CreateEventModel.swift */; };
 		870E3C8E2D4388D40043DA00 /* BaseSizesPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C862D4388D40043DA00 /* BaseSizesPack.swift */; };
-		870E3C8F2D4388D40043DA00 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5B2D4388D40043DA00 /* Place.swift */; };
 		870E3C902D4388D40043DA00 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C672D4388D40043DA00 /* EventModel.swift */; };
 		870E3C912D4388D40043DA00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C792D4388D40043DA00 /* MainView.swift */; };
 		870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */; };
 		870E3C932D4388D40043DA00 /* EventMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C662D4388D40043DA00 /* EventMock.swift */; };
 		870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6C2D4388D40043DA00 /* EventComponents.swift */; };
 		870E3C952D4388D40043DA00 /* ColorsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* ColorsPack.swift */; };
-		870E3C962D4388D40043DA00 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5A2D4388D40043DA00 /* Event.swift */; };
 		870E3C972D4388D40043DA00 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C702D4388D40043DA00 /* EventViewModel.swift */; };
 		870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C7B2D4388D40043DA00 /* LocationManager.swift */; };
 		870E3C992D4388D40043DA00 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6D2D4388D40043DA00 /* Events.swift */; };
@@ -50,6 +48,11 @@
 		870E3CAD2D4388D40043DA00 /* LoginScreenIntegrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */; };
 		870E3CAE2D4388D40043DA00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C832D4388D40043DA00 /* Preview Assets.xcassets */; };
 		870E3CAF2D4388D40043DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C852D4388D40043DA00 /* Assets.xcassets */; };
+		8752B6F82D455A710017F2B8 /* ChooseEventPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* ChooseEventPlaceViewModel.swift */; };
+		8752B6FC2D4568FB0017F2B8 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emojis.swift */; };
+		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
+		8752B7002D45822F0017F2B8 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FF2D45822F0017F2B8 /* Locales.swift */; };
+		87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E54DB42D44F81300693B96 /* PlaceModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
 /* End PBXBuildFile section */
@@ -70,8 +73,6 @@
 		870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenIntegrator.swift; sourceTree = "<group>"; };
 		870E3C572D4388D40043DA00 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		870E3C592D4388D40043DA00 /* CreateEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModel.swift; sourceTree = "<group>"; };
-		870E3C5A2D4388D40043DA00 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		870E3C5B2D4388D40043DA00 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* ChooseEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventPlaceView.swift; sourceTree = "<group>"; };
 		870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDatePicker.swift; sourceTree = "<group>"; };
 		870E3C5F2D4388D40043DA00 /* CreateEventText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventText.swift; sourceTree = "<group>"; };
@@ -99,6 +100,11 @@
 		870E3C892D4388D40043DA00 /* GradientsPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientsPack.swift; sourceTree = "<group>"; };
 		870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		870E3C8B2D4388D40043DA00 /* TempDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDatabase.swift; sourceTree = "<group>"; };
+		8752B6F72D455A710017F2B8 /* ChooseEventPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventPlaceViewModel.swift; sourceTree = "<group>"; };
+		8752B6FB2D4568FB0017F2B8 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
+		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		8752B6FF2D45822F0017F2B8 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
+		87E54DB42D44F81300693B96 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
@@ -163,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				870E3C592D4388D40043DA00 /* CreateEventModel.swift */,
-				870E3C5A2D4388D40043DA00 /* Event.swift */,
-				870E3C5B2D4388D40043DA00 /* Place.swift */,
+				87E54DB42D44F81300693B96 /* PlaceModel.swift */,
+				8752B6FD2D457F930017F2B8 /* DateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,11 +178,10 @@
 		870E3C622D4388D40043DA00 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C5D2D4388D40043DA00 /* ChooseEventPlaceView.swift */,
+				870E3C612D4388D40043DA00 /* CreateEventView.swift */,
 				870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */,
 				870E3C5F2D4388D40043DA00 /* CreateEventText.swift */,
 				870E3C602D4388D40043DA00 /* CreateEventTextField.swift */,
-				870E3C612D4388D40043DA00 /* CreateEventView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,9 +197,9 @@
 		870E3C652D4388D40043DA00 /* CreateEventModule */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C5C2D4388D40043DA00 /* Model */,
 				870E3C622D4388D40043DA00 /* View */,
 				870E3C642D4388D40043DA00 /* ViewModel */,
+				870E3C5C2D4388D40043DA00 /* Model */,
 			);
 			path = CreateEventModule;
 			sourceTree = "<group>";
@@ -202,8 +207,8 @@
 		870E3C682D4388D40043DA00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C662D4388D40043DA00 /* EventMock.swift */,
 				870E3C672D4388D40043DA00 /* EventModel.swift */,
+				870E3C662D4388D40043DA00 /* EventMock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,9 +237,9 @@
 		870E3C722D4388D40043DA00 /* DetailedInfoModule */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C682D4388D40043DA00 /* Model */,
 				870E3C6F2D4388D40043DA00 /* View */,
 				870E3C712D4388D40043DA00 /* ViewModel */,
+				870E3C682D4388D40043DA00 /* Model */,
 			);
 			path = DetailedInfoModule;
 			sourceTree = "<group>";
@@ -264,9 +269,9 @@
 		870E3C772D4388D40043DA00 /* FeedModule */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C732D4388D40043DA00 /* Model */,
 				870E3C752D4388D40043DA00 /* View */,
 				870E3C762D4388D40043DA00 /* ViewModel */,
+				870E3C732D4388D40043DA00 /* Model */,
 			);
 			path = FeedModule;
 			sourceTree = "<group>";
@@ -297,9 +302,9 @@
 		870E3C7D2D4388D40043DA00 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C782D4388D40043DA00 /* Model */,
 				870E3C7A2D4388D40043DA00 /* View */,
 				870E3C7C2D4388D40043DA00 /* ViewModel */,
+				870E3C782D4388D40043DA00 /* Model */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -329,9 +334,9 @@
 		870E3C822D4388D40043DA00 /* MapModule */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C7E2D4388D40043DA00 /* Model */,
 				870E3C802D4388D40043DA00 /* View */,
 				870E3C812D4388D40043DA00 /* ViewModel */,
+				870E3C7E2D4388D40043DA00 /* Model */,
 			);
 			path = MapModule;
 			sourceTree = "<group>";
@@ -353,8 +358,43 @@
 				870E3C892D4388D40043DA00 /* GradientsPack.swift */,
 				870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */,
 				870E3C8B2D4388D40043DA00 /* TempDatabase.swift */,
+				8752B6FB2D4568FB0017F2B8 /* Emojis.swift */,
+				8752B6FF2D45822F0017F2B8 /* Locales.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		8752B6F02D4559E00017F2B8 /* ChooseEventPlaceModule */ = {
+			isa = PBXGroup;
+			children = (
+				8752B6F62D455A060017F2B8 /* View */,
+				8752B6F42D455A060017F2B8 /* ViewModel */,
+				8752B6F52D455A060017F2B8 /* Model */,
+			);
+			path = ChooseEventPlaceModule;
+			sourceTree = "<group>";
+		};
+		8752B6F42D455A060017F2B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8752B6F72D455A710017F2B8 /* ChooseEventPlaceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8752B6F52D455A060017F2B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8752B6F62D455A060017F2B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				870E3C5D2D4388D40043DA00 /* ChooseEventPlaceView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		87E6FC012CCE2B8000B2DA3B = {
@@ -383,6 +423,7 @@
 				870E3C432D4388010043DA00 /* AuthorizationModule */,
 				870E3C822D4388D40043DA00 /* MapModule */,
 				870E3C652D4388D40043DA00 /* CreateEventModule */,
+				8752B6F02D4559E00017F2B8 /* ChooseEventPlaceModule */,
 				870E3C722D4388D40043DA00 /* DetailedInfoModule */,
 				870E3C772D4388D40043DA00 /* FeedModule */,
 				870E3C8C2D4388D40043DA00 /* Support */,
@@ -526,23 +567,25 @@
 				870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* BaseSizesPack.swift in Sources */,
-				870E3C8F2D4388D40043DA00 /* Place.swift in Sources */,
 				870E3C902D4388D40043DA00 /* EventModel.swift in Sources */,
+				8752B6F82D455A710017F2B8 /* ChooseEventPlaceViewModel.swift in Sources */,
 				870E3C912D4388D40043DA00 /* MainView.swift in Sources */,
 				870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */,
 				870E3C932D4388D40043DA00 /* EventMock.swift in Sources */,
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
 				870E3C952D4388D40043DA00 /* ColorsPack.swift in Sources */,
-				870E3C962D4388D40043DA00 /* Event.swift in Sources */,
 				870E3C972D4388D40043DA00 /* EventViewModel.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */,
 				870E3C992D4388D40043DA00 /* Events.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* CreateEventText.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
+				8752B6FC2D4568FB0017F2B8 /* Emojis.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* ChooseEventPlaceView.swift in Sources */,
 				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
 				870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */,
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
+				87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */,
+				8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */,
 				870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */,
 				870E3CA12D4388D40043DA00 /* GradientsPack.swift in Sources */,
 				870E3CA22D4388D40043DA00 /* EventCard.swift in Sources */,
@@ -558,6 +601,7 @@
 				870E3CAC2D4388D40043DA00 /* CreateEventView.swift in Sources */,
 				870E3CAD2D4388D40043DA00 /* LoginScreenIntegrator.swift in Sources */,
 				870E3C442D4388010043DA00 /* RegisterViewController.swift in Sources */,
+				8752B7002D45822F0017F2B8 /* Locales.swift in Sources */,
 				870E3C452D4388010043DA00 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

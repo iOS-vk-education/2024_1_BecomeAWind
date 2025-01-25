@@ -29,6 +29,7 @@ struct CreateEventTextField: View {
                     axis: .vertical
                 )
                 .background(ColorsPack.gray)
+                .tint(ColorsPack.purple)
                 .foregroundColor(ColorsPack.white)
                 .lineLimit(lineLimit)
             }

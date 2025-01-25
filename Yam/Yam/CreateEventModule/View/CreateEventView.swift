@@ -1,8 +1,9 @@
 import SwiftUI
 import Combine
+import PhotosUI
 
 struct CreateEventViewSizesPack {
-    static let newEventLabelFontSize: CGFloat = 30
+    static let newEventLabelFontSize: CGFloat = 25
     static let dateAndTimeLeadingPadding: CGFloat = 9
 
     static let imageSize: CGFloat = 20
@@ -19,14 +20,20 @@ struct CreateEventView: View {
     @ObservedObject var viewModel: CreateEventViewModel
     @ObservedObject private var keyboardObserver = KeyboardObserver()
 
+    @State private var photosPickerItem: PhotosPickerItem?
+    @State private var image: UIImage = (UIImage(named: "defaulteventimage") ?? UIImage(systemName: "photo.artframe"))!
     @State private var title = ""
     @State private var description = ""
+    @State private var seats = "1"
+    @State private var link = ""
+
     @State private var date = Date() // todo date bounds
-    @State private var seats = ""
-    @State private var contact = ""
+    @State private var timeZone = TimeZone.current
 
     @Binding var createEventViewIsActive: Bool
     @State var isActiveChooseEventPlaceView = false
+
+    var delme = EventsMock()
 
     var body: some View {
         ZStack {
@@ -42,10 +49,39 @@ struct CreateEventView: View {
                 .listRowBackground(ColorsPack.black)
 
                 Group {
-                    // Title, description, seats
+                    // Image
+                    Section {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 150, height: 150)
+                                        .clipShape(.buttonBorder)
+                                }
+                            }
+                            .onChange(of: photosPickerItem) {
+                                Task {
+                                    if let photosPickerItem,
+                                       let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
+                                        if let img = UIImage(data: data) {
+                                            image = img
+                                        }
+                                    }
+                                    photosPickerItem = nil
+                                }
+                            }
+                            Spacer()
+
+                        }
+                    }
+
+                    // Title, description, seats, contact
                     Section {
                         CreateEventTextField(text: $title,
-                                             title: "Название",
+                                             title: "Название \(Emojis.purpleCircle)",
                                              lineLimit: CreateEventViewSizesPack.lineLimit)
                         .onReceive(Just(title)) { _ in
                             limitTextField(CreateEventViewSizesPack.titleMaxLength, text: $title)
@@ -59,8 +95,8 @@ struct CreateEventView: View {
                         }
 
                         CreateEventTextField(text: $seats,
-                                             title: "Количество мест",
-                                             prompt: "Введите число",
+                                             title: "Количество мест \(Emojis.purpleCircle)",
+                                             prompt: "1",
                                              lineLimit: CreateEventViewSizesPack.lineLimit)
                         .keyboardType(.decimalPad)
                         .onChange(of: seats) { _, newValue in
@@ -69,20 +105,27 @@ struct CreateEventView: View {
                         .onReceive(Just(seats)) { _ in
                             limitTextField(CreateEventViewSizesPack.seatsMaxLength, text: $seats)
                         }
+
+                        CreateEventTextField(text: $link,
+                                             title: "Контакты создателя мероприятия \(Emojis.purpleCircle)",
+                                             lineLimit: CreateEventViewSizesPack.lineLimit)
+                        .onReceive(Just(title)) { _ in
+                            limitTextField(CreateEventViewSizesPack.contactMaxLength, text: $link)
+                        }
                     }
 
-                    // Date and time
+                    // Date, time, timezone
                     Section {
-                        CreateEventText(text: "Дата и время")
+                        CreateEventText(text: "Дата, время, часовой пояс")
                             .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
-                        CreateEventDatePicker(date: $date)
+                        CreateEventDatePicker(date: $date, timeZone: $timeZone)
                             .padding([.bottom, .top])
                     }
 
                     // Place
                     Section {
-                        CreateEventText(text: "Место")
+                        CreateEventText(text: "Место \(Emojis.purpleCircle)")
                             .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
                         CreateEventText(
@@ -104,17 +147,6 @@ struct CreateEventView: View {
                         }
 
                     }
-
-                    // Contact
-                    Section {
-                        CreateEventTextField(text: $contact,
-                                             title: "Контакты создателя мероприятия",
-                                             lineLimit: CreateEventViewSizesPack.lineLimit)
-                        .onReceive(Just(title)) { _ in
-                            limitTextField(CreateEventViewSizesPack.contactMaxLength, text: $contact)
-                        }
-                    }
-
                 }
                 .listRowBackground(ColorsPack.gray)
                 .listRowSeparatorTint(ColorsPack.purple)
@@ -127,11 +159,12 @@ struct CreateEventView: View {
                     isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
             }
 
-            VStack {
-                Spacer()
-                HStack {
+            // hide keyboard button
+            if keyboardObserver.isKeyboardVisible {
+                VStack {
                     Spacer()
-                    if keyboardObserver.isKeyboardVisible {
+                    HStack {
+                        Spacer()
                         Button {
                             UIApplication.shared.endEditing()
                         } label: {
@@ -146,13 +179,19 @@ struct CreateEventView: View {
 
         }
 
+        // create event button
         if !keyboardObserver.isKeyboardVisible {
             Button {
-                if viewModel.createEvent(Event(title: title,
-                                            description: description,
-                                            place: viewModel.placeDescription,
-                                            seats: Int(seats) ?? 0,
-                                               contact: contact)) {
+                if viewModel.createEvent(
+                    Event(description: EventDescription(title: title,
+                                                        description: description,
+                                                        image: image),
+                          organization: EventOrganizationInformation(date:
+                                                                        DateModel(date: date,
+                                                                                  timeZome: timeZone),
+                                                                     place: viewModel.placeDescription,
+                                                                     seats: Int(seats) ?? 1,
+                                                                     link: link))) {
                     createEventViewIsActive.toggle()
                 }
             } label: {
@@ -163,7 +202,7 @@ struct CreateEventView: View {
                 }
                 .background(GradientsPack.indigoPurple)
             }
-            .alert("Заполните все поля.", isPresented: $viewModel.emptyEventAlertIsActive) {
+            .alert("Заполните все обязательные поля \(Emojis.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
                 Button("OK", role: .cancel) {}
             }
 
@@ -181,7 +220,7 @@ extension CreateEventView {
     }
 }
 
-// #Preview {
-//    @Previewable @State var bool = true
-//    CreateEventView(viewModel: CreateEventViewModel(model: CreateEventModel()), createEventViewIsActive: $bool)
-// }
+#Preview {
+    @Previewable @State var bool = true
+    CreateEventView(viewModel: CreateEventViewModel(model: CreateEventModel()), createEventViewIsActive: $bool)
+}

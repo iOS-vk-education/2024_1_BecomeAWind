@@ -8,6 +8,7 @@ struct YamApp: App {
         WindowGroup {
             LoginScreenIntegrator()
                 .edgesIgnoringSafeArea(.all)
+
 //            MainView()
         }
     }

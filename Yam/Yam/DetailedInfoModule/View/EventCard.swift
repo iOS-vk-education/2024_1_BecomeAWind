@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EventCard: View {
-    @State var event: Event2
+    @State var event: Event
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,19 +21,19 @@ struct HeaderEvent: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            EventImage(imageName: info.imageName)
+//            EventImage(imageName: info.imageName)
             EventTitle(title: info.title)
         }
     }
 }
 
 struct ContentEventView: View {
-    @State var event: Event2
+    @State var event: Event
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            ContentItemEvent(title: "Категория:", data: event.description.category.rawValue)
-            ContentItemEvent(title: "Количество свободных мест:", data: String(event.organization.freePlaces))
+//            ContentItemEvent(title: "Категория:", data: event.description.category.rawValue)
+            ContentItemEvent(title: "Количество свободных мест:", data: String(event.organization.seats))
             ContentItemEvent(title: "Место проведения:", data: event.organization.place)
             ContentItemEvent(title: "Ссылка на организатора:", data: event.organization.link)
         }

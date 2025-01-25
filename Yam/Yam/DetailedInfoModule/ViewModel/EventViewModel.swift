@@ -3,7 +3,7 @@ import SwiftUI
 final class EventViewModel: ObservableObject {
     private var mockData = EventsMock()
 
-    @Published var events: [Event2] = []
+    @Published var events: [Event] = []
 
     init() {
         getEvents()

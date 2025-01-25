@@ -9,13 +9,13 @@ struct ChooseEventPlaceView: View {
     var body: some View {
         ZStack {
             ZStack(alignment: .bottom) {
-                ChooseEventPlaceMapViewModel(centerCoordinate: $centerCoordinate)
+                ChooseEventPlaceViewModel(centerCoordinate: $centerCoordinate)
                     .ignoresSafeArea()
 
                 Button {
-                    ChooseEventPlaceMapViewModel.getPlacemark(for: centerCoordinate) { placemark in
+                    ChooseEventPlaceViewModel.getPlacemark(for: centerCoordinate) { placemark in
                         if let placemark {
-                            let place = Place(placemark: placemark,
+                            let place = PlaceModel(placemark: placemark,
                                               coordinate: centerCoordinate)
                             viewModel.handlePlace(place)
                             isActiveChooseEventPlaceView.toggle()
