@@ -45,7 +45,6 @@ final class CreateEventModel: ObservableObject {
         // create? event
         if hasEventCreated {
             tempDatabase.events.append(event)
-            print(tempDatabase.events.count)
         }
 
         return hasEventCreated
