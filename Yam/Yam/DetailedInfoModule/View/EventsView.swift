@@ -23,7 +23,3 @@ struct TabEvent: View {
         .padding(.bottom, 30)
     }
 }
-
-// #Preview {
-//    EventsView()
-// }

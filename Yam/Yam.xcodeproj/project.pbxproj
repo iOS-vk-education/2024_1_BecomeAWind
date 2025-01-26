@@ -226,9 +226,9 @@
 			children = (
 				870E3C6A2D4388D40043DA00 /* DetailedInfoView.swift */,
 				870E3C6D2D4388D40043DA00 /* EventsView.swift */,
-				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
 				870E3C6B2D4388D40043DA00 /* EventCard.swift */,
 				870E3C6C2D4388D40043DA00 /* EventComponents.swift */,
+				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

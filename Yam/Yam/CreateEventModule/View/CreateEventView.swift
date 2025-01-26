@@ -9,7 +9,7 @@ enum CreateEventViewSizesPack {
     static let imageSize: CGFloat = 20
 
     static let titleMaxLength = 30
-    static let descriptionMaxLength = 200
+    static let descriptionMaxLength = 1000
     static let seatsMaxLength = 4
     static let contactMaxLength = 50
 
@@ -42,7 +42,7 @@ struct CreateEventView: View {
                     HStack {
                         Spacer()
                         YamText(text: "Новое мероприятие",
-                                        fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
+                                fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
                         Spacer()
                     }
                 }

@@ -34,6 +34,7 @@ struct FeedView: View {
                                     )
                                     Spacer()
                                 }
+                                .frame(maxHeight: UIScreen.main.bounds.height / 2)
                             }
                         }
                     } header: {

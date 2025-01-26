@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct EventImage: View {
-    var imageName: String
+    var image: UIImage
 
     var body: some View {
-        Image(imageName)
+        Image(uiImage: image)
             .resizable()
             .scaledToFill()
             .frame(height: 200)

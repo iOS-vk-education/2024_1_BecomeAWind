@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EventCard: View {
-    @State var event: Event
+    var event: Event
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,7 +21,7 @@ struct HeaderEvent: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-//            EventImage(imageName: info.imageName)
+            EventImage(image: info.image)
             EventTitle(title: info.title)
         }
     }
