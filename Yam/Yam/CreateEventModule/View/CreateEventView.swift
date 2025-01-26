@@ -207,7 +207,6 @@ struct CreateEventView: View {
             }
 
         }
-
     }
 
 }

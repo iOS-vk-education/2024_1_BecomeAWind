@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 final class CreateEventModel: ObservableObject {
-    @ObservedObject var tempDatabase = TempDatabase.shared
+    @ObservedObject private var tempDatabase = TempDatabase.shared
 
     func handlePlace(_ place: PlaceModel) -> String {
         var result = ""

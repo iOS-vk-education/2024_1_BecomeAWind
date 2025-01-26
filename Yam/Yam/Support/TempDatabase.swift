@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 
-class TempDatabase: ObservableObject {
+final class TempDatabase: ObservableObject {
     static let shared = TempDatabase()
 
     private init() {

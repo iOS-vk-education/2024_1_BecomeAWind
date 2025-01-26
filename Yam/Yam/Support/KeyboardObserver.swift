@@ -1,7 +1,7 @@
 import UIKit
 import Combine
 
-class KeyboardObserver: ObservableObject {
+final class KeyboardObserver: ObservableObject {
     @Published var isKeyboardVisible: Bool = false
     private var cancellables = Set<AnyCancellable>()
 

@@ -52,6 +52,8 @@
 		8752B6FC2D4568FB0017F2B8 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emojis.swift */; };
 		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
 		8752B7002D45822F0017F2B8 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FF2D45822F0017F2B8 /* Locales.swift */; };
+		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
+		8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7032D464E370017F2B8 /* FeedModel.swift */; };
 		87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E54DB42D44F81300693B96 /* PlaceModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
@@ -104,6 +106,8 @@
 		8752B6FB2D4568FB0017F2B8 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
 		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		8752B6FF2D45822F0017F2B8 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
+		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		8752B7032D464E370017F2B8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		87E54DB42D44F81300693B96 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 		870E3C732D4388D40043DA00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8752B7032D464E370017F2B8 /* FeedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 		870E3C762D4388D40043DA00 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8752B7012D464DF90017F2B8 /* FeedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				870E3C4F2D4388860043DA00 /* Src.swift in Sources */,
 				870E3C502D4388860043DA00 /* CircleButton.swift in Sources */,
 				870E3C512D4388860043DA00 /* Label.swift in Sources */,
+				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
 				870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* BaseSizesPack.swift in Sources */,
@@ -583,6 +590,7 @@
 				870E3C9C2D4388D40043DA00 /* ChooseEventPlaceView.swift in Sources */,
 				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
 				870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */,
+				8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */,
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
 				87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */,
 				8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */,
