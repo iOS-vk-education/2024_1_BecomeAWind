@@ -3,7 +3,7 @@ import MapKit
 
 struct MapView: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State var isActiveDetailedInfoView = false 
+    @State var isActiveDetailedInfoView = false
     @ObservedObject var temp = TempDatabase.shared
 
     var body: some View {

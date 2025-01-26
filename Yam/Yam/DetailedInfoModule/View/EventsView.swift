@@ -24,6 +24,6 @@ struct TabEvent: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    EventsView()
-//}
+// }

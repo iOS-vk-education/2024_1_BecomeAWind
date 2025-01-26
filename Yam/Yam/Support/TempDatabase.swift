@@ -11,13 +11,13 @@ final class TempDatabase: ObservableObject {
     }
 
     private func initEvents() {
-        let event1 = Event(description: EventDescription(title: "Мероприятие 1",
+        let event1 = Event(description: EventDescription(title: "Партия в шахматы",
                                                         description: "Это мероприятие создано в целях тестирования",
-                                                        image: UIImage(named: "defaulteventimage")!),
+                                                        image: UIImage(named: "chess")!),
                           organization: EventOrganizationInformation(date: DateModel(date: Date(),
                                                                                      timeZome: TimeZone.current),
                                                                      place: "Тестовая улица где-то в МСК",
-                                                                     seats: 13,
+                                                                     seats: 1,
                                                                      link: "https://contact/event/author"))
 
         let event2 = Event(description: EventDescription(title: "123456789012345678901234567890",
@@ -29,13 +29,13 @@ final class TempDatabase: ObservableObject {
                                                                       seats: 4,
                                                                       link: "https://contact/event/author"))
 
-        let event3 = Event(description: EventDescription(title: "Мероприятие 3",
-                                                         description: "Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, ",
-                                                         image: UIImage(named: "defaulteventimage")!),
+        let event3 = Event(description: EventDescription(title: "Игра в футбол",
+                                                         description: "Ищем команду для игры в футбол +5",
+                                                         image: UIImage(named: "football")!),
                            organization: EventOrganizationInformation(date: DateModel(date: Date(),
                                                                                       timeZome: TimeZone.current),
                                                                       place: "Тестовая улица где-то в МСК",
-                                                                      seats: 1,
+                                                                      seats: 5,
                                                                       link: "https://contact/event/author"))
         events = [event1, event2, event3]
     }

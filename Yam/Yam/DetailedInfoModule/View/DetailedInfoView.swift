@@ -5,7 +5,6 @@ struct DetailedInfoView: View {
 
     var body: some View {
         VStack {
-//            HeaderView()
             EventsView(events: events)
         }
         .background(ColorsPack.black)

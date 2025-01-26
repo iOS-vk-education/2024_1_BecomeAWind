@@ -38,7 +38,7 @@ private struct RandomEventDescription {
             """,
             image: UIImage(named: "defaulteventimage")!
 //            category: .sport
-        ),
+        )
 //        EventDescription(
 //            title: "Футбол",
 //            description: """
