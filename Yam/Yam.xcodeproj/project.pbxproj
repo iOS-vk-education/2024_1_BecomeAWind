@@ -26,7 +26,7 @@
 		870E3C972D4388D40043DA00 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C702D4388D40043DA00 /* EventViewModel.swift */; };
 		870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C7B2D4388D40043DA00 /* LocationManager.swift */; };
 		870E3C992D4388D40043DA00 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6D2D4388D40043DA00 /* Events.swift */; };
-		870E3C9A2D4388D40043DA00 /* CreateEventText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* CreateEventText.swift */; };
+		870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YamText.swift */; };
 		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
 		870E3C9C2D4388D40043DA00 /* ChooseEventPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5D2D4388D40043DA00 /* ChooseEventPlaceView.swift */; };
 		870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C572D4388D40043DA00 /* TabBarView.swift */; };
@@ -35,7 +35,7 @@
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
 		870E3CA12D4388D40043DA00 /* GradientsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C892D4388D40043DA00 /* GradientsPack.swift */; };
 		870E3CA22D4388D40043DA00 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6B2D4388D40043DA00 /* EventCard.swift */; };
-		870E3CA32D4388D40043DA00 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C542D4388D40043DA00 /* GradientLabel.swift */; };
+		870E3CA32D4388D40043DA00 /* YamCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */; };
 		870E3CA42D4388D40043DA00 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C882D4388D40043DA00 /* Extensions.swift */; };
 		870E3CA52D4388D40043DA00 /* CreateEventTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C602D4388D40043DA00 /* CreateEventTextField.swift */; };
 		870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */; };
@@ -54,6 +54,8 @@
 		8752B7002D45822F0017F2B8 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FF2D45822F0017F2B8 /* Locales.swift */; };
 		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
 		8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7032D464E370017F2B8 /* FeedModel.swift */; };
+		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
+		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
 		87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E54DB42D44F81300693B96 /* PlaceModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
@@ -70,14 +72,14 @@
 		870E3C4A2D4388860043DA00 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		870E3C4B2D4388860043DA00 /* Src.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Src.swift; sourceTree = "<group>"; };
 		870E3C532D4388D40043DA00 /* GradientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientImage.swift; sourceTree = "<group>"; };
-		870E3C542D4388D40043DA00 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
+		870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamCapsuleLabel.swift; sourceTree = "<group>"; };
 		870E3C552D4388D40043DA00 /* GradientLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoader.swift; sourceTree = "<group>"; };
 		870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenIntegrator.swift; sourceTree = "<group>"; };
 		870E3C572D4388D40043DA00 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		870E3C592D4388D40043DA00 /* CreateEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModel.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* ChooseEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventPlaceView.swift; sourceTree = "<group>"; };
 		870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDatePicker.swift; sourceTree = "<group>"; };
-		870E3C5F2D4388D40043DA00 /* CreateEventText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventText.swift; sourceTree = "<group>"; };
+		870E3C5F2D4388D40043DA00 /* YamText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamText.swift; sourceTree = "<group>"; };
 		870E3C602D4388D40043DA00 /* CreateEventTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTextField.swift; sourceTree = "<group>"; };
 		870E3C612D4388D40043DA00 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +110,8 @@
 		8752B6FF2D45822F0017F2B8 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
 		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		8752B7032D464E370017F2B8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
+		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
 		87E54DB42D44F81300693B96 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,8 +164,11 @@
 		870E3C582D4388D40043DA00 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				870E3C5F2D4388D40043DA00 /* YamText.swift */,
+				8752B7052D468D3E0017F2B8 /* YamImage.swift */,
+				870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */,
+				8752B7092D46924F0017F2B8 /* YamMappin.swift */,
 				870E3C532D4388D40043DA00 /* GradientImage.swift */,
-				870E3C542D4388D40043DA00 /* GradientLabel.swift */,
 				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
 				870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */,
 				870E3C572D4388D40043DA00 /* TabBarView.swift */,
@@ -184,7 +191,6 @@
 			children = (
 				870E3C612D4388D40043DA00 /* CreateEventView.swift */,
 				870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */,
-				870E3C5F2D4388D40043DA00 /* CreateEventText.swift */,
 				870E3C602D4388D40043DA00 /* CreateEventTextField.swift */,
 			);
 			path = View;
@@ -220,12 +226,12 @@
 		870E3C6F2D4388D40043DA00 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
 				870E3C6A2D4388D40043DA00 /* EntryEvent.swift */,
+				870E3C6E2D4388D40043DA00 /* HeadingView.swift */,
+				870E3C6D2D4388D40043DA00 /* Events.swift */,
+				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
 				870E3C6B2D4388D40043DA00 /* EventCard.swift */,
 				870E3C6C2D4388D40043DA00 /* EventComponents.swift */,
-				870E3C6D2D4388D40043DA00 /* Events.swift */,
-				870E3C6E2D4388D40043DA00 /* HeadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -425,8 +431,8 @@
 			isa = PBXGroup;
 			children = (
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
-				870E3C7D2D4388D40043DA00 /* MainModule */,
 				870E3C432D4388010043DA00 /* AuthorizationModule */,
+				870E3C7D2D4388D40043DA00 /* MainModule */,
 				870E3C822D4388D40043DA00 /* MapModule */,
 				870E3C652D4388D40043DA00 /* CreateEventModule */,
 				8752B6F02D4559E00017F2B8 /* ChooseEventPlaceModule */,
@@ -578,13 +584,14 @@
 				8752B6F82D455A710017F2B8 /* ChooseEventPlaceViewModel.swift in Sources */,
 				870E3C912D4388D40043DA00 /* MainView.swift in Sources */,
 				870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */,
+				8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */,
 				870E3C932D4388D40043DA00 /* EventMock.swift in Sources */,
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
 				870E3C952D4388D40043DA00 /* ColorsPack.swift in Sources */,
 				870E3C972D4388D40043DA00 /* EventViewModel.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */,
 				870E3C992D4388D40043DA00 /* Events.swift in Sources */,
-				870E3C9A2D4388D40043DA00 /* CreateEventText.swift in Sources */,
+				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
 				8752B6FC2D4568FB0017F2B8 /* Emojis.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* ChooseEventPlaceView.swift in Sources */,
@@ -597,8 +604,9 @@
 				870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */,
 				870E3CA12D4388D40043DA00 /* GradientsPack.swift in Sources */,
 				870E3CA22D4388D40043DA00 /* EventCard.swift in Sources */,
-				870E3CA32D4388D40043DA00 /* GradientLabel.swift in Sources */,
+				870E3CA32D4388D40043DA00 /* YamCapsuleLabel.swift in Sources */,
 				870E3CA42D4388D40043DA00 /* Extensions.swift in Sources */,
+				8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* CreateEventTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */,
 				870E3CA72D4388D40043DA00 /* HeadingView.swift in Sources */,
@@ -753,8 +761,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -790,8 +798,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

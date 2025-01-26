@@ -1,15 +1,18 @@
 import SwiftUI
 
-struct GradientLabel: View {
+struct YamCapsuleLabel: View {
     let title: String
     let fontSize: CGFloat
+    let fontWeight: Font.Weight
     let background: LinearGradient?
 
     init(title: String,
          fontSize: CGFloat = 20,
+         fontWeight: Font.Weight = .heavy,
          background: LinearGradient? = nil) {
         self.title = title
         self.fontSize = fontSize
+        self.fontWeight = fontWeight
         self.background = background ?? nil
     }
 
@@ -17,7 +20,7 @@ struct GradientLabel: View {
         Text(title)
             .padding()
             .font(Font.system(size: fontSize))
-            .fontWeight(.heavy)
+            .fontWeight(fontWeight)
             .foregroundColor(ColorsPack.white)
             .background(background ?? GradientsPack.clear)
             .cornerRadius(BaseSizesPack.coreCornerRadius)
@@ -25,5 +28,5 @@ struct GradientLabel: View {
 }
 
 #Preview {
-    GradientLabel(title: "Текст", background: GradientsPack.indigoPurple)
+    YamCapsuleLabel(title: "Текст", background: GradientsPack.indigoPurple)
 }

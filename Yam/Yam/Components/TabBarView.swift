@@ -35,7 +35,7 @@ struct TabBarView: View {
             .cornerRadius(BaseSizesPack.coreCornerRadius)
             .padding(20)
             .sheet(isPresented: $createEventViewIsActive) {
-                CreateEventView(viewModel: CreateEventViewModel(model: CreateEventModel()), createEventViewIsActive: $createEventViewIsActive)
+                CreateEventView(isActiveCreateEventView: $createEventViewIsActive)
                 }
 
         }

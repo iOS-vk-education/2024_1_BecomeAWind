@@ -28,7 +28,7 @@ private struct EventGenerator {
 
 private struct RandomEventDescription {
     let info: [EventDescription] = [
-        /*
+
         EventDescription(
             title: "Баскетбол",
             description: """
@@ -36,7 +36,7 @@ private struct RandomEventDescription {
             хотите поиграть, но не знаете правила - объясню, только скорее приходите,
             мне очень скучно
             """,
-            imageName: "basketball"
+            image: UIImage(named: "defaulteventimage")!
 //            category: .sport
         ),
         EventDescription(
@@ -46,7 +46,7 @@ private struct RandomEventDescription {
             Нужно 7 человек. Желающие поиграть, повеселиться и обрести новые знакомства,
             мы вас ждем зажидаемся!! 
             """,
-            imageName: "football"
+            image: UIImage(named: "defaulteventimage")!
 //            category: .sport
         ),
         EventDescription(
@@ -54,7 +54,7 @@ private struct RandomEventDescription {
             description: """
             Сделайте репост и попадайте на нашу крупнейшую тусовку в москве!!
             """,
-            imageName: "projectX"
+            image: UIImage(named: "defaulteventimage")!
 //            category: .entertainments
         ),
         EventDescription(
@@ -62,7 +62,7 @@ private struct RandomEventDescription {
             description: """
             У нас проводится турнир по шахматам с денежным призом! Приходите и сражайтесь умами за первое место!!
             """,
-            imageName: "chess"
+            image: UIImage(named: "defaulteventimage")!
 //            category: .sport
         ),
         EventDescription(
@@ -70,7 +70,7 @@ private struct RandomEventDescription {
             description: """
             Хочу нормально апнуть рейтинга на фейсите, нужны тиммейты!!
             """,
-            imageName: "csgo"
+            image: UIImage(named: "defaulteventimage")!
 //            category: .sport
         ),
         EventDescription(
@@ -78,10 +78,9 @@ private struct RandomEventDescription {
             description: """
             Мой друг заболел и не сможет пойти на фильм, есть один билет кто пойдет вместо него?
             """,
-            imageName: "film"
+            image: UIImage(named: "defaulteventimage")!
 //            category: .entertainments
         )
-         */
     ]
 }
 

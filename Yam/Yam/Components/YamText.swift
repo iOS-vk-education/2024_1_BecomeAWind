@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CreateEventText: View {
+struct YamText: View {
     let text: String
     let fontSize: CGFloat
     let fontWeight: Font.Weight
@@ -20,5 +20,6 @@ struct CreateEventText: View {
 }
 
 #Preview {
-    CreateEventText(text: "Текст", fontSize: 30)
+    YamText(text: "Текст", fontSize: 30)
+        .background(ColorsPack.black)
 }

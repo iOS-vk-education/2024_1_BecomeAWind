@@ -3,38 +3,42 @@ import MapKit
 
 final class TempDatabase: ObservableObject {
     static let shared = TempDatabase()
+    @Published var events: [Event] = []
 
     private init() {
         print("TempDatabase initialized")
+        initEvents()
     }
 
-    @Published var events: [Event] = [
-//        Event(title: "Basketball",
-//              description: """
-//                Need 1+ person for a game of “33”,
-//                want to play but don’t know the rules - I’ll explain, just come quickly,
-//                I’m really bored
-//                """,
-//              place: "Russia, Moscow, Pushkina st., 7",
-//              seats: 1,
-//              contact: "@sporticus"),
-//        Event(title: "Repost party",
-//              description: """
-//                Repost and get to our biggest party in Moscow!!
-//                """,
-//              place: "Russia, Moscow, Kirova st., 29",
-//              seats: 100,
-//              contact: "@partyman"),
-//        Event(
-//            title: "CS:GO team",
-//            description: """
-//            I want to increase my rating on Faceit properly, I need teammates!!
-//            """,
-//            place: "Russia, Moscow",
-//            seats: 4,
-//            contact: "@deadinside"
-//        )
-    ]
+    private func initEvents() {
+        let event1 = Event(description: EventDescription(title: "Мероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1",
+                                                        description: "Это мероприятие создано в целях тестирования",
+                                                        image: UIImage(named: "defaulteventimage")!),
+                          organization: EventOrganizationInformation(date: DateModel(date: Date(),
+                                                                                     timeZome: TimeZone.current),
+                                                                     place: "Тестовая улица где-то в МСК",
+                                                                     seats: 13,
+                                                                     link: "https://contact/event/author"))
+
+        let event2 = Event(description: EventDescription(title: "Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2",
+                                                         description: "Это мероприятие создано в целях тестирования",
+                                                         image: UIImage(named: "defaulteventimage")!),
+                           organization: EventOrganizationInformation(date: DateModel(date: Date(),
+                                                                                      timeZome: TimeZone.current),
+                                                                      place: "Тестовая улица где-то в МСК",
+                                                                      seats: 4,
+                                                                      link: "https://contact/event/author"))
+
+        let event3 = Event(description: EventDescription(title: "Мероприятие 3",
+                                                         description: "Это мероприятие создано в целях тестирования",
+                                                         image: UIImage(named: "defaulteventimage")!),
+                           organization: EventOrganizationInformation(date: DateModel(date: Date(),
+                                                                                      timeZome: TimeZone.current),
+                                                                      place: "Тестовая улица где-то в МСК",
+                                                                      seats: 1,
+                                                                      link: "https://contact/event/author"))
+        events = [event1, event2, event3]
+    }
 
     @Published var location1 = CLLocation(latitude: 55.9558,
                                          longitude: 37.2173)

@@ -2,8 +2,8 @@ import SwiftUI
 import Combine
 import PhotosUI
 
-struct CreateEventViewSizesPack {
-    static let newEventLabelFontSize: CGFloat = 25
+enum CreateEventViewSizesPack {
+    static let newEventLabelFontSize: CGFloat = 30
     static let dateAndTimeLeadingPadding: CGFloat = 9
 
     static let imageSize: CGFloat = 20
@@ -17,11 +17,11 @@ struct CreateEventViewSizesPack {
 }
 
 struct CreateEventView: View {
-    @ObservedObject var viewModel: CreateEventViewModel
+    @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
     @ObservedObject private var keyboardObserver = KeyboardObserver()
 
     @State private var photosPickerItem: PhotosPickerItem?
-    @State private var image: UIImage = (UIImage(named: "defaulteventimage") ?? UIImage(systemName: "photo.artframe"))!
+    @State private var image: UIImage = (UIImage(named: "defaulteventimage") ?? UIImage(systemName: "photo.artframe"))! // todo remove spacers clickability
     @State private var title = ""
     @State private var description = ""
     @State private var seats = "1"
@@ -30,7 +30,7 @@ struct CreateEventView: View {
     @State private var date = Date() // todo date bounds
     @State private var timeZone = TimeZone.current
 
-    @Binding var createEventViewIsActive: Bool
+    @Binding var isActiveCreateEventView: Bool
     @State var isActiveChooseEventPlaceView = false
 
     var delme = EventsMock()
@@ -41,43 +41,37 @@ struct CreateEventView: View {
                 Section {
                     HStack {
                         Spacer()
-                        CreateEventText(text: "Новое мероприятие",
+                        YamText(text: "Новое мероприятие",
                                         fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
                         Spacer()
                     }
                 }
                 .listRowBackground(ColorsPack.black)
 
-                Group {
-                    // Image
-                    Section {
-                        HStack {
-                            Spacer()
-                            VStack {
-                                PhotosPicker(selection: $photosPickerItem, matching: .images) {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 150, height: 150)
-                                        .clipShape(.buttonBorder)
-                                }
-                            }
-                            .onChange(of: photosPickerItem) {
-                                Task {
-                                    if let photosPickerItem,
-                                       let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
-                                        if let img = UIImage(data: data) {
-                                            image = img
-                                        }
-                                    }
-                                    photosPickerItem = nil
-                                }
-                            }
-                            Spacer()
-
+                // Image
+                Section {
+                    HStack {
+                        Spacer()
+                        PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                            YamImage(image: image)
                         }
+                        .onChange(of: photosPickerItem) {
+                            Task {
+                                if let photosPickerItem,
+                                   let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
+                                    if let img = UIImage(data: data) {
+                                        image = img
+                                    }
+                                }
+                                photosPickerItem = nil
+                            }
+                        }
+                        Spacer()
                     }
+                }
+                .listRowBackground(ColorsPack.black)
 
+                Group {
                     // Title, description, seats, contact
                     Section {
                         CreateEventTextField(text: $title,
@@ -116,7 +110,7 @@ struct CreateEventView: View {
 
                     // Date, time, timezone
                     Section {
-                        CreateEventText(text: "Дата, время, часовой пояс")
+                        YamText(text: "Дата, время, часовой пояс")
                             .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
                         CreateEventDatePicker(date: $date, timeZone: $timeZone)
@@ -125,10 +119,10 @@ struct CreateEventView: View {
 
                     // Place
                     Section {
-                        CreateEventText(text: "Место \(Emojis.purpleCircle)")
+                        YamText(text: "Место \(Emojis.purpleCircle)")
                             .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
-                        CreateEventText(
+                        YamText(
                             text: viewModel.placeDescription,
                             fontWeight: .regular
                         )
@@ -139,9 +133,7 @@ struct CreateEventView: View {
                             Button {
                                 isActiveChooseEventPlaceView.toggle()
                             } label: {
-                                GradientImage(imageName: "mappin.circle",
-                                              imageSize: CreateEventViewSizesPack.imageSize,
-                                              background: GradientsPack.indigoPurple)
+                                YamMappin()
                             }
                             Spacer()
                         }
@@ -192,12 +184,12 @@ struct CreateEventView: View {
                                                                      place: viewModel.placeDescription,
                                                                      seats: Int(seats) ?? 1,
                                                                      link: link))) {
-                    createEventViewIsActive.toggle()
+                    isActiveCreateEventView.toggle()
                 }
             } label: {
                 HStack {
                     Spacer()
-                    GradientLabel(title: "Создать")
+                    YamCapsuleLabel(title: "Создать")
                     Spacer()
                 }
                 .background(GradientsPack.indigoPurple)
@@ -221,5 +213,5 @@ extension CreateEventView {
 
 #Preview {
     @Previewable @State var bool = true
-    CreateEventView(viewModel: CreateEventViewModel(model: CreateEventModel()), createEventViewIsActive: $bool)
+    CreateEventView(isActiveCreateEventView: $bool)
 }

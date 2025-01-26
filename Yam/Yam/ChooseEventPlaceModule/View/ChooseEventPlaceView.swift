@@ -22,7 +22,7 @@ struct ChooseEventPlaceView: View {
                         }
                     }
                 } label: {
-                    GradientLabel(title: "Выбрать",
+                    YamCapsuleLabel(title: "Выбрать",
                                   background: GradientsPack.indigoPurple)
                 }
                 .padding(.bottom, 10)

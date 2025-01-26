@@ -3,7 +3,7 @@ import MapKit
 
 struct MapView: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State var detailedInfoViewIsActive = false
+    @State var isActiveDetailedInfoView = false 
     @ObservedObject var temp = TempDatabase.shared
 
     var body: some View {
@@ -12,40 +12,40 @@ struct MapView: View {
 
             Annotation("6", coordinate: temp.location1.coordinate) {
                 Button {
-                    detailedInfoViewIsActive.toggle()
+                    isActiveDetailedInfoView.toggle()
                 } label: {
-                    GradientLabel(title: "6",
+                    YamCapsuleLabel(title: "6",
                                   fontSize: 30,
                                   background: GradientsPack.indigoPurple)
                 }
-                .sheet(isPresented: $detailedInfoViewIsActive) {
+                .sheet(isPresented: $isActiveDetailedInfoView) {
                     EntryEvent()
                 }
             }
-            Annotation("10", coordinate: temp.location2.coordinate) {
-                Button {
-                    detailedInfoViewIsActive.toggle()
-                } label: {
-                    GradientLabel(title: "10",
-                                  fontSize: 30,
-                                  background: GradientsPack.indigoPurple)
-                }
-                .sheet(isPresented: $detailedInfoViewIsActive) {
-                    EntryEvent()
-                }
-            }
-            Annotation("1", coordinate: temp.location3.coordinate) {
-                Button {
-                    detailedInfoViewIsActive.toggle()
-                } label: {
-                    GradientLabel(title: "1",
-                                  fontSize: 30,
-                                  background: GradientsPack.indigoPurple)
-                }
-                .sheet(isPresented: $detailedInfoViewIsActive) {
-                    EntryEvent()
-                }
-            }
+//            Annotation("10", coordinate: temp.location2.coordinate) {
+//                Button {
+//                    isActiveDetailedInfoView.toggle()
+//                } label: {
+//                    YamCapsuleLabel(title: "10",
+//                                  fontSize: 30,
+//                                  background: GradientsPack.indigoPurple)
+//                }
+//                .sheet(isPresented: $isActiveDetailedInfoView) {
+//                    EntryEvent()
+//                }
+//            }
+//            Annotation("1", coordinate: temp.location3.coordinate) {
+//                Button {
+//                    isActiveDetailedInfoView.toggle()
+//                } label: {
+//                    YamCapsuleLabel(title: "1",
+//                                  fontSize: 30,
+//                                  background: GradientsPack.indigoPurple)
+//                }
+//                .sheet(isPresented: $isActiveDetailedInfoView) {
+//                    EntryEvent()
+//                }
+//            }
         }
         .tint(Color.purple)
         .mapControls {
