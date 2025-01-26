@@ -14,7 +14,7 @@ struct MapView: View {
                 Button {
                     isActiveDetailedInfoView.toggle()
                 } label: {
-                    YamCapsuleLabel(title: "3",
+                    YamCapsuleLabel(title: "4",
                                   fontSize: 30,
                                   background: GradientsPack.purpleIndigo)
                 }
