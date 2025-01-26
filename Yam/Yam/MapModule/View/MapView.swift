@@ -19,7 +19,8 @@ struct MapView: View {
                                   background: GradientsPack.indigoPurple)
                 }
                 .sheet(isPresented: $isActiveDetailedInfoView) {
-                    EntryEvent()
+//                    DetailedInfoView()
+                    Text("delme")
                 }
             }
 //            Annotation("10", coordinate: temp.location2.coordinate) {

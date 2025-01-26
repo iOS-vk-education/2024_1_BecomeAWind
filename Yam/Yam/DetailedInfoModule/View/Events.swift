@@ -7,7 +7,7 @@ struct Events: View {
 }
 
 struct TabEvent: View {
-    @StateObject private var viewModel = EventViewModel()
+    @StateObject private var viewModel = DetailedInfoViewModel()
 
     var body: some View {
         TabView {

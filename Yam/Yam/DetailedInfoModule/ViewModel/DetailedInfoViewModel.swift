@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class EventViewModel: ObservableObject {
+final class DetailedInfoViewModel: ObservableObject {
     private var mockData = EventsMock()
 
     @Published var events: [Event] = []

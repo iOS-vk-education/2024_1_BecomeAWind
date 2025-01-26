@@ -1,9 +1,11 @@
 import SwiftUI
 
-struct EntryEvent: View {
+struct DetailedInfoView: View {
+    let event: Event
+
     var body: some View {
         VStack {
-            Heading()
+            HeaderView()
             Events()
         }
         .background(ColorsPack.black)

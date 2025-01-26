@@ -7,6 +7,7 @@ private enum FeedViewSizesPack {
 struct FeedView: View {
     @StateObject private var viewModel = FeedViewModel(model: FeedModel())
     @State private var isActiveCreateEventView = false
+    @State private var selectedEvent: Event? = nil
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
@@ -15,14 +16,12 @@ struct FeedView: View {
             ColorsPack.black
                 .ignoresSafeArea()
 
-
-
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
                     Section {
                         ForEach(viewModel.events, id: \.id) { event in
                             Button {
-                                
+                                selectedEvent = event
                             } label: {
                                 VStack {
                                     YamImage(image: event.description.image, size: UIScreen.main.bounds.width / 2 - 15)
@@ -35,7 +34,6 @@ struct FeedView: View {
                                 }
                             }
                         }
-                        
                     } header: {
                         YamText(text: "Лента мероприятий", fontSize: FeedViewSizesPack.headerTitleFontSize)
                             .padding()
@@ -44,6 +42,9 @@ struct FeedView: View {
                 .padding(10)
                 .background(ColorsPack.black)
             }
+        }
+        .sheet(item: $selectedEvent) { event in
+            DetailedInfoView(event: event)
         }
     }
 }
