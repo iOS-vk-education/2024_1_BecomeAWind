@@ -17,7 +17,8 @@ struct ChooseEventPlaceView: View {
                         if let placemark {
                             let place = PlaceModel(placemark: placemark,
                                               coordinate: centerCoordinate)
-                            viewModel.handlePlace(place)
+                            viewModel.placeDescription = PlaceHandler.handlePlace(place)
+                            viewModel.place = place
                             isActiveChooseEventPlaceView.toggle()
                         }
                     }

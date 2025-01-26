@@ -20,10 +20,8 @@
 		870E3C902D4388D40043DA00 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C672D4388D40043DA00 /* EventModel.swift */; };
 		870E3C912D4388D40043DA00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C792D4388D40043DA00 /* MainView.swift */; };
 		870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */; };
-		870E3C932D4388D40043DA00 /* EventMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C662D4388D40043DA00 /* EventMock.swift */; };
 		870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6C2D4388D40043DA00 /* EventComponents.swift */; };
 		870E3C952D4388D40043DA00 /* ColorsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* ColorsPack.swift */; };
-		870E3C972D4388D40043DA00 /* DetailedInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C702D4388D40043DA00 /* DetailedInfoViewModel.swift */; };
 		870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C7B2D4388D40043DA00 /* LocationManager.swift */; };
 		870E3C992D4388D40043DA00 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6D2D4388D40043DA00 /* EventsView.swift */; };
 		870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YamText.swift */; };
@@ -56,6 +54,8 @@
 		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
 		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
 		879F2BFE2D46CE7F0027E46D /* FromDateToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* FromDateToStringConverter.swift */; };
+		879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */; };
+		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
 		87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E54DB42D44F81300693B96 /* PlaceModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
@@ -83,14 +83,12 @@
 		870E3C602D4388D40043DA00 /* CreateEventTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTextField.swift; sourceTree = "<group>"; };
 		870E3C612D4388D40043DA00 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
-		870E3C662D4388D40043DA00 /* EventMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMock.swift; sourceTree = "<group>"; };
 		870E3C672D4388D40043DA00 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		870E3C692D4388D40043DA00 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		870E3C6A2D4388D40043DA00 /* DetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoView.swift; sourceTree = "<group>"; };
 		870E3C6B2D4388D40043DA00 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		870E3C6C2D4388D40043DA00 /* EventComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventComponents.swift; sourceTree = "<group>"; };
 		870E3C6D2D4388D40043DA00 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
-		870E3C702D4388D40043DA00 /* DetailedInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoViewModel.swift; sourceTree = "<group>"; };
 		870E3C742D4388D40043DA00 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		870E3C792D4388D40043DA00 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		870E3C7B2D4388D40043DA00 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -112,6 +110,8 @@
 		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
 		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
 		879F2BFD2D46CE7F0027E46D /* FromDateToStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromDateToStringConverter.swift; sourceTree = "<group>"; };
+		879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandler.swift; sourceTree = "<group>"; };
+		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
 		87E54DB42D44F81300693B96 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				870E3C672D4388D40043DA00 /* EventModel.swift */,
-				870E3C662D4388D40043DA00 /* EventMock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,7 +237,6 @@
 		870E3C712D4388D40043DA00 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C702D4388D40043DA00 /* DetailedInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -372,6 +370,7 @@
 				8752B6FB2D4568FB0017F2B8 /* Emojis.swift */,
 				8752B6FF2D45822F0017F2B8 /* Locales.swift */,
 				879F2BFD2D46CE7F0027E46D /* FromDateToStringConverter.swift */,
+				879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -409,6 +408,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		879F2C012D46EEEA0027E46D /* EventLocationModule */ = {
+			isa = PBXGroup;
+			children = (
+				879F2C072D46EF190027E46D /* View */,
+				879F2C052D46EF190027E46D /* ViewModel */,
+				879F2C062D46EF190027E46D /* Model */,
+			);
+			path = EventLocationModule;
+			sourceTree = "<group>";
+		};
+		879F2C052D46EF190027E46D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		879F2C062D46EF190027E46D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		879F2C072D46EF190027E46D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				879F2C082D46EF2A0027E46D /* EventLocationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
@@ -436,8 +467,9 @@
 				870E3C822D4388D40043DA00 /* MapModule */,
 				870E3C652D4388D40043DA00 /* CreateEventModule */,
 				8752B6F02D4559E00017F2B8 /* ChooseEventPlaceModule */,
-				870E3C722D4388D40043DA00 /* DetailedInfoModule */,
 				870E3C772D4388D40043DA00 /* FeedModule */,
+				870E3C722D4388D40043DA00 /* DetailedInfoModule */,
+				879F2C012D46EEEA0027E46D /* EventLocationModule */,
 				870E3C8C2D4388D40043DA00 /* Support */,
 				870E3C4C2D4388860043DA00 /* DesignSystem */,
 				870E3C582D4388D40043DA00 /* Components */,
@@ -585,10 +617,9 @@
 				870E3C912D4388D40043DA00 /* MainView.swift in Sources */,
 				870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */,
 				8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */,
-				870E3C932D4388D40043DA00 /* EventMock.swift in Sources */,
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
+				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* ColorsPack.swift in Sources */,
-				870E3C972D4388D40043DA00 /* DetailedInfoViewModel.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */,
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
@@ -598,6 +629,7 @@
 				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
 				870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */,
 				8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */,
+				879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */,
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
 				87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */,
 				8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */,

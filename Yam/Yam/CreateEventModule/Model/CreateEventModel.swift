@@ -4,30 +4,6 @@ import SwiftUI
 final class CreateEventModel: ObservableObject {
     @ObservedObject private var tempDatabase = TempDatabase.shared
 
-    func handlePlace(_ place: PlaceModel) -> String {
-        var result = ""
-
-        let ocean = place.placemark.ocean ?? ""
-        let inlandWater = place.placemark.inlandWater ?? ""
-        let country = place.placemark.country ?? ""
-        let locality = place.placemark.locality ?? ""
-        let thoroughfare = place.placemark.thoroughfare ?? ""
-        let subThoroughfare = place.placemark.subThoroughfare ?? ""
-
-        if ocean != "" {
-            result += "\(ocean)\n"
-        } else if inlandWater != "" {
-            result += "\(inlandWater)\n"
-        } else {
-            result += country == "" ? "" : "\(country)\n"
-            result += locality == "" ? "" : "\(locality)\n"
-            result += thoroughfare == "" ? "" : "\(thoroughfare)\n"
-            result += subThoroughfare == "" ? "" : "\(subThoroughfare)\n"
-        }
-
-        return result
-    }
-
     func createEvent(_ event: Event) -> Bool {
         var hasEventCreated = true
 
@@ -38,7 +14,7 @@ final class CreateEventModel: ObservableObject {
             hasEventCreated = false
         }
 
-        if event.organization.place == "Выберите место проведения мероприятия" {
+        if event.organization.place == nil {
             hasEventCreated = false
         }
 

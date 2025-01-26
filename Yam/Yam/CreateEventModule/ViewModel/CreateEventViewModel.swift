@@ -5,17 +5,10 @@ final class CreateEventViewModel: ObservableObject {
     @ObservedObject private var model: CreateEventModel
     @Published var emptyEventAlertIsActive = false
     @Published var placeDescription: String = "Выберите место проведения мероприятия"
+    @Published var place: PlaceModel?
 
     init(model: CreateEventModel) {
         self.model = model
-    }
-
-    func handlePlace(_ place: PlaceModel) {
-        placeDescription.removeAll()
-        placeDescription = model.handlePlace(place)
-        let latitude = String(format: "%.4f", place.coordinate.latitude)
-        let longitude = String(format: "%.4f", place.coordinate.longitude)
-        placeDescription += "Широта: \(latitude)\nДолгота: \(longitude)"
     }
 
     func createEvent(_ event: Event) -> Bool {

@@ -29,6 +29,7 @@ struct HeaderEvent: View {
 
 struct ContentEventView: View {
     @State var event: Event
+    @State var isActiveEventLocationView = false
 
     var body: some View {
         VStack {
@@ -37,9 +38,8 @@ struct ContentEventView: View {
                 YamCapsuleLabel(title: "Свободные места: \(String(event.organization.seats))")
                 Spacer()
             }
-            .background(GradientsPack.purpleOrange)
+            .background(GradientsPack.greenPurple)
             .cornerRadius(BaseSizesPack.coreCornerRadius)
-
 
             HStack {
                 VStack {
@@ -53,16 +53,18 @@ struct ContentEventView: View {
 
                 VStack {
                     Spacer()
-                    YamCapsuleLabel(title: event.organization.place,
-                                    fontSize: 15)
+                        Button {
+                            isActiveEventLocationView.toggle()
+                        } label: {
+                            YamCapsuleLabel(title: PlaceHandler.handlePlace(event.organization.place),
+                                            fontSize: 15)
+                        }
                     Spacer()
                 }
-                .background(GradientsPack.orangePurple)
+                .background(GradientsPack.purpleIndigo)
                 .cornerRadius(BaseSizesPack.coreCornerRadius)
             }
-            .padding([.top, .bottom])
             .frame(maxHeight: UIScreen.main.bounds.height / 2)
-
 
             // contact
             Button {
@@ -79,12 +81,12 @@ struct ContentEventView: View {
                 .cornerRadius(BaseSizesPack.coreCornerRadius)
             }
 
-
-
         }
         .padding()
         .background(Color("ViewDetalGray"))
-
+        .sheet(isPresented: $isActiveEventLocationView) {
+            EventLocationView(event: event)
+        }
 
     }
 }

@@ -7,7 +7,7 @@ public enum FromDateToStringConverter {
         formatter.dateFormat = "dd.MM.yyyy\nHH:mm\n"
 
         result = formatter.string(from: date.date)
-        result += date.timeZome.localizedName(for: .standard, locale: Locales.ru) ?? ""
+        result += date.timeZone.localizedName(for: .standard, locale: Locales.ru) ?? ""
 
         return result
     }

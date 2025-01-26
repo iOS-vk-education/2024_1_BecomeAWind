@@ -1,11 +1,6 @@
 import Foundation
 import UIKit
 
-// enum EventCategory: String {
-//    case sport = "Спортивные игры"
-//    case entertainments = "Развлечения"
-// }
-
 struct Event: Identifiable {
     var id = UUID()
 
@@ -17,12 +12,11 @@ struct EventDescription {
     var title: String
     var description: String
     var image: UIImage
-//    var category: EventCategory
 }
 
 struct EventOrganizationInformation {
     var date: DateModel
-    var place: String
+    var place: PlaceModel?
     var seats: Int
     var link: String
 }

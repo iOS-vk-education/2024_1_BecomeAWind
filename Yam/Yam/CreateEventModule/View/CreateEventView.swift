@@ -33,8 +33,6 @@ struct CreateEventView: View {
     @Binding var isActiveCreateEventView: Bool
     @State var isActiveChooseEventPlaceView = false
 
-    var delme = EventsMock()
-
     var body: some View {
         ZStack {
             List {
@@ -180,8 +178,8 @@ struct CreateEventView: View {
                                                         image: image),
                           organization: EventOrganizationInformation(date:
                                                                         DateModel(date: date,
-                                                                                  timeZome: timeZone),
-                                                                     place: viewModel.placeDescription,
+                                                                                  timeZone: timeZone),
+                                                                     place: viewModel.place,
                                                                      seats: Int(seats) ?? 1,
                                                                      link: link))) {
                     isActiveCreateEventView.toggle()

@@ -7,40 +7,65 @@ final class TempDatabase: ObservableObject {
 
     private init() {
         print("TempDatabase initialized")
-        initEvents()
+        generateEvents(0)
+        generateEvents(1)
+        generateEvents(2)
     }
 
-    private func initEvents() {
-        let event1 = Event(description: EventDescription(title: "Партия в шахматы",
-                                                         description: """
-Значимость этих проблем настолько очевидна, что граница обучения кадров создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса экспериментов, поражающих по своей масштабности и грандиозности. Не следует, однако, забывать, что разбавленное изрядной долей эмпатии, рациональное мышление представляет собой интересный эксперимент проверки глубокомысленных рассуждений. С другой стороны, пот проверки глубокомысленных рассуждений. С другой стороны, по
-""",
-                                                         image: UIImage(named: "chess")!),
-                          organization: EventOrganizationInformation(date: DateModel(date: Date(),
-                                                                                     timeZome: TimeZone.current),
-                                                                     place: "Тестовая улица где-то в МСК",
-                                                                     seats: 1,
-                                                                     link: "https://t.me/iilyansky"))
 
-        let event2 = Event(description: EventDescription(title: "123456789012345678901234567890",
-                                                         description: "Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, ",
-                                                         image: UIImage(named: "defaulteventimage")!),
-                           organization: EventOrganizationInformation(date: DateModel(date: Date(),
-                                                                                      timeZome: TimeZone.current),
-                                                                      place: "Москва, ул. Строгино, 7",
-                                                                      seats: 4,
-                                                                      link: "https://contact/event/author"))
+    func generateEvents(_ now: Int) {
+        let coordinates = [
+            CLLocationCoordinate2D(latitude: 55.7558, longitude: 37.6173),
+            CLLocationCoordinate2D(latitude: 59.9343, longitude: 30.3351),
+            CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522)
+        ]
 
-        let event3 = Event(description: EventDescription(title: "Игра в футбол",
-                                                         description: "Ищем команду для игры в футбол +5",
-                                                         image: UIImage(named: "football")!),
-                           organization: EventOrganizationInformation(date: DateModel(date: Date(),
-                                                                                      timeZome: TimeZone.current),
-                                                                      place: "Тест тест тест лорем ипсум",
-                                                                      seats: 5,
-                                                                      link: "https://contact/event/author/asdas/asdasd/asdasd/asdasd/asdasd/asdasd/asdasd/asdasd"))
-        events = [event1, event2, event3]
+        let eventDescriptions = [
+            EventDescription(title: "Концерт в Москве", description: "Уникальное музыкальное событие в центре Москвы.", image: UIImage(named: "projectx")!),
+            EventDescription(title: "Театральная постановка", description: "Новый спектакль в Санкт-Петербурге.", image: UIImage(named: "film")!),
+            EventDescription(title: "Выставка искусства", description: "Крупнейшая выставка искусства в Париже.", image: UIImage(named: "chess")!)
+        ]
+
+        let eventDates = [
+            DateModel(date: Date(), timeZone: TimeZone.current),
+            DateModel(date: Date().addingTimeInterval(60*60*24*10), timeZone: TimeZone.current),
+            DateModel(date: Date().addingTimeInterval(60*60*24*20), timeZone: TimeZone.current)
+        ]
+
+        let seatsArray = [200, 150, 300]
+
+        let links = [
+            "https://developer.apple.com/documentation/foundation/dateformatter",
+            "https://github.com/ilyansky/born2code",
+            "https://t.me/iilyansky"
+        ]
+
+        let geocoder = CLGeocoder()
+
+        func getPlacemark(for coordinate: CLLocationCoordinate2D, completion: @escaping (CLPlacemark?) -> Void) {
+            geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude), preferredLocale: Locales.ru) { placemarks, error in
+                if let placemark = placemarks?.first {
+                    completion(placemark)
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+
+            getPlacemark(for: coordinates[now]) { placemark in
+                let event = Event(
+                    description: eventDescriptions[now],
+                    organization: EventOrganizationInformation(
+                        date: eventDates[now],
+                        place: placemark != nil ? PlaceModel(placemark: placemark!, coordinate: coordinates[now]) : nil,
+                        seats: seatsArray[now],
+                        link: links[now]
+                    )
+                )
+                self.events.append(event)
+            }
     }
+
 
     @Published var location1 = CLLocation(latitude: 55.9558,
                                          longitude: 37.2173)
