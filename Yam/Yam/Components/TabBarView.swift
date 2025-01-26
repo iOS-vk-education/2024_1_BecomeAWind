@@ -39,7 +39,7 @@ struct TabBarView: View {
                 }
 
         }
-        .background(GradientsPack.indigoPurple)
+        .background(GradientsPack.purpleIndigo)
         .cornerRadius(BaseSizesPack.coreCornerRadius)
         .padding()
     }

@@ -31,15 +31,60 @@ struct ContentEventView: View {
     @State var event: Event
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-//            ContentItemEvent(title: "Категория:", data: event.description.category.rawValue)
-            ContentItemEvent(title: "Количество свободных мест:", data: String(event.organization.seats))
-            ContentItemEvent(title: "Место проведения:", data: event.organization.place)
-            ContentItemEvent(title: "Ссылка на организатора:", data: event.organization.link)
+        VStack {
+            HStack {
+                Spacer()
+                YamCapsuleLabel(title: "Свободные места: \(String(event.organization.seats))")
+                Spacer()
+            }
+            .background(GradientsPack.purpleOrange)
+            .cornerRadius(BaseSizesPack.coreCornerRadius)
+
+
+            HStack {
+                VStack {
+                    Spacer()
+                    YamCapsuleLabel(title: FromDateToStringConverter.getDateString(from: event.organization.date),
+                                    fontSize: 15)
+                    Spacer()
+                }
+                .background(GradientsPack.orangePurple)
+                .cornerRadius(BaseSizesPack.coreCornerRadius)
+
+                VStack {
+                    Spacer()
+                    YamCapsuleLabel(title: event.organization.place,
+                                    fontSize: 15)
+                    Spacer()
+                }
+                .background(GradientsPack.orangePurple)
+                .cornerRadius(BaseSizesPack.coreCornerRadius)
+            }
+            .padding([.top, .bottom])
+            .frame(maxHeight: UIScreen.main.bounds.height / 2)
+
+
+            // contact
+            Button {
+                if let url = URL(string: event.organization.link) {
+                    UIApplication.shared.open(url)
+                }
+            } label: {
+                HStack {
+                    Spacer()
+                    YamCapsuleLabel(title: "Контакт организатора")
+                    Spacer()
+                }
+                .background(GradientsPack.purpleIndigo)
+                .cornerRadius(BaseSizesPack.coreCornerRadius)
+            }
+
+
+
         }
         .padding()
-        .padding(.bottom, 40)
         .background(Color("ViewDetalGray"))
-        .cornerRadius(10)
+
+
     }
 }

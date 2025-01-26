@@ -16,7 +16,7 @@ struct MapView: View {
                 } label: {
                     YamCapsuleLabel(title: "6",
                                   fontSize: 30,
-                                  background: GradientsPack.indigoPurple)
+                                  background: GradientsPack.purpleIndigo)
                 }
                 .sheet(isPresented: $isActiveDetailedInfoView) {
 //                    DetailedInfoView()

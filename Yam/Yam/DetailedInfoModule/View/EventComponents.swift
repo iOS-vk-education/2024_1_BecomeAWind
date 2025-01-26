@@ -36,10 +36,8 @@ struct EventDescriptionView: View {
     var descriprion: String
 
     var body: some View {
-        Text(descriprion)
-            .font(.body)
-            .foregroundColor(.white)
-            .padding(.horizontal)
+        YamText(text: descriprion, fontSize: 15, fontWeight: .medium)
+            .padding()
     }
 }
 

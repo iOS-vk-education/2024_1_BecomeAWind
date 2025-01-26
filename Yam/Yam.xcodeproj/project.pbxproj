@@ -55,6 +55,7 @@
 		8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7032D464E370017F2B8 /* FeedModel.swift */; };
 		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
 		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
+		879F2BFE2D46CE7F0027E46D /* FromDateToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* FromDateToStringConverter.swift */; };
 		87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E54DB42D44F81300693B96 /* PlaceModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
@@ -110,6 +111,7 @@
 		8752B7032D464E370017F2B8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
 		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
+		879F2BFD2D46CE7F0027E46D /* FromDateToStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromDateToStringConverter.swift; sourceTree = "<group>"; };
 		87E54DB42D44F81300693B96 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				870E3C8B2D4388D40043DA00 /* TempDatabase.swift */,
 				8752B6FB2D4568FB0017F2B8 /* Emojis.swift */,
 				8752B6FF2D45822F0017F2B8 /* Locales.swift */,
+				879F2BFD2D46CE7F0027E46D /* FromDateToStringConverter.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */,
 				870E3CA12D4388D40043DA00 /* GradientsPack.swift in Sources */,
 				870E3CA22D4388D40043DA00 /* EventCard.swift in Sources */,
+				879F2BFE2D46CE7F0027E46D /* FromDateToStringConverter.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* YamCapsuleLabel.swift in Sources */,
 				870E3CA42D4388D40043DA00 /* Extensions.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */,

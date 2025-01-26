@@ -27,10 +27,10 @@ struct FeedView: View {
                                     YamImage(image: event.description.image, size: UIScreen.main.bounds.width / 2 - 15)
                                     YamText(text: event.description.title, fontSize: 20, fontWeight: .semibold)
                                         .lineLimit(1)
-                                    YamCapsuleLabel(title: viewModel.getDateString(from: event.organization.date),
+                                    YamCapsuleLabel(title: FromDateToStringConverter.getDateString(from: event.organization.date),
                                                     fontSize: 15,
                                                     fontWeight: .regular,
-                                                    background: GradientsPack.indigoPurple
+                                                    background: GradientsPack.purpleIndigo
                                     )
                                     Spacer()
                                 }

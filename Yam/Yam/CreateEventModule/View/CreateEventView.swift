@@ -9,7 +9,7 @@ enum CreateEventViewSizesPack {
     static let imageSize: CGFloat = 20
 
     static let titleMaxLength = 30
-    static let descriptionMaxLength = 1000
+    static let descriptionMaxLength = 500
     static let seatsMaxLength = 4
     static let contactMaxLength = 50
 
@@ -162,7 +162,7 @@ struct CreateEventView: View {
                         } label: {
                             GradientImage(imageName: "arrowtriangle.down.circle",
                                           imageSize: CreateEventViewSizesPack.imageSize,
-                                          background: GradientsPack.indigoPurple)
+                                          background: GradientsPack.purpleIndigo)
                         }
                         .padding([.bottom, .trailing], 10)
                     }
@@ -192,7 +192,7 @@ struct CreateEventView: View {
                     YamCapsuleLabel(title: "Создать")
                     Spacer()
                 }
-                .background(GradientsPack.indigoPurple)
+                .background(GradientsPack.purpleIndigo)
             }
             .alert("Заполните все обязательные поля \(Emojis.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
                 Button("OK", role: .cancel) {}

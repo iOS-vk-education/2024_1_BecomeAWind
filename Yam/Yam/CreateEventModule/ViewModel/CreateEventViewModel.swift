@@ -13,7 +13,9 @@ final class CreateEventViewModel: ObservableObject {
     func handlePlace(_ place: PlaceModel) {
         placeDescription.removeAll()
         placeDescription = model.handlePlace(place)
-        placeDescription += "Широта | \(place.coordinate.latitude)\nДолгота | \(place.coordinate.longitude)"
+        let latitude = String(format: "%.4f", place.coordinate.latitude)
+        let longitude = String(format: "%.4f", place.coordinate.longitude)
+        placeDescription += "Широта: \(latitude)\nДолгота: \(longitude)"
     }
 
     func createEvent(_ event: Event) -> Bool {

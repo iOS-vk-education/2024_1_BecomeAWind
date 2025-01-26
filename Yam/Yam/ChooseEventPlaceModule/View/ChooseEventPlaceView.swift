@@ -23,14 +23,14 @@ struct ChooseEventPlaceView: View {
                     }
                 } label: {
                     YamCapsuleLabel(title: "Выбрать",
-                                  background: GradientsPack.indigoPurple)
+                                  background: GradientsPack.purpleIndigo)
                 }
                 .padding(.bottom, 10)
             }
 
             GradientImage(imageName: "mappin.circle",
                           imageSize: CreateEventViewSizesPack.imageSize,
-                          background: GradientsPack.indigoPurple)
+                          background: GradientsPack.purpleIndigo)
         }
     }
 }

@@ -28,5 +28,5 @@ struct YamCapsuleLabel: View {
 }
 
 #Preview {
-    YamCapsuleLabel(title: "Текст", background: GradientsPack.indigoPurple)
+    YamCapsuleLabel(title: "Текст", background: GradientsPack.purpleIndigo)
 }

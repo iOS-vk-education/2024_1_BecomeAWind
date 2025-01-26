@@ -21,5 +21,5 @@ struct GradientLoader: View {
 }
 
 #Preview {
-    GradientLoader(size: 50, background: GradientsPack.indigoPurple)
+    GradientLoader(size: 50, background: GradientsPack.purpleIndigo)
 }
