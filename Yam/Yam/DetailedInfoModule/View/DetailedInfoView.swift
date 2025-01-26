@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct DetailedInfoView: View {
-    let event: Event
+    let events: [Event]
 
     var body: some View {
         VStack {
-            HeaderView()
-            Events()
+//            HeaderView()
+            EventsView(events: events)
         }
         .background(ColorsPack.black)
     }

@@ -11,7 +11,7 @@ final class TempDatabase: ObservableObject {
     }
 
     private func initEvents() {
-        let event1 = Event(description: EventDescription(title: "Мероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1 \nМероприятие 1",
+        let event1 = Event(description: EventDescription(title: "Мероприятие 1",
                                                         description: "Это мероприятие создано в целях тестирования",
                                                         image: UIImage(named: "defaulteventimage")!),
                           organization: EventOrganizationInformation(date: DateModel(date: Date(),
@@ -20,8 +20,8 @@ final class TempDatabase: ObservableObject {
                                                                      seats: 13,
                                                                      link: "https://contact/event/author"))
 
-        let event2 = Event(description: EventDescription(title: "Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2 Мероприятие 2",
-                                                         description: "Это мероприятие создано в целях тестирования",
+        let event2 = Event(description: EventDescription(title: "123456789012345678901234567890",
+                                                         description: "Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, ",
                                                          image: UIImage(named: "defaulteventimage")!),
                            organization: EventOrganizationInformation(date: DateModel(date: Date(),
                                                                                       timeZome: TimeZone.current),
@@ -30,7 +30,7 @@ final class TempDatabase: ObservableObject {
                                                                       link: "https://contact/event/author"))
 
         let event3 = Event(description: EventDescription(title: "Мероприятие 3",
-                                                         description: "Это мероприятие создано в целях тестирования",
+                                                         description: "Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, ",
                                                          image: UIImage(named: "defaulteventimage")!),
                            organization: EventOrganizationInformation(date: DateModel(date: Date(),
                                                                                       timeZome: TimeZone.current),

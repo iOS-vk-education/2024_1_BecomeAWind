@@ -7,7 +7,7 @@ private enum FeedViewSizesPack {
 struct FeedView: View {
     @StateObject private var viewModel = FeedViewModel(model: FeedModel())
     @State private var isActiveCreateEventView = false
-    @State private var selectedEvent: Event? = nil
+    @State private var selectedEvent: Event?
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
@@ -25,9 +25,9 @@ struct FeedView: View {
                             } label: {
                                 VStack {
                                     YamImage(image: event.description.image, size: UIScreen.main.bounds.width / 2 - 15)
-                                    YamText(text: event.description.title)
-                                        .lineLimit(2)
-                                    YamCapsuleLabel(title: "20.10.25 | 14:00",
+                                    YamText(text: event.description.title, fontSize: 20, fontWeight: .semibold)
+                                        .lineLimit(1)
+                                    YamCapsuleLabel(title: viewModel.getDateString(from: event.organisa),
                                                     background: GradientsPack.indigoPurple
                                     )
                                     Spacer()
@@ -44,7 +44,7 @@ struct FeedView: View {
             }
         }
         .sheet(item: $selectedEvent) { event in
-            DetailedInfoView(event: event)
+            DetailedInfoView(events: [event])
         }
     }
 }

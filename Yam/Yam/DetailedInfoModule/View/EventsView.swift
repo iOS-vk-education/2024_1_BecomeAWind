@@ -1,17 +1,20 @@
 import SwiftUI
 
-struct Events: View {
+struct EventsView: View {
+    let events: [Event]
+
     var body: some View {
-        TabEvent()
+        TabEvent(events: events)
     }
 }
 
 struct TabEvent: View {
     @StateObject private var viewModel = DetailedInfoViewModel()
+    let events: [Event]
 
     var body: some View {
         TabView {
-            ForEach(viewModel.events) { event in
+            ForEach(events) { event in
                 EventCard(event: event)
             }
         }
@@ -21,6 +24,6 @@ struct TabEvent: View {
     }
 }
 
-#Preview {
-    Events()
-}
+//#Preview {
+//    EventsView()
+//}

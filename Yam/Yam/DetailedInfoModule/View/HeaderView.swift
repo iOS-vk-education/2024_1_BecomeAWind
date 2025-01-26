@@ -4,10 +4,7 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text("Мероприятие")
-                .frame(alignment: .center)
-                .font(.largeTitle)
-                .colorInvert()
+            YamText(text: "Мероприятие", fontSize: 30)
             Spacer()
         }
         .padding()

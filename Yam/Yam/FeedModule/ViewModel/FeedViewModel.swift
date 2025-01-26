@@ -20,5 +20,11 @@ final class FeedViewModel: ObservableObject {
     func updateEvents() {
         events = model.events
     }
-
 }
+
+extension FeedViewModel {
+    func getDateString(from date: DateModel) -> String {
+        return "1"
+    }
+}
+

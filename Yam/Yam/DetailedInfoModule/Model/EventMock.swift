@@ -39,48 +39,48 @@ private struct RandomEventDescription {
             image: UIImage(named: "defaulteventimage")!
 //            category: .sport
         ),
-        EventDescription(
-            title: "Футбол",
-            description: """
-            Привет! Сегодня в 18:00 мы с друзьями хотим провести дружеский матч, но нас не так много.
-            Нужно 7 человек. Желающие поиграть, повеселиться и обрести новые знакомства,
-            мы вас ждем зажидаемся!! 
-            """,
-            image: UIImage(named: "defaulteventimage")!
-//            category: .sport
-        ),
-        EventDescription(
-            title: "Тусовка по репосту",
-            description: """
-            Сделайте репост и попадайте на нашу крупнейшую тусовку в москве!!
-            """,
-            image: UIImage(named: "defaulteventimage")!
-//            category: .entertainments
-        ),
-        EventDescription(
-            title: "Игра в шахматы",
-            description: """
-            У нас проводится турнир по шахматам с денежным призом! Приходите и сражайтесь умами за первое место!!
-            """,
-            image: UIImage(named: "defaulteventimage")!
-//            category: .sport
-        ),
-        EventDescription(
-            title: "Пати в кску",
-            description: """
-            Хочу нормально апнуть рейтинга на фейсите, нужны тиммейты!!
-            """,
-            image: UIImage(named: "defaulteventimage")!
-//            category: .sport
-        ),
-        EventDescription(
-            title: "Фильмец",
-            description: """
-            Мой друг заболел и не сможет пойти на фильм, есть один билет кто пойдет вместо него?
-            """,
-            image: UIImage(named: "defaulteventimage")!
-//            category: .entertainments
-        )
+//        EventDescription(
+//            title: "Футбол",
+//            description: """
+//            Привет! Сегодня в 18:00 мы с друзьями хотим провести дружеский матч, но нас не так много.
+//            Нужно 7 человек. Желающие поиграть, повеселиться и обрести новые знакомства,
+//            мы вас ждем зажидаемся!! 
+//            """,
+//            image: UIImage(named: "defaulteventimage")!
+////            category: .sport
+//        ),
+//        EventDescription(
+//            title: "Тусовка по репосту",
+//            description: """
+//            Сделайте репост и попадайте на нашу крупнейшую тусовку в москве!!
+//            """,
+//            image: UIImage(named: "defaulteventimage")!
+////            category: .entertainments
+//        ),
+//        EventDescription(
+//            title: "Игра в шахматы",
+//            description: """
+//            У нас проводится турнир по шахматам с денежным призом! Приходите и сражайтесь умами за первое место!!
+//            """,
+//            image: UIImage(named: "defaulteventimage")!
+////            category: .sport
+//        ),
+//        EventDescription(
+//            title: "Пати в кску",
+//            description: """
+//            Хочу нормально апнуть рейтинга на фейсите, нужны тиммейты!!
+//            """,
+//            image: UIImage(named: "defaulteventimage")!
+////            category: .sport
+//        ),
+//        EventDescription(
+//            title: "Фильмец",
+//            description: """
+//            Мой друг заболел и не сможет пойти на фильм, есть один билет кто пойдет вместо него?
+//            """,
+//            image: UIImage(named: "defaulteventimage")!
+////            category: .entertainments
+//        )
     ]
 }
 
