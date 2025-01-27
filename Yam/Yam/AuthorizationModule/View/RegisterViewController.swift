@@ -8,7 +8,9 @@ final class RegisterViewController: UIViewController {
     private let passwordTextField = AuthTextField(fieldType: .password)
     private let signUpButton = AuthButton(title: "Создать аккаунт", hasBackground: true, fontSize: .big)
     private let iHaveAnAccount = AuthButton(title: "У меня есть аккаунт", hasBackground: false, fontSize: .med)
+    @ObservedObject var tempDatabase = TempDatabase.shared
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -30,13 +32,25 @@ extension RegisterViewController {
     }
 
     @objc func tapSignUp() {
-        let mainView = MainView()
-        let hostingController = UIHostingController(rootView: mainView)
-        navigationController?.pushViewController(hostingController, animated: true)
+        if (emailTextField.text ?? "") == "" ||
+            (passwordTextField.text ?? "") == "" ||
+            (loginTextField.text ?? "") == "" {
+            showErrorAlert()
+        } else {
+            let mainView = MainView()
+            let hostingController = UIHostingController(rootView: mainView)
+            navigationController?.pushViewController(hostingController, animated: true)
+        }
     }
 
     @objc func tapIHaveNoAccount() {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "Ошибка", message: "Введите все поля", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

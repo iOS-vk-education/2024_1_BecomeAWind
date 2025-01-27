@@ -7,6 +7,7 @@ final class LoginViewController: UIViewController {
     private let passwordTextField = AuthTextField(fieldType: .password)
     private let iHaveNoAccount = AuthButton(title: "У меня нет аккаунта", hasBackground: false, fontSize: .med)
     private let signInButton = AuthButton(title: "Войти", hasBackground: true, fontSize: .big)
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +30,29 @@ extension LoginViewController {
     }
 
     @objc func tapSignIn() {
-        let mainView = MainView()
-        let hostingController = UIHostingController(rootView: mainView)
-        navigationController?.pushViewController(hostingController, animated: true)
+        let email = "gal@gal.com"
+        let password = "123"
+
+
+        if (emailTextField.text ?? "") != email ||
+            (passwordTextField.text ?? "") != password {
+            showErrorAlert()
+        } else {
+            let mainView = MainView()
+            let hostingController = UIHostingController(rootView: mainView)
+            navigationController?.pushViewController(hostingController, animated: true)
+        }
     }
 
     @objc func tapIHaveNoAccount() {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
+    }
+
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "Ошибка", message: "Неправильная почта или пароль", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -4,6 +4,11 @@ import MapKit
 final class TempDatabase: ObservableObject {
     static let shared = TempDatabase()
     @Published var events: [Event] = []
+    @Published var users: [UserModel] = [
+        UserModel(login: "1", email: "1", password: "1"),
+        UserModel(login: "2", email: "2", password: "2"),
+        UserModel(login: "3", email: "3", password: "3"),
+    ]
 
     private init() {
         print("TempDatabase initialized")
@@ -11,7 +16,6 @@ final class TempDatabase: ObservableObject {
         generateEvents(1)
         generateEvents(2)
     }
-
 
     func generateEvents(_ now: Int) {
         let coordinates = [
