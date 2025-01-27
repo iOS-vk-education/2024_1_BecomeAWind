@@ -3,25 +3,8 @@ import MapKit
 
 struct EventLocationView: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State private var region: MKCoordinateRegion
 
     let event: Event
-
-    init(event: Event) {
-        self.event = event
-
-        if let place = event.organization.place {
-            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: place.coordinate.latitude,
-                                                                       longitude: place.coordinate.longitude),
-                                        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        } else {
-            region = MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // Пример координат
-                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-            )
-        }
-
-    }
 
     var body: some View {
         ZStack {
