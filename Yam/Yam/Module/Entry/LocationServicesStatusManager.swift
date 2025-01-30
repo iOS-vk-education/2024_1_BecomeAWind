@@ -1,7 +1,7 @@
 import SwiftUI
 import CoreLocation
 
-final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class LocationServicesStatusManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     @Published var isLocationServicesEnabled = false
 
@@ -12,7 +12,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     private func initLocationManager() {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
     private func checkLocationAuthorizationStatus() {
@@ -21,7 +20,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
             locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways, .authorizedWhenInUse:
             isLocationServicesEnabled = true
-            locationManager.startUpdatingLocation()
         case .restricted, .denied:
             isLocationServicesEnabled = false
         @unknown default:

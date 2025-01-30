@@ -1,11 +1,12 @@
 import SwiftUI
-import MapKit
+import _MapKit_SwiftUI
 
 struct MapView: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State var isActiveDetailedInfoView = false
-    @ObservedObject var tempDatabase = TempDatabase.shared
+    @State private var isActiveDetailedInfoView = false
     @State private var selectedEvent: Event?
+
+    @ObservedObject var tempDatabase = TempDatabase.shared // delme
 
     var body: some View {
         Map(position: $position) {
@@ -47,5 +48,5 @@ struct MapView: View {
 }
 
 #Preview {
-    DisabledLocationServicesView()
+    MapView()
 }

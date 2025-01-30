@@ -6,4 +6,3 @@ public enum SizePack {
     static let sidePadding: CGFloat = 20
     static let defaultImageSize: CGFloat = 200
 }
-

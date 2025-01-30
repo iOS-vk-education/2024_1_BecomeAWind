@@ -9,6 +9,8 @@ struct EventLocationView: View {
     var body: some View {
         ZStack {
             Map(position: $position) {
+                UserAnnotation()
+
                 if let place = event.organization.place {
                     Annotation("", coordinate: place.coordinate) {
                         YamImage(image: event.description.image, size: 70)

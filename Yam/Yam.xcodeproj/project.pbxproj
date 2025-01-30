@@ -20,7 +20,7 @@
 		870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */; };
 		870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6C2D4388D40043DA00 /* EventComponents.swift */; };
 		870E3C952D4388D40043DA00 /* ColorPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* ColorPack.swift */; };
-		870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C7B2D4388D40043DA00 /* LocationManager.swift */; };
+		870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */; };
 		870E3C992D4388D40043DA00 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6D2D4388D40043DA00 /* EventsView.swift */; };
 		870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YamText.swift */; };
 		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
@@ -91,7 +91,7 @@
 		870E3C6D2D4388D40043DA00 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		870E3C742D4388D40043DA00 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		870E3C792D4388D40043DA00 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
-		870E3C7B2D4388D40043DA00 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesStatusManager.swift; sourceTree = "<group>"; };
 		870E3C7F2D4388D40043DA00 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		870E3C832D4388D40043DA00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		870E3C852D4388D40043DA00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,9 +170,9 @@
 		870E3C582D4388D40043DA00 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */,
 				870E3C5F2D4388D40043DA00 /* YamText.swift */,
 				8752B7052D468D3E0017F2B8 /* YamImage.swift */,
-				870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */,
 				8752B7092D46924F0017F2B8 /* YamMappin.swift */,
 				870E3C532D4388D40043DA00 /* GradientImage.swift */,
 				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
@@ -299,7 +299,7 @@
 				870E3C792D4388D40043DA00 /* EntryView.swift */,
 				870E3C572D4388D40043DA00 /* TabBarView.swift */,
 				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
-				870E3C7B2D4388D40043DA00 /* LocationManager.swift */,
+				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -715,7 +715,7 @@
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* ColorPack.swift in Sources */,
-				870E3C982D4388D40043DA00 /* LocationManager.swift in Sources */,
+				870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */,
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
