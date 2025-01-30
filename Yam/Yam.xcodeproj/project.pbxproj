@@ -50,6 +50,7 @@
 		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
 		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
 		878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E73F22D47B8A000D425F4 /* UserModel.swift */; };
+		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
 		879F2BFE2D46CE7F0027E46D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* DateConverter.swift */; };
 		879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
@@ -107,6 +108,7 @@
 		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
 		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
 		878E73F22D47B8A000D425F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
 		879F2BFD2D46CE7F0027E46D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandler.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
@@ -178,7 +180,6 @@
 				870E3C472D4388860043DA00 /* AuthHeaderView.swift */,
 				870E3C482D4388860043DA00 /* AuthTextField.swift */,
 				870E3C4A2D4388860043DA00 /* Label.swift */,
-				870E3C572D4388D40043DA00 /* TabBarView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -296,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				870E3C792D4388D40043DA00 /* EntryView.swift */,
+				870E3C572D4388D40043DA00 /* TabBarView.swift */,
+				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
 				870E3C7B2D4388D40043DA00 /* LocationManager.swift */,
 			);
 			path = Entry;
@@ -743,6 +746,7 @@
 				870E3CAD2D4388D40043DA00 /* LoginScreenIntegrator.swift in Sources */,
 				870E3C442D4388010043DA00 /* RegisterViewController.swift in Sources */,
 				870E3C452D4388010043DA00 /* LoginViewController.swift in Sources */,
+				879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
