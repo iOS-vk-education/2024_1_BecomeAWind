@@ -23,8 +23,7 @@ struct ChooseEventPlaceView: View {
                         }
                     }
                 } label: {
-                    YamCapsuleLabel(title: "Выбрать",
-                                  background: GradientPack.purpleIndigo)
+                    YamCapsuleLabel(title: "выбрать")
                 }
                 .padding(.bottom, 10)
             }

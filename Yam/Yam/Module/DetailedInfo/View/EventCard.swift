@@ -35,7 +35,7 @@ struct ContentEventView: View {
         VStack {
             HStack {
                 Spacer()
-                YamCapsuleLabel(title: "Свободные места: \(String(event.organization.seats))")
+                YamCapsuleLabel(title: "свободные места: \(String(event.organization.seats))")
                 Spacer()
             }
             .background(GradientPack.greenPurple)
@@ -74,7 +74,7 @@ struct ContentEventView: View {
             } label: {
                 HStack {
                     Spacer()
-                    YamCapsuleLabel(title: "Контакт организатора")
+                    YamCapsuleLabel(title: "контакт организатора")
                     Spacer()
                 }
                 .background(GradientPack.purpleIndigo)

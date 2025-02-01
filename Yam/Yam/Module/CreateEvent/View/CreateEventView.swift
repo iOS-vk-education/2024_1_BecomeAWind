@@ -36,15 +36,16 @@ struct CreateEventView: View {
     var body: some View {
         ZStack {
             List {
-                Section {
-                    HStack {
-                        Spacer()
-                        YamText(text: "Новое мероприятие",
-                                fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
-                        Spacer()
-                    }
-                }
-                .listRowBackground(ColorPack.black)
+                CreateEventHeader()
+                //                Section {
+                //                    HStack {
+                //                        Spacer()
+                //                        YamWhiteText(text: "Новое мероприятие",
+                //                                fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
+                //                        Spacer()
+                //                    }
+                //                }
+                //                .listRowBackground(ColorPack.black)
 
                 // Image
                 Section {
@@ -73,21 +74,21 @@ struct CreateEventView: View {
                     // Title, description, seats, contact
                     Section {
                         CreateEventTextField(text: $title,
-                                             title: "Название \(Emoji.purpleCircle)",
+                                             title: "название \(Emoji.purpleCircle)",
                                              lineLimit: CreateEventViewSizesPack.lineLimit)
                         .onReceive(Just(title)) { _ in
                             limitTextField(CreateEventViewSizesPack.titleMaxLength, text: $title)
                         }
 
                         CreateEventTextField(text: $description,
-                                             title: "Описание",
+                                             title: "описание",
                                              lineLimit: CreateEventViewSizesPack.lineLimit)
                         .onReceive(Just(description)) { _ in
                             limitTextField(CreateEventViewSizesPack.descriptionMaxLength, text: $description)
                         }
 
                         CreateEventTextField(text: $seats,
-                                             title: "Количество мест \(Emoji.purpleCircle)",
+                                             title: "количество мест \(Emoji.purpleCircle)",
                                              prompt: "1",
                                              lineLimit: CreateEventViewSizesPack.lineLimit)
                         .keyboardType(.decimalPad)
@@ -99,7 +100,7 @@ struct CreateEventView: View {
                         }
 
                         CreateEventTextField(text: $link,
-                                             title: "Контакты создателя мероприятия \(Emoji.purpleCircle)",
+                                             title: "контакты создателя мероприятия \(Emoji.purpleCircle)",
                                              lineLimit: CreateEventViewSizesPack.lineLimit)
                         .onReceive(Just(title)) { _ in
                             limitTextField(CreateEventViewSizesPack.contactMaxLength, text: $link)
@@ -108,7 +109,7 @@ struct CreateEventView: View {
 
                     // Date, time, timezone
                     Section {
-                        YamText(text: "Дата, время, часовой пояс")
+                        YamWhiteText(text: "дата, время, часовой пояс")
                             .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
                         CreateEventDatePicker(date: $date, timeZone: $timeZone)
@@ -117,10 +118,10 @@ struct CreateEventView: View {
 
                     // Place
                     Section {
-                        YamText(text: "Место \(Emoji.purpleCircle)")
+                        YamWhiteText(text: "место \(Emoji.purpleCircle)")
                             .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
 
-                        YamText(
+                        YamWhiteText(
                             text: viewModel.placeDescription,
                             fontWeight: .regular
                         )
@@ -187,7 +188,7 @@ struct CreateEventView: View {
             } label: {
                 HStack {
                     Spacer()
-                    YamCapsuleLabel(title: "Создать")
+                    YamCapsuleLabel(title: "создать")
                     Spacer()
                 }
                 .background(GradientPack.purpleIndigo)
@@ -199,6 +200,20 @@ struct CreateEventView: View {
         }
     }
 
+}
+
+struct CreateEventHeader: View {
+    var body: some View {
+        Section {
+            HStack {
+                Spacer()
+                YamWhiteText(text: "новый ивент",
+                             fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
+                Spacer()
+            }
+        }
+        .listRowBackground(ColorPack.black)
+    }
 }
 
 extension CreateEventView {

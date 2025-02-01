@@ -24,13 +24,12 @@ struct EventLocationView: View {
             }
 
             VStack {
-                YamCapsuleLabel(title: PlaceHandler.handlePlace(event.organization.place),
-                                background: GradientPack.orangePurple)
+                YamCapsuleLabel(title: PlaceHandler.handlePlace(event.organization.place))
                 .frame(maxWidth: UIScreen.main.bounds.width / 2)
 
                 Spacer()
                 Button(action: centerMapOnEvent) {
-                    YamCapsuleLabel(title: "Показать мероприятие", background: GradientPack.purpleIndigo)
+                    YamCapsuleLabel(title: "Показать мероприятие")
                 }
 
             }

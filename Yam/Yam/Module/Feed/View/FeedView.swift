@@ -25,20 +25,19 @@ struct FeedView: View {
                             } label: {
                                 VStack {
                                     YamImage(image: event.description.image, size: UIScreen.main.bounds.width / 2 - 15)
-                                    YamText(text: event.description.title, fontSize: 20, fontWeight: .semibold)
+                                    YamWhiteText(text: event.description.title,
+                                                 fontWeight: .regular)
                                         .lineLimit(1)
                                     YamCapsuleLabel(title: DateConverter.getDateString(from: event.organization.date),
-                                                    fontSize: 15,
-                                                    fontWeight: .regular,
-                                                    background: GradientPack.purpleIndigo
-                                    )
+                                                    fontSize: 15)
                                     Spacer()
                                 }
                                 .frame(maxHeight: UIScreen.main.bounds.height / 2)
                             }
                         }
                     } header: {
-                        YamText(text: "Лента мероприятий", fontSize: FeedViewSizesPack.headerTitleFontSize)
+                        YamWhiteText(text: "лента мероприятий",
+                                     fontSize: FeedViewSizesPack.headerTitleFontSize)
                             .padding()
                     }
                 }

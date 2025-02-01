@@ -2,31 +2,34 @@ import SwiftUI
 
 struct YamCapsuleLabel: View {
     let title: String
+    let fontWeight: YamFontWeight
     let fontSize: CGFloat
-    let fontWeight: Font.Weight
-    let background: LinearGradient?
+    let background: LinearGradient
+
+    private var font: Font
 
     init(title: String,
-         fontSize: CGFloat = 20,
-         fontWeight: Font.Weight = .heavy,
-         background: LinearGradient? = nil) {
+         fontWeight: YamFontWeight = .extrabold,
+         fontSize: CGFloat = SizePack.coreFontSize,
+         background: LinearGradient = GradientPack.purpleIndigo) {
         self.title = title
-        self.fontSize = fontSize
         self.fontWeight = fontWeight
-        self.background = background ?? nil
+        self.fontSize = fontSize
+        self.background = background
+
+        font = FontManager.getFont(with: fontWeight, and: fontSize)
     }
 
     var body: some View {
         Text(title)
             .padding()
-            .font(Font.system(size: fontSize))
-            .fontWeight(fontWeight)
+            .font(font)
             .foregroundColor(ColorPack.white)
-            .background(background ?? GradientPack.clear)
+            .background(background)
             .cornerRadius(SizePack.coreCornerRadius)
     }
 }
 
 #Preview {
-    YamCapsuleLabel(title: "Текст", background: GradientPack.purpleIndigo)
+    YamCapsuleLabel(title: "текст", background: GradientPack.purpleIndigo)
 }

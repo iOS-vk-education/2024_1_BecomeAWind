@@ -18,7 +18,7 @@ struct CreateEventTextField: View {
             Spacer()
 
             VStack(alignment: .leading) {
-                YamText(text: title)
+                YamWhiteText(text: title)
 
                 TextField(
                     "",
