@@ -20,5 +20,5 @@ struct YamImage: View {
 }
 
 #Preview {
-    YamImage(image: UIImage(named: "defaulteventimage")!, size: 200)
+    YamImage(image: UIImage(named: "default_event_image")!)
 }

@@ -3,7 +3,6 @@ import Combine
 import PhotosUI
 
 enum CreateEventViewSizesPack {
-    static let newEventLabelFontSize: CGFloat = 30
     static let dateAndTimeLeadingPadding: CGFloat = 9
 
     static let imageSize: CGFloat = 20
@@ -20,8 +19,7 @@ struct CreateEventView: View {
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
     @ObservedObject private var keyboardObserver = KeyboardObserver()
 
-    @State private var photosPickerItem: PhotosPickerItem?
-    @State private var image: UIImage = (UIImage(named: "defaulteventimage") ?? UIImage(systemName: "photo.artframe"))! // todo remove spacers clickability
+    @State private var image: UIImage = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")! // todo remove spacers clickability
     @State private var title = ""
     @State private var description = ""
     @State private var seats = "1"
@@ -37,38 +35,8 @@ struct CreateEventView: View {
         ZStack {
             List {
                 CreateEventHeader()
-                //                Section {
-                //                    HStack {
-                //                        Spacer()
-                //                        YamWhiteText(text: "Новое мероприятие",
-                //                                fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
-                //                        Spacer()
-                //                    }
-                //                }
-                //                .listRowBackground(ColorPack.black)
 
-                // Image
-                Section {
-                    HStack {
-                        Spacer()
-                        PhotosPicker(selection: $photosPickerItem, matching: .images) {
-                            YamImage(image: image)
-                        }
-                        .onChange(of: photosPickerItem) {
-                            Task {
-                                if let photosPickerItem,
-                                   let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
-                                    if let img = UIImage(data: data) {
-                                        image = img
-                                    }
-                                }
-                                photosPickerItem = nil
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-                .listRowBackground(ColorPack.black)
+                CreateEventImage(image: $image)
 
                 Group {
                     // Title, description, seats, contact
@@ -198,22 +166,9 @@ struct CreateEventView: View {
             }
 
         }
+
     }
 
-}
-
-struct CreateEventHeader: View {
-    var body: some View {
-        Section {
-            HStack {
-                Spacer()
-                YamWhiteText(text: "новый ивент",
-                             fontSize: CreateEventViewSizesPack.newEventLabelFontSize)
-                Spacer()
-            }
-        }
-        .listRowBackground(ColorPack.black)
-    }
 }
 
 extension CreateEventView {
@@ -223,6 +178,51 @@ extension CreateEventView {
         }
     }
 }
+
+struct CreateEventHeader: View {
+    var body: some View {
+        Section {
+            HStack {
+                Spacer()
+                YamWhiteText(text: "новый ивент",
+                             fontSize: SizePack.headerTextFontSize)
+                Spacer()
+            }
+        }
+        .listRowBackground(ColorPack.black)
+    }
+}
+
+struct CreateEventImage: View {
+    @Binding var image: UIImage
+    @State private var photosPickerItem: PhotosPickerItem?
+
+    var body: some View {
+        Section {
+            HStack {
+                Spacer()
+                PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                    YamImage(image: image)
+                }
+                .onChange(of: photosPickerItem) {
+                    Task {
+                        if let photosPickerItem,
+                           let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
+                            if let img = UIImage(data: data) {
+                                image = img
+                            }
+                        }
+                        photosPickerItem = nil
+                    }
+                }
+                Spacer()
+            }
+        }
+        .listRowBackground(ColorPack.black)
+        .background()
+    }
+}
+
 
 #Preview {
     @Previewable @State var bool = true
