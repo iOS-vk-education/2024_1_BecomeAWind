@@ -41,7 +41,7 @@ struct CreateEventTextField: View {
                                       and: SizePack.textFieldFontSize))
         }
         .padding(.bottom)
-        .padding([.leading, .trailing], SizePack.coreSideSpacing)
+        .padding(.horizontal, SizePack.coreSideSpacing)
     }
 }
 

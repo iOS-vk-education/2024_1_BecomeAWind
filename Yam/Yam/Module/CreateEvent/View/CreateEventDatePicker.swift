@@ -5,38 +5,31 @@ struct CreateEventDatePicker: View {
     var timeZone: Binding<TimeZone>
 
     var body: some View {
+        YamWhiteText(text: "когда")
+
         VStack {
-            YamWhiteText(text: "когда")
-
-            DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {
-                YamWhiteText(text: "дата и время")
-            }
-            .pickerStyle(.menu)
+            DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {}
+            .environment(\.locale, Locales.ru)
+            .datePickerStyle(.graphical)
             .tint(ColorPack.purple)
-            .foregroundColor(ColorPack.white)
             .colorScheme(.dark)
-            .padding(.bottom)
+            .padding()
 
-            HStack {
-                YamWhiteText(text: "часовой пояс")
-
-                Picker(selection: timeZone, label: EmptyView()) {
-                    ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) { identifier in
-                        if let timeZone = TimeZone(identifier: identifier) {
-                            Text(timeZone.localizedName(for: .standard, locale: Locales.ru) ?? identifier)
-                                .tag(timeZone)
-                        }
-
+            Picker(selection: timeZone, label: EmptyView()) {
+                ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) { identifier in
+                    if let timeZone = TimeZone(identifier: identifier) {
+                        Text(timeZone.localizedName(for: .standard, locale: Locales.ru) ?? identifier)
+                            .tag(timeZone)
                     }
                 }
-                .padding(.leading)
-                .padding(.vertical)
             }
+            .tint(ColorPack.purple)
+            .colorScheme(.dark)
+            .padding(.bottom)
         }
-
-        .tint(ColorPack.purple)
-        .colorScheme(.dark)
-        .padding(.horizontal)
+        .background(ColorPack.gray)
+        .cornerRadius(SizePack.coreCornerRadius)
+        .padding(.horizontal, SizePack.coreSideSpacing)
         .padding(.bottom)
     }
 }

@@ -3,7 +3,7 @@ import Combine
 import PhotosUI
 
 enum CreateEventSizePack {
-    static let dateAndTimeLeadingPadding: CGFloat = 9
+//    static let dateAndTimeLeadingPadding: CGFloat = 9
 
     static let titleMaxLength = 30
     static let descriptionMaxLength = 500
@@ -17,13 +17,13 @@ struct CreateEventView: View {
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
     @ObservedObject private var keyboardObserver = KeyboardObserver()
 
-    @State private var image: UIImage = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")! // todo remove spacers clickability
+    @State private var image: UIImage = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
     @State private var title = ""
     @State private var description = ""
     @State private var seats = "1"
     @State private var link = ""
 
-    @State private var date = Date() // todo date bounds
+    @State private var date = Date()
     @State private var timeZone = TimeZone.current
 
     @Binding var isActiveCreateEventView: Bool
@@ -75,7 +75,6 @@ struct CreateEventView: View {
             CreateEventDatePicker(date: $date,
                                   timeZone: $timeZone)
 
-
             // delme
             CreateEventTextField(text: $link,
                                  title: "контакты создателя \(Emoji.purpleCircle)",
@@ -122,36 +121,36 @@ struct CreateEventView: View {
 //                        }
 
                         // Date, time, timezone
-                        Section {
-                            YamWhiteText(text: "дата, время, часовой пояс")
-                                .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
-
-                            CreateEventDatePicker(date: $date, timeZone: $timeZone)
-                                .padding([.bottom, .top])
-                        }
+//                        Section {
+//                            YamWhiteText(text: "дата, время, часовой пояс")
+//                                .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
+//
+//                            CreateEventDatePicker(date: $date, timeZone: $timeZone)
+//                                .padding([.bottom, .top])
+//                        }
 
                         // Place
-                        Section {
-                            YamWhiteText(text: "место \(Emoji.purpleCircle)")
-                                .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
-
-                            YamWhiteText(
-                                text: viewModel.placeDescription,
-                                fontWeight: .regular
-                            )
-                            .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
-
-                            HStack {
-                                Spacer()
-                                Button {
-                                    isActiveChooseEventPlaceView.toggle()
-                                } label: {
-                                    YamMappin()
-                                }
-                                Spacer()
-                            }
-
-                        }
+//                        Section {
+//                            YamWhiteText(text: "место \(Emoji.purpleCircle)")
+//                                .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
+//
+//                            YamWhiteText(
+//                                text: viewModel.placeDescription,
+//                                fontWeight: .regular
+//                            )
+//                            .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
+//
+//                            HStack {
+//                                Spacer()
+//                                Button {
+//                                    isActiveChooseEventPlaceView.toggle()
+//                                } label: {
+//                                    YamMappin()
+//                                }
+//                                Spacer()
+//                            }
+//
+//                        }
                     }
                     .listRowBackground(ColorPack.gray)
                     .listRowSeparatorTint(ColorPack.purple)
