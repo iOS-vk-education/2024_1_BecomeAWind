@@ -2,15 +2,13 @@ import SwiftUI
 import Combine
 import PhotosUI
 
-enum CreateEventViewSizesPack {
+enum CreateEventSizePack {
     static let dateAndTimeLeadingPadding: CGFloat = 9
-
-    static let imageSize: CGFloat = 20
 
     static let titleMaxLength = 30
     static let descriptionMaxLength = 500
     static let seatsMaxLength = 4
-    static let contactMaxLength = 50
+    static let contactMaxLength = 200
 
     static let lineLimit = 30
 }
@@ -32,91 +30,142 @@ struct CreateEventView: View {
     @State var isActiveChooseEventPlaceView = false
 
     var body: some View {
-        ZStack {
+        ScrollView {
+            CreateEventHeader()
+            CreateEventImage(image: $image)
+
+            // title
+            CreateEventTextField(text: $title,
+                                 title: "название \(Emoji.purpleCircle)",
+                                 lineLimit: CreateEventSizePack.lineLimit)
+            .onReceive(Just(title)) { _ in
+                limitTextField(CreateEventSizePack.titleMaxLength, text: $title)
+            }
+
+            // description
+            CreateEventTextField(text: $description,
+                                 title: "описание",
+                                 lineLimit: CreateEventSizePack.lineLimit)
+            .onReceive(Just(description)) { _ in
+                limitTextField(CreateEventSizePack.descriptionMaxLength, text: $description)
+            }
+
+            // seats
+            CreateEventTextField(text: $seats,
+                                 title: "количество мест \(Emoji.purpleCircle)",
+                                 prompt: "1",
+                                 lineLimit: CreateEventSizePack.lineLimit)
+            .keyboardType(.decimalPad)
+            .onChange(of: seats) { _, newValue in
+                seats = newValue.filter { seats.first != "0" && $0.isNumber }
+            }
+            .onReceive(Just(seats)) { _ in
+                limitTextField(CreateEventSizePack.seatsMaxLength, text: $seats)
+            }
+
+            // link
+            CreateEventTextField(text: $link,
+                                 title: "контакты создателя \(Emoji.purpleCircle)",
+                                 lineLimit: CreateEventSizePack.lineLimit)
+            .onReceive(Just(link)) { _ in
+                limitTextField(CreateEventSizePack.contactMaxLength, text: $link)
+            }
+
+            // date time timezone
+            CreateEventDatePicker(date: $date,
+                                  timeZone: $timeZone)
+
+
+            // delme
+            CreateEventTextField(text: $link,
+                                 title: "контакты создателя \(Emoji.purpleCircle)",
+                                 lineLimit: CreateEventSizePack.lineLimit)
+            .onReceive(Just(link)) { _ in
+                limitTextField(CreateEventSizePack.contactMaxLength, text: $link)
+            }
             List {
-                CreateEventHeader()
+                    Group {
+//                        // Title, description, seats, contact
+//                        Section {
+//                            CreateEventTextField(text: $title,
+//                                                 title: "название \(Emoji.purpleCircle)",
+//                                                 lineLimit: CreateEventViewSizesPack.lineLimit)
+//                            .onReceive(Just(title)) { _ in
+//                                limitTextField(CreateEventViewSizesPack.titleMaxLength, text: $title)
+//                            }
+//
+//                            CreateEventTextField(text: $description,
+//                                                 title: "описание",
+//                                                 lineLimit: CreateEventViewSizesPack.lineLimit)
+//                            .onReceive(Just(description)) { _ in
+//                                limitTextField(CreateEventViewSizesPack.descriptionMaxLength, text: $description)
+//                            }
+//
+//                            CreateEventTextField(text: $seats,
+//                                                 title: "количество мест \(Emoji.purpleCircle)",
+//                                                 prompt: "1",
+//                                                 lineLimit: CreateEventViewSizesPack.lineLimit)
+//                            .keyboardType(.decimalPad)
+//                            .onChange(of: seats) { _, newValue in
+//                                seats = newValue.filter { seats.first != "0" && $0.isNumber }
+//                            }
+//                            .onReceive(Just(seats)) { _ in
+//                                limitTextField(CreateEventViewSizesPack.seatsMaxLength, text: $seats)
+//                            }
+//
+//                            CreateEventTextField(text: $link,
+//                                                 title: "контакты создателя \(Emoji.purpleCircle)",
+//                                                 lineLimit: CreateEventViewSizesPack.lineLimit)
+//                            .onReceive(Just(title)) { _ in
+//                                limitTextField(CreateEventViewSizesPack.contactMaxLength, text: $link)
+//                            }
+//                        }
 
-                CreateEventImage(image: $image)
+                        // Date, time, timezone
+                        Section {
+                            YamWhiteText(text: "дата, время, часовой пояс")
+                                .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
 
-                Group {
-                    // Title, description, seats, contact
-                    Section {
-                        CreateEventTextField(text: $title,
-                                             title: "название \(Emoji.purpleCircle)",
-                                             lineLimit: CreateEventViewSizesPack.lineLimit)
-                        .onReceive(Just(title)) { _ in
-                            limitTextField(CreateEventViewSizesPack.titleMaxLength, text: $title)
+                            CreateEventDatePicker(date: $date, timeZone: $timeZone)
+                                .padding([.bottom, .top])
                         }
 
-                        CreateEventTextField(text: $description,
-                                             title: "описание",
-                                             lineLimit: CreateEventViewSizesPack.lineLimit)
-                        .onReceive(Just(description)) { _ in
-                            limitTextField(CreateEventViewSizesPack.descriptionMaxLength, text: $description)
-                        }
+                        // Place
+                        Section {
+                            YamWhiteText(text: "место \(Emoji.purpleCircle)")
+                                .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
 
-                        CreateEventTextField(text: $seats,
-                                             title: "количество мест \(Emoji.purpleCircle)",
-                                             prompt: "1",
-                                             lineLimit: CreateEventViewSizesPack.lineLimit)
-                        .keyboardType(.decimalPad)
-                        .onChange(of: seats) { _, newValue in
-                            seats = newValue.filter { seats.first != "0" && $0.isNumber }
-                        }
-                        .onReceive(Just(seats)) { _ in
-                            limitTextField(CreateEventViewSizesPack.seatsMaxLength, text: $seats)
-                        }
+                            YamWhiteText(
+                                text: viewModel.placeDescription,
+                                fontWeight: .regular
+                            )
+                            .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
 
-                        CreateEventTextField(text: $link,
-                                             title: "контакты создателя мероприятия \(Emoji.purpleCircle)",
-                                             lineLimit: CreateEventViewSizesPack.lineLimit)
-                        .onReceive(Just(title)) { _ in
-                            limitTextField(CreateEventViewSizesPack.contactMaxLength, text: $link)
-                        }
-                    }
-
-                    // Date, time, timezone
-                    Section {
-                        YamWhiteText(text: "дата, время, часовой пояс")
-                            .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
-
-                        CreateEventDatePicker(date: $date, timeZone: $timeZone)
-                            .padding([.bottom, .top])
-                    }
-
-                    // Place
-                    Section {
-                        YamWhiteText(text: "место \(Emoji.purpleCircle)")
-                            .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
-
-                        YamWhiteText(
-                            text: viewModel.placeDescription,
-                            fontWeight: .regular
-                        )
-                        .padding(.leading, CreateEventViewSizesPack.dateAndTimeLeadingPadding)
-
-                        HStack {
-                            Spacer()
-                            Button {
-                                isActiveChooseEventPlaceView.toggle()
-                            } label: {
-                                YamMappin()
+                            HStack {
+                                Spacer()
+                                Button {
+                                    isActiveChooseEventPlaceView.toggle()
+                                } label: {
+                                    YamMappin()
+                                }
+                                Spacer()
                             }
-                            Spacer()
-                        }
 
+                        }
                     }
+                    .listRowBackground(ColorPack.gray)
+                    .listRowSeparatorTint(ColorPack.purple)
                 }
-                .listRowBackground(ColorPack.gray)
-                .listRowSeparatorTint(ColorPack.purple)
-            }
-            .background(ColorPack.black)
-            .scrollContentBackground(.hidden)
-            .fullScreenCover(isPresented: $isActiveChooseEventPlaceView) {
-                ChooseEventPlaceView(
-                    viewModel: viewModel,
-                    isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
-            }
+                .background(ColorPack.black)
+                .scrollContentBackground(.hidden)
+                .fullScreenCover(isPresented: $isActiveChooseEventPlaceView) {
+                    ChooseEventPlaceView(
+                        viewModel: viewModel,
+                        isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
+                }
+        }
+        .background(ColorPack.black)
+
 
             // hide keyboard button
             if keyboardObserver.isKeyboardVisible {
@@ -128,7 +177,7 @@ struct CreateEventView: View {
                             UIApplication.shared.endEditing()
                         } label: {
                             GradientImage(imageName: "arrowtriangle.down.circle",
-                                          imageSize: CreateEventViewSizesPack.imageSize,
+                                          imageSize: SizePack.smallImageSize,
                                           background: GradientPack.purpleIndigo)
                         }
                         .padding([.bottom, .trailing], 10)
@@ -136,7 +185,7 @@ struct CreateEventView: View {
                 }
             }
 
-        }
+//        }
 
         // create event button
         if !keyboardObserver.isKeyboardVisible {
@@ -181,15 +230,13 @@ extension CreateEventView {
 
 struct CreateEventHeader: View {
     var body: some View {
-        Section {
-            HStack {
-                Spacer()
-                YamWhiteText(text: "новый ивент",
-                             fontSize: SizePack.headerTextFontSize)
-                Spacer()
-            }
+        HStack {
+            Spacer()
+            YamWhiteText(text: "новый ивент",
+                         fontSize: SizePack.headerTextFontSize)
+            Spacer()
         }
-        .listRowBackground(ColorPack.black)
+        .padding(.top)
     }
 }
 
@@ -198,11 +245,13 @@ struct CreateEventImage: View {
     @State private var photosPickerItem: PhotosPickerItem?
 
     var body: some View {
-        Section {
-            HStack {
-                Spacer()
+        HStack {
+            Spacer()
+            VStack {
+                YamImage(image: image)
+                    .allowsHitTesting(false)
                 PhotosPicker(selection: $photosPickerItem, matching: .images) {
-                    YamImage(image: image)
+                    YamCapsuleLabel(title: "выбрать обложку")
                 }
                 .onChange(of: photosPickerItem) {
                     Task {
@@ -215,11 +264,10 @@ struct CreateEventImage: View {
                         photosPickerItem = nil
                     }
                 }
-                Spacer()
             }
+            Spacer()
         }
-        .listRowBackground(ColorPack.black)
-        .background()
+        .padding(.bottom)
     }
 }
 

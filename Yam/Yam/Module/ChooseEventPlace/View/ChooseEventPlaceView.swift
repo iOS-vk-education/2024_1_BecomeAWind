@@ -29,7 +29,7 @@ struct ChooseEventPlaceView: View {
             }
 
             GradientImage(imageName: "mappin.circle",
-                          imageSize: CreateEventViewSizesPack.imageSize,
+                          imageSize: SizePack.smallImageSize,
                           background: GradientPack.purpleIndigo)
         }
     }

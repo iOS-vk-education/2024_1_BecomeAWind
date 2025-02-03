@@ -4,7 +4,7 @@ struct YamImage: View {
     let image: UIImage
     let size: CGFloat
 
-    init(image: UIImage, size: CGFloat = SizePack.defaultImageSize) {
+    init(image: UIImage, size: CGFloat = SizePack.mediumImageSize) {
         self.image = image
         self.size = size
     }
@@ -21,4 +21,5 @@ struct YamImage: View {
 
 #Preview {
     YamImage(image: UIImage(named: "default_event_image")!)
+        .background(ColorPack.black)
 }

@@ -6,17 +6,20 @@ struct CreateEventDatePicker: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                    .foregroundColor(ColorPack.white)
-                DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {}
-                .tint(ColorPack.purple)
-                .colorScheme(.dark)
-                .background(ColorPack.gray)
-                Spacer()
+            YamWhiteText(text: "когда")
+
+            DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {
+                YamWhiteText(text: "дата и время")
             }
+            .pickerStyle(.menu)
+            .tint(ColorPack.purple)
+            .foregroundColor(ColorPack.white)
+            .colorScheme(.dark)
+            .padding(.bottom)
+
             HStack {
-                Spacer()
+                YamWhiteText(text: "часовой пояс")
+
                 Picker(selection: timeZone, label: EmptyView()) {
                     ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) { identifier in
                         if let timeZone = TimeZone(identifier: identifier) {
@@ -26,19 +29,21 @@ struct CreateEventDatePicker: View {
 
                     }
                 }
-                .pickerStyle(.menu)
-                .tint(ColorPack.purple)
-                .foregroundColor(ColorPack.white)
-                .colorScheme(.dark)
-                Spacer()
+                .padding(.leading)
+                .padding(.vertical)
             }
-
         }
 
+        .tint(ColorPack.purple)
+        .colorScheme(.dark)
+        .padding(.horizontal)
+        .padding(.bottom)
     }
 }
 
-// #Preview {
-//    @Previewable @State var date = Date()
-//    CreateEventDatePicker(date: $date)
-// }
+#Preview {
+    @Previewable @State var date = Date()
+    @Previewable @State var tz = TimeZone.current
+    CreateEventDatePicker(date: $date, timeZone: $tz)
+        .background(ColorPack.black)
+}
