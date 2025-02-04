@@ -46,28 +46,28 @@ final class TempDatabase: ObservableObject {
 
         let geocoder = CLGeocoder()
 
-        func getPlacemark(for coordinate: CLLocationCoordinate2D, completion: @escaping (CLPlacemark?) -> Void) {
-            geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude), preferredLocale: Locales.ru) { placemarks, _ in
-                if let placemark = placemarks?.first {
-                    completion(placemark)
-                } else {
-                    completion(nil)
-                }
-            }
-        }
+//        func getPlacemark(for coordinate: CLLocationCoordinate2D, completion: @escaping (CLPlacemark?) -> Void) {
+//            geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude), preferredLocale: Locales.ru) { placemarks, _ in
+//                if let placemark = placemarks?.first {
+//                    completion(placemark)
+//                } else {
+//                    completion(nil)
+//                }
+//            }
+//        }
 
-            getPlacemark(for: coordinates[now]) { placemark in
-                let event = Event(
-                    description: eventDescriptions[now],
-                    organization: EventOrganizationInformation(
-                        date: eventDates[now],
-                        place: placemark != nil ? PlaceModel(placemark: placemark!, coordinate: coordinates[now]) : nil,
-                        seats: seatsArray[now],
-                        link: links[now]
-                    )
-                )
-                self.events.append(event)
-            }
+//        getPlacemark(for: coordinates[now]) { placemark in
+//                let event = Event(
+//                    description: eventDescriptions[now],
+//                    organization: EventOrganizationInformation(
+//                        date: eventDates[now],
+//                        place: placemark != nil ? PlaceModel(placemark: placemark!, coordinate: coordinates[now]) : nil,
+//                        seats: seatsArray[now],
+//                        link: links[now]
+//                    )
+//                )
+//                self.events.append(event)
+//            }
     }
 
     @Published var location1 = CLLocation(latitude: 55.9558,

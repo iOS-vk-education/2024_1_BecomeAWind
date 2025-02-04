@@ -6,7 +6,7 @@ struct CreateEventTextField: View {
     let prompt: String
     let lineLimit: Int
 
-    init(text: Binding<String>, title: String, prompt: String = "введите текст", lineLimit: Int) {
+    init(text: Binding<String>, title: String, prompt: String = "введи текст", lineLimit: Int) {
         self.text = text
         self.title = title
         self.prompt = prompt

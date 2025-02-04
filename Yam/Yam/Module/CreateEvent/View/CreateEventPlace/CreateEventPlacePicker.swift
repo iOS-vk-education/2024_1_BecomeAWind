@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CreateEventPlacePicker: View {
     @ObservedObject var viewModel: CreateEventViewModel
-    @State private var isActiveChooseEventPlaceView = false
+    @State private var isActiveCreateEventPlaceView = false
 
     var body: some View {
         YamWhiteText(text: "место \(Emoji.purpleCircle)")
@@ -13,19 +13,20 @@ struct CreateEventPlacePicker: View {
                 fontWeight: .regular,
                 fontSize: CreateEventSizePack.placeDescriptionFontSize
             )
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
 
             Button {
-                isActiveChooseEventPlaceView.toggle()
+                isActiveCreateEventPlaceView.toggle()
             } label: {
                 YamMappin()
             }
             .padding(.bottom)
         }
-        .fullScreenCover(isPresented: $isActiveChooseEventPlaceView) {
-            ChooseEventPlaceView(
+        .fullScreenCover(isPresented: $isActiveCreateEventPlaceView) {
+            CreateEventPlaceView(
                 viewModel: viewModel,
-                isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
+                isActiveCreateEventPlaceView: $isActiveCreateEventPlaceView)
         }
     }
 }

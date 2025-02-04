@@ -47,8 +47,8 @@ extension RegisterViewController {
     }
 
     private func showErrorAlert() {
-        let alert = UIAlertController(title: "Ошибка", message: "Введите все поля", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        let alert = UIAlertController(title: "ошибка", message: "введи все поля", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ок", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 public enum PlaceHandler {
     static func handlePlace(_ place: PlaceModel?) -> String {
-        var placeDescription = "Выберите место проведения мероприятия"
+        var placeDescription = CreateEventCommonItem.emptyPlaceText
 
         if let place {
             placeDescription = ""
@@ -24,6 +24,8 @@ public enum PlaceHandler {
                 placeDescription += thoroughfare == "" ? "" : "\(thoroughfare)\n"
                 placeDescription += subThoroughfare == "" ? "" : "\(subThoroughfare)\n"
             }
+
+            placeDescription += "\n"
 
             let latitude = String(format: "%.4f", place.coordinate.latitude)
             let longitude = String(format: "%.4f", place.coordinate.longitude)

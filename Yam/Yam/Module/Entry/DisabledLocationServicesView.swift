@@ -10,7 +10,7 @@ struct DisabledLocationServicesView: View {
                 .ignoresSafeArea()
 
             VStack {
-                Text("Службы геолокации выключены.\nВключите их в настройках.")
+                Text("службы геолокации выключены.\nвключи их в настройках.")
                     .font(.headline)
                     .fontWeight(.heavy)
                     .foregroundColor(ColorPack.white)

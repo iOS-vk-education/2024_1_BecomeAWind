@@ -12,6 +12,10 @@ enum CreateEventSizePack {
     static let placeDescriptionFontSize: CGFloat = 15
 }
 
+enum CreateEventCommonItem {
+    static let emptyPlaceText = "выбери место проведения мероприятия"
+}
+
 struct CreateEventView: View {
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
     @ObservedObject private var keyboardObserver = KeyboardObserver()
@@ -119,8 +123,8 @@ struct CreateEventView: View {
                     }
                     .background(GradientPack.purpleIndigo)
                 }
-                .alert("Заполните все обязательные поля \(Emoji.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
-                    Button("OK", role: .cancel) {}
+                .alert("заполни все обязательные поля \(Emoji.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
+                    Button("ок", role: .cancel) {}
                 }
 
             }
