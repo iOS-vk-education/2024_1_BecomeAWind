@@ -10,5 +10,4 @@ struct CreateEventHeader: View {
 
 #Preview {
     CreateEventHeader()
-        .background(ColorPack.black)
 }

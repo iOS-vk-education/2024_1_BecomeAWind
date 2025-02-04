@@ -21,7 +21,7 @@ struct DisabledLocationServicesView: View {
                         UIApplication.shared.open(appSettings)
                     }
                 } label: {
-                    YamCapsuleLabel(title: "Открыть настройки", background: GradientPack.purpleIndigo)
+                    YamCapsuleLabel(title: "открыть настройки", background: GradientPack.purpleIndigo)
                 }
                 .padding(.bottom)
             }

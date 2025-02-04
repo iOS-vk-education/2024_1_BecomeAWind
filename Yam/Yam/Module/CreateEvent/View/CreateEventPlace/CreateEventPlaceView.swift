@@ -12,17 +12,19 @@ struct CreateEventPlaceView: View {
                 // map
                 CreateEventPlaceMap(centerCoordinate: $centerCoordinate)
                     .ignoresSafeArea()
+                    .colorScheme(.light)
 
                 // choose button
                 Button {
-//                    viewModel.getPlacemark(for: centerCoordinate) { placemark in
-//                        if let placemark {
-//                            let place = PlaceModel(placemark: placemark,
-//                                                   coordinate: centerCoordinate)
-//                            viewModel.handlePlace(place)
-//                            isActiveCreateEventPlaceView.toggle()
-//                        }
-//                    }
+                    viewModel.getPlacemark(for: centerCoordinate) { placemark in
+                        if let placemark {
+                            let place = PlaceModel(
+                                placemark: placemark,
+                                coordinate: centerCoordinate)
+                            viewModel.handlePlaceObject(place)
+                            isActiveCreateEventPlaceView.toggle()
+                        }
+                    }
                 } label: {
                     YamCapsuleLabel(title: "выбрать")
                 }

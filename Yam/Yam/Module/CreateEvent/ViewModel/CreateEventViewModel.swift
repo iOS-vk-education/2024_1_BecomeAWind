@@ -19,10 +19,12 @@ final class CreateEventViewModel: ObservableObject {
             return false
         }
     }
+}
 
+// for CreateEventPlaceView
+extension CreateEventViewModel {
     func getPlacemark(for coordinate: CLLocationCoordinate2D,
-                             completion: @escaping (CLPlacemark?)
-                             -> Void ) {
+                             completion: @escaping (CLPlacemark?) -> Void) {
         // make location from latitude and longitude
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         let geocoder = CLGeocoder()
@@ -39,25 +41,8 @@ final class CreateEventViewModel: ObservableObject {
         }
     }
 
-    func handlePlace(_ place: PlaceModel) {
-        placeDescription = PlaceHandler.handlePlace(place)
+    func handlePlaceObject(_ place: PlaceModel) {
         self.place = place
+        placeDescription = PlaceHandler.handlePlace(place)
     }
 }
-
-/*
-extension CreateEventViewModel {
-    private func printPlacemarkInfo(placemark: CLPlacemark) {
-        print("AdministrativeArea = \(String(describing: placemark.administrativeArea))")
-        print("Country = \(String(describing: placemark.country))")
-        print("inlandWater = \(String(describing: placemark.inlandWater))")
-        print("locality = \(String(describing: placemark.locality))")
-        print("ocean = \(String(describing: placemark.ocean))")
-        print("subAdministrativeArea = \(String(describing: placemark.subAdministrativeArea))")
-        print("subLocality = \(String(describing: placemark.subLocality))")
-        print("subThoroughfare = \(String(describing: placemark.subThoroughfare))")
-        print("thoroughfare = \(String(describing: placemark.thoroughfare))")
-        print()
-    }
-}
-*/

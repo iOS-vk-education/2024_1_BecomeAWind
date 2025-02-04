@@ -27,5 +27,4 @@ struct YamWhiteText: View {
 #Preview {
     YamWhiteText(text: "текст", fontSize: 40)
         .padding()
-        .background(ColorPack.black)
 }

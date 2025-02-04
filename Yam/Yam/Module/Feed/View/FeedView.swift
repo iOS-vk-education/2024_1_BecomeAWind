@@ -13,9 +13,6 @@ struct FeedView: View {
 
     var body: some View {
         ZStack {
-            ColorPack.black
-                .ignoresSafeArea()
-
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
                     Section {

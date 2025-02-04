@@ -35,5 +35,4 @@ struct CreateEventDatePicker: View {
     @Previewable @State var date = Date()
     @Previewable @State var tz = TimeZone.current
     CreateEventDatePicker(date: $date, timeZone: $tz)
-        .background(ColorPack.black)
 }

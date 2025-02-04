@@ -1,7 +1,7 @@
 import SwiftUI
 import _PhotosUI_SwiftUI
 
-struct CreateEventImage: View {
+struct CreateEventImagePicker: View {
     @Binding var image: UIImage
     @State private var photosPickerItem: PhotosPickerItem?
 

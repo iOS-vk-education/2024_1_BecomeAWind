@@ -37,6 +37,7 @@ struct MapView: View {
                 }
             }
         }
+        .colorScheme(.light)
         .tint(Color.purple)
         .mapControls {
             MapUserLocationButton()

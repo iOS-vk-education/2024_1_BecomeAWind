@@ -40,5 +40,4 @@ struct CreateEventTextField: View {
  #Preview {
     @Previewable @State var title = ""
     CreateEventTextField(text: $title, title: "текст", lineLimit: 3)
-         .background(ColorPack.black)
  }

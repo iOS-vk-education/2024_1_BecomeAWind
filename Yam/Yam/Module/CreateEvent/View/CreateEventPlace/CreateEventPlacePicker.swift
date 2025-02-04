@@ -34,5 +34,4 @@ struct CreateEventPlacePicker: View {
 #Preview {
     @Previewable @StateObject var viewModel = CreateEventViewModel(model: CreateEventModel())
     CreateEventPlacePicker(viewModel: viewModel)
-        .background(ColorPack.black)
 }

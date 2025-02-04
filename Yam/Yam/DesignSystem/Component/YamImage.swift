@@ -22,5 +22,4 @@ struct YamImage: View {
 
 #Preview {
     YamImage(image: UIImage(named: "default_event_image")!)
-        .background(ColorPack.black)
 }
