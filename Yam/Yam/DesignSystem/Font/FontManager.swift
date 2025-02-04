@@ -31,5 +31,3 @@ enum CoreFont {
     static let medium = "MontserratAlternates-Medium"
     static let regular = "MontserratAlternates-Regular"
 }
-
-

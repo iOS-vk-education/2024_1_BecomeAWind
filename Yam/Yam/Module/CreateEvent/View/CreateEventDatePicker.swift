@@ -7,13 +7,14 @@ struct CreateEventDatePicker: View {
     var body: some View {
         YamWhiteText(text: "когда")
 
-        VStack {
+        CreateEventVStack {
             DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {}
             .environment(\.locale, Locales.ru)
             .datePickerStyle(.graphical)
             .tint(ColorPack.purple)
             .colorScheme(.dark)
-            .padding()
+            .padding(.horizontal)
+            .padding(.bottom)
 
             Picker(selection: timeZone, label: EmptyView()) {
                 ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) { identifier in
@@ -27,10 +28,6 @@ struct CreateEventDatePicker: View {
             .colorScheme(.dark)
             .padding(.bottom)
         }
-        .background(ColorPack.gray)
-        .cornerRadius(SizePack.coreCornerRadius)
-        .padding(.horizontal, SizePack.coreSideSpacing)
-        .padding(.bottom)
     }
 }
 

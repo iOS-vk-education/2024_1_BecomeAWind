@@ -30,4 +30,3 @@ struct CreateEventImage: View {
         .padding(.bottom)
     }
 }
-

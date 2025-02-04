@@ -6,9 +6,10 @@ enum CreateEventSizePack {
     static let descriptionMaxLength = 500
     static let seatsMaxLength = 4
     static let contactMaxLength = 200
-    static let timeZoneFontSize: CGFloat = 15
 
     static let lineLimit = 30
+
+    static let placeDescriptionFontSize: CGFloat = 15
 }
 
 struct CreateEventView: View {
@@ -25,7 +26,6 @@ struct CreateEventView: View {
     @State private var timeZone = TimeZone.current
 
     @Binding var isActiveCreateEventView: Bool
-    @State var isActiveChooseEventPlaceView = false
 
     var body: some View {
         ScrollView {
@@ -61,6 +61,13 @@ struct CreateEventView: View {
                 limitTextField(CreateEventSizePack.seatsMaxLength, text: $seats)
             }
 
+            // date time timezone
+            CreateEventDatePicker(date: $date,
+                                  timeZone: $timeZone)
+
+            // place picker
+            CreateEventPlacePicker(viewModel: viewModel)
+
             // link
             CreateEventTextField(text: $link,
                                  title: "контакты создателя \(Emoji.purpleCircle)",
@@ -68,54 +75,6 @@ struct CreateEventView: View {
             .onReceive(Just(link)) { _ in
                 limitTextField(CreateEventSizePack.contactMaxLength, text: $link)
             }
-
-            // date time timezone
-            CreateEventDatePicker(date: $date,
-                                  timeZone: $timeZone)
-
-            // place
-
-
-
-//            List {
-//                Group {
-//
-//
-//                    // Place
-//                    Section {
-//                        YamWhiteText(text: "место \(Emoji.purpleCircle)")
-//                            .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
-//
-//                        YamWhiteText(
-//                            text: viewModel.placeDescription,
-//                            fontWeight: .regular
-//                        )
-//                        .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
-//
-//                        HStack {
-//                            Spacer()
-//                            Button {
-//                                isActiveChooseEventPlaceView.toggle()
-//                            } label: {
-//                                YamMappin()
-//                            }
-//                            Spacer()
-//                        }
-//
-//                    }
-//                }
-//                .listRowBackground(ColorPack.gray)
-//                .listRowSeparatorTint(ColorPack.purple)
-//            }
-            //                .background(ColorPack.black)
-            //                .scrollContentBackground(.hidden)
-            //                .fullScreenCover(isPresented: $isActiveChooseEventPlaceView) {
-            //                    ChooseEventPlaceView(
-            //                        viewModel: viewModel,
-            //                        isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
-            //                }
-            //        }
-
 
             // hide keyboard button
             if keyboardObserver.isKeyboardVisible {

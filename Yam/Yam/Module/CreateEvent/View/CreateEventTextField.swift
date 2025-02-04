@@ -14,9 +14,9 @@ struct CreateEventTextField: View {
     }
 
     var body: some View {
-        VStack {
-            YamWhiteText(text: title)
+        YamWhiteText(text: title)
 
+        CreateEventVStack {
             TextField(
                 "",
                 text: text,
@@ -28,16 +28,12 @@ struct CreateEventTextField: View {
                 axis: .vertical
             )
             .padding()
-            .background(ColorPack.gray)
-            .cornerRadius(SizePack.coreCornerRadius)
             .tint(ColorPack.purple)
             .foregroundColor(ColorPack.white)
             .lineLimit(lineLimit)
             .font(FontManager.getFont(with: .medium,
                                       and: SizePack.textFieldFontSize))
         }
-        .padding(.bottom)
-        .padding(.horizontal, SizePack.coreSideSpacing)
     }
 }
 

@@ -8,7 +8,7 @@ struct YamWhiteText: View {
     private var font: Font
 
     init(text: String,
-         fontWeight: YamFontWeight = .extrabold,
+         fontWeight: YamFontWeight = .bold,
          fontSize: CGFloat = SizePack.coreFontSize) {
         self.text = text
         self.fontWeight = fontWeight

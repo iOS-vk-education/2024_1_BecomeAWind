@@ -1,30 +1,37 @@
 import SwiftUI
 
 struct CreateEventPlacePicker: View {
-    var body: some View {
-        Text("a")
-//        YamWhiteText(text: "место \(Emoji.purpleCircle)")
-//            .frame
-//
-////        YamWhiteText(
-////            text: viewModel.placeDescription,
-////            fontWeight: .regular
-////        )
-//        .padding(.leading, CreateEventSizePack.dateAndTimeLeadingPadding)
-//
-//        HStack {
-//            Spacer()
-//            Button {
-////                isActiveChooseEventPlaceView.toggle()
-//            } label: {
-//                YamMappin()
-//            }
-//            Spacer()
-//        }
+    @ObservedObject var viewModel: CreateEventViewModel
+    @State private var isActiveChooseEventPlaceView = false
 
+    var body: some View {
+        YamWhiteText(text: "место \(Emoji.purpleCircle)")
+
+        CreateEventVStack {
+            YamWhiteText(
+                text: viewModel.placeDescription,
+                fontWeight: .regular,
+                fontSize: CreateEventSizePack.placeDescriptionFontSize
+            )
+            .padding()
+
+            Button {
+                isActiveChooseEventPlaceView.toggle()
+            } label: {
+                YamMappin()
+            }
+            .padding(.bottom)
+        }
+        .fullScreenCover(isPresented: $isActiveChooseEventPlaceView) {
+            ChooseEventPlaceView(
+                viewModel: viewModel,
+                isActiveChooseEventPlaceView: $isActiveChooseEventPlaceView)
+        }
     }
 }
 
 #Preview {
-    CreateEventPlacePicker()
+    @Previewable @StateObject var viewModel = CreateEventViewModel(model: CreateEventModel())
+    CreateEventPlacePicker(viewModel: viewModel)
+        .background(ColorPack.black)
 }

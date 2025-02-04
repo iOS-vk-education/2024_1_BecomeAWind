@@ -42,6 +42,7 @@ struct ChooseEventPlaceViewModel {
     }
 }
 
+
 extension ChooseEventPlaceViewModel: UIViewRepresentable {
     /*
      SwiftUI calls this method before calling the makeUIViewController(context:) method.
@@ -63,3 +64,4 @@ extension ChooseEventPlaceViewModel: UIViewRepresentable {
 
     func updateUIView(_ uiView: MKMapView, context: Context) {}
 }
+

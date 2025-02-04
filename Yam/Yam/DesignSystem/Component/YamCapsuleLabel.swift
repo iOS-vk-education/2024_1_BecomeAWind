@@ -9,7 +9,7 @@ struct YamCapsuleLabel: View {
     private var font: Font
 
     init(title: String,
-         fontWeight: YamFontWeight = .extrabold,
+         fontWeight: YamFontWeight = .bold,
          fontSize: CGFloat = SizePack.coreFontSize,
          background: LinearGradient = GradientPack.purpleIndigo) {
         self.title = title

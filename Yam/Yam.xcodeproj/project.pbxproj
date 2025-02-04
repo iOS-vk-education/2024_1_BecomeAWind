@@ -68,6 +68,7 @@
 		87DAF8CB2D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C42D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf */; };
 		87DAF8CC2D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */; };
 		87E54DB52D44F81300693B96 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E54DB42D44F81300693B96 /* PlaceModel.swift */; };
+		87FC48442D52089600F6D8CC /* CreateEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* CreateEventVStack.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 		E73FA7E732B4D03CB589F5FB /* libPods-Yam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59208C23824848D2D5F0EF4 /* libPods-Yam.a */; };
 /* End PBXBuildFile section */
@@ -137,6 +138,7 @@
 		87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
 		87E54DB42D44F81300693B96 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87FC48432D52089600F6D8CC /* CreateEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventVStack.swift; sourceTree = "<group>"; };
 		961E57A55203F9FD8BA41608 /* Pods-Yam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yam.release.xcconfig"; path = "Target Support Files/Pods-Yam/Pods-Yam.release.xcconfig"; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 		E59208C23824848D2D5F0EF4 /* libPods-Yam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 				870E3C602D4388D40043DA00 /* CreateEventTextField.swift */,
 				870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */,
 				87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */,
+				87FC48432D52089600F6D8CC /* CreateEventVStack.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				870E3C902D4388D40043DA00 /* EventModel.swift in Sources */,
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
 				8752B6F82D455A710017F2B8 /* ChooseEventPlaceViewModel.swift in Sources */,
+				87FC48442D52089600F6D8CC /* CreateEventVStack.swift in Sources */,
 				87BA69092D498302008DF823 /* UIApplication.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,

@@ -4,7 +4,8 @@ struct YamImage: View {
     let image: UIImage
     let size: CGFloat
 
-    init(image: UIImage, size: CGFloat = SizePack.mediumImageSize) {
+    init(image: UIImage,
+         size: CGFloat = SizePack.mediumImageSize) {
         self.image = image
         self.size = size
     }
