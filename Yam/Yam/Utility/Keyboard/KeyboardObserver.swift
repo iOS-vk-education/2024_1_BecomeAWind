@@ -1,11 +1,14 @@
 import UIKit
 import Combine
 
+// singleton
 final class KeyboardObserver: ObservableObject {
+    static let shared = KeyboardObserver()
+
     @Published var isKeyboardVisible: Bool = false
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
+    private init() {
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
             .map { _ in true }
             .merge(with: NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification).map { _ in false })
@@ -13,3 +16,4 @@ final class KeyboardObserver: ObservableObject {
             .store(in: &cancellables)
     }
 }
+

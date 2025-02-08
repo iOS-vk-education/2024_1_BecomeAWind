@@ -25,7 +25,6 @@
 		870E3C9A2D4388D40043DA00 /* YamWhiteText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YamWhiteText.swift */; };
 		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
 		870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */; };
-		870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C572D4388D40043DA00 /* TabBarView.swift */; };
 		870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C692D4388D40043DA00 /* CornerRadius.swift */; };
 		870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C742D4388D40043DA00 /* FeedView.swift */; };
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
@@ -42,6 +41,7 @@
 		870E3CAD2D4388D40043DA00 /* LoginScreenIntegrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */; };
 		870E3CAE2D4388D40043DA00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C832D4388D40043DA00 /* Preview Assets.xcassets */; };
 		870E3CAF2D4388D40043DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C852D4388D40043DA00 /* Assets.xcassets */; };
+		87240BE52D56B1CE00AD5058 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87240BE42D56B1CE00AD5058 /* ProfileView.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
@@ -85,7 +85,6 @@
 		870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamCapsuleLabel.swift; sourceTree = "<group>"; };
 		870E3C552D4388D40043DA00 /* GradientLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoader.swift; sourceTree = "<group>"; };
 		870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenIntegrator.swift; sourceTree = "<group>"; };
-		870E3C572D4388D40043DA00 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		870E3C592D4388D40043DA00 /* CreateEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModel.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceView.swift; sourceTree = "<group>"; };
 		870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDatePicker.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		870E3C892D4388D40043DA00 /* GradientPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPack.swift; sourceTree = "<group>"; };
 		870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		870E3C8B2D4388D40043DA00 /* TempDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDatabase.swift; sourceTree = "<group>"; };
+		87240BE42D56B1CE00AD5058 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -262,7 +262,6 @@
 				870E3C6D2D4388D40043DA00 /* EventsView.swift */,
 				870E3C6B2D4388D40043DA00 /* EventCard.swift */,
 				870E3C6C2D4388D40043DA00 /* EventComponents.swift */,
-				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				870E3C792D4388D40043DA00 /* EntryView.swift */,
-				870E3C572D4388D40043DA00 /* TabBarView.swift */,
 				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
 				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
@@ -375,8 +373,49 @@
 				87BA690E2D4983DC008DF823 /* Map */,
 				87BA690C2D49834B008DF823 /* Formatter&Handler */,
 				87BA69082D498302008DF823 /* Keyboard */,
+				874E8ADC2D57B0C400BE21F5 /* View */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		87240BDE2D56B17E00AD5058 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				87240BE22D56B1AA00AD5058 /* View */,
+				87240BE32D56B1AD00AD5058 /* ViewModel */,
+				87240BDF2D56B18400AD5058 /* Model */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		87240BDF2D56B18400AD5058 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		87240BE22D56B1AA00AD5058 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87240BE42D56B1CE00AD5058 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87240BE32D56B1AD00AD5058 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		874E8ADC2D57B0C400BE21F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		878E73EF2D47B88D00D425F4 /* View */ = {
@@ -450,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C7D2D4388D40043DA00 /* Entry */,
+				87240BDE2D56B17E00AD5058 /* Profile */,
 				870E3C432D4388010043DA00 /* Authorization */,
 				870E3C822D4388D40043DA00 /* Map */,
 				870E3C652D4388D40043DA00 /* CreateEvent */,
@@ -733,6 +773,7 @@
 				87BA69092D498302008DF823 /* UIApplication.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,
+				87240BE52D56B1CE00AD5058 /* ProfileView.swift in Sources */,
 				870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */,
 				8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */,
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
@@ -746,7 +787,6 @@
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
 				8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */,
-				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
 				870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */,
 				8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */,
 				879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */,
@@ -919,7 +959,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -958,7 +998,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

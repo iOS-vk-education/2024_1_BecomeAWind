@@ -18,7 +18,7 @@ enum CreateEventCommonItem {
 
 struct CreateEventView: View {
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
-//    @ObservedObject private var keyboardObserver = KeyboardObserver()
+    @ObservedObject private var keyboardObserver = KeyboardObserver.shared
 
     @State private var image: UIImage = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
     @State private var title = ""
@@ -97,41 +97,41 @@ struct CreateEventView: View {
 //                    }
 //                }
 //            }
-
-            //        }
+//
+//                    }
 
             // create event button
-//            if !keyboardObserver.isKeyboardVisible {
-//                Button {
-//                    if viewModel.createEvent(
-//                        Event(description: EventDescription(title: title,
-//                                                            description: description,
-//                                                            image: image),
-//                              organization: EventOrganizationInformation(date:
-//                                                                            DateModel(date: date,
-//                                                                                      timeZone: timeZone),
-//                                                                         place: viewModel.place,
-//                                                                         seats: Int(seats) ?? 1,
-//                                                                         link: link))) {
-//                        isActiveCreateEventView.toggle()
-//                    }
-//                } label: {
-//                    HStack {
-//                        Spacer()
-//                        YamCapsuleLabel(title: "создать")
-//                        Spacer()
-//                    }
-//                    .background(GradientPack.purpleIndigo)
-//                }
-//                .alert("заполни все обязательные поля \(Emoji.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
-//                    Button("ок", role: .cancel) {}
-//                }
-//
-//            }
+            if !keyboardObserver.isKeyboardVisible {
+                Button {
+                    if viewModel.createEvent(
+                        Event(description: EventDescription(title: title,
+                                                            description: description,
+                                                            image: image),
+                              organization: EventOrganizationInformation(date:
+                                                                            DateModel(date: date,
+                                                                                      timeZone: timeZone),
+                                                                         place: viewModel.place,
+                                                                         seats: Int(seats) ?? 1,
+                                                                         link: link))) {
+                        isActiveCreateEventView.toggle()
+                    }
+                } label: {
+                    HStack {
+                        Spacer()
+                        YamCapsuleLabel(title: "создать")
+                        Spacer()
+                    }
+                    .background(GradientPack.purpleIndigo)
+                }
+                .alert("заполни все обязательные поля \(Emoji.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
+                    Button("ок", role: .cancel) {}
+                }
+
+            }
 
         }
+        .scrollIndicators(.hidden)
         .background(ColorPack.black)
-
     }
 }
 

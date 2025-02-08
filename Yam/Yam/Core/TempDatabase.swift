@@ -1,8 +1,10 @@
 import SwiftUI
 import MapKit
 
+// singleton
 final class TempDatabase: ObservableObject {
     static let shared = TempDatabase()
+    
     @Published var events: [Event] = []
     @Published var users: [UserModel] = [
         UserModel(login: "1", email: "1", password: "1"),
