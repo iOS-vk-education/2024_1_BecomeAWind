@@ -9,17 +9,16 @@ struct EntryView: View {
             ProfileView()
                 .tabItem {
                     TabItem(imageSystemName: "calendar.and.person",
-                            title: "Progress"
+                            title: "Прогресс"
                     )
                 }
 
             DisabledLocationServicesView()
                 .tabItem {
-                    TabItem(imageSystemName: "map",
-                            title: "Map"
+                    TabItem(imageSystemName: "globe.europe.africa.fill",
+                            title: "Карта"
                     )
                 }
-//            MapView()
         }
         .tint(ColorPack.purple)
 
@@ -33,7 +32,6 @@ private struct TabItem: View {
     var body: some View {
         VStack {
             Image(systemName: imageSystemName)
-                .resizable()
             Text(title)
         }
 
