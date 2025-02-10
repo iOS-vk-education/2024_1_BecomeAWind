@@ -26,7 +26,6 @@
 		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
 		870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */; };
 		870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C572D4388D40043DA00 /* TabBarView.swift */; };
-		870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C692D4388D40043DA00 /* CornerRadius.swift */; };
 		870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C742D4388D40043DA00 /* FeedView.swift */; };
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
 		870E3CA12D4388D40043DA00 /* GradientPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C892D4388D40043DA00 /* GradientPack.swift */; };
@@ -56,11 +55,13 @@
 		879F2BFE2D46CE7F0027E46D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* DateConverter.swift */; };
 		879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
+		87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B47A8D2D58B500007AA252 /* CornerRadius.swift */; };
+		87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B47A902D58E9DF007AA252 /* YamCloseScreenButton.swift */; };
 		87BA68F82D494F8F008DF823 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA68F72D494F8F008DF823 /* CLLocationCoordinate2D.swift */; };
-		87BA69092D498302008DF823 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69062D498302008DF823 /* UIApplication.swift */; };
 		87BA690A2D498302008DF823 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69072D498302008DF823 /* UIViewController.swift */; };
 		87BA69142D498510008DF823 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69122D498510008DF823 /* Locales.swift */; };
 		87BD45332D515BD0001B8E1B /* CreateEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */; };
+		87CEE3152D595453005D3375 /* Delme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CEE3142D595453005D3375 /* Delme.swift */; };
 		87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* FontManager.swift */; };
 		87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */; };
 		87DAF8C92D4E775300C8C550 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */; };
@@ -94,7 +95,6 @@
 		870E3C612D4388D40043DA00 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
 		870E3C672D4388D40043DA00 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
-		870E3C692D4388D40043DA00 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		870E3C6A2D4388D40043DA00 /* DetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoView.swift; sourceTree = "<group>"; };
 		870E3C6B2D4388D40043DA00 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		870E3C6C2D4388D40043DA00 /* EventComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventComponents.swift; sourceTree = "<group>"; };
@@ -124,11 +124,13 @@
 		879F2BFD2D46CE7F0027E46D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		879F2BFF2D46E20C0027E46D /* PlaceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHandler.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
+		87B47A8D2D58B500007AA252 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		87B47A902D58E9DF007AA252 /* YamCloseScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamCloseScreenButton.swift; sourceTree = "<group>"; };
 		87BA68F72D494F8F008DF823 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
-		87BA69062D498302008DF823 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		87BA69072D498302008DF823 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		87BA69122D498510008DF823 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlacePicker.swift; sourceTree = "<group>"; };
+		87CEE3142D595453005D3375 /* Delme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delme.swift; sourceTree = "<group>"; };
 		87DAF8C02D4E747D00C8C550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87DAF8C12D4E74DA00C8C550 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				870E3C5F2D4388D40043DA00 /* YamWhiteText.swift */,
 				8752B7052D468D3E0017F2B8 /* YamImage.swift */,
 				8752B7092D46924F0017F2B8 /* YamMappin.swift */,
+				87B47A902D58E9DF007AA252 /* YamCloseScreenButton.swift */,
 				870E3C532D4388D40043DA00 /* GradientImage.swift */,
 				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
 				870E3C462D4388860043DA00 /* AuthButton.swift */,
@@ -262,7 +265,6 @@
 				870E3C6D2D4388D40043DA00 /* EventsView.swift */,
 				870E3C6B2D4388D40043DA00 /* EventCard.swift */,
 				870E3C6C2D4388D40043DA00 /* EventComponents.swift */,
-				870E3C692D4388D40043DA00 /* CornerRadius.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,6 +374,7 @@
 		870E3C8C2D4388D40043DA00 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				87B47A8E2D58B500007AA252 /* View */,
 				87BA690E2D4983DC008DF823 /* Map */,
 				87BA690C2D49834B008DF823 /* Formatter&Handler */,
 				87BA69082D498302008DF823 /* Keyboard */,
@@ -435,6 +438,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		87B47A8E2D58B500007AA252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87B47A8D2D58B500007AA252 /* CornerRadius.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		87BA68ED2D494DBD008DF823 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +453,7 @@
 				870E3C8B2D4388D40043DA00 /* TempDatabase.swift */,
 				870E3C852D4388D40043DA00 /* Assets.xcassets */,
 				870E3C842D4388D40043DA00 /* Preview Content */,
+				87CEE3142D595453005D3375 /* Delme.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -490,7 +502,6 @@
 			isa = PBXGroup;
 			children = (
 				870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */,
-				87BA69062D498302008DF823 /* UIApplication.swift */,
 				87BA69072D498302008DF823 /* UIViewController.swift */,
 			);
 			path = Keyboard;
@@ -730,7 +741,6 @@
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
 				8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */,
 				87FC48442D52089600F6D8CC /* CreateEventVStack.swift in Sources */,
-				87BA69092D498302008DF823 /* UIApplication.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,
 				870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */,
@@ -739,15 +749,17 @@
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* ColorPack.swift in Sources */,
 				878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */,
+				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */,
+				87CEE3152D595453005D3375 /* Delme.swift in Sources */,
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
 				878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */,
+				87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* YamWhiteText.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
 				8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */,
 				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
-				870E3C9E2D4388D40043DA00 /* CornerRadius.swift in Sources */,
 				8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */,
 				879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */,
 				87BA68F82D494F8F008DF823 /* CLLocationCoordinate2D.swift in Sources */,

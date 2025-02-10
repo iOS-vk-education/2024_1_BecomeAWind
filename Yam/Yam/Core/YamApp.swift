@@ -8,6 +8,7 @@ struct YamApp: App {
 //                .edgesIgnoringSafeArea(.all)
 
             EntryView()
+
         }
     }
 }

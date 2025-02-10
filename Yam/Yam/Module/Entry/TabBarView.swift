@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var feedViewIsActive = false
-    @State private var createEventViewIsActive = false
+    @State private var isActiveFeedView = false
+    @State private var isActiveCreateEventView = false
 
     var body: some View {
         VStack {
@@ -11,24 +11,24 @@ struct TabBarView: View {
                 // FeedView
                 TabBarItem(imageSystemName: "text.page.fill")
                     .onTapGesture {
-                        feedViewIsActive.toggle()
+                        isActiveFeedView.toggle()
                     }
-                    .sheet(isPresented: $feedViewIsActive) {
-                        FeedView()
+                    .fullScreenCover(isPresented: $isActiveFeedView) {
+                        FeedView(isActiveFeedView: $isActiveFeedView)
                     }
 
                 // CreateEventView
                 TabBarItem(imageSystemName: "plus.circle.fill")
                     .onTapGesture {
-                        createEventViewIsActive.toggle()
+                        isActiveCreateEventView.toggle()
                     }
-                    .sheet(isPresented: $createEventViewIsActive) {
-                        CreateEventView(isActiveCreateEventView: $createEventViewIsActive)
+                    .sheet(isPresented: $isActiveCreateEventView) {
+                        CreateEventView(isActiveCreateEventView: $isActiveCreateEventView)
                     }
             }
             .background(GradientPack.purpleIndigo)
             .cornerRadius(SizePack.coreCornerRadius)
-            .padding()
+            .padding(.bottom, 5)
         }
 
     }
@@ -46,7 +46,7 @@ struct TabBarItem: View {
         }
         .background(.black)
         .cornerRadius(SizePack.coreCornerRadius)
-        .padding(20)
+        .padding(10)
     }
 }
 

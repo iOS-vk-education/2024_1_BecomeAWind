@@ -1,13 +1,25 @@
 import SwiftUI
 
 struct CreateEventHeader: View {
+    @Binding var isActiveCreateEventView: Bool
+
     var body: some View {
-        YamWhiteText(text: "новый ивент",
-                     fontSize: SizePack.headerTextFontSize)
-        .padding(.top)
+        ZStack {
+            YamWhiteText(text: "новый ивент",
+                         fontSize: SizePack.headerTextFontSize)
+            HStack {
+                Spacer()
+                YamCloseScreenButton {
+                    isActiveCreateEventView.toggle()
+                }
+            }
+            .padding(.trailing)
+
+        }
     }
 }
 
 #Preview {
-    CreateEventHeader()
+    @Previewable @State var bool = true
+    CreateEventHeader(isActiveCreateEventView: $bool)
 }

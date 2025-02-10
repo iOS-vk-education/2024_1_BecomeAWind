@@ -6,7 +6,7 @@ private enum FeedViewSizesPack {
 
 struct FeedView: View {
     @StateObject private var viewModel = FeedViewModel(model: FeedModel())
-    @State private var isActiveCreateEventView = false
+    @Binding var isActiveFeedView: Bool
     @State private var selectedEvent: Event?
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
@@ -45,9 +45,14 @@ struct FeedView: View {
         .sheet(item: $selectedEvent) { event in
             DetailedInfoView(events: [event])
         }
+
+        YamCloseScreenButton {
+            isActiveFeedView.toggle()
+        }
     }
 }
 
 #Preview {
-    FeedView()
+    @Previewable @State var bool = true
+    FeedView(isActiveFeedView: $bool)
 }

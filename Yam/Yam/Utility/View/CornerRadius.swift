@@ -8,7 +8,7 @@ extension View {
 
 private struct RoundedCorner: Shape {
     var radius: CGFloat
-    var corners: UIRectCorner
+    var corners: UIRectCorner = [.allCorners]
 
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(

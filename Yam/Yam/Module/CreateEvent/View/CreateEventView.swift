@@ -18,120 +18,146 @@ enum CreateEventCommonItem {
 
 struct CreateEventView: View {
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
-//    @ObservedObject private var keyboardObserver = KeyboardObserver()
+    @ObservedObject private var keyboardObserver = KeyboardObserver.shared
 
     @State private var image: UIImage = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
     @State private var title = ""
     @State private var description = ""
     @State private var seats = "1"
     @State private var link = ""
-
     @State private var date = Date()
     @State private var timeZone = TimeZone.current
 
     @Binding var isActiveCreateEventView: Bool
 
+//    @FocusState private var activeTextField: String?
+
     var body: some View {
-        ScrollView {
-            CreateEventHeader()
-            CreateEventImagePicker(image: $image)
+//        ScrollViewReader { proxy in
+            ScrollView(showsIndicators: false) {
+                CreateEventHeader(isActiveCreateEventView: $isActiveCreateEventView)
+                CreateEventImagePicker(image: $image)
 
-            // title
-            CreateEventTextField(text: $title,
-                                 title: "название \(Emoji.purpleCircle)",
-                                 lineLimit: CreateEventSizePack.lineLimit)
-            .onReceive(Just(title)) { _ in
-                limitTextField(CreateEventSizePack.titleMaxLength, text: $title)
+                // title
+                CreateEventTextField(text: $title,
+                                     title: "название \(Emoji.purpleCircle)",
+                                     lineLimit: CreateEventSizePack.lineLimit)
+                .onReceive(Just(title)) { _ in
+                    limitTextField(CreateEventSizePack.titleMaxLength, text: $title)
+                }
+//                .id("title")
+//                .focused($activeTextField, equals: "title")
+
+                // description
+                CreateEventTextField(text: $description,
+                                     title: "описание",
+                                     lineLimit: CreateEventSizePack.lineLimit)
+                .onReceive(Just(description)) { _ in
+                    limitTextField(CreateEventSizePack.descriptionMaxLength, text: $description)
+                }
+//                .id("description")
+//                .focused($activeTextField, equals: "description")
+
+                // seats
+                CreateEventTextField(text: $seats,
+                                     title: "количество мест \(Emoji.purpleCircle)",
+                                     prompt: "1",
+                                     lineLimit: CreateEventSizePack.lineLimit)
+                .keyboardType(.decimalPad)
+                .onChange(of: seats) { _, newValue in
+                    seats = newValue.filter { seats.first != "0" && $0.isNumber }
+                }
+                .onReceive(Just(seats)) { _ in
+                    limitTextField(CreateEventSizePack.seatsMaxLength, text: $seats)
+                }
+//                .id("seats")
+//                .focused($activeTextField, equals: "seats")
+
+                // date time timezone
+                CreateEventDatePicker(date: $date,
+                                      timeZone: $timeZone) // need optimize
+
+                // place picker
+                CreateEventPlacePicker(viewModel: viewModel)
+
+                // link
+                CreateEventTextField(text: $link,
+                                     title: "контакты создателя \(Emoji.purpleCircle)",
+                                     lineLimit: CreateEventSizePack.lineLimit)
+                .onReceive(Just(link)) { _ in
+                    limitTextField(CreateEventSizePack.contactMaxLength, text: $link)
+                }
+//                .id("link")
+//                .focused($activeTextField, equals: "link")
+
+
+
+
+                // hide keyboard button
+                //            if keyboardObserver.isKeyboardVisible {
+                //                VStack {
+                //                    Spacer()
+                //                    HStack {
+                //                        Spacer()
+                //                        Button {
+                //                            UIApplication.shared.endEditing()
+                //                        } label: {
+                //                            GradientImage(imageName: "arrowtriangle.down.circle",
+                //                                          imageSize: SizePack.smallImageSize,
+                //                                          background: GradientPack.purpleIndigo)
+                //                        }
+                //                        .padding([.bottom, .trailing], 10)
+                //                    }
+                //                }
+                //            }
+
+                //        }
+
+                // create event button
+                //            if !keyboardObserver.isKeyboardVisible {
+                //                Button {
+                //                    if viewModel.createEvent(
+                //                        Event(description: EventDescription(title: title,
+                //                                                            description: description,
+                //                                                            image: image),
+                //                              organization: EventOrganizationInformation(date:
+                //                                                                            DateModel(date: date,
+                //                                                                                      timeZone: timeZone),
+                //                                                                         place: viewModel.place,
+                //                                                                         seats: Int(seats) ?? 1,
+                //                                                                         link: link))) {
+                //                        isActiveCreateEventView.toggle()
+                //                    }
+                //                } label: {
+                //                    HStack {
+                //                        Spacer()
+                //                        YamCapsuleLabel(title: "создать")
+                //                        Spacer()
+                //                    }
+                //                    .background(GradientPack.purpleIndigo)
+                //                }
+                //                .alert("заполни все обязательные поля \(Emoji.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
+                //                    Button("ок", role: .cancel) {}
+                //                }
+                //
+                //            }
+
             }
-
-            // description
-            CreateEventTextField(text: $description,
-                                 title: "описание",
-                                 lineLimit: CreateEventSizePack.lineLimit)
-            .onReceive(Just(description)) { _ in
-                limitTextField(CreateEventSizePack.descriptionMaxLength, text: $description)
-            }
-
-            // seats
-            CreateEventTextField(text: $seats,
-                                 title: "количество мест \(Emoji.purpleCircle)",
-                                 prompt: "1",
-                                 lineLimit: CreateEventSizePack.lineLimit)
-            .keyboardType(.decimalPad)
-            .onChange(of: seats) { _, newValue in
-                seats = newValue.filter { seats.first != "0" && $0.isNumber }
-            }
-            .onReceive(Just(seats)) { _ in
-                limitTextField(CreateEventSizePack.seatsMaxLength, text: $seats)
-            }
-
-            // date time timezone
-            CreateEventDatePicker(date: $date,
-                                  timeZone: $timeZone)
-
-            // place picker
-            CreateEventPlacePicker(viewModel: viewModel)
-
-            // link
-            CreateEventTextField(text: $link,
-                                 title: "контакты создателя \(Emoji.purpleCircle)",
-                                 lineLimit: CreateEventSizePack.lineLimit)
-            .onReceive(Just(link)) { _ in
-                limitTextField(CreateEventSizePack.contactMaxLength, text: $link)
-            }
-
-            // hide keyboard button
-//            if keyboardObserver.isKeyboardVisible {
-//                VStack {
-//                    Spacer()
-//                    HStack {
-//                        Spacer()
-//                        Button {
-//                            UIApplication.shared.endEditing()
-//                        } label: {
-//                            GradientImage(imageName: "arrowtriangle.down.circle",
-//                                          imageSize: SizePack.smallImageSize,
-//                                          background: GradientPack.purpleIndigo)
-//                        }
-//                        .padding([.bottom, .trailing], 10)
+            .background(ColorPack.black)
+//            .onChange(of: activeTextField) { field in
+//                if let field = field {
+//                    withAnimation {
+//                        proxy.scrollTo(field, anchor: .top)
 //                    }
 //                }
 //            }
-
-            //        }
-
-            // create event button
-//            if !keyboardObserver.isKeyboardVisible {
-//                Button {
-//                    if viewModel.createEvent(
-//                        Event(description: EventDescription(title: title,
-//                                                            description: description,
-//                                                            image: image),
-//                              organization: EventOrganizationInformation(date:
-//                                                                            DateModel(date: date,
-//                                                                                      timeZone: timeZone),
-//                                                                         place: viewModel.place,
-//                                                                         seats: Int(seats) ?? 1,
-//                                                                         link: link))) {
-//                        isActiveCreateEventView.toggle()
-//                    }
-//                } label: {
-//                    HStack {
-//                        Spacer()
-//                        YamCapsuleLabel(title: "создать")
-//                        Spacer()
-//                    }
-//                    .background(GradientPack.purpleIndigo)
-//                }
-//                .alert("заполни все обязательные поля \(Emoji.purpleCircle)", isPresented: $viewModel.emptyEventAlertIsActive) {
-//                    Button("ок", role: .cancel) {}
-//                }
-//
+//            .onAppear {
+//                keyboardObserver.addKeyboardObservers()
 //            }
-
-        }
-        .background(ColorPack.black)
-
+//            .onDisappear {
+//                keyboardObserver.removeKeyboardObservers()
+//            }
+//        }
     }
 }
 
@@ -147,3 +173,4 @@ extension CreateEventView {
     @Previewable @State var bool = true
     CreateEventView(isActiveCreateEventView: $bool)
 }
+

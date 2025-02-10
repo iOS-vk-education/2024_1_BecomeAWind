@@ -1,15 +1,29 @@
+import Foundation
 import UIKit
-import Combine
 
 final class KeyboardObserver: ObservableObject {
-    @Published var isKeyboardVisible: Bool = false
-    private var cancellables = Set<AnyCancellable>()
+    static let shared = KeyboardObserver()
 
-    init() {
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
-            .map { _ in true }
-            .merge(with: NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification).map { _ in false })
-            .assign(to: \.isKeyboardVisible, on: self)
-            .store(in: &cancellables)
+    private init() {}
+
+    func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
+
+    func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc private func keyboardWillShow() {}
+
+    @objc private func keyboardWillHide() {}
 }

@@ -33,6 +33,8 @@ struct CreateEventTextField: View {
             .lineLimit(lineLimit)
             .font(FontManager.getFont(with: .medium,
                                       and: SizePack.textFieldFontSize))
+            .keyboardType(.asciiCapable)
+            .autocorrectionDisabled()
         }
     }
 }
