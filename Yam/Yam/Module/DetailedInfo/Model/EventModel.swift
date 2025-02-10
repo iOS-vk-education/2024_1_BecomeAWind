@@ -16,7 +16,7 @@ struct EventDescription {
 
 struct EventOrganizationInformation {
     var date: DateModel
-    var place: PlaceModel?
+    var place: PlaceModel? 
     var seats: Int
     var link: String
 }

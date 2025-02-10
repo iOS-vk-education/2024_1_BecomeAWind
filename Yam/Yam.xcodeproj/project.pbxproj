@@ -41,6 +41,8 @@
 		870E3CAD2D4388D40043DA00 /* LoginScreenIntegrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C562D4388D40043DA00 /* LoginScreenIntegrator.swift */; };
 		870E3CAE2D4388D40043DA00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C832D4388D40043DA00 /* Preview Assets.xcassets */; };
 		870E3CAF2D4388D40043DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C852D4388D40043DA00 /* Assets.xcassets */; };
+		873054412D5A9B82003D6726 /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054402D5A9B82003D6726 /* MyEventsView.swift */; };
+		873054432D5AA20E003D6726 /* MyEventsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054422D5AA20E003D6726 /* MyEventsHeader.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
@@ -61,7 +63,6 @@
 		87BA690A2D498302008DF823 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69072D498302008DF823 /* UIViewController.swift */; };
 		87BA69142D498510008DF823 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69122D498510008DF823 /* Locales.swift */; };
 		87BD45332D515BD0001B8E1B /* CreateEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */; };
-		87CEE3152D595453005D3375 /* Delme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CEE3142D595453005D3375 /* Delme.swift */; };
 		87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* FontManager.swift */; };
 		87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */; };
 		87DAF8C92D4E775300C8C550 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */; };
@@ -110,6 +111,8 @@
 		870E3C892D4388D40043DA00 /* GradientPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPack.swift; sourceTree = "<group>"; };
 		870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		870E3C8B2D4388D40043DA00 /* TempDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDatabase.swift; sourceTree = "<group>"; };
+		873054402D5A9B82003D6726 /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
+		873054422D5AA20E003D6726 /* MyEventsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsHeader.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -130,7 +133,6 @@
 		87BA69072D498302008DF823 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		87BA69122D498510008DF823 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlacePicker.swift; sourceTree = "<group>"; };
-		87CEE3142D595453005D3375 /* Delme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delme.swift; sourceTree = "<group>"; };
 		87DAF8C02D4E747D00C8C550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87DAF8C12D4E74DA00C8C550 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
@@ -324,9 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				870E3C792D4388D40043DA00 /* EntryView.swift */,
-				870E3C572D4388D40043DA00 /* TabBarView.swift */,
-				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
-				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -359,6 +358,8 @@
 				870E3C802D4388D40043DA00 /* View */,
 				870E3C812D4388D40043DA00 /* ViewModel */,
 				870E3C7E2D4388D40043DA00 /* Model */,
+				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
+				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -380,6 +381,47 @@
 				87BA69082D498302008DF823 /* Keyboard */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		873054352D5A9AFF003D6726 /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				870E3C572D4388D40043DA00 /* TabBarView.swift */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
+		8730543C2D5A9B53003D6726 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				873054402D5A9B82003D6726 /* MyEventsView.swift */,
+				873054422D5AA20E003D6726 /* MyEventsHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8730543D2D5A9B53003D6726 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8730543E2D5A9B53003D6726 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8730543F2D5A9B53003D6726 /* MyEvents */ = {
+			isa = PBXGroup;
+			children = (
+				8730543C2D5A9B53003D6726 /* View */,
+				8730543D2D5A9B53003D6726 /* ViewModel */,
+				8730543E2D5A9B53003D6726 /* Model */,
+			);
+			path = MyEvents;
 			sourceTree = "<group>";
 		};
 		878E73EF2D47B88D00D425F4 /* View */ = {
@@ -453,7 +495,6 @@
 				870E3C8B2D4388D40043DA00 /* TempDatabase.swift */,
 				870E3C852D4388D40043DA00 /* Assets.xcassets */,
 				870E3C842D4388D40043DA00 /* Preview Content */,
-				87CEE3142D595453005D3375 /* Delme.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -462,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C7D2D4388D40043DA00 /* Entry */,
+				8730543F2D5A9B53003D6726 /* MyEvents */,
 				870E3C432D4388010043DA00 /* Authorization */,
 				870E3C822D4388D40043DA00 /* Map */,
 				870E3C652D4388D40043DA00 /* CreateEvent */,
@@ -596,6 +638,7 @@
 				87BA68FC2D497C39008DF823 /* Module */,
 				870E3C4C2D4388860043DA00 /* DesignSystem */,
 				870E3C8C2D4388D40043DA00 /* Utility */,
+				873054352D5A9AFF003D6726 /* Trash */,
 			);
 			path = Yam;
 			sourceTree = "<group>";
@@ -733,6 +776,7 @@
 				870E3C4E2D4388860043DA00 /* AuthButton.swift in Sources */,
 				870E3C512D4388860043DA00 /* Label.swift in Sources */,
 				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
+				873054432D5AA20E003D6726 /* MyEventsHeader.swift in Sources */,
 				870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */,
 				878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */,
@@ -751,7 +795,6 @@
 				878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */,
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */,
-				87CEE3152D595453005D3375 /* Delme.swift in Sources */,
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
 				878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */,
 				87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */,
@@ -775,6 +818,7 @@
 				8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* CreateEventTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */,
+				873054412D5A9B82003D6726 /* MyEventsView.swift in Sources */,
 				870E3CA82D4388D40043DA00 /* MapView.swift in Sources */,
 				870E3CA92D4388D40043DA00 /* CreateEventDatePicker.swift in Sources */,
 				87BA69142D498510008DF823 /* Locales.swift in Sources */,
@@ -931,7 +975,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -970,7 +1014,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
