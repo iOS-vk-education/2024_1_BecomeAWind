@@ -17,19 +17,25 @@ struct Delme: View {
 
                 Section {
                     Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                }
+
+                Section {
                     Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                 }
             }
-//            .navigationTitle("ивенты")
-//            .font(FontManager.getFont(with: .bold, and: 20))
             .toolbar {
+                ToolbarItem(placement: .principal) { // По центру
+                    YamText("ивенты",
+                            fontSize: 30
+                    )
+                }
+
                 ToolbarItem {
                     Button {
 
                     } label: {
                         HStack {
-                            YamText("новый ивент",
+                            YamText("",
                                     fontWeight: .regular,
                                     fontSize: 17,
                                     foregroundColor: ColorPack.purple)
@@ -41,13 +47,11 @@ struct Delme: View {
             }
         }
 
-        .foregroundColor(.white)
-//        .colorScheme(.dark)
 
     }
 }
 
 #Preview {
     Delme()
-//        .background(.white)
+    //        .background(.white)
 }

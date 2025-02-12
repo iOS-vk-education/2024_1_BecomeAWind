@@ -29,5 +29,4 @@ struct YamText: View {
 
 #Preview {
     YamText("текст", fontSize: 20)
-        .padding()
 }
