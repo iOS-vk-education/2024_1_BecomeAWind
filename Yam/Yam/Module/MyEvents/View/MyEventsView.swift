@@ -10,7 +10,9 @@ struct MyEventsView: View {
 
     var body: some View {
         VStack {
-            Picker("список ивентов", selection: $segment) {
+            YamText("список ивентов",
+                         fontSize: SizePack.headerTextFontSize)
+            Picker("", selection: $segment) {
                 Text("твои").tag(MyEventsSegment.yours)
                 Text("подписки").tag(MyEventsSegment.subscriptions)
             }

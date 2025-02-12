@@ -1,30 +1,33 @@
 import SwiftUI
 
-struct YamWhiteText: View {
+struct YamText: View {
     let text: String
     let fontWeight: YamFontWeight
     let fontSize: CGFloat
+    let foregroundColor: Color
 
     private var font: Font
 
-    init(text: String,
+    init(_ text: String,
          fontWeight: YamFontWeight = .bold,
-         fontSize: CGFloat = SizePack.coreFontSize) {
+         fontSize: CGFloat = SizePack.coreFontSize,
+         foregroundColor: Color = .white) {
         self.text = text
         self.fontWeight = fontWeight
         self.fontSize = fontSize
+        self.foregroundColor = foregroundColor
 
         font = FontManager.getFont(with: fontWeight, and: fontSize)
     }
 
     var body: some View {
         Text(text)
-            .foregroundColor(ColorPack.white)
+            .foregroundColor(foregroundColor)
             .font(font)
     }
 }
 
 #Preview {
-    YamWhiteText(text: "текст", fontSize: 40)
+    YamText("текст", fontSize: 20)
         .padding()
 }

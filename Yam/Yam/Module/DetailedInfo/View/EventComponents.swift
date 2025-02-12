@@ -36,7 +36,7 @@ struct EventDescriptionView: View {
     var descriprion: String
 
     var body: some View {
-        YamWhiteText(text: descriprion,
+        YamText(descriprion,
                      fontWeight: .regular,
                      fontSize: 15)
             .padding()

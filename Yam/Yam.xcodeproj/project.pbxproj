@@ -22,7 +22,7 @@
 		870E3C952D4388D40043DA00 /* ColorPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* ColorPack.swift */; };
 		870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */; };
 		870E3C992D4388D40043DA00 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6D2D4388D40043DA00 /* EventsView.swift */; };
-		870E3C9A2D4388D40043DA00 /* YamWhiteText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YamWhiteText.swift */; };
+		870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YamText.swift */; };
 		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
 		870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */; };
 		870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C572D4388D40043DA00 /* TabBarView.swift */; };
@@ -62,6 +62,7 @@
 		87BA68F82D494F8F008DF823 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA68F72D494F8F008DF823 /* CLLocationCoordinate2D.swift */; };
 		87BA690A2D498302008DF823 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69072D498302008DF823 /* UIViewController.swift */; };
 		87BA69142D498510008DF823 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69122D498510008DF823 /* Locales.swift */; };
+		87BD28552D5CA7F00085C05F /* Delme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD28542D5CA7F00085C05F /* Delme.swift */; };
 		87BD45332D515BD0001B8E1B /* CreateEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */; };
 		87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* FontManager.swift */; };
 		87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */; };
@@ -91,7 +92,7 @@
 		870E3C592D4388D40043DA00 /* CreateEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModel.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceView.swift; sourceTree = "<group>"; };
 		870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDatePicker.swift; sourceTree = "<group>"; };
-		870E3C5F2D4388D40043DA00 /* YamWhiteText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamWhiteText.swift; sourceTree = "<group>"; };
+		870E3C5F2D4388D40043DA00 /* YamText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamText.swift; sourceTree = "<group>"; };
 		870E3C602D4388D40043DA00 /* CreateEventTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTextField.swift; sourceTree = "<group>"; };
 		870E3C612D4388D40043DA00 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		87BA68F72D494F8F008DF823 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		87BA69072D498302008DF823 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		87BA69122D498510008DF823 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
+		87BD28542D5CA7F00085C05F /* Delme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delme.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlacePicker.swift; sourceTree = "<group>"; };
 		87DAF8C02D4E747D00C8C550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87DAF8C12D4E74DA00C8C550 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */,
-				870E3C5F2D4388D40043DA00 /* YamWhiteText.swift */,
+				870E3C5F2D4388D40043DA00 /* YamText.swift */,
 				8752B7052D468D3E0017F2B8 /* YamImage.swift */,
 				8752B7092D46924F0017F2B8 /* YamMappin.swift */,
 				87B47A902D58E9DF007AA252 /* YamCloseScreenButton.swift */,
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C742D4388D40043DA00 /* FeedView.swift */,
+				87BD28542D5CA7F00085C05F /* Delme.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -798,7 +801,7 @@
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
 				878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */,
 				87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */,
-				870E3C9A2D4388D40043DA00 /* YamWhiteText.swift in Sources */,
+				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
 				8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */,
@@ -820,6 +823,7 @@
 				870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */,
 				873054412D5A9B82003D6726 /* MyEventsView.swift in Sources */,
 				870E3CA82D4388D40043DA00 /* MapView.swift in Sources */,
+				87BD28552D5CA7F00085C05F /* Delme.swift in Sources */,
 				870E3CA92D4388D40043DA00 /* CreateEventDatePicker.swift in Sources */,
 				87BA69142D498510008DF823 /* Locales.swift in Sources */,
 				870E3CAA2D4388D40043DA00 /* DetailedInfoView.swift in Sources */,

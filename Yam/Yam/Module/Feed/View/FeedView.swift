@@ -21,7 +21,7 @@ struct FeedView: View {
                             } label: {
                                 VStack {
                                     YamImage(image: event.description.image, size: UIScreen.main.bounds.width / 2 - 15)
-                                    YamWhiteText(text: event.description.title,
+                                    YamText(event.description.title,
                                                  fontWeight: .regular)
                                         .lineLimit(1)
                                     YamCapsuleLabel(title: DateConverter.getDateString(from: event.organization.date),
@@ -32,8 +32,8 @@ struct FeedView: View {
                             }
                         }
                     } header: {
-                        YamWhiteText(text: "лента мероприятий",
-                                     fontSize: FeedViewSizesPack.headerTitleFontSize)
+                        YamText("лента мероприятий",
+                                fontSize: FeedViewSizesPack.headerTitleFontSize)
                             .padding()
                     }
                 }

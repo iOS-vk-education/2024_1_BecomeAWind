@@ -5,7 +5,7 @@ struct CreateEventDatePicker: View {
     var timeZone: Binding<TimeZone>
 
     var body: some View {
-        YamWhiteText(text: "когда")
+        YamText("когда")
 
         CreateEventVStack {
             DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {}

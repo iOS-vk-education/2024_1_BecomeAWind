@@ -12,7 +12,7 @@ final class TempDatabase: ObservableObject {
 
     private init() {
         print("TempDatabase initialized")
-        for i in 0..<10 {
+        for _ in 0..<10 {
             generateEvents()
         }
     }

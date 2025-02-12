@@ -14,7 +14,7 @@ struct CreateEventTextField: View {
     }
 
     var body: some View {
-        YamWhiteText(text: title)
+        YamText(title)
 
         CreateEventVStack {
             TextField(

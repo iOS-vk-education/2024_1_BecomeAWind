@@ -5,7 +5,7 @@ struct CreateEventHeader: View {
 
     var body: some View {
         ZStack {
-            YamWhiteText(text: "новый ивент",
+            YamText("новый ивент",
                          fontSize: SizePack.headerTextFontSize)
             HStack {
                 Spacer()

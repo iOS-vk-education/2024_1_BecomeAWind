@@ -5,13 +5,12 @@ struct CreateEventPlacePicker: View {
     @State private var isActiveCreateEventPlaceView = false
 
     var body: some View {
-        YamWhiteText(text: "место \(Emoji.purpleCircle)")
+        YamText("место \(Emoji.purpleCircle)")
 
         CreateEventVStack {
-            YamWhiteText(
-                text: viewModel.placeDescription,
-                fontWeight: .regular,
-                fontSize: CreateEventSizePack.placeDescriptionFontSize
+            YamText(viewModel.placeDescription,
+                    fontWeight: .regular,
+                    fontSize: CreateEventSizePack.placeDescriptionFontSize
             )
             .padding(.horizontal)
             .padding(.top)
