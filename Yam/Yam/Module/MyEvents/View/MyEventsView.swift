@@ -11,22 +11,28 @@ struct MyEventsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    Picker("", selection: $segment) {
-                        Text("твои").tag(MyEventsSegment.yours)
-                        Text("подписки").tag(MyEventsSegment.subscriptions)
-                    }
-                    .pickerStyle(.segmented)
-                    .padding(.horizontal)
+                Picker("", selection: $segment) {
+                    Text("твои").tag(MyEventsSegment.yours)
+                    Text("подписки").tag(MyEventsSegment.subscriptions)
                 }
-
-                Section {
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                }
-
-                Section {
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+//                Section {
+//                    Picker("", selection: $segment) {
+//                        Text("твои").tag(MyEventsSegment.yours)
+//                        Text("подписки").tag(MyEventsSegment.subscriptions)
+//                    }
+//                    .pickerStyle(.segmented)
+//                    .padding(.horizontal)
+//                }
+//
+//                Section {
+//                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//                }
+//
+//                Section {
+//                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
