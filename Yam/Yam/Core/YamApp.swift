@@ -9,6 +9,10 @@ struct YamApp: App {
 
             EntryView()
 
+//            @State var bbb = true
+
+//            CreateEventView(isActiveCreateEventView: $bbb)
+
         }
     }
 }

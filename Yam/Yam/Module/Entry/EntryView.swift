@@ -1,5 +1,5 @@
 import SwiftUI
-import MapKit
+//import MapKit
 
 struct EntryView: View {
     //    @StateObject private var locationManager = LocationServicesStatusManager()
@@ -16,8 +16,15 @@ struct EntryView: View {
 
             FeedView()
                 .tabItem {
-                    TabItem(imageSystemName: "magnifyingglass",
+                    TabItem(imageSystemName: "rectangle.and.text.magnifyingglass.rtl",
                             title: "Поиск"
+                    )
+                }
+
+            MapView()
+                .tabItem {
+                    TabItem(imageSystemName: "map",
+                            title: "Карта"
                     )
                 }
         }
