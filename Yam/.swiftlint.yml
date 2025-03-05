@@ -1,5 +1,0 @@
-line_length:
-- 200 #warning
-- 1100 #error
-disabled_rules:
-- trailing_writespase
