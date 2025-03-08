@@ -14,7 +14,7 @@
 		870E3C512D4388860043DA00 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C4A2D4388860043DA00 /* Label.swift */; };
 		870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C482D4388860043DA00 /* AuthTextField.swift */; };
 		870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C592D4388D40043DA00 /* CreateEventModel.swift */; };
-		870E3C8E2D4388D40043DA00 /* SizePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C862D4388D40043DA00 /* SizePack.swift */; };
+		870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C862D4388D40043DA00 /* EntryConst.swift */; };
 		870E3C902D4388D40043DA00 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C672D4388D40043DA00 /* EventModel.swift */; };
 		870E3C912D4388D40043DA00 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C792D4388D40043DA00 /* EntryView.swift */; };
 		870E3C922D4388D40043DA00 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */; };
@@ -43,6 +43,7 @@
 		870E3CAF2D4388D40043DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C852D4388D40043DA00 /* Assets.xcassets */; };
 		873054412D5A9B82003D6726 /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054402D5A9B82003D6726 /* MyEventsView.swift */; };
 		873054432D5AA20E003D6726 /* MyEventsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054422D5AA20E003D6726 /* MyEventsHeader.swift */; };
+		87336F4B2D7C329F00BD699A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F4A2D7C329F00BD699A /* Const.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
@@ -50,6 +51,7 @@
 		8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7032D464E370017F2B8 /* FeedModel.swift */; };
 		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
 		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
+		876084C22D7A37B500195B68 /* YamTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876084C12D7A37B500195B68 /* YamTabBar.swift */; };
 		878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E32D5129E500A24538 /* CreateEventHeader.swift */; };
 		878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E52D512A1500A24538 /* CreateEventImagePicker.swift */; };
 		878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E73F22D47B8A000D425F4 /* UserModel.swift */; };
@@ -64,7 +66,7 @@
 		87BA69142D498510008DF823 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69122D498510008DF823 /* Locales.swift */; };
 		87BD28552D5CA7F00085C05F /* Delme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD28542D5CA7F00085C05F /* Delme.swift */; };
 		87BD45332D515BD0001B8E1B /* CreateEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */; };
-		87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* FontManager.swift */; };
+		87DAF8C22D4E74DA00C8C550 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* Fonts.swift */; };
 		87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */; };
 		87DAF8C92D4E775300C8C550 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */; };
 		87DAF8CA2D4E775300C8C550 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */; };
@@ -105,13 +107,14 @@
 		870E3C7F2D4388D40043DA00 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		870E3C832D4388D40043DA00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		870E3C852D4388D40043DA00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		870E3C862D4388D40043DA00 /* SizePack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePack.swift; sourceTree = "<group>"; };
+		870E3C862D4388D40043DA00 /* EntryConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryConst.swift; sourceTree = "<group>"; };
 		870E3C872D4388D40043DA00 /* ColorPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPack.swift; sourceTree = "<group>"; };
 		870E3C892D4388D40043DA00 /* GradientPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPack.swift; sourceTree = "<group>"; };
 		870E3C8A2D4388D40043DA00 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		870E3C8B2D4388D40043DA00 /* TempDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDatabase.swift; sourceTree = "<group>"; };
 		873054402D5A9B82003D6726 /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
 		873054422D5AA20E003D6726 /* MyEventsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsHeader.swift; sourceTree = "<group>"; };
+		87336F4A2D7C329F00BD699A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		8752B7032D464E370017F2B8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
 		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
+		876084C12D7A37B500195B68 /* YamTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamTabBar.swift; sourceTree = "<group>"; };
 		878432E32D5129E500A24538 /* CreateEventHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventHeader.swift; sourceTree = "<group>"; };
 		878432E52D512A1500A24538 /* CreateEventImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImagePicker.swift; sourceTree = "<group>"; };
 		878E73F22D47B8A000D425F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -134,7 +138,7 @@
 		87BD28542D5CA7F00085C05F /* Delme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delme.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlacePicker.swift; sourceTree = "<group>"; };
 		87DAF8C02D4E747D00C8C550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		87DAF8C12D4E74DA00C8C550 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		87DAF8C12D4E74DA00C8C550 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
 		87DAF8C42D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraBold.ttf"; sourceTree = "<group>"; };
 		87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.ttf"; sourceTree = "<group>"; };
@@ -171,8 +175,8 @@
 		870E3C4C2D4388860043DA00 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C582D4388D40043DA00 /* Component */,
-				87BA69102D4984ED008DF823 /* Size */,
+				870E3C582D4388D40043DA00 /* Components */,
+				87BA69102D4984ED008DF823 /* Constants */,
 				87BA69042D49828C008DF823 /* Font */,
 				87BA69002D49807D008DF823 /* Color */,
 				87BA69022D49822E008DF823 /* Emoji */,
@@ -181,7 +185,7 @@
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
-		870E3C582D4388D40043DA00 /* Component */ = {
+		870E3C582D4388D40043DA00 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				870E3C542D4388D40043DA00 /* YamCapsuleLabel.swift */,
@@ -196,7 +200,7 @@
 				870E3C482D4388860043DA00 /* AuthTextField.swift */,
 				870E3C4A2D4388860043DA00 /* Label.swift */,
 			);
-			path = Component;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		870E3C5C2D4388D40043DA00 /* Model */ = {
@@ -316,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C792D4388D40043DA00 /* EntryView.swift */,
+				876084C12D7A37B500195B68 /* YamTabBar.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -489,7 +494,7 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		87BA68FC2D497C39008DF823 /* Module */ = {
+		87BA68FC2D497C39008DF823 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				870E3C7D2D4388D40043DA00 /* Entry */,
@@ -501,7 +506,7 @@
 				870E3C722D4388D40043DA00 /* DetailedInfo */,
 				879F2C012D46EEEA0027E46D /* EventLocation */,
 			);
-			path = Module;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		87BA69002D49807D008DF823 /* Color */ = {
@@ -524,7 +529,7 @@
 		87BA69042D49828C008DF823 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				87DAF8C12D4E74DA00C8C550 /* FontManager.swift */,
+				87DAF8C12D4E74DA00C8C550 /* Fonts.swift */,
 				87DAF8CE2D4E77DF00C8C550 /* MontserratAlternates */,
 			);
 			path = Font;
@@ -556,12 +561,13 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		87BA69102D4984ED008DF823 /* Size */ = {
+		87BA69102D4984ED008DF823 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C862D4388D40043DA00 /* SizePack.swift */,
+				87336F4A2D7C329F00BD699A /* Const.swift */,
+				870E3C862D4388D40043DA00 /* EntryConst.swift */,
 			);
-			path = Size;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		87BA69132D498510008DF823 /* Locale */ = {
@@ -623,7 +629,7 @@
 			children = (
 				87DAF8C02D4E747D00C8C550 /* Info.plist */,
 				87BA68ED2D494DBD008DF823 /* Core */,
-				87BA68FC2D497C39008DF823 /* Module */,
+				87BA68FC2D497C39008DF823 /* Modules */,
 				870E3C4C2D4388860043DA00 /* DesignSystem */,
 				870E3C8C2D4388D40043DA00 /* Utility */,
 				873054352D5A9AFF003D6726 /* Trash */,
@@ -715,9 +721,9 @@
 				870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */,
 				878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */,
-				870E3C8E2D4388D40043DA00 /* SizePack.swift in Sources */,
+				870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */,
 				870E3C902D4388D40043DA00 /* EventModel.swift in Sources */,
-				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
+				87DAF8C22D4E74DA00C8C550 /* Fonts.swift in Sources */,
 				8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */,
 				87FC48442D52089600F6D8CC /* CreateEventVStack.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
@@ -734,8 +740,10 @@
 				878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */,
 				87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
+				876084C22D7A37B500195B68 /* YamTabBar.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
 				8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */,
+				87336F4B2D7C329F00BD699A /* Const.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */,
 				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
 				8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */,
@@ -910,7 +918,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -948,7 +956,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
