@@ -39,11 +39,11 @@ struct FeedView: View {
                     }
                 }
                 .padding([.horizontal, .top], 10)
-                .background(ColorPack.black)
+                .background(Colors.black)
 
                 Rectangle()
                     .frame(height: EntryConst.tabBarHeight)
-                    .foregroundColor(ColorPack.clear)
+                    .foregroundColor(Colors.clear)
             }
         }
         .sheet(item: $selectedEvent) { event in

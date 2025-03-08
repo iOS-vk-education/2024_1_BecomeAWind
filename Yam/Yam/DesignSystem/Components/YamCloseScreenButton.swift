@@ -11,7 +11,7 @@ struct YamCloseScreenButton: View {
                 .resizable()
                 .frame(width: Const.screenWidth * 0.07,
                        height: Const.screenWidth * 0.07)
-                .tint(GradientPack.purpleIndigo)
+                .tint(Gradients.purpleIndigo)
         }
     }
 }

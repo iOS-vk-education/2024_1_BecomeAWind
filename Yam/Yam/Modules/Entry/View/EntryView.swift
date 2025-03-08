@@ -4,13 +4,13 @@ struct EntryView: View {
     //    @StateObject private var locationManager = LocationServicesStatusManager()
     //    if locationManager.isLocationServicesEnabled {
 
-    @StateObject var viewModel = EntryViewModel()
+    @StateObject private var viewModel = EntryViewModel()
 
     var body: some View {
         ZStack {
             switch viewModel.activeTab {
             case .profile:
-                MyEventsView()
+                ProfileView()
             case .search:
                 FeedView()
             case .map:
@@ -24,8 +24,8 @@ struct EntryView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
     }
+    
 }
-
 
 
 #Preview {

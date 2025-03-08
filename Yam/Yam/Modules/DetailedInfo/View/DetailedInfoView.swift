@@ -7,6 +7,6 @@ struct DetailedInfoView: View {
         VStack {
             EventsView(events: events)
         }
-        .background(ColorPack.black)
+        .background(Colors.black)
     }
 }

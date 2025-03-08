@@ -10,8 +10,8 @@ struct CreateEventDatePicker: View {
         CreateEventVStack {
             DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {}
             .environment(\.locale, Locales.ru)
-            .datePickerStyle(.graphical)
-            .tint(ColorPack.purple)
+//            .datePickerStyle(.graphical)
+            .tint(Colors.purple)
             .colorScheme(.dark)
             .padding(.horizontal)
             .padding(.bottom)
@@ -24,7 +24,7 @@ struct CreateEventDatePicker: View {
                     }
                 }
             }
-            .tint(ColorPack.purple)
+            .tint(Colors.purple)
             .colorScheme(.dark)
             .padding(.bottom)
         }

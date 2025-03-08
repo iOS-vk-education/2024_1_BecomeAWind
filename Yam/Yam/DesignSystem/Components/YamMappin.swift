@@ -2,9 +2,10 @@ import SwiftUI
 
 struct YamMappin: View {
     var body: some View {
-        GradientImage(imageName: "paperplane.fill",
-                      imageSize: SizePack.smallImageSize,
-                      background: GradientPack.purpleIndigo)
+        Text("1")
+//        GradientImage(imageName: "paperplane.fill",
+//                      imageSize: SizePack.smallImageSize,
+//                      background: Gradients.purpleIndigo)
     }
 }
 

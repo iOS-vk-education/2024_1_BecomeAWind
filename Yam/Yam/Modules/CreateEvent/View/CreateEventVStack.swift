@@ -11,7 +11,7 @@ struct CreateEventVStack<Content: View>: View {
         VStack {
             content
         }
-        .background(ColorPack.gray)
+        .background(Colors.gray)
         .cornerRadius(SizePack.coreCornerRadius)
         .padding(.horizontal, SizePack.coreSideSpacing)
         .padding(.bottom)

@@ -71,15 +71,15 @@ private struct TabItem: View {
                 )
                 .foregroundColor(
                     viewModel.activeTab == thisTab
-                    ? ColorPack.purple
-                    : ColorPack.white
+                    ? Colors.purple
+                    : Colors.white
                 )
             YamText(
                 title,
-                font: Fonts.Entry.tabBarItemTitleFont,
+                font: EntryFont.tabBarItemTitleFont,
                 foregroundColor: viewModel.activeTab == thisTab
-                ? ColorPack.purple
-                : ColorPack.white
+                ? Colors.purple
+                : Colors.white
             )
             Spacer()
         }

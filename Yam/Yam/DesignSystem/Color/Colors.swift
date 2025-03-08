@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum ColorPack {
+enum Colors {
     static let black = Color.black
     static let white = Color.white
     static let white2 = Color.white2

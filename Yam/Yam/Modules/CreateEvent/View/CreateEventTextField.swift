@@ -24,12 +24,12 @@ struct CreateEventTextField: View {
                     Text(prompt)
 //                    .font(FontManager.getFont(with: .regular,
 //                                              and: SizePack.textFieldFontSize))
-                    .foregroundColor(ColorPack.white2),
+                    .foregroundColor(Colors.white2),
                 axis: .vertical
             )
             .padding()
-            .tint(ColorPack.purple)
-            .foregroundColor(ColorPack.white)
+            .tint(Colors.purple)
+            .foregroundColor(Colors.white)
             .lineLimit(lineLimit)
 //            .font(FontManager.getFont(with: .medium,
 //                                      and: SizePack.textFieldFontSize))

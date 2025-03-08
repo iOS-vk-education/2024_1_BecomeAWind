@@ -38,7 +38,7 @@ struct ContentEventView: View {
 //                YamCapsuleLabel(title: "свободные места: \(String(event.organization.seats))")
                 Spacer()
             }
-            .background(GradientPack.greenPurple)
+            .background(Gradients.greenPurple)
             .cornerRadius(SizePack.coreCornerRadius)
 
             HStack {
@@ -48,7 +48,7 @@ struct ContentEventView: View {
 //                                    fontSize: 15)
                     Spacer()
                 }
-                .background(GradientPack.orangePurple)
+                .background(Gradients.orangePurple)
                 .cornerRadius(SizePack.coreCornerRadius)
 
                 VStack {
@@ -61,7 +61,7 @@ struct ContentEventView: View {
                         }
                     Spacer()
                 }
-                .background(GradientPack.purpleIndigo)
+                .background(Gradients.purpleIndigo)
                 .cornerRadius(SizePack.coreCornerRadius)
             }
             .frame(maxHeight: UIScreen.main.bounds.height / 2)
@@ -77,7 +77,7 @@ struct ContentEventView: View {
 //                    YamCapsuleLabel(title: "контакт организатора")
                     Spacer()
                 }
-                .background(GradientPack.purpleIndigo)
+                .background(Gradients.purpleIndigo)
                 .cornerRadius(SizePack.coreCornerRadius)
             }
 

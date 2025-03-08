@@ -21,5 +21,5 @@ struct YamText: View {
 }
 
 #Preview {
-    YamText("текст", font: Fonts.Entry.tabBarItemTitleFont)
+    YamText("текст", font: EntryFont.tabBarItemTitleFont)
 }

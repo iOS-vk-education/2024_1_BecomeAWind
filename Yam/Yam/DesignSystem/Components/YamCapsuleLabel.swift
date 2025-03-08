@@ -7,7 +7,7 @@ struct YamCapsuleLabel: View {
 
     init(title: String,
          font: Font,
-         background: LinearGradient = GradientPack.purpleIndigo) {
+         background: LinearGradient = Gradients.purpleIndigo) {
         self.title = title
         self.font = font
         self.background = background
@@ -17,7 +17,7 @@ struct YamCapsuleLabel: View {
         Text(title)
             .padding()
             .font(font)
-            .foregroundColor(ColorPack.white)
+            .foregroundColor(Colors.white)
             .background(background)
             .cornerRadius(SizePack.coreCornerRadius)
     }
@@ -26,7 +26,7 @@ struct YamCapsuleLabel: View {
 #Preview {
     YamCapsuleLabel(
         title: "текст",
-        font: Fonts.def,
-        background: GradientPack.purpleIndigo
+        font: FontManager.def,
+        background: Gradients.purpleIndigo
     )
 }

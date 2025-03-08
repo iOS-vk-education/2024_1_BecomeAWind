@@ -13,7 +13,7 @@ struct GradientLoader: View {
         ZStack {
             Rectangle()
                 .frame(width: size, height: size)
-                .background(background ?? GradientPack.clear)
+                .background(background ?? Gradients.clear)
                 .cornerRadius(SizePack.coreCornerRadius)
             ProgressView()
         }
@@ -21,5 +21,5 @@ struct GradientLoader: View {
 }
 
 #Preview {
-    GradientLoader(size: 50, background: GradientPack.purpleIndigo)
+    GradientLoader(size: 50, background: Gradients.purpleIndigo)
 }

@@ -1,15 +1,6 @@
 import SwiftUI
 
-enum Fonts {
-    static let def: Font = FontManager.getFont(with: .regular, and: 20)
-
-    /// Module Entry
-    enum Entry {
-        static let tabBarItemTitleFont: Font = FontManager.getFont(with: .medium, and: 15)
-    }
-}
-
-private enum FontManager {
+enum FontManager {
     enum FontWeight {
         case extrabold
         case bold
@@ -25,6 +16,8 @@ private enum FontManager {
         static let medium = "MontserratAlternates-Medium"
         static let regular = "MontserratAlternates-Regular"
     }
+
+    static let def: Font = getFont(with: .regular, and: 20)
 
     static func getFont(with fontWeight: FontWeight, and fontSize: CGFloat) -> Font {
         var font: Font

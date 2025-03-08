@@ -42,7 +42,7 @@ struct Delme: View {
                             Image(systemName: "plus.circle")
                         }
                     }
-                    .foregroundColor(ColorPack.purple)
+                    .foregroundColor(Colors.purple)
                 }
             }
         }

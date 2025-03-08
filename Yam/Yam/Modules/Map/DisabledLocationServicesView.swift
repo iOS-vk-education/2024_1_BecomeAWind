@@ -5,7 +5,7 @@ struct DisabledLocationServicesView: View {
     var body: some View {
         ZStack {
             Map(interactionModes: [])
-            ColorPack.black
+            Colors.black
                 .opacity(0.5)
                 .ignoresSafeArea()
 
@@ -13,7 +13,7 @@ struct DisabledLocationServicesView: View {
                 Text("службы геолокации выключены.\nвключи их в настройках.")
                     .font(.headline)
                     .fontWeight(.heavy)
-                    .foregroundColor(ColorPack.white)
+                    .foregroundColor(Colors.white)
                     .padding()
 
                 Button {
@@ -26,7 +26,7 @@ struct DisabledLocationServicesView: View {
                 .padding(.bottom)
             }
             .padding()
-            .background(ColorPack.black)
+            .background(Colors.black)
             .cornerRadius(SizePack.coreCornerRadius)
         }
     }

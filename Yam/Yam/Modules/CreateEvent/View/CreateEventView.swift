@@ -17,6 +17,8 @@ enum CreateEventCommonItem {
 }
 
 struct CreateEventView: View {
+    @Environment(\.dismiss) var dismiss
+
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
     @ObservedObject private var keyboardObserver = KeyboardObserver.shared
 
@@ -28,14 +30,17 @@ struct CreateEventView: View {
     @State private var date = Date()
     @State private var timeZone = TimeZone.current
 
-    @Binding var isActiveCreateEventView: Bool
+//    @Binding var isActiveCreateEventView: Bool
 
 //    @FocusState private var activeTextField: String?
 
     var body: some View {
 //        ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
-                CreateEventHeader(isActiveCreateEventView: $isActiveCreateEventView)
+                Button("dismiss") {
+                    dismiss()
+                }
+//                CreateEventHeader(isActiveCreateEventView: $isActiveCreateEventView)
                 CreateEventImagePicker(image: $image)
 
                 // title
@@ -143,7 +148,7 @@ struct CreateEventView: View {
                 //            }
 
             }
-            .background(ColorPack.black)
+            .background(Colors.black)
 //            .onChange(of: activeTextField) { field in
 //                if let field = field {
 //                    withAnimation {
@@ -171,6 +176,6 @@ extension CreateEventView {
 
 #Preview {
     @Previewable @State var bool = true
-    CreateEventView(isActiveCreateEventView: $bool)
+    CreateEventView()
 }
 
