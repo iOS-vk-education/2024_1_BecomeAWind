@@ -50,6 +50,9 @@
 		87336F5F2D7C4BBD00BD699A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F5E2D7C4BBD00BD699A /* ProfileViewModel.swift */; };
 		87336F612D7C51A600BD699A /* ProfileConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F602D7C51A600BD699A /* ProfileConst.swift */; };
 		87336F632D7C526000BD699A /* ProfileFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F622D7C526000BD699A /* ProfileFont.swift */; };
+		87336F8D2D7C96F600BD699A /* CreateEventDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F8C2D7C96F600BD699A /* CreateEventDismissButton.swift */; };
+		87336F8F2D7C978B00BD699A /* CreateEventConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F8E2D7C978B00BD699A /* CreateEventConst.swift */; };
+		87336F912D7C98C300BD699A /* CreateEventFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F902D7C98C300BD699A /* CreateEventFont.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
@@ -58,7 +61,6 @@
 		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
 		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
 		876084C22D7A37B500195B68 /* YamTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876084C12D7A37B500195B68 /* YamTabBar.swift */; };
-		878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E32D5129E500A24538 /* CreateEventHeader.swift */; };
 		878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E52D512A1500A24538 /* CreateEventImagePicker.swift */; };
 		878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E73F22D47B8A000D425F4 /* UserModel.swift */; };
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
@@ -127,6 +129,9 @@
 		87336F5E2D7C4BBD00BD699A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		87336F602D7C51A600BD699A /* ProfileConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConst.swift; sourceTree = "<group>"; };
 		87336F622D7C526000BD699A /* ProfileFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFont.swift; sourceTree = "<group>"; };
+		87336F8C2D7C96F600BD699A /* CreateEventDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDismissButton.swift; sourceTree = "<group>"; };
+		87336F8E2D7C978B00BD699A /* CreateEventConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventConst.swift; sourceTree = "<group>"; };
+		87336F902D7C98C300BD699A /* CreateEventFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventFont.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -135,7 +140,6 @@
 		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
 		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
 		876084C12D7A37B500195B68 /* YamTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamTabBar.swift; sourceTree = "<group>"; };
-		878432E32D5129E500A24538 /* CreateEventHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventHeader.swift; sourceTree = "<group>"; };
 		878432E52D512A1500A24538 /* CreateEventImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImagePicker.swift; sourceTree = "<group>"; };
 		878E73F22D47B8A000D425F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
@@ -229,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C612D4388D40043DA00 /* CreateEventView.swift */,
-				878432E32D5129E500A24538 /* CreateEventHeader.swift */,
+				87336F8C2D7C96F600BD699A /* CreateEventDismissButton.swift */,
 				878432E52D512A1500A24538 /* CreateEventImagePicker.swift */,
 				870E3C602D4388D40043DA00 /* CreateEventTextField.swift */,
 				870E3C5E2D4388D40043DA00 /* CreateEventDatePicker.swift */,
@@ -571,6 +575,7 @@
 				87DAF8C12D4E74DA00C8C550 /* FontManager.swift */,
 				87336F5C2D7C497E00BD699A /* EntryFont.swift */,
 				87336F622D7C526000BD699A /* ProfileFont.swift */,
+				87336F902D7C98C300BD699A /* CreateEventFont.swift */,
 				87DAF8CE2D4E77DF00C8C550 /* MontserratAlternates */,
 			);
 			path = Font;
@@ -608,6 +613,7 @@
 				87336F4A2D7C329F00BD699A /* Const.swift */,
 				870E3C862D4388D40043DA00 /* EntryConst.swift */,
 				87336F602D7C51A600BD699A /* ProfileConst.swift */,
+				87336F8E2D7C978B00BD699A /* CreateEventConst.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -757,6 +763,7 @@
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
 				870E3C4D2D4388860043DA00 /* AuthHeaderView.swift in Sources */,
 				870E3C4E2D4388860043DA00 /* AuthButton.swift in Sources */,
+				87336F912D7C98C300BD699A /* CreateEventFont.swift in Sources */,
 				870E3C512D4388860043DA00 /* Label.swift in Sources */,
 				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
 				873054432D5AA20E003D6726 /* OpenCreateEventButton.swift in Sources */,
@@ -781,7 +788,6 @@
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */,
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
-				878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */,
 				87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */,
 				87336F572D7C3A5900BD699A /* EntryModel.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
@@ -793,6 +799,7 @@
 				870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */,
 				870E3C9D2D4388D40043DA00 /* TabBarView.swift in Sources */,
 				8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */,
+				87336F8D2D7C96F600BD699A /* CreateEventDismissButton.swift in Sources */,
 				879F2C002D46E20C0027E46D /* PlaceHandler.swift in Sources */,
 				87BA68F82D494F8F008DF823 /* CLLocationCoordinate2D.swift in Sources */,
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
@@ -806,6 +813,7 @@
 				870E3CA32D4388D40043DA00 /* YamCapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* ProfileViewModel.swift in Sources */,
+				87336F8F2D7C978B00BD699A /* CreateEventConst.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* CreateEventTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */,

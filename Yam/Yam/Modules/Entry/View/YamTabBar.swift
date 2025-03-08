@@ -46,7 +46,7 @@ struct YamTabBar: View {
         .frame(height: EntryConst.tabBarHeight)
         .background(.thinMaterial)
         .cornerRadius(
-            EntryConst.tabBarCornerRadius,
+            Const.cornerRadius,
             corners: [.topLeft, .topRight]
         )
     }

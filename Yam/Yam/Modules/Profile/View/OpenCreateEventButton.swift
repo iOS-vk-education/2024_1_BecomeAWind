@@ -19,7 +19,7 @@ struct OpenCreateEventButton: View {
             }
             .padding(
                 .trailing,
-                ProfileConst.openCreateEventButtonSideSpace
+                Const.sideSpace
             )
         }
     }

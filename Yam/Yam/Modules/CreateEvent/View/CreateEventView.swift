@@ -20,6 +20,9 @@ struct CreateEventView: View {
     @Environment(\.dismiss) var dismiss
 
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
+
+
+    
     @ObservedObject private var keyboardObserver = KeyboardObserver.shared
 
     @State private var image: UIImage = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
@@ -37,10 +40,18 @@ struct CreateEventView: View {
     var body: some View {
 //        ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
-                Button("dismiss") {
+                /// dismiss
+                CreateEventDismissButton {
                     dismiss()
                 }
-//                CreateEventHeader(isActiveCreateEventView: $isActiveCreateEventView)
+
+                /// title
+                YamText(
+                    "новый ивент",
+                    font: CreateEventFont.headerTextFont
+                )
+
+                /// image picker
                 CreateEventImagePicker(image: $image)
 
                 // title
