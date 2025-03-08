@@ -1,7 +1,13 @@
 import SwiftUI
 
+enum Tab {
+    case profile
+    case search
+    case map
+}
+
 struct YamTabBar: View {
-    @Binding var activeTab: EntryView.Tab
+    @Binding var activeTab: Tab
 
     var body: some View {
         HStack {
@@ -55,8 +61,8 @@ struct YamTabBar: View {
 
 private struct TabItem: View {
 
-    @Binding var activeTab: EntryView.Tab
-    let thisTab: EntryView.Tab
+    @Binding var activeTab: Tab
+    let thisTab: Tab
 
     let imageSystemName: String
     let title: String
@@ -88,6 +94,6 @@ private struct TabItem: View {
 }
 
 #Preview {
-    @Previewable @State var a: EntryView.Tab = .search
+    @Previewable @State var a: Tab = .search
     YamTabBar(activeTab: $a)
 }
