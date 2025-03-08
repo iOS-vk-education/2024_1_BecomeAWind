@@ -44,6 +44,8 @@
 		873054412D5A9B82003D6726 /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054402D5A9B82003D6726 /* MyEventsView.swift */; };
 		873054432D5AA20E003D6726 /* MyEventsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054422D5AA20E003D6726 /* MyEventsHeader.swift */; };
 		87336F4B2D7C329F00BD699A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F4A2D7C329F00BD699A /* Const.swift */; };
+		87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F532D7C39AB00BD699A /* EntryViewModel.swift */; };
+		87336F572D7C3A5900BD699A /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F562D7C3A5900BD699A /* EntryModel.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B6FE2D457F930017F2B8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FD2D457F930017F2B8 /* DateModel.swift */; };
@@ -115,6 +117,8 @@
 		873054402D5A9B82003D6726 /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
 		873054422D5AA20E003D6726 /* MyEventsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsHeader.swift; sourceTree = "<group>"; };
 		87336F4A2D7C329F00BD699A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		87336F532D7C39AB00BD699A /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
+		87336F562D7C3A5900BD699A /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B6FD2D457F930017F2B8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -319,17 +323,11 @@
 		870E3C7D2D4388D40043DA00 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C792D4388D40043DA00 /* EntryView.swift */,
-				876084C12D7A37B500195B68 /* YamTabBar.swift */,
+				87336F502D7C399100BD699A /* View */,
+				87336F512D7C399500BD699A /* ViewModel */,
+				87336F552D7C3A3600BD699A /* Model */,
 			);
 			path = Entry;
-			sourceTree = "<group>";
-		};
-		870E3C7E2D4388D40043DA00 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		870E3C802D4388D40043DA00 /* View */ = {
@@ -340,19 +338,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		870E3C812D4388D40043DA00 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		870E3C822D4388D40043DA00 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				870E3C802D4388D40043DA00 /* View */,
-				870E3C812D4388D40043DA00 /* ViewModel */,
-				870E3C7E2D4388D40043DA00 /* Model */,
+				87336F4E2D7C392700BD699A /* ViewModel */,
+				87336F4F2D7C392A00BD699A /* Model */,
 				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
 				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
@@ -417,6 +408,45 @@
 				8730543E2D5A9B53003D6726 /* Model */,
 			);
 			path = MyEvents;
+			sourceTree = "<group>";
+		};
+		87336F4E2D7C392700BD699A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		87336F4F2D7C392A00BD699A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		87336F502D7C399100BD699A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				870E3C792D4388D40043DA00 /* EntryView.swift */,
+				876084C12D7A37B500195B68 /* YamTabBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87336F512D7C399500BD699A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				87336F532D7C39AB00BD699A /* EntryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		87336F552D7C3A3600BD699A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				87336F562D7C3A5900BD699A /* EntryModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		878E73EF2D47B88D00D425F4 /* View */ = {
@@ -739,6 +769,7 @@
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
 				878432E42D5129E500A24538 /* CreateEventHeader.swift in Sources */,
 				87B47A912D58E9DF007AA252 /* YamCloseScreenButton.swift in Sources */,
+				87336F572D7C3A5900BD699A /* EntryModel.swift in Sources */,
 				870E3C9A2D4388D40043DA00 /* YamText.swift in Sources */,
 				876084C22D7A37B500195B68 /* YamTabBar.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
@@ -758,6 +789,7 @@
 				87BD45332D515BD0001B8E1B /* CreateEventPlacePicker.swift in Sources */,
 				879F2BFE2D46CE7F0027E46D /* DateConverter.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* YamCapsuleLabel.swift in Sources */,
+				87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* CreateEventTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */,

@@ -4,12 +4,11 @@ struct EntryView: View {
     //    @StateObject private var locationManager = LocationServicesStatusManager()
     //    if locationManager.isLocationServicesEnabled {
 
-    
-    @State var activeTab: Tab = .profile
+    @StateObject var viewModel = EntryViewModel()
 
     var body: some View {
         ZStack {
-            switch activeTab {
+            switch viewModel.activeTab {
             case .profile:
                 MyEventsView()
             case .search:
@@ -20,7 +19,7 @@ struct EntryView: View {
 
             VStack {
                 Spacer()
-                YamTabBar(activeTab: $activeTab)
+                YamTabBar(viewModel: viewModel)
             }
         }
         .edgesIgnoringSafeArea(.bottom)

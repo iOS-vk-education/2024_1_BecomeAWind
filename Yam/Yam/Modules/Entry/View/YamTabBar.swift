@@ -1,56 +1,50 @@
 import SwiftUI
 
-enum Tab {
-    case profile
-    case search
-    case map
-}
-
 struct YamTabBar: View {
-    @Binding var activeTab: Tab
+
+    @ObservedObject var viewModel: EntryViewModel
 
     var body: some View {
         HStack {
             TabItem(
-                activeTab: $activeTab,
+                viewModel: viewModel,
                 thisTab: .profile,
                 imageSystemName: "person.crop.circle",
                 title: "профиль"
             )
             .onTapGesture {
                 withAnimation(EntryConst.fastAnimation) {
-                    activeTab = .profile
+                    viewModel.changeActiveTabTo(.profile)
                 }
             }
 
             TabItem(
-                activeTab: $activeTab,
+                viewModel: viewModel,
                 thisTab: .search,
                 imageSystemName: "widget.small",
                 title: "поиск"
             )
             .onTapGesture {
                 withAnimation(EntryConst.fastAnimation) {
-                    activeTab = .search
+                    viewModel.changeActiveTabTo(.search)
                 }
             }
 
             TabItem(
-                activeTab: $activeTab,
+                viewModel: viewModel,
                 thisTab: .map,
                 imageSystemName: "map",
                 title: "карта"
             )
             .onTapGesture {
                 withAnimation(EntryConst.fastAnimation) {
-                    activeTab = .map
+                    viewModel.changeActiveTabTo(.map)
                 }
             }
         }
         .padding()
         .frame(height: EntryConst.tabBarHeight)
         .background(.thinMaterial)
-
         .cornerRadius(
             EntryConst.tabBarCornerRadius,
             corners: [.topLeft, .topRight]
@@ -61,7 +55,7 @@ struct YamTabBar: View {
 
 private struct TabItem: View {
 
-    @Binding var activeTab: Tab
+    @ObservedObject var viewModel: EntryViewModel
     let thisTab: Tab
 
     let imageSystemName: String
@@ -76,14 +70,14 @@ private struct TabItem: View {
                     height: EntryConst.tabBarImageSize
                 )
                 .foregroundColor(
-                    activeTab == thisTab
+                    viewModel.activeTab == thisTab
                     ? ColorPack.purple
                     : ColorPack.white
                 )
             YamText(
                 title,
                 font: Fonts.Entry.tabBarItemTitleFont,
-                foregroundColor: activeTab == thisTab
+                foregroundColor: viewModel.activeTab == thisTab
                 ? ColorPack.purple
                 : ColorPack.white
             )
@@ -91,9 +85,10 @@ private struct TabItem: View {
         }
         .frame(maxWidth: .infinity)
     }
+
 }
 
 #Preview {
-    @Previewable @State var a: Tab = .search
-    YamTabBar(activeTab: $a)
+    @Previewable @StateObject var vm = EntryViewModel()
+    YamTabBar(viewModel: vm)
 }

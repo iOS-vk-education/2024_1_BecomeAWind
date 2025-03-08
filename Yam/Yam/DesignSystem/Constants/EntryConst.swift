@@ -8,7 +8,7 @@ enum EntryConst {
     static let tabBarImageSize = tabBarHeight * 0.2
     static let tabBarCornerRadius: CGFloat = 20
 
-    static let fastAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.3)
+    static let fastAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.2)
 }
 
 public enum SizePack {
