@@ -1,9 +1,13 @@
 import SwiftUI
 import MapKit
+import Contacts
 
 final class TempDatabase: ObservableObject {
+
     static let shared = TempDatabase()
+
     @Published var events: [Event] = []
+
     /*
     @Published var users: [UserModel] = [
         UserModel(login: "1", email: "1", password: "1"),
@@ -18,20 +22,25 @@ final class TempDatabase: ObservableObject {
 //            generateEvents()
 //        }
     }
-    /*
-    func generateEvents() {
-        let coordinate = CLLocationCoordinate2D(latitude: 55.7558, longitude: 37.6173)
-        let eventDate = DateModel(date: Date(), timeZone: TimeZone.current)
-        let seats = 200
-        let link = "https://github.com/ilyansky/born2code"
 
-        let eventDescription = EventDescription(title: "Концерт в Москве", description: "Уникальное музыкальное событие в центре Москвы.", image: UIImage(named: "projectx")!)
-        let eventOrganization = EventOrganizationInformation(date: eventDate,
-                                                             seats: seats,
-                                                             link: link)
-        let event = Event(description: eventDescription,
-                          organization: eventOrganization)
-        events.append(event)
+    func generateEvents() {
+        let image = UIImage(named: "projectx")!
+        let title = "Концерт Нейромонаха Феофана"
+        let seats = 3000
+        let link = "https://github.com/ilyansky/born2code"
+        let date = Date()
+
+        let coordinate = CLLocationCoordinate2D(latitude: 55.7558, longitude: 37.6173)
+
+//        let place = PlaceModel(placemark: CLPlacemark, coordinate: <#T##CLLocationCoordinate2D#>)
+
+
+
+
+
+//        let event = Event(description: eventDescription,
+//                          organization: eventOrganization)
+//        events.append(event)
     }
 
     @Published var location1 = CLLocation(latitude: 55.9558,
@@ -40,5 +49,30 @@ final class TempDatabase: ObservableObject {
                                          longitude: 37.1143)
     @Published var location3 = CLLocation(latitude: 55.0598,
                                          longitude: 37.4103)
-     */
+
+
+//    func generateRandomPlacemark() -> CLPlacemark {
+//        // Случайные координаты
+//        let latitude = CLLocationDegrees.random(in: -90...90)
+//        let longitude = CLLocationDegrees.random(in: -180...180)
+//        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//
+//        // Случайные данные для адреса
+//        let addressDictionary: [String: Any] = [
+//            CNPostalAddressStreetKey: "Random Street \(Int.random(in: 1...100))",
+//            CNPostalAddressCityKey: "Random City",
+//            CNPostalAddressStateKey: "Random State",
+//            CNPostalAddressPostalCodeKey: "\(Int.random(in: 10000...99999))",
+//            CNPostalAddressCountryKey: "Random Country",
+//            CNPostalAddressISOCountryCodeKey: "RC"
+//        ]
+//
+//        // Создаем CLLocation
+//        let location = CLLocation(latitude: latitude, longitude: longitude)
+//
+//        // Создаем CLPlacemark
+//        let placemark = CLPlacemark
+//
+//        return placemark
+//    }
 }

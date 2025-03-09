@@ -1,4 +1,5 @@
 import UIKit
+import MapKit
 
 struct Event: Identifiable {
     var id = UUID()
@@ -8,5 +9,5 @@ struct Event: Identifiable {
     var seats: Int
     var link: String
     var date: Date
-    var place: PlaceModel?
+    var geopoint: CLLocation
 }

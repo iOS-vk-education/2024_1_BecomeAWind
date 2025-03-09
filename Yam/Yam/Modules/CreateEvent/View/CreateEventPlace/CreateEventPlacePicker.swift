@@ -10,7 +10,7 @@ struct CreateEventPlacePicker: View {
 
         CreateEventVStack {
             YText(
-                viewModel.getPlaceDescription(),
+                viewModel.placeDescription,
                 font: CreateEventConst.sectionContentFont
             )
             .padding(.horizontal)

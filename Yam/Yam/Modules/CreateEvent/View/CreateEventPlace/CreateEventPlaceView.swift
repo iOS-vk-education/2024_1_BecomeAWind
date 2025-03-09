@@ -16,10 +16,10 @@ struct CreateEventPlaceView: View {
 
                 /// choose button
                 Button {
-                    viewModel.getPlacemark { placemarkReceived in
+                    viewModel.updatePlaceDescription { placemarkReceived in
                         if placemarkReceived {
                             dismiss()
-                        }
+                        } // else { alert }
                     }
                 } label: {
                     YCapsuleLabel(

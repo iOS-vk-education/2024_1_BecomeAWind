@@ -36,11 +36,11 @@ struct CreateEventTextField: View {
             )
             .padding()
             .autocorrectionDisabled()
+            .autocapitalization(.none)
             .lineLimit(lineLimit)
             .tint(Colors.purple)
             .foregroundColor(Colors.white)
             .font(CreateEventConst.sectionContentFont)
-
         }
     }
 

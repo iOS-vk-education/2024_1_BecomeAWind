@@ -79,7 +79,7 @@ struct CreateEventView: View {
                 }
                 .focused($focus, equals: .link)
 
-                /// date time timezone
+                /// date time
                 CreateEventDatePicker(viewModel: viewModel)
 
                 /// place picker

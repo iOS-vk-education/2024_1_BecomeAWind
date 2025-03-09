@@ -20,11 +20,12 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
 
     /// place picker
     @Published var isActiveCreateEventPlace = false
-    @Published private(set) var centerCoordinate = CLLocationCoordinate2D()
-    private var place: PlaceModel?
+    @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
+    @Published var placeDescription = CreateEventConst.emptyPlaceText
 
     /// create event
     @Published var eventCreationFailed = false
+    private var geopoint = CLLocation()
 
 }
 
@@ -32,7 +33,7 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
 extension CreateEventViewModel {
 
     func createEvent() -> Bool {
-        var eventCreated = validateEventData()
+        let eventCreated = validateEventData()
 
         if eventCreated {
             let event = Event(
@@ -41,7 +42,7 @@ extension CreateEventViewModel {
                 seats: Int(seats) ?? 1,
                 link: link,
                 date: date,
-                place: place
+                geopoint: geopoint
             )
             model.createEvent(event)
         }
@@ -58,19 +59,11 @@ extension CreateEventViewModel {
 
         if eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
             link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-            getPlaceDescription() == CreateEventConst.emptyPlaceText {
+            placeDescription == CreateEventConst.emptyPlaceText {
             result = false
         }
 
         return result
-    }
-
-    private func printEventData() {
-        print(eventTitle)
-        print(seats)
-        print(link)
-        print(date)
-        print(getPlaceDescription())
     }
 
 }
@@ -121,42 +114,93 @@ extension CreateEventViewModel {
         isActiveCreateEventPlace.toggle()
     }
 
-    func getPlacemark(completion: @escaping (Bool) -> Void) {
-        let coordinate = centerCoordinate
+}
 
-        // make location from latitude and longitude
+/// location handler
+extension CreateEventViewModel {
+
+    func updatePlaceDescription(completion: @escaping (Bool) -> Void) {
+        guard let coordinate = centerCoordinate else { return }
+        placeDescription = ""
+
+        getPlacemark(from: coordinate) { [weak self] placemark in
+            if let placemark {
+                var description = ""
+                let ocean = placemark.ocean ?? ""
+                let inlandWater = placemark.inlandWater ?? ""
+                let country = placemark.country ?? ""
+                let locality = placemark.locality ?? ""
+                let thoroughfare = placemark.thoroughfare ?? ""
+                let subThoroughfare = placemark.subThoroughfare ?? ""
+
+                if ocean != "" {
+                    description += "\(ocean)\n"
+                } else if inlandWater != "" {
+                    description += "\(inlandWater)\n"
+                } else {
+                    description += country == "" ? "" : "\(country)\n"
+                    description += locality == "" ? "" : "\(locality)\n"
+                    description += thoroughfare == "" ? "" : "\(thoroughfare)\n"
+                    description += subThoroughfare == "" ? "" : "\(subThoroughfare)\n"
+                }
+
+                description += "\n"
+
+                let latitude = String(format: "%.4f", coordinate.latitude)
+                let longitude = String(format: "%.4f", coordinate.longitude)
+                description += "Широта: \(latitude)\nДолгота: \(longitude)"
+
+                DispatchQueue.main.async {
+                    self?.placeDescription = description
+                    let geopoint = CLLocation(
+                        latitude: coordinate.latitude,
+                        longitude: coordinate.longitude
+                    )
+                    self?.geopoint = geopoint
+                }
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+
+    private func getPlacemark(
+        from coordinate: CLLocationCoordinate2D,
+        completion: @escaping (CLPlacemark?) -> Void
+    ) {
         let location = CLLocation(
             latitude: coordinate.latitude,
             longitude: coordinate.longitude
         )
         let geocoder = CLGeocoder()
 
-        // get placemark from location
-        geocoder.reverseGeocodeLocation(location, preferredLocale: Locales.ru) { placemarks, error in
+        geocoder.reverseGeocodeLocation(
+            location,
+            preferredLocale: Locales.ru
+        ) { placemarks, error in
             if error == nil {
                 let firstPlacemark = placemarks?[0]
                 if let placemark = firstPlacemark {
-                    let place = PlaceModel(
-                        placemark: placemark,
-                        coordinate: coordinate
-                    )
-                    self.handlePlaceObject(place)
-
-                    completion(true)
+                    completion(placemark)
                 } else {
-                    // error during geocoding
-                    completion(false)
+                    completion(nil)
                 }
             }
         }
     }
 
-    func handlePlaceObject(_ place: PlaceModel) {
-        self.place = place
-    }
-
-    func getPlaceDescription() -> String {
-        PlaceHandler.handlePlace(place)
+    private func printPlacemarkInfo(placemark: CLPlacemark) {
+        print("AdministrativeArea = \(String(describing: placemark.administrativeArea))")
+        print("Country = \(String(describing: placemark.country))")
+        print("inlandWater = \(String(describing: placemark.inlandWater))")
+        print("locality = \(String(describing: placemark.locality))")
+        print("ocean = \(String(describing: placemark.ocean))")
+        print("subAdministrativeArea = \(String(describing: placemark.subAdministrativeArea))")
+        print("subLocality = \(String(describing: placemark.subLocality))")
+        print("subThoroughfare = \(String(describing: placemark.subThoroughfare))")
+        print("thoroughfare = \(String(describing: placemark.thoroughfare))")
+        print()
     }
 
 }

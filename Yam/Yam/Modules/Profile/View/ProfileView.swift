@@ -8,8 +8,7 @@ enum ProfileSegment {
 struct ProfileView: View {
 
     @StateObject private var viewModel = ProfileViewModel()
-
-    @State private var segment: ProfileSegment = .yours
+//    @State private var segment: ProfileSegment = .yours
 
     var body: some View {
         VStack {
