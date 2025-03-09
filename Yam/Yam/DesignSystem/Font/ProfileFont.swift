@@ -1,5 +1,1 @@
-import SwiftUI
-
-enum ProfileFont {
-    
-}
+enum ProfileFont {}

@@ -10,10 +10,13 @@ final class CreateEventViewModel: ObservableObject {
     @Published var image = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
     @Published var photosPickerItem: PhotosPickerItem?
 
-    /// text field
+    /// text fields
     @Published var eventTitle = ""
     @Published var seats = "1"
     @Published var link = ""
+
+    /// date picker
+    @Published var date = Date()
 
     @Published var emptyEventAlertIsActive = false
     @Published var placeDescription: String = CreateEventCommonItem.emptyPlaceText

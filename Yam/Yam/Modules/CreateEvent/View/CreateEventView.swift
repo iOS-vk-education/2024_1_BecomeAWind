@@ -17,7 +17,6 @@ struct CreateEventView: View {
     @FocusState private var focus: Field?
 
     @State private var date = Date()
-    @State private var timeZone = TimeZone.current
 
     var body: some View {
         ZStack {
@@ -70,15 +69,6 @@ struct CreateEventView: View {
                 }
                 .focused($focus, equals: .seats)
 
-                /// date time timezone
-//                CreateEventDatePicker(date: $date,
-//                                      timeZone: $timeZone) // need optimize
-                
-                
-
-                /// place picker
-                CreateEventPlacePicker(viewModel: viewModel)
-
                 /// link
                 CreateEventTextField(
                     text: $viewModel.link,
@@ -93,6 +83,12 @@ struct CreateEventView: View {
                     )
                 }
                 .focused($focus, equals: .link)
+
+                /// date time timezone
+                CreateEventDatePicker(viewModel: viewModel)
+
+                /// place picker
+                CreateEventPlacePicker(viewModel: viewModel)
             }
             .background(Colors.black)
 

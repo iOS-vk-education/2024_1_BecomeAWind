@@ -1,38 +1,36 @@
 import SwiftUI
 
 struct CreateEventDatePicker: View {
-    var date: Binding<Date>
-    var timeZone: Binding<TimeZone>
+
+    @ObservedObject var viewModel: CreateEventViewModel
 
     var body: some View {
-//        YamText("когда")
+        HStack {
+            YText(
+                "дата и время",
+                font: CreateEventFont.sectionTitleFont
+            )
+            Spacer()
+        }
+        .padding(.leading, Const.sideSpace)
 
         CreateEventVStack {
-            DatePicker(selection: date, displayedComponents: [.date, .hourAndMinute]) {}
+            DatePicker(
+                "выбери дату и время",
+                selection: $viewModel.date
+            )
+            .labelsHidden()
             .environment(\.locale, Locales.ru)
-//            .datePickerStyle(.graphical)
+            .font(CreateEventFont.sectionContentFont)
             .tint(Colors.purple)
             .colorScheme(.dark)
-            .padding(.horizontal)
-            .padding(.bottom)
-
-            Picker(selection: timeZone, label: EmptyView()) {
-                ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) { identifier in
-                    if let timeZone = TimeZone(identifier: identifier) {
-                        Text(timeZone.localizedName(for: .standard, locale: Locales.ru) ?? identifier)
-                            .tag(timeZone)
-                    }
-                }
-            }
-            .tint(Colors.purple)
-            .colorScheme(.dark)
-            .padding(.bottom)
+            .padding()
         }
     }
+
 }
 
 #Preview {
-    @Previewable @State var date = Date()
-    @Previewable @State var tz = TimeZone.current
-    CreateEventDatePicker(date: $date, timeZone: $tz)
+    @Previewable @StateObject var vm = CreateEventViewModel(model: CreateEventModel())
+    CreateEventDatePicker(viewModel: vm)
 }

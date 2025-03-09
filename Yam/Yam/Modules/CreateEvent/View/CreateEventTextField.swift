@@ -21,7 +21,7 @@ struct CreateEventTextField: View {
 
     var body: some View {
         HStack {
-            YText(title, font: CreateEventFont.textFieldTitleFont)
+            YText(title, font: CreateEventFont.sectionTitleFont)
             Spacer()
         }
         .padding(.leading, Const.sideSpace)
@@ -32,7 +32,7 @@ struct CreateEventTextField: View {
                 text: text,
                 prompt:
                     Text(prompt)
-                    .font(CreateEventFont.textFieldFont)
+                    .font(CreateEventFont.sectionContentFont)
                     .foregroundColor(Colors.white2),
                 axis: .vertical
             )
@@ -41,7 +41,7 @@ struct CreateEventTextField: View {
             .lineLimit(lineLimit)
             .tint(Colors.purple)
             .foregroundColor(Colors.white)
-            .font(CreateEventFont.textFieldFont)
+            .font(CreateEventFont.sectionContentFont)
 
         }
     }
