@@ -5,21 +5,18 @@ struct YCircleButton: View {
     var completion: () -> Void
 
     var body: some View {
-        HStack {
-            Spacer()
-            Button {
-                completion()
-            } label: {
-                GradientImage(
-                    imageName: imageName,
-                    imageSize: Const.buttonSize,
-                    cornerRadius: Const.buttonCornerRadius,
-                    background: Gradients.purpleIndigo
-                )
-            }
-            .padding(.trailing, Const.sideSpace)
+        Button {
+            completion()
+        } label: {
+            GradientImage(
+                imageName: imageName,
+                imageSize: Const.buttonSize,
+                cornerRadius: Const.buttonCornerRadius,
+                background: Gradients.purpleIndigo
+            )
         }
     }
+
 }
 
 #Preview {

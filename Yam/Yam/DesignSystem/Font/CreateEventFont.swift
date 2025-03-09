@@ -1,19 +1,21 @@
 import SwiftUI
 
 enum CreateEventFont {
+
     /// title
     static let headerTextFont = FontManager.getFont(with: .bold, and: Const.headerFontSize)
 
-    /// image picker
-    static let choosePhotoTextFont = FontManager.getFont(
+    /// image picker, place picker
+    static let chooseButtonFont = FontManager.getFont(
         with: .medium,
-        and: CreateEventConst.choosePhotoTextFontSize
+        and: 17
     )
 
-    /// section - text fields, date picker
+    /// sections
     static let sectionTitleFont = FontManager.getFont(
         with: .semibold,
         and: 17
     )
     static let sectionContentFont = FontManager.getFont(with: .regular, and: Const.regularFontSize)
+    
 }

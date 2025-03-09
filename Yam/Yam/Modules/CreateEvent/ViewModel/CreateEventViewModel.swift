@@ -18,6 +18,9 @@ final class CreateEventViewModel: ObservableObject {
     /// date picker
     @Published var date = Date()
 
+    /// place picker
+    @Published var isActiveCreateEventPlace = false
+
     @Published var emptyEventAlertIsActive = false
     @Published var placeDescription: String = CreateEventCommonItem.emptyPlaceText
     @Published var place: PlaceModel?
@@ -36,7 +39,7 @@ final class CreateEventViewModel: ObservableObject {
     }
 }
 
-/// image picker logic
+/// image picker
 extension CreateEventViewModel {
     func setImage() {
         Task {
@@ -48,6 +51,13 @@ extension CreateEventViewModel {
             }
             photosPickerItem = nil
         }
+    }
+}
+
+/// place picker
+extension CreateEventViewModel {
+    func toggleCreateEventPlace() {
+        isActiveCreateEventPlace.toggle()
     }
 }
 

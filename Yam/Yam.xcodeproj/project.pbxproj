@@ -57,7 +57,6 @@
 		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
 		8752B7042D464E370017F2B8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7032D464E370017F2B8 /* FeedModel.swift */; };
 		8752B7062D468D3E0017F2B8 /* YamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YamImage.swift */; };
-		8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7092D46924F0017F2B8 /* YamMappin.swift */; };
 		876084C22D7A37B500195B68 /* YTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876084C12D7A37B500195B68 /* YTabBar.swift */; };
 		878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E52D512A1500A24538 /* CreateEventImagePicker.swift */; };
 		878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E73F22D47B8A000D425F4 /* UserModel.swift */; };
@@ -133,7 +132,6 @@
 		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		8752B7032D464E370017F2B8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		8752B7052D468D3E0017F2B8 /* YamImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamImage.swift; sourceTree = "<group>"; };
-		8752B7092D46924F0017F2B8 /* YamMappin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamMappin.swift; sourceTree = "<group>"; };
 		876084C12D7A37B500195B68 /* YTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTabBar.swift; sourceTree = "<group>"; };
 		878432E52D512A1500A24538 /* CreateEventImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImagePicker.swift; sourceTree = "<group>"; };
 		878E73F22D47B8A000D425F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				87336F942D7DCA8700BD699A /* YCircleButton.swift */,
 				870E3C542D4388D40043DA00 /* YCapsuleLabel.swift */,
 				8752B7052D468D3E0017F2B8 /* YamImage.swift */,
-				8752B7092D46924F0017F2B8 /* YamMappin.swift */,
 				870E3C532D4388D40043DA00 /* GradientImage.swift */,
 				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
 				870E3C462D4388860043DA00 /* AuthButton.swift */,
@@ -656,8 +653,8 @@
 		87FC484A2D52446900F6D8CC /* CreateEventPlace */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */,
 				87BD45322D515BD0001B8E1B /* CreateEventPlacePicker.swift */,
+				870E3C5D2D4388D40043DA00 /* CreateEventPlaceView.swift */,
 				8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */,
 			);
 			path = CreateEventPlace;
@@ -767,7 +764,6 @@
 				87FC48442D52089600F6D8CC /* CreateEventVStack.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,
-				8752B70A2D46924F0017F2B8 /* YamMappin.swift in Sources */,
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
 				87336F5D2D7C497E00BD699A /* EntryFont.swift in Sources */,
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,

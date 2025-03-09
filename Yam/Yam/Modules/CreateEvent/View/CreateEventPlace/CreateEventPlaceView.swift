@@ -2,19 +2,20 @@ import SwiftUI
 import MapKit
 
 struct CreateEventPlaceView: View {
+
     @ObservedObject var viewModel: CreateEventViewModel
+    @Environment(\.dismiss) private var dismiss
     @State var centerCoordinate = CLLocationCoordinate2D()
-    @Binding var isActiveCreateEventPlaceView: Bool
 
     var body: some View {
         ZStack {
             ZStack(alignment: .bottom) {
-                // map
+                /// map
                 CreateEventPlaceMap(centerCoordinate: $centerCoordinate)
                     .ignoresSafeArea()
                     .colorScheme(.light)
 
-                // choose button
+                /// choose button
                 Button {
                     viewModel.getPlacemark(for: centerCoordinate) { placemark in
                         if let placemark {
@@ -22,22 +23,25 @@ struct CreateEventPlaceView: View {
                                 placemark: placemark,
                                 coordinate: centerCoordinate)
                             viewModel.handlePlaceObject(place)
-                            isActiveCreateEventPlaceView.toggle()
+                            dismiss()
                         }
                     }
                 } label: {
-//                    YamCapsuleLabel(title: "выбрать")
+                    YCapsuleLabel(
+                        title: "выбрать",
+                        font: CreateEventFont.chooseButtonFont
+                    )
                 }
             }
 
-            // mappin
-            YamMappin()
+            YCircleButton(imageName: "location") {}
         }
     }
+
 }
 
  #Preview {
-    @Previewable @State var bool = true
-     CreateEventPlaceView(viewModel: CreateEventViewModel(model: CreateEventModel()),
-                          isActiveCreateEventPlaceView: $bool)
+     CreateEventPlaceView(
+        viewModel: CreateEventViewModel(model: CreateEventModel())
+     )
  }

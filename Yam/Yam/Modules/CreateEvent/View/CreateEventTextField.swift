@@ -20,11 +20,9 @@ struct CreateEventTextField: View {
     }
 
     var body: some View {
-        HStack {
-            YText(title, font: CreateEventFont.sectionTitleFont)
-            Spacer()
-        }
-        .padding(.leading, Const.sideSpace)
+        YText(title, font: CreateEventFont.sectionTitleFont)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, Const.sideSpace)
 
         CreateEventVStack {
             TextField(

@@ -11,7 +11,7 @@ struct CreateEventView: View {
         case title, seats, link
     }
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
 
     @FocusState private var focus: Field?
@@ -25,6 +25,8 @@ struct CreateEventView: View {
                 YCircleButton(imageName: "xmark") {
                     dismiss()
                 }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, Const.sideSpace)
 
                 /// header
                 YText(
@@ -92,13 +94,15 @@ struct CreateEventView: View {
             }
             .background(Colors.black)
 
-            VStack {
-                Spacer()
-                YCircleButton(imageName: "arrowtriangle.down") {
-                    focus = nil
-                }
+            YCircleButton(imageName: "arrowtriangle.down") {
+                focus = nil
             }
-            .padding(.bottom, Const.sideSpace)
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity,
+                alignment: .bottomTrailing
+            )
+            .padding([.bottom, .trailing], Const.sideSpace)
             .opacity(focus == nil ? 0 : 1)
         }
     }

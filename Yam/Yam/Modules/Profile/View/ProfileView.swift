@@ -16,9 +16,14 @@ struct ProfileView: View {
             YCircleButton(imageName: "plus") {
                 viewModel.toggleCreateEvent()
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.trailing, Const.sideSpace)
+            
             Spacer()
         }
-        .fullScreenCover(isPresented: $viewModel.isActiveCreateEvent) {
+        .fullScreenCover(
+            isPresented: $viewModel.isActiveCreateEvent
+        ) {
             CreateEventView()
         }
 

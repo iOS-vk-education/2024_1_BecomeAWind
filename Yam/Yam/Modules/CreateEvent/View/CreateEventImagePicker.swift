@@ -10,7 +10,7 @@ struct CreateEventImagePicker: View {
             VStack {
                 YamImage(image: viewModel.image)
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
-                    YCapsuleLabel(title: "выбери превью", font: CreateEventFont.choosePhotoTextFont)
+                    YCapsuleLabel(title: "выбери превью", font: CreateEventFont.chooseButtonFont)
                 }
                 .onChange(of: viewModel.photosPickerItem) {
                     viewModel.setImage()
