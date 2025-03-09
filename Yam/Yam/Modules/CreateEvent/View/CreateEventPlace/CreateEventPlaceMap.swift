@@ -2,14 +2,14 @@ import SwiftUI
 import MapKit
 
 struct CreateEventPlaceMap {
-    @Binding var centerCoordinate: CLLocationCoordinate2D
+    @ObservedObject var viewModel: CreateEventViewModel
 }
 
 extension CreateEventPlaceMap {
     final class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: CreateEventPlaceMap
+        var parent: CreateEventViewModel
 
-        init(_ parent: CreateEventPlaceMap) {
+        init(_ parent: CreateEventViewModel) {
             self.parent = parent
         }
 
@@ -38,6 +38,6 @@ extension CreateEventPlaceMap: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {}
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(viewModel)
     }
 }

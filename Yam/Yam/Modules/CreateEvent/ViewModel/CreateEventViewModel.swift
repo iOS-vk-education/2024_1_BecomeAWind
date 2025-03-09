@@ -20,6 +20,7 @@ final class CreateEventViewModel: ObservableObject {
 
     /// place picker
     @Published var isActiveCreateEventPlace = false
+    @Published var centerCoordinate = CLLocationCoordinate2D()
 
     @Published var emptyEventAlertIsActive = false
     @Published var placeDescription: String = CreateEventCommonItem.emptyPlaceText
@@ -37,6 +38,7 @@ final class CreateEventViewModel: ObservableObject {
             return false
         }
     }
+
 }
 
 /// image picker
@@ -56,13 +58,51 @@ extension CreateEventViewModel {
 
 /// place picker
 extension CreateEventViewModel {
+
     func toggleCreateEventPlace() {
         isActiveCreateEventPlace.toggle()
     }
+
+    func getPlacemark(completion: @escaping (Bool) -> Void) {
+        let coordinate = centerCoordinate
+
+        // make location from latitude and longitude
+        let location = CLLocation(
+            latitude: coordinate.latitude,
+            longitude: coordinate.longitude
+        )
+        let geocoder = CLGeocoder()
+
+        // get placemark from location
+        geocoder.reverseGeocodeLocation(location, preferredLocale: Locales.ru) { placemarks, error in
+            if error == nil {
+                let firstPlacemark = placemarks?[0]
+                if let placemark = firstPlacemark {
+                    let place = PlaceModel(
+                        placemark: placemark,
+                        coordinate: coordinate
+                    )
+                    self.handlePlaceObject(place)
+
+                    completion(true)
+                } else {
+                    // error during geocoding
+                    completion(false)
+                }
+            }
+        }
+    }
+
+    func handlePlaceObject(_ place: PlaceModel) {
+        self.place = place
+        placeDescription = PlaceHandler.handlePlace(place)
+    }
+
 }
 
 /// text field
 extension CreateEventViewModel {
+
     func limitTextField(_ upper: Int, text: Binding<String>) {
         if text.wrappedValue.count > upper {
             text.wrappedValue = String(text.wrappedValue.prefix(upper))
@@ -72,30 +112,5 @@ extension CreateEventViewModel {
     func filterSeats(_ newValue: String) {
         seats = newValue.filter { seats.first != "0" && $0.isNumber }
     }
-}
 
-// for CreateEventPlaceView
-extension CreateEventViewModel {
-    func getPlacemark(for coordinate: CLLocationCoordinate2D,
-                             completion: @escaping (CLPlacemark?) -> Void) {
-        // make location from latitude and longitude
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        let geocoder = CLGeocoder()
-
-        // get placemark from location
-        geocoder.reverseGeocodeLocation(location, preferredLocale: Locale(identifier: "ru_RU")) { placemarks, error in
-            if error == nil {
-                let firstPlacemark = placemarks?[0]
-                completion(firstPlacemark)
-            } else {
-                // error during geocoding
-                completion(nil)
-            }
-        }
-    }
-
-    func handlePlaceObject(_ place: PlaceModel) {
-        self.place = place
-        placeDescription = PlaceHandler.handlePlace(place)
-    }
 }
