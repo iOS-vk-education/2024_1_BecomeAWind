@@ -1,9 +1,9 @@
 import Foundation
 import CoreLocation
 
-public enum PlaceHandler {
+enum PlaceHandler {
     static func handlePlace(_ place: PlaceModel?) -> String {
-        var placeDescription = CreateEventCommonItem.emptyPlaceText
+        var placeDescription = CreateEventConst.emptyPlaceText
 
         if let place {
             placeDescription = ""

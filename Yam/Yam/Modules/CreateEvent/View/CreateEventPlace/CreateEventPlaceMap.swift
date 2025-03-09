@@ -5,25 +5,6 @@ struct CreateEventPlaceMap {
     @ObservedObject var viewModel: CreateEventViewModel
 }
 
-extension CreateEventPlaceMap {
-    final class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: CreateEventViewModel
-
-        init(_ parent: CreateEventViewModel) {
-            self.parent = parent
-        }
-
-        /* Because the map may call this method many times during the scrolling of the map ...
-         https://developer.apple.com/documentation/mapkit/mkmapviewdelegate/mapviewdidchangevisibleregion(_:)
-         */
-        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-            DispatchQueue.main.async {
-                self.parent.centerCoordinate = mapView.centerCoordinate
-            }
-        }
-    }
-}
-
 extension CreateEventPlaceMap: UIViewRepresentable {
     /*
      The system calls this method only once, when it creates your view for the first time.
@@ -37,7 +18,7 @@ extension CreateEventPlaceMap: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIViewType, context: Context) {}
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator(viewModel)
+    func makeCoordinator() -> CreateEventViewModel {
+        viewModel
     }
 }

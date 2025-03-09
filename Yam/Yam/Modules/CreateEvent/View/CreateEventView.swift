@@ -1,10 +1,6 @@
 import SwiftUI
 import Combine
 
-enum CreateEventCommonItem {
-    static let emptyPlaceText = "выбери место проведения мероприятия"
-}
-
 struct CreateEventView: View {
 
     enum Field {
@@ -13,10 +9,7 @@ struct CreateEventView: View {
 
     @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
-
     @FocusState private var focus: Field?
-
-    @State private var date = Date()
 
     var body: some View {
         ZStack {

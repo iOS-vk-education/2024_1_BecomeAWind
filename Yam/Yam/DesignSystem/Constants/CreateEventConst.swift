@@ -8,6 +8,9 @@ enum CreateEventConst {
     static let seatsMaxLength = 4
     static let contactMaxLength = 200
     static let lineLimit = 30
-    
+
+    /// place picker
+    static let emptyPlaceText = "выбери место проведения мероприятия"
+
 }
 

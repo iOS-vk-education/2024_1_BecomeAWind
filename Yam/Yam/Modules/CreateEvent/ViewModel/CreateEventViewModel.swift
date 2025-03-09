@@ -2,7 +2,7 @@ import _PhotosUI_SwiftUI
 import SwiftUI
 import MapKit
 
-final class CreateEventViewModel: ObservableObject {
+final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 
     @ObservedObject private var model: CreateEventModel // delme
 
@@ -21,10 +21,10 @@ final class CreateEventViewModel: ObservableObject {
     /// place picker
     @Published var isActiveCreateEventPlace = false
     @Published var centerCoordinate = CLLocationCoordinate2D()
-
-    @Published var emptyEventAlertIsActive = false
-    @Published var placeDescription: String = CreateEventCommonItem.emptyPlaceText
     @Published var place: PlaceModel?
+
+    /// create event button
+    @Published var emptyEventAlertIsActive = false
 
     init(model: CreateEventModel) {
         self.model = model
@@ -58,6 +58,13 @@ extension CreateEventViewModel {
 
 /// place picker
 extension CreateEventViewModel {
+
+    // conformance to MKMapViewDelegate
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        DispatchQueue.main.async {
+            self.centerCoordinate = mapView.centerCoordinate
+        }
+    }
 
     func toggleCreateEventPlace() {
         isActiveCreateEventPlace.toggle()
@@ -95,7 +102,10 @@ extension CreateEventViewModel {
 
     func handlePlaceObject(_ place: PlaceModel) {
         self.place = place
-        placeDescription = PlaceHandler.handlePlace(place)
+    }
+
+    func getPlaceDescription() -> String {
+        PlaceHandler.handlePlace(place)
     }
 
 }
