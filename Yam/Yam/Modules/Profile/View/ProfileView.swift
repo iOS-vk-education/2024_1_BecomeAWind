@@ -6,13 +6,16 @@ enum ProfileSegment {
 }
 
 struct ProfileView: View {
+
     @StateObject private var viewModel = ProfileViewModel()
 
     @State private var segment: ProfileSegment = .yours
 
     var body: some View {
         VStack {
-            OpenCreateEventButton(viewModel: viewModel)
+            YCircleButton(imageName: "plus") {
+                viewModel.toggleCreateEvent()
+            }
             Spacer()
         }
         .fullScreenCover(isPresented: $viewModel.isActiveCreateEvent) {

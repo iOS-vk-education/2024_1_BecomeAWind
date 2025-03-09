@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YamText: View {
+struct YText: View {
     let text: String
     let font: Font
     let foregroundColor: Color
@@ -21,5 +21,5 @@ struct YamText: View {
 }
 
 #Preview {
-    YamText("текст", font: EntryFont.tabBarItemTitleFont)
+    YText("текст", font: EntryFont.tabBarItemTitleFont)
 }

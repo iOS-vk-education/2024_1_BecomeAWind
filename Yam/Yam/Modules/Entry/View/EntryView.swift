@@ -19,7 +19,7 @@ struct EntryView: View {
 
             VStack {
                 Spacer()
-                YamTabBar(viewModel: viewModel)
+                YTabBar(viewModel: viewModel)
             }
         }
         .edgesIgnoringSafeArea(.bottom)

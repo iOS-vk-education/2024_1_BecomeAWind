@@ -1,8 +1,20 @@
+import _PhotosUI_SwiftUI
 import SwiftUI
 import MapKit
 
 final class CreateEventViewModel: ObservableObject {
-    @ObservedObject private var model: CreateEventModel
+
+    @ObservedObject private var model: CreateEventModel // delme
+
+    /// image picker
+    @Published var image = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
+    @Published var photosPickerItem: PhotosPickerItem?
+
+    /// text field
+    @Published var eventTitle = ""
+    @Published var seats = "1"
+    @Published var link = ""
+
     @Published var emptyEventAlertIsActive = false
     @Published var placeDescription: String = CreateEventCommonItem.emptyPlaceText
     @Published var place: PlaceModel?
@@ -18,6 +30,34 @@ final class CreateEventViewModel: ObservableObject {
             emptyEventAlertIsActive.toggle()
             return false
         }
+    }
+}
+
+/// image picker logic
+extension CreateEventViewModel {
+    func setImage() {
+        Task {
+            if let photosPickerItem,
+               let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
+                if let image = UIImage(data: data) {
+                    self.image = image
+                }
+            }
+            photosPickerItem = nil
+        }
+    }
+}
+
+/// text field
+extension CreateEventViewModel {
+    func limitTextField(_ upper: Int, text: Binding<String>) {
+        if text.wrappedValue.count > upper {
+            text.wrappedValue = String(text.wrappedValue.prefix(upper))
+        }
+    }
+
+    func filterSeats(_ newValue: String) {
+        seats = newValue.filter { seats.first != "0" && $0.isNumber }
     }
 }
 

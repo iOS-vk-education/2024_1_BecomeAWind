@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YamTabBar: View {
+struct YTabBar: View {
 
     @ObservedObject var viewModel: EntryViewModel
 
@@ -74,7 +74,7 @@ private struct TabItem: View {
                     ? Colors.purple
                     : Colors.white
                 )
-            YamText(
+            YText(
                 title,
                 font: EntryFont.tabBarItemTitleFont,
                 foregroundColor: viewModel.activeTab == thisTab
@@ -90,5 +90,5 @@ private struct TabItem: View {
 
 #Preview {
     @Previewable @StateObject var vm = EntryViewModel()
-    YamTabBar(viewModel: vm)
+    YTabBar(viewModel: vm)
 }

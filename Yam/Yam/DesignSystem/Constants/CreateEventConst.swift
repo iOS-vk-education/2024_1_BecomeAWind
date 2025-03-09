@@ -1,7 +1,18 @@
+import Foundation
+
 enum CreateEventConst {
-    /// Dismiss button
-    static let dismissButtonSize = Const.screenWidth * 0.1
-    static let dismissButtonCornerRadius = dismissButtonSize / 2
-    static let dismissButtonSideSpace = Const.sideSpace
+
+    /// image picker
+    static let choosePhotoTextFontSize: CGFloat = 17
+
+    /// text field
+    static let textFieldTitleFontSize: CGFloat = 17
+    static let placeDescriptionFontSize: CGFloat = 15
+    static let titleMaxLength = 30
+    static let descriptionMaxLength = 500
+    static let seatsMaxLength = 4
+    static let contactMaxLength = 200
+    static let lineLimit = 30
+    
 }
 

@@ -2,31 +2,23 @@ import SwiftUI
 import _PhotosUI_SwiftUI
 
 struct CreateEventImagePicker: View {
-    @Binding var image: UIImage
-    @State private var photosPickerItem: PhotosPickerItem?
+    @ObservedObject var viewModel: CreateEventViewModel
 
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                YamImage(image: image)
-                PhotosPicker(selection: $photosPickerItem, matching: .images) {
-//                    YamCapsuleLabel(title: "выбрать обложку")
+                YamImage(image: viewModel.image)
+                PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
+                    YCapsuleLabel(title: "выбери превью", font: CreateEventFont.choosePhotoTextFont)
                 }
-                .onChange(of: photosPickerItem) {
-                    Task {
-                        if let photosPickerItem,
-                           let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
-                            if let img = UIImage(data: data) {
-                                image = img
-                            }
-                        }
-                        photosPickerItem = nil
-                    }
+                .onChange(of: viewModel.photosPickerItem) {
+                    viewModel.setImage()
                 }
             }
             Spacer()
         }
         .padding(.bottom)
     }
+    
 }

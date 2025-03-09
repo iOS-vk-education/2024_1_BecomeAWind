@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YamCapsuleLabel: View {
+struct YCapsuleLabel: View {
     let title: String
     let font: Font
     let background: LinearGradient
@@ -24,7 +24,7 @@ struct YamCapsuleLabel: View {
 }
 
 #Preview {
-    YamCapsuleLabel(
+    YCapsuleLabel(
         title: "текст",
         font: FontManager.def,
         background: Gradients.purpleIndigo
