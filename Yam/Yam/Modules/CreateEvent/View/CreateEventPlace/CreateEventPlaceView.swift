@@ -24,7 +24,7 @@ struct CreateEventPlaceView: View {
                 } label: {
                     YCapsuleLabel(
                         title: "выбрать",
-                        font: CreateEventFont.chooseButtonFont
+                        font: Const.buttonFont
                     )
                 }
             }
@@ -36,7 +36,5 @@ struct CreateEventPlaceView: View {
 }
 
  #Preview {
-     CreateEventPlaceView(
-        viewModel: CreateEventViewModel(model: CreateEventModel())
-     )
+     CreateEventPlaceView(viewModel: CreateEventViewModel())
  }

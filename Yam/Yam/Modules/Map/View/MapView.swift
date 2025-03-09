@@ -9,6 +9,7 @@ struct MapView: View {
     @ObservedObject var tempDatabase = TempDatabase.shared // delme
 
     var body: some View {
+        /*
         Map(position: $position) {
             UserAnnotation()
 
@@ -45,6 +46,8 @@ struct MapView: View {
         .sheet(item: $selectedEvent) { event in
             DetailedInfoView(events: [event])
         }
+         */
+        Text("map")
     }
 }
 

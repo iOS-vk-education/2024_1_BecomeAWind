@@ -4,10 +4,10 @@ import MapKit
 
 final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 
-    @ObservedObject private var model: CreateEventModel // delme
+    private var model = CreateEventModel()
 
     /// image picker
-    @Published var image = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
+    @Published private(set) var image = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
     @Published var photosPickerItem: PhotosPickerItem?
 
     /// text fields
@@ -20,29 +20,63 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
 
     /// place picker
     @Published var isActiveCreateEventPlace = false
-    @Published var centerCoordinate = CLLocationCoordinate2D()
-    @Published var place: PlaceModel?
+    @Published private(set) var centerCoordinate = CLLocationCoordinate2D()
+    private var place: PlaceModel?
 
-    /// create event button
-    @Published var emptyEventAlertIsActive = false
+    /// create event
+    @Published var eventCreationFailed = false
 
-    init(model: CreateEventModel) {
-        self.model = model
+}
+
+/// create event
+extension CreateEventViewModel {
+
+    func createEvent() -> Bool {
+        var eventCreated = validateEventData()
+
+        if eventCreated {
+            let event = Event(
+                image: image,
+                title: eventTitle,
+                seats: Int(seats) ?? 1,
+                link: link,
+                date: date
+            )
+            model.createEvent(event)
+        }
+
+        return eventCreated
     }
 
-    func createEvent(_ event: Event) -> Bool {
-        if model.createEvent(event) {
-            return true
-        } else {
-            emptyEventAlertIsActive.toggle()
-            return false
+    func toggleEventCreationFailed() {
+        eventCreationFailed.toggle()
+    }
+
+    private func validateEventData() -> Bool {
+        var result = true
+
+        if eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+            link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+            getPlaceDescription() == CreateEventConst.emptyPlaceText {
+            result = false
         }
+
+        return result
+    }
+
+    private func printEventData() {
+        print(eventTitle)
+        print(seats)
+        print(link)
+        print(date)
+        print(getPlaceDescription())
     }
 
 }
 
 /// image picker
 extension CreateEventViewModel {
+
     func setImage() {
         Task {
             if let photosPickerItem,
@@ -54,6 +88,22 @@ extension CreateEventViewModel {
             photosPickerItem = nil
         }
     }
+    
+}
+
+/// text field
+extension CreateEventViewModel {
+
+    func limitTextField(_ upper: Int, text: Binding<String>) {
+        if text.wrappedValue.count > upper {
+            text.wrappedValue = String(text.wrappedValue.prefix(upper))
+        }
+    }
+
+    func filterSeats(_ newValue: String) {
+        seats = newValue.filter { seats.first != "0" && $0.isNumber }
+    }
+
 }
 
 /// place picker
@@ -106,21 +156,6 @@ extension CreateEventViewModel {
 
     func getPlaceDescription() -> String {
         PlaceHandler.handlePlace(place)
-    }
-
-}
-
-/// text field
-extension CreateEventViewModel {
-
-    func limitTextField(_ upper: Int, text: Binding<String>) {
-        if text.wrappedValue.count > upper {
-            text.wrappedValue = String(text.wrappedValue.prefix(upper))
-        }
-    }
-
-    func filterSeats(_ newValue: String) {
-        seats = newValue.filter { seats.first != "0" && $0.isNumber }
     }
 
 }

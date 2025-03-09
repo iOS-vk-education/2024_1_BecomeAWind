@@ -8,7 +8,7 @@ struct CreateEventDatePicker: View {
         HStack {
             YText(
                 "дата и время",
-                font: CreateEventFont.sectionTitleFont
+                font: CreateEventConst.sectionTitleFont
             )
             Spacer()
         }
@@ -21,7 +21,7 @@ struct CreateEventDatePicker: View {
             )
             .labelsHidden()
             .environment(\.locale, Locales.ru)
-            .font(CreateEventFont.sectionContentFont)
+            .font(CreateEventConst.sectionContentFont)
             .tint(Colors.purple)
             .colorScheme(.dark)
             .padding()
@@ -31,6 +31,6 @@ struct CreateEventDatePicker: View {
 }
 
 #Preview {
-    @Previewable @StateObject var vm = CreateEventViewModel(model: CreateEventModel())
+    @Previewable @StateObject var vm = CreateEventViewModel()
     CreateEventDatePicker(viewModel: vm)
 }

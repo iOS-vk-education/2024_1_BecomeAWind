@@ -4,7 +4,14 @@ enum Const {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
 
-    static let headerFontSize: CGFloat = 35
+    static let headerTextFont = FontManager.getFont(
+        with: .bold,
+        and: 35
+    )
+    static let buttonFont = FontManager.getFont(
+        with: .bold,
+        and: 17
+    )
     static let fontSize: CGFloat = 20
     static let regularFontSize: CGFloat = 15
     static let cornerRadius: CGFloat = 20

@@ -14,7 +14,8 @@ struct TabEvent: View {
     var body: some View {
         TabView {
             ForEach(events) { event in
-                EventCard(event: event)
+//                EventCard(event: event)
+                Text(event.link)
             }
         }
         .tabViewStyle(.page)

@@ -20,7 +20,7 @@ struct CreateEventTextField: View {
     }
 
     var body: some View {
-        YText(title, font: CreateEventFont.sectionTitleFont)
+        YText(title, font: CreateEventConst.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, Const.sideSpace)
 
@@ -30,7 +30,7 @@ struct CreateEventTextField: View {
                 text: text,
                 prompt:
                     Text(prompt)
-                    .font(CreateEventFont.sectionContentFont)
+                    .font(CreateEventConst.sectionContentFont)
                     .foregroundColor(Colors.white2),
                 axis: .vertical
             )
@@ -39,7 +39,7 @@ struct CreateEventTextField: View {
             .lineLimit(lineLimit)
             .tint(Colors.purple)
             .foregroundColor(Colors.white)
-            .font(CreateEventFont.sectionContentFont)
+            .font(CreateEventConst.sectionContentFont)
 
         }
     }

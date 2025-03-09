@@ -8,7 +8,7 @@ struct CreateEventView: View {
     }
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = CreateEventViewModel(model: CreateEventModel())
+    @StateObject private var viewModel = CreateEventViewModel()
     @FocusState private var focus: Field?
 
     var body: some View {
@@ -24,7 +24,7 @@ struct CreateEventView: View {
                 /// header
                 YText(
                     "новый ивент",
-                    font: CreateEventFont.headerTextFont
+                    font: Const.headerTextFont
                 )
 
                 /// image picker
@@ -84,6 +84,19 @@ struct CreateEventView: View {
 
                 /// place picker
                 CreateEventPlacePicker(viewModel: viewModel)
+
+                /// create event button
+                Button {
+                    if !viewModel.createEvent() {
+                        viewModel.toggleEventCreationFailed()
+                    }
+                } label: {
+                    YCapsuleLabel(
+                        title: "создать",
+                        font: Const.buttonFont
+                    )
+                }
+
             }
             .background(Colors.black)
 
@@ -97,6 +110,12 @@ struct CreateEventView: View {
             )
             .padding([.bottom, .trailing], Const.sideSpace)
             .opacity(focus == nil ? 0 : 1)
+        }
+        .alert(
+            "заполни все поля",
+            isPresented: $viewModel.eventCreationFailed
+        ) {
+            Button("ок", role: .cancel) {}
         }
     }
 

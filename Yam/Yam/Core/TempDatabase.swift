@@ -4,19 +4,21 @@ import MapKit
 final class TempDatabase: ObservableObject {
     static let shared = TempDatabase()
     @Published var events: [Event] = []
+    /*
     @Published var users: [UserModel] = [
         UserModel(login: "1", email: "1", password: "1"),
         UserModel(login: "2", email: "2", password: "2"),
         UserModel(login: "3", email: "3", password: "3")
     ]
-
+     */
+    
     private init() {
         print("TempDatabase initialized")
-        for _ in 0..<10 {
-            generateEvents()
-        }
+//        for _ in 0..<10 {
+//            generateEvents()
+//        }
     }
-
+    /*
     func generateEvents() {
         let coordinate = CLLocationCoordinate2D(latitude: 55.7558, longitude: 37.6173)
         let eventDate = DateModel(date: Date(), timeZone: TimeZone.current)
@@ -38,4 +40,5 @@ final class TempDatabase: ObservableObject {
                                          longitude: 37.1143)
     @Published var location3 = CLLocation(latitude: 55.0598,
                                          longitude: 37.4103)
+     */
 }

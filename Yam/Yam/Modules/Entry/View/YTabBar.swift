@@ -76,7 +76,7 @@ private struct TabItem: View {
                 )
             YText(
                 title,
-                font: EntryFont.tabBarItemTitleFont,
+                font: EntryConst.tabBarItemTitleFont,
                 foregroundColor: viewModel.activeTab == thisTab
                 ? Colors.purple
                 : Colors.white

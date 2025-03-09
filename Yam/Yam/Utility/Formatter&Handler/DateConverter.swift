@@ -1,6 +1,7 @@
 import Foundation
 
 public enum DateConverter {
+    /*
     static func getDateString(from date: DateModel) -> String {
         var result = ""
         let formatter = DateFormatter()
@@ -11,4 +12,5 @@ public enum DateConverter {
 
         return result
     }
+     */
 }

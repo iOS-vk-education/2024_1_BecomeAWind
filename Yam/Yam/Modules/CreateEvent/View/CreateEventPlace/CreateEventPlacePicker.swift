@@ -4,14 +4,14 @@ struct CreateEventPlacePicker: View {
     @ObservedObject var viewModel: CreateEventViewModel
 
     var body: some View {
-        YText("место", font: CreateEventFont.sectionTitleFont)
+        YText("место", font: CreateEventConst.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, Const.sideSpace)
 
         CreateEventVStack {
             YText(
                 viewModel.getPlaceDescription(),
-                font: CreateEventFont.sectionContentFont
+                font: CreateEventConst.sectionContentFont
             )
             .padding(.horizontal)
             .padding(.top)
@@ -30,6 +30,5 @@ struct CreateEventPlacePicker: View {
 }
 
 #Preview {
-    @Previewable @StateObject var viewModel = CreateEventViewModel(model: CreateEventModel())
-    CreateEventPlacePicker(viewModel: viewModel)
+    CreateEventPlacePicker(viewModel: CreateEventViewModel())
 }

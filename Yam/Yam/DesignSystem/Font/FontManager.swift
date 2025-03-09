@@ -1,6 +1,7 @@
 import SwiftUI
 
 enum FontManager {
+
     enum FontWeight {
         case extrabold
         case bold
@@ -32,6 +33,7 @@ enum FontManager {
 
         return font
     }
+    
 }
 
 

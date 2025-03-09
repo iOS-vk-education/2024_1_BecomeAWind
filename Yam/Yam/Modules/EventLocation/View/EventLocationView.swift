@@ -10,13 +10,13 @@ struct EventLocationView: View {
         ZStack {
             Map(position: $position) {
                 UserAnnotation()
-
+/*
                 if let place = event.organization.place {
                     Annotation("", coordinate: place.coordinate) {
                         YamImage(image: event.description.image, size: 70)
                     }
                 }
-
+*/
             }
             .tint(Color.purple)
             .mapControls {
@@ -39,6 +39,7 @@ struct EventLocationView: View {
     }
 
     private func centerMapOnEvent() {
+        /*
         if let place = event.organization.place {
             withAnimation(.easeInOut(duration: 0.5)) {
                 position = .region(MKCoordinateRegion(
@@ -48,6 +49,7 @@ struct EventLocationView: View {
                 ))
             }
         }
+         */
     }
 
 }

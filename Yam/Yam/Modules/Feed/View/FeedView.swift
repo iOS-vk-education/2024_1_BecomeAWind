@@ -11,7 +11,7 @@ struct FeedView: View {
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
     var body: some View {
-        
+        /*
         ZStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
@@ -49,7 +49,8 @@ struct FeedView: View {
         .sheet(item: $selectedEvent) { event in
             DetailedInfoView(events: [event])
         }
-
+*/
+        Text("feed")
 
     }
 }

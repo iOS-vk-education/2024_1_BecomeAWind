@@ -21,6 +21,7 @@ struct YCapsuleLabel: View {
             .background(background)
             .cornerRadius(SizePack.coreCornerRadius)
     }
+    
 }
 
 #Preview {
