@@ -8,7 +8,7 @@ struct CreateEventImagePicker: View {
         HStack {
             Spacer()
             VStack {
-                YamImage(image: viewModel.image)
+                YImage(image: viewModel.image, size: CreateEventConst.imageSize)
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
                     YCapsuleLabel(title: "выбери превью", font: Const.buttonFont)
                 }

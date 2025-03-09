@@ -87,7 +87,9 @@ struct CreateEventView: View {
 
                 /// create event button
                 Button {
-                    if !viewModel.createEvent() {
+                    if viewModel.createEvent() {
+                        dismiss()
+                    } else {
                         viewModel.toggleEventCreationFailed()
                     }
                 } label: {

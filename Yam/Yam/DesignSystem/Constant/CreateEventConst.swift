@@ -2,6 +2,9 @@ import Foundation
 
 enum CreateEventConst {
 
+    /// image picker
+    static let imageSize: CGFloat = Const.screenWidth * 0.6
+
     /// text fields
     static let titleMaxLength = 150
     static let seatsMaxLength = 4

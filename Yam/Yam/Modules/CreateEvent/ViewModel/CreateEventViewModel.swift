@@ -40,7 +40,8 @@ extension CreateEventViewModel {
                 title: eventTitle,
                 seats: Int(seats) ?? 1,
                 link: link,
-                date: date
+                date: date,
+                place: place
             )
             model.createEvent(event)
         }

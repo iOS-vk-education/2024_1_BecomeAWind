@@ -1,11 +1,10 @@
 import SwiftUI
 
-struct YamImage: View {
+struct YImage: View {
     let image: UIImage
     let size: CGFloat
 
-    init(image: UIImage,
-         size: CGFloat = SizePack.mediumImageSize) {
+    init(image: UIImage, size: CGFloat) {
         self.image = image
         self.size = size
     }
@@ -18,8 +17,9 @@ struct YamImage: View {
             .clipped()
             .cornerRadius(SizePack.coreCornerRadius)
     }
+    
 }
 
 #Preview {
-    YamImage(image: UIImage(named: "default_event_image")!)
+    YImage(image: UIImage(named: "default_event_image")!, size: 50)
 }
