@@ -11,7 +11,7 @@ enum Const {
     static let sideSpace: CGFloat = 15
 
     /// circle button
-    static let buttonSize = screenWidth * 0.1
+    static let buttonSize = screenWidth * 0.08
     static let buttonCornerRadius = buttonSize / 2
 }
 
