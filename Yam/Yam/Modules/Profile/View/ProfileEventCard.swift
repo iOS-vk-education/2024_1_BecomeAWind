@@ -19,6 +19,45 @@ struct ProfileEventCard: View {
                         height: Const.screenHeight * 0.5
                     )
 
+                /// seats
+                YCapsuleLabel(
+                    title: viewModel.getSeatsString(
+                        from: event.seats
+                    ),
+                    font: ProfileConst.capsuleLabelFont,
+                    background: .thinMaterial
+                )
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity,
+                    alignment: .topLeading
+                )
+                .padding([.leading, .top], Const.sideSpace)
+
+                HStack {
+                    /// place
+                    ProfileVStack {
+                        YCircleButton(imageName: "location") {
+                            viewModel.toggleEventLocation(
+                                for: event
+                            )
+                        }
+                    }
+
+                    /// link
+                    ProfileVStack {
+                        YCircleButton(imageName: "link") {
+                            viewModel.openLink(event.link)
+                        }
+                    }
+                }
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity,
+                    alignment: .topTrailing
+                )
+                .padding([.trailing, .top], Const.sideSpace)
+
                 /// title
                 VStack {
                     YCapsuleLabel(
@@ -28,45 +67,15 @@ struct ProfileEventCard: View {
                     .padding(.horizontal, Const.sideSpace)
 
 
-                    HStack {
-                        /// date and time
-                        YCapsuleLabel(
-                            title: viewModel.getDateString(
-                                from: event.date
-                            ),
-                            font: ProfileConst.capsuleLabelFont,
-                            background: .thinMaterial
-                        )
-
-                        /// seats
-                        YCapsuleLabel(
-                            title: viewModel.getSeatsString(
-                                from: event.seats
-                            ),
-                            font: ProfileConst.capsuleLabelFont,
-                            background: .thinMaterial
-                        )
-
-                        /// place
-                        ProfileVStack {
-                            YCircleButton(imageName: "location") {
-                                viewModel.toggleEventLocation()
-                            }
-                        }
-                        .fullScreenCover(
-                            isPresented: $viewModel.isActiveEventLocation
-                        ) {
-                            EventLocationView(event: event)
-                        }
-
-                        /// link
-                        ProfileVStack {
-                            YCircleButton(imageName: "link") {
-                                viewModel.openLink(event.link)
-                            }
-                        }
-                    }
-                    .padding([.horizontal, .bottom], Const.sideSpace)
+                    /// date and time
+                    YCapsuleLabel(
+                        title: viewModel.getDateString(
+                            from: event.date
+                        ),
+                        font: ProfileConst.capsuleLabelFont,
+                        background: .thinMaterial
+                    )
+                    .padding(.bottom, Const.sideSpace)
                 }
             }
         }

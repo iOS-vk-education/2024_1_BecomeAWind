@@ -9,6 +9,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var activeTab: ProfileTab = .myEvents
 
     /// event card
+    @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
 
@@ -30,7 +31,8 @@ extension ProfileViewModel {
         isActiveCreateEvent.toggle()
     }
 
-    func toggleEventLocation() {
+    func toggleEventLocation(for event: Event) {
+        selectedEvent = event
         isActiveEventLocation.toggle()
     }
 

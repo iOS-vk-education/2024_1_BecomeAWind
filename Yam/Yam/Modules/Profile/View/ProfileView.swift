@@ -37,6 +37,13 @@ struct ProfileView: View {
             ProfileTopTabBar(viewModel: viewModel)
         }
         .edgesIgnoringSafeArea(.top)
+        .fullScreenCover(
+            isPresented: $viewModel.isActiveEventLocation
+        ) {
+            if let event = viewModel.selectedEvent {
+                EventLocationView(event: event)
+            }
+        }
     }
 
 }
