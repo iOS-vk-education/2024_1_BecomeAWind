@@ -15,6 +15,7 @@ struct YCircleButton: View {
                 background: Gradients.purpleIndigo
             )
         }
+        .buttonStyle(.plain)
     }
 
 }

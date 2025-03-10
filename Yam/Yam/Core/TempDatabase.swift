@@ -34,16 +34,18 @@ final class TempDatabase: ObservableObject {
         let seats2 = 3000
         let seats3 = 1
 
-        let link = "https://github.com/ilyansky/born2code"
+        let link1 = "https://github.com/ilyansky/born2code"
+        let link2 = "https://github.com/ilyansky/VKTestTask"
+        let link3 = "invalid url"
         let date = Date()
 
         let geopoint1 = CLLocation(latitude: 55.7558, longitude: 37.6173)
         let geopoint2 = CLLocation(latitude: 56.7558, longitude: 37.6173)
         let geopoint3 = CLLocation(latitude: 57.7558, longitude: 37.6173)
 
-        let event1 = Event(image: image1, title: title1, seats: seats1, link: link, date: date, geopoint: geopoint1)
-        let event2 = Event(image: image2, title: title2, seats: seats2, link: link, date: date, geopoint: geopoint2)
-        let event3 = Event(image: image3, title: title3, seats: seats3, link: link, date: date, geopoint: geopoint3)
+        let event1 = Event(image: image1, title: title1, seats: seats1, link: link1, date: date, geopoint: geopoint1)
+        let event2 = Event(image: image2, title: title2, seats: seats2, link: link2, date: date, geopoint: geopoint2)
+        let event3 = Event(image: image3, title: title3, seats: seats3, link: link3, date: date, geopoint: geopoint3)
 
         events.append(event1)
         events.append(event2)

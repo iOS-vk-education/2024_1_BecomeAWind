@@ -15,6 +15,7 @@ struct ProfileVStack<Content: View>: View {
         .background(.thinMaterial)
         .cornerRadius(Const.cornerRadius)
     }
+    
 }
 
 #Preview {

@@ -22,11 +22,14 @@ struct ProfileView: View {
             /// events list
             List(viewModel.db.events, id: \.self) { event in
                 ProfileEventCard(
+                    viewModel: viewModel,
                     image: event.image,
                     title: event.title,
                     seats: String(event.seats),
+                    link: event.link,
                     date: DateHandler.getDateString(from: event.date)
                 )
+                .listRowBackground(Colors.clear)
             }
             .listStyle(.plain)
 
