@@ -6,7 +6,8 @@ final class TempDatabase: ObservableObject {
 
     static let shared = TempDatabase()
 
-    @Published var events: [Event] = []
+    @Published var myEvents: [Event] = []
+    @Published var subscriptions: [Event] = []
 
     /*
     @Published var users: [UserModel] = [
@@ -47,9 +48,9 @@ final class TempDatabase: ObservableObject {
         let event2 = Event(image: image2, title: title2, seats: seats2, link: link2, date: date, geopoint: geopoint2)
         let event3 = Event(image: image3, title: title3, seats: seats3, link: link3, date: date, geopoint: geopoint3)
 
-        events.append(event1)
-        events.append(event2)
-        events.append(event3)
+        myEvents.append(event1)
+        myEvents.append(event2)
+        myEvents.append(event3)
     }
 
 //    @Published var location1 = CLLocation(latitude: 55.9558,

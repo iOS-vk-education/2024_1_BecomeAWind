@@ -17,14 +17,12 @@ struct EntryView: View {
                 MapView()
             }
 
-            VStack {
-                Spacer()
-                YTabBar(viewModel: viewModel)
-            }
+            EntryTabBar(viewModel: viewModel)
+
         }
         .edgesIgnoringSafeArea(.bottom)
     }
-    
+
 }
 
 

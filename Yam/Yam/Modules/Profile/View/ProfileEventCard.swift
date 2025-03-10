@@ -20,7 +20,7 @@ struct ProfileEventCard: View {
                     .resizable()
                     .scaledToFill()
                     .frame(
-                        width: Const.screenWidth - Const.sideSpace * 2,
+                        width: Const.screenWidth - ProfileConst.sideSpace * 2,
                         height: Const.screenHeight * 0.5
                     )
 
@@ -65,10 +65,9 @@ struct ProfileEventCard: View {
                     .padding([.horizontal, .bottom], Const.sideSpace)
                 }
             }
-            
         }
         .frame(
-            width: Const.screenWidth - Const.sideSpace * 2,
+            width: Const.screenWidth - ProfileConst.sideSpace * 2,
             height: Const.screenHeight * 0.5
         )
         .cornerRadius(Const.cornerRadius)

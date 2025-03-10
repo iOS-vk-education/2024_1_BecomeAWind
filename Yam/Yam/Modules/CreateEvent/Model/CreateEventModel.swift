@@ -6,8 +6,8 @@ final class CreateEventModel {
     private var tempDatabase = TempDatabase.shared
 
     func createEvent(_ event: Event) {
-        tempDatabase.events.append(event)
-        print(tempDatabase.events)
+        tempDatabase.myEvents.append(event)
+        print(tempDatabase.myEvents)
     }
 
 }
