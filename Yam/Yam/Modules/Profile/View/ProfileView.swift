@@ -12,12 +12,24 @@ struct ProfileView: View {
 
     var body: some View {
         VStack {
+            /// open create event button
             YCircleButton(imageName: "plus") {
                 viewModel.toggleCreateEvent()
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.trailing, Const.sideSpace)
-            
+
+            /// events list
+            List(viewModel.db.events, id: \.self) { event in
+                ProfileEventCard(
+                    image: event.image,
+                    title: event.title,
+                    seats: String(event.seats),
+                    date: DateHandler.getDateString(from: event.date)
+                )
+            }
+            .listStyle(.plain)
+
             Spacer()
         }
         .fullScreenCover(

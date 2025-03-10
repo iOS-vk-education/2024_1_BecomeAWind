@@ -1,7 +1,7 @@
 import UIKit
 import MapKit
 
-struct Event: Identifiable {
+struct Event: Identifiable, Hashable {
     var id = UUID()
 
     var image: UIImage

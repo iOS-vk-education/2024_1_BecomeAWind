@@ -27,7 +27,7 @@
 		870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C742D4388D40043DA00 /* FeedView.swift */; };
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
 		870E3CA12D4388D40043DA00 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C892D4388D40043DA00 /* Gradients.swift */; };
-		870E3CA22D4388D40043DA00 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6B2D4388D40043DA00 /* EventCard.swift */; };
+		870E3CA22D4388D40043DA00 /* EventCard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C6B2D4388D40043DA00 /* EventCard2.swift */; };
 		870E3CA32D4388D40043DA00 /* YCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C542D4388D40043DA00 /* YCapsuleLabel.swift */; };
 		870E3CA52D4388D40043DA00 /* CreateEventTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C602D4388D40043DA00 /* CreateEventTextField.swift */; };
 		870E3CA62D4388D40043DA00 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */; };
@@ -50,6 +50,8 @@
 		87336F972D7DCF2B00BD699A /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F962D7DCF2B00BD699A /* C.swift */; };
 		87336F992D7E33B400BD699A /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F982D7E33B400BD699A /* ProfileModel.swift */; };
 		87336F9B2D7E33DD00BD699A /* trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9A2D7E33DD00BD699A /* trash.swift */; };
+		87336F9D2D7E960C00BD699A /* ProfileEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9C2D7E960C00BD699A /* ProfileEventCard.swift */; };
+		87336F9F2D7ED82200BD699A /* ProfileVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9E2D7ED82200BD699A /* ProfileVStack.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
@@ -59,7 +61,7 @@
 		878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E52D512A1500A24538 /* CreateEventImagePicker.swift */; };
 		878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E73F22D47B8A000D425F4 /* UserModel.swift */; };
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
-		879F2BFE2D46CE7F0027E46D /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* DateConverter.swift */; };
+		879F2BFE2D46CE7F0027E46D /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* DateHandler.swift */; };
 		879F2C002D46E20C0027E46D /* GeopointHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFF2D46E20C0027E46D /* GeopointHandler.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
 		87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B47A8D2D58B500007AA252 /* CornerRadius.swift */; };
@@ -98,7 +100,7 @@
 		870E3C632D4388D40043DA00 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
 		870E3C672D4388D40043DA00 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		870E3C6A2D4388D40043DA00 /* DetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoView.swift; sourceTree = "<group>"; };
-		870E3C6B2D4388D40043DA00 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
+		870E3C6B2D4388D40043DA00 /* EventCard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard2.swift; sourceTree = "<group>"; };
 		870E3C6C2D4388D40043DA00 /* EventComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventComponents.swift; sourceTree = "<group>"; };
 		870E3C6D2D4388D40043DA00 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		870E3C742D4388D40043DA00 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 		87336F962D7DCF2B00BD699A /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		87336F982D7E33B400BD699A /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		87336F9A2D7E33DD00BD699A /* trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trash.swift; sourceTree = "<group>"; };
+		87336F9C2D7E960C00BD699A /* ProfileEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEventCard.swift; sourceTree = "<group>"; };
+		87336F9E2D7ED82200BD699A /* ProfileVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVStack.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -131,7 +135,7 @@
 		878432E52D512A1500A24538 /* CreateEventImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImagePicker.swift; sourceTree = "<group>"; };
 		878E73F22D47B8A000D425F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
-		879F2BFD2D46CE7F0027E46D /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
+		879F2BFD2D46CE7F0027E46D /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		879F2BFF2D46E20C0027E46D /* GeopointHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeopointHandler.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
 		87B47A8D2D58B500007AA252 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
@@ -256,7 +260,7 @@
 			children = (
 				870E3C6A2D4388D40043DA00 /* DetailedInfoView.swift */,
 				870E3C6D2D4388D40043DA00 /* EventsView.swift */,
-				870E3C6B2D4388D40043DA00 /* EventCard.swift */,
+				870E3C6B2D4388D40043DA00 /* EventCard2.swift */,
 				870E3C6C2D4388D40043DA00 /* EventComponents.swift */,
 			);
 			path = View;
@@ -377,6 +381,8 @@
 			isa = PBXGroup;
 			children = (
 				873054402D5A9B82003D6726 /* ProfileView.swift */,
+				87336F9C2D7E960C00BD699A /* ProfileEventCard.swift */,
+				87336F9E2D7ED82200BD699A /* ProfileVStack.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,9 +532,9 @@
 			children = (
 				870E3C7D2D4388D40043DA00 /* Entry */,
 				8730543F2D5A9B53003D6726 /* Profile */,
+				870E3C652D4388D40043DA00 /* CreateEvent */,
 				870E3C432D4388010043DA00 /* Authorization */,
 				870E3C822D4388D40043DA00 /* Map */,
-				870E3C652D4388D40043DA00 /* CreateEvent */,
 				870E3C772D4388D40043DA00 /* Feed */,
 				870E3C722D4388D40043DA00 /* DetailedInfo */,
 				879F2C012D46EEEA0027E46D /* EventLocation */,
@@ -573,7 +579,7 @@
 		87BA690C2D49834B008DF823 /* Formatter&Handler */ = {
 			isa = PBXGroup;
 			children = (
-				879F2BFD2D46CE7F0027E46D /* DateConverter.swift */,
+				879F2BFD2D46CE7F0027E46D /* DateHandler.swift */,
 			);
 			path = "Formatter&Handler";
 			sourceTree = "<group>";
@@ -750,11 +756,13 @@
 				870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */,
 				870E3C902D4388D40043DA00 /* Event.swift in Sources */,
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
+				87336F9F2D7ED82200BD699A /* ProfileVStack.swift in Sources */,
 				8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */,
 				87FC48442D52089600F6D8CC /* CreateEventVStack.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,
 				870E3C942D4388D40043DA00 /* EventComponents.swift in Sources */,
+				87336F9D2D7E960C00BD699A /* ProfileEventCard.swift in Sources */,
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* Colors.swift in Sources */,
 				878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */,
@@ -776,9 +784,9 @@
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
 				870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */,
 				870E3CA12D4388D40043DA00 /* Gradients.swift in Sources */,
-				870E3CA22D4388D40043DA00 /* EventCard.swift in Sources */,
+				870E3CA22D4388D40043DA00 /* EventCard2.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* CreateEventPlacePicker.swift in Sources */,
-				879F2BFE2D46CE7F0027E46D /* DateConverter.swift in Sources */,
+				879F2BFE2D46CE7F0027E46D /* DateHandler.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* YCapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* ProfileViewModel.swift in Sources */,

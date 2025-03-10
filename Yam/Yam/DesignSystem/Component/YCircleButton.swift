@@ -10,8 +10,8 @@ struct YCircleButton: View {
         } label: {
             GradientImage(
                 imageName: imageName,
-                imageSize: Const.buttonSize,
-                cornerRadius: Const.buttonCornerRadius,
+                imageSize: Const.circleButtonSize,
+                cornerRadius: Const.circleButtonCornerRadius,
                 background: Gradients.purpleIndigo
             )
         }

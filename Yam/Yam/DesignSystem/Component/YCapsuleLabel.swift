@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct YCapsuleLabel: View {
+struct YCapsuleLabel<Background: ShapeStyle>: View {
     let title: String
     let font: Font
-    let background: LinearGradient
+    let background: Background
 
     init(title: String,
          font: Font,
-         background: LinearGradient = Gradients.purpleIndigo) {
+         background: Background = Gradients.purpleIndigo) {
         self.title = title
         self.font = font
         self.background = background
@@ -18,8 +18,10 @@ struct YCapsuleLabel: View {
             .padding()
             .font(font)
             .foregroundColor(Colors.white)
-            .background(background)
-            .cornerRadius(SizePack.coreCornerRadius)
+            .background(
+                RoundedRectangle(cornerRadius: Const.cornerRadius)
+                    .fill(background)
+            )
     }
     
 }
@@ -28,6 +30,6 @@ struct YCapsuleLabel: View {
     YCapsuleLabel(
         title: "текст",
         font: FontManager.def,
-        background: Gradients.purpleIndigo
+        background: .purple
     )
 }

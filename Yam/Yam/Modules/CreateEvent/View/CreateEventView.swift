@@ -100,7 +100,6 @@ struct CreateEventView: View {
                 }
 
             }
-            .background(Colors.black)
 
             YCircleButton(imageName: "arrowtriangle.down") {
                 focus = nil
