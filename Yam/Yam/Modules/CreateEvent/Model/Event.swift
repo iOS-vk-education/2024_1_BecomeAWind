@@ -6,7 +6,7 @@ struct Event: Identifiable, Hashable {
 
     var image: UIImage
     var title: String
-    var seats: Int
+    var seats: Seats
     var link: String
     var date: Date
     var geopoint: CLLocation

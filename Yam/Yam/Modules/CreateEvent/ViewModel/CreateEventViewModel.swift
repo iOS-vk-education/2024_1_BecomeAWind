@@ -12,7 +12,7 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
 
     /// text fields
     @Published var eventTitle = ""
-    @Published var seats = "1"
+    @Published var allSeats = "1"
     @Published var link = ""
 
     /// date picker
@@ -36,10 +36,11 @@ extension CreateEventViewModel {
         let eventCreated = validateEventData()
 
         if eventCreated {
+            let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let event = Event(
                 image: image,
                 title: eventTitle,
-                seats: Int(seats) ?? 1,
+                seats: seats,
                 link: link,
                 date: date,
                 geopoint: geopoint
@@ -95,7 +96,7 @@ extension CreateEventViewModel {
     }
 
     func filterSeats(_ newValue: String) {
-        seats = newValue.filter { seats.first != "0" && $0.isNumber }
+        allSeats = newValue.filter { allSeats.first != "0" && $0.isNumber }
     }
 
 }

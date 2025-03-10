@@ -21,11 +21,7 @@ struct ProfileView: View {
                 ) { event in
                     ProfileEventCard(
                         viewModel: viewModel,
-                        image: event.image,
-                        title: event.title,
-                        seats: String(event.seats),
-                        link: event.link,
-                        date: DateHandler.getDateString(from: event.date)
+                        event: event
                     )
                     .listRowSeparator(.hidden)
                 }

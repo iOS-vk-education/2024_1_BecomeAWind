@@ -10,11 +10,7 @@ final class ProfileViewModel: ObservableObject {
 
     /// event card
     @Published var invalidLink = false
-
-
-    func toggleCreateEvent() {
-        isActiveCreateEvent.toggle()
-    }
+    @Published var isActiveEventLocation = false
 
 }
 
@@ -30,6 +26,14 @@ extension ProfileViewModel {
 /// event card
 extension ProfileViewModel {
 
+    func toggleCreateEvent() {
+        isActiveCreateEvent.toggle()
+    }
+
+    func toggleEventLocation() {
+        isActiveEventLocation.toggle()
+    }
+
     func openLink(_ link: String) {
         if let url = URL(string: link) {
             UIApplication.shared.open(url)
@@ -37,4 +41,19 @@ extension ProfileViewModel {
             invalidLink.toggle()
         }
     }
+
+    func getSeatsString(from seats: Seats) -> String {
+        "\(seats.busy) / \(seats.all)"
+    }
+
+    func getDateString(from date: Date) -> String {
+        var result = ""
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy\nHH:mm"
+
+        result = formatter.string(from: date)
+
+        return result
+    }
+
 }

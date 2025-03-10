@@ -31,9 +31,9 @@ final class TempDatabase: ObservableObject {
         let title2 = "поход на концерт Нейромонаха Феофана"
         let title3 = "ищу человека для похода в кино на фильм ПРОРОК"
 
-        let seats1 = 21
-        let seats2 = 3000
-        let seats3 = 1
+        let seats1 = Seats(busy: 0, all: 21)
+        let seats2 = Seats(busy: 0, all: 3000)
+        let seats3 = Seats(busy: 0, all: 1)
 
         let link1 = "https://github.com/ilyansky/born2code"
         let link2 = "https://github.com/ilyansky/VKTestTask"

@@ -47,19 +47,19 @@ struct CreateEventView: View {
 
                 /// seats
                 CreateEventTextField(
-                    text: $viewModel.seats,
-                    title: "количество мест",
+                    text: $viewModel.allSeats,
+                    title: "количество свободных мест",
                     prompt: "1",
                     lineLimit: CreateEventConst.lineLimit
                 )
                 .keyboardType(.decimalPad)
-                .onChange(of: viewModel.seats) { _, newValue in
+                .onChange(of: viewModel.allSeats) { _, newValue in
                     viewModel.filterSeats(newValue)
                 }
-                .onReceive(Just($viewModel.seats)) { _ in
+                .onReceive(Just($viewModel.allSeats)) { _ in
                     viewModel.limitTextField(
                         CreateEventConst.seatsMaxLength,
-                        text: $viewModel.seats
+                        text: $viewModel.allSeats
                     )
                 }
                 .focused($focus, equals: .seats)

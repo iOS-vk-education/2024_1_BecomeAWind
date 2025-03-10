@@ -54,6 +54,8 @@
 		87336F9F2D7ED82200BD699A /* ProfileVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9E2D7ED82200BD699A /* ProfileVStack.swift */; };
 		87336FA32D7F45F300BD699A /* ProfileTopTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FA22D7F45F300BD699A /* ProfileTopTabBar.swift */; };
 		87336FA72D7F56A800BD699A /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FA62D7F56A800BD699A /* ProfileTab.swift */; };
+		87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FAC2D7F6B7F00BD699A /* Seats.swift */; };
+		87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */; };
 		8752B6F82D455A710017F2B8 /* CreateEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */; };
 		8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6FB2D4568FB0017F2B8 /* Emoji.swift */; };
 		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
@@ -130,6 +132,8 @@
 		87336F9E2D7ED82200BD699A /* ProfileVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVStack.swift; sourceTree = "<group>"; };
 		87336FA22D7F45F300BD699A /* ProfileTopTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopTabBar.swift; sourceTree = "<group>"; };
 		87336FA62D7F56A800BD699A /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
+		87336FAC2D7F6B7F00BD699A /* Seats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seats.swift; sourceTree = "<group>"; };
+		87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationConst.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* CreateEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B6FB2D4568FB0017F2B8 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			children = (
 				870E3C592D4388D40043DA00 /* CreateEventModel.swift */,
 				870E3C672D4388D40043DA00 /* Event.swift */,
+				87336FAC2D7F6B7F00BD699A /* Seats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				87336F962D7DCF2B00BD699A /* C.swift */,
 				87336F9A2D7E33DD00BD699A /* trash.swift */,
 				879F2BFF2D46E20C0027E46D /* GeopointHandler.swift */,
+				879F2BFD2D46CE7F0027E46D /* DateHandler.swift */,
 			);
 			path = Trash;
 			sourceTree = "<group>";
@@ -585,7 +591,6 @@
 		87BA690C2D49834B008DF823 /* Formatter&Handler */ = {
 			isa = PBXGroup;
 			children = (
-				879F2BFD2D46CE7F0027E46D /* DateHandler.swift */,
 			);
 			path = "Formatter&Handler";
 			sourceTree = "<group>";
@@ -605,6 +610,7 @@
 				870E3C862D4388D40043DA00 /* EntryConst.swift */,
 				87336F602D7C51A600BD699A /* ProfileConst.swift */,
 				87336F8E2D7C978B00BD699A /* CreateEventConst.swift */,
+				87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -756,9 +762,11 @@
 				870E3C4E2D4388860043DA00 /* AuthButton.swift in Sources */,
 				870E3C512D4388860043DA00 /* Label.swift in Sources */,
 				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
+				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
 				870E3C522D4388860043DA00 /* AuthTextField.swift in Sources */,
 				878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */,
 				87336FA32D7F45F300BD699A /* ProfileTopTabBar.swift in Sources */,
+				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* CreateEventModel.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */,
 				870E3C902D4388D40043DA00 /* Event.swift in Sources */,

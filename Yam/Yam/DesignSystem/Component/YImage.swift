@@ -15,7 +15,7 @@ struct YImage: View {
             .scaledToFill()
             .frame(width: size, height: size)
             .clipped()
-            .cornerRadius(SizePack.coreCornerRadius)
+            .cornerRadius(Const.cornerRadius)
     }
     
 }

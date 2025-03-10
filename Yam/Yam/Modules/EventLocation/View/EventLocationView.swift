@@ -2,38 +2,38 @@ import SwiftUI
 import MapKit
 
 struct EventLocationView: View {
-    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
 
+    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
+    
     let event: Event
 
     var body: some View {
         ZStack {
             Map(position: $position) {
                 UserAnnotation()
-/*
-                if let place = event.organization.place {
-                    Annotation("", coordinate: place.coordinate) {
-                        YamImage(image: event.description.image, size: 70)
-                    }
+                Annotation("", coordinate: CLLocationCoordinate2D(
+                    latitude: event.geopoint.coordinate.latitude,
+                    longitude: event.geopoint.coordinate.longitude)
+                ) {
+                    YImage(image: event.image, size: EventLocationConst.imageSize)
                 }
-*/
             }
             .tint(Color.purple)
             .mapControls {
                 MapUserLocationButton()
             }
 
-            VStack {
-//                YamCapsuleLabel(title: PlaceHandler.handlePlace(event.organization.place))
-//                .frame(maxWidth: UIScreen.main.bounds.width / 2)
-
-                Spacer()
-                Button(action: centerMapOnEvent) {
-//                    YamCapsuleLabel(title: "Показать мероприятие")
-                }
-
-            }
-            .padding(.top)
+//            VStack {
+////                YamCapsuleLabel(title: PlaceHandler.handlePlace(event.organization.place))
+////                .frame(maxWidth: UIScreen.main.bounds.width / 2)
+//
+//                Spacer()
+//                Button(action: centerMapOnEvent) {
+////                    YamCapsuleLabel(title: "Показать мероприятие")
+//                }
+//
+//            }
+//            .padding(.top)
         }
 
     }
