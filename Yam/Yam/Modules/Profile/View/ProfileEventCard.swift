@@ -38,9 +38,7 @@ struct ProfileEventCard: View {
                     /// place
                     ProfileVStack {
                         YCircleButton(imageName: "location") {
-                            viewModel.toggleEventLocation(
-                                for: event
-                            )
+                            viewModel.toggleEventLocation(for: event)
                         }
                     }
 
@@ -57,7 +55,7 @@ struct ProfileEventCard: View {
                             imageName: "gearshape",
                             background: Gradients.pinkIndigo
                         ) {
-                            
+                            viewModel.toggleEditEvent(for: event)
                         }
                     }
                 }

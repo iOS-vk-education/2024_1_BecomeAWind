@@ -29,7 +29,7 @@ final class TempDatabase: ObservableObject {
 
         let title1 = "матч в футбол 11 на 11"
         let title2 = "поход на концерт Нейромонаха Феофана"
-        let title3 = "ищу человека для похода в кино на фильм ПРОРОК"
+        let title3 = "ищу человека для похода в кино на фильм ПРОРОК ищу человека для похода в кино на фильм ПРОРОК"
 
         let seats1 = Seats(busy: 0, all: 21)
         let seats2 = Seats(busy: 0, all: 3000)

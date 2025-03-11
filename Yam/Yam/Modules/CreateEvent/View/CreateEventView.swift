@@ -15,7 +15,10 @@ struct CreateEventView: View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 /// dismiss
-                YCircleButton(imageName: "xmark") {
+                YCircleButton(
+                    imageName: "xmark",
+                    background: Gradients.pinkIndigo
+                ) {
                     dismiss()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)

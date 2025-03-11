@@ -5,7 +5,6 @@ final class EventLocationViewModel: ObservableObject {
 
     @Published var position: MapCameraPosition = .userLocation(fallback: .automatic)
     @Published var placeDescription: String = "возникла ошибка при определении места ивента"
-
     @Published var event: Event
 
     init(event: Event) {

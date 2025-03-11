@@ -30,5 +30,7 @@ struct CreateEventPlacePicker: View {
 }
 
 #Preview {
-    CreateEventPlacePicker(viewModel: CreateEventViewModel())
+    CreateEventPlacePicker(
+        viewModel: CreateEventViewModel()
+    )
 }

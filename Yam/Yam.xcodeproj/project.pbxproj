@@ -66,6 +66,9 @@
 		878E73F32D47B8A000D425F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E73F22D47B8A000D425F4 /* UserModel.swift */; };
 		879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADAFE2D80A18400F43C04 /* LocationHandler.swift */; };
 		879ADB012D80AF2600F43C04 /* YSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADB002D80AF2600F43C04 /* YSquareButton.swift */; };
+		879ADB032D80BD5500F43C04 /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADB022D80BD5500F43C04 /* EditEventView.swift */; };
+		879ADB0D2D80BF2300F43C04 /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADB0C2D80BF2300F43C04 /* EditEventViewModel.swift */; };
+		879ADB0F2D80D3B900F43C04 /* EditEventConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADB0E2D80D3B900F43C04 /* EditEventConst.swift */; };
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
 		879F2BFE2D46CE7F0027E46D /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFD2D46CE7F0027E46D /* DateHandler.swift */; };
 		879F2C002D46E20C0027E46D /* GeopointHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2BFF2D46E20C0027E46D /* GeopointHandler.swift */; };
@@ -147,6 +150,9 @@
 		878E73F22D47B8A000D425F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		879ADAFE2D80A18400F43C04 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		879ADB002D80AF2600F43C04 /* YSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSquareButton.swift; sourceTree = "<group>"; };
+		879ADB022D80BD5500F43C04 /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
+		879ADB0C2D80BF2300F43C04 /* EditEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewModel.swift; sourceTree = "<group>"; };
+		879ADB0E2D80D3B900F43C04 /* EditEventConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventConst.swift; sourceTree = "<group>"; };
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
 		879F2BFD2D46CE7F0027E46D /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		879F2BFF2D46E20C0027E46D /* GeopointHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeopointHandler.swift; sourceTree = "<group>"; };
@@ -503,6 +509,39 @@
 			path = Handler;
 			sourceTree = "<group>";
 		};
+		879ADB052D80BDCB00F43C04 /* EditEvent */ = {
+			isa = PBXGroup;
+			children = (
+				879ADB092D80BDDC00F43C04 /* View */,
+				879ADB0B2D80BDDC00F43C04 /* ViewModel */,
+				879ADB0A2D80BDDC00F43C04 /* Model */,
+			);
+			path = EditEvent;
+			sourceTree = "<group>";
+		};
+		879ADB092D80BDDC00F43C04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				879ADB022D80BD5500F43C04 /* EditEventView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		879ADB0A2D80BDDC00F43C04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		879ADB0B2D80BDDC00F43C04 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				879ADB0C2D80BF2300F43C04 /* EditEventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		879F2C012D46EEEA0027E46D /* EventLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +583,7 @@
 			children = (
 				870E3C7D2D4388D40043DA00 /* Entry */,
 				8730543F2D5A9B53003D6726 /* Profile */,
+				879ADB052D80BDCB00F43C04 /* EditEvent */,
 				870E3C652D4388D40043DA00 /* CreateEvent */,
 				870E3C432D4388010043DA00 /* Authorization */,
 				870E3C822D4388D40043DA00 /* Map */,
@@ -602,6 +642,7 @@
 				87336F4A2D7C329F00BD699A /* Const.swift */,
 				870E3C862D4388D40043DA00 /* EntryConst.swift */,
 				87336F602D7C51A600BD699A /* ProfileConst.swift */,
+				879ADB0E2D80D3B900F43C04 /* EditEventConst.swift */,
 				87336F8E2D7C978B00BD699A /* CreateEventConst.swift */,
 				87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */,
 			);
@@ -758,6 +799,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879ADB0F2D80D3B900F43C04 /* EditEventConst.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
 				870E3C4D2D4388860043DA00 /* AuthHeaderView.swift in Sources */,
 				870E3C4E2D4388860043DA00 /* AuthButton.swift in Sources */,
@@ -783,6 +825,7 @@
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* Colors.swift in Sources */,
 				878432E62D512A1500A24538 /* CreateEventImagePicker.swift in Sources */,
+				879ADB032D80BD5500F43C04 /* EditEventView.swift in Sources */,
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
 				870E3C982D4388D40043DA00 /* LocationServicesStatusManager.swift in Sources */,
 				870E3C992D4388D40043DA00 /* EventsView.swift in Sources */,
@@ -792,6 +835,7 @@
 				876084C22D7A37B500195B68 /* EntryTabBar.swift in Sources */,
 				87336F612D7C51A600BD699A /* ProfileConst.swift in Sources */,
 				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
+				879ADB0D2D80BF2300F43C04 /* EditEventViewModel.swift in Sources */,
 				8752B6FC2D4568FB0017F2B8 /* Emoji.swift in Sources */,
 				87336F4B2D7C329F00BD699A /* Const.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* CreateEventPlaceView.swift in Sources */,

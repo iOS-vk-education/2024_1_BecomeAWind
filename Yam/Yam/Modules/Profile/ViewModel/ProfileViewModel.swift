@@ -12,6 +12,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
+    @Published var isActiveEditEvent = false
 
 }
 
@@ -34,6 +35,11 @@ extension ProfileViewModel {
     func toggleEventLocation(for event: Event) {
         selectedEvent = event
         isActiveEventLocation.toggle()
+    }
+
+    func toggleEditEvent(for event: Event) {
+        selectedEvent = event
+        isActiveEditEvent.toggle()
     }
 
     func openLink(_ link: String) {

@@ -27,7 +27,10 @@ struct EventLocationView: View {
             .colorScheme(.light)
 
             /// dismiss
-            YCircleButton(imageName: "xmark") {
+            YCircleButton(
+                imageName: "xmark",
+                background: Gradients.pinkIndigo
+            ) {
                 dismiss()
             }
             .frame(

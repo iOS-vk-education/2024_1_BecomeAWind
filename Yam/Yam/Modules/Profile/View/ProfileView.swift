@@ -44,6 +44,11 @@ struct ProfileView: View {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
             }
         }
+        .sheet(isPresented: $viewModel.isActiveEditEvent) {
+            if let event = viewModel.selectedEvent {
+                EditEventView(viewModel: EditEventViewModel(event: event))
+            }
+        }
         .alert(
             "указана неверная ссылка",
             isPresented: $viewModel.invalidLink
