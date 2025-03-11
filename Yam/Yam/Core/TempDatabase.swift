@@ -37,7 +37,8 @@ final class TempDatabase: ObservableObject {
 
         let link1 = "https://github.com/ilyansky/born2code"
         let link2 = "https://github.com/ilyansky/VKTestTask"
-        let link3 = "invalid url"
+        let link3 = "\n😄\t😄\0\r"
+
         let date = Date()
 
         let geopoint1 = CLLocation(latitude: 55.7558, longitude: 37.6173)

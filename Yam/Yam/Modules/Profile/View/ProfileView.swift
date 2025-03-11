@@ -44,6 +44,12 @@ struct ProfileView: View {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
             }
         }
+        .alert(
+            "указана неверная ссылка",
+            isPresented: $viewModel.invalidLink
+        ) {
+            Button("ок", role: .cancel) { }
+        }
     }
 
 }

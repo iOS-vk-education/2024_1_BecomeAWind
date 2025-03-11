@@ -50,6 +50,16 @@ struct ProfileEventCard: View {
                             viewModel.openLink(event.link)
                         }
                     }
+
+                    /// edit
+                    ProfileVStack {
+                        YCircleButton(
+                            imageName: "gearshape",
+                            background: Gradients.pinkIndigo
+                        ) {
+                            
+                        }
+                    }
                 }
                 .frame(
                     maxWidth: .infinity,
@@ -84,12 +94,6 @@ struct ProfileEventCard: View {
             height: Const.screenHeight * 0.5
         )
         .cornerRadius(Const.cornerRadius)
-//        .alert(
-//            "указана неверная ссылка",
-//            isPresented: $viewModel.invalidLink
-//        ) {
-//            Button("ок", role: .cancel) { }
-//        }
     }
 
 }

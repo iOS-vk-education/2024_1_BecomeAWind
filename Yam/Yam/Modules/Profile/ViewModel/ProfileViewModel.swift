@@ -37,11 +37,11 @@ extension ProfileViewModel {
     }
 
     func openLink(_ link: String) {
-        if let url = URL(string: link) {
-            UIApplication.shared.open(url)
-        } else {
+        guard let url = URL(string: link), UIApplication.shared.canOpenURL(url) else {
             invalidLink.toggle()
+            return
         }
+        UIApplication.shared.open(url)
     }
 
     func getSeatsString(from seats: Seats) -> String {

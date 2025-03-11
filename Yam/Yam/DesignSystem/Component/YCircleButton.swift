@@ -1,8 +1,19 @@
 import SwiftUI
 
-struct YCircleButton: View {
+struct YCircleButton<Background: ShapeStyle>: View {
     var imageName: String
+    var background: Background
     var completion: () -> Void
+
+    init(
+        imageName: String,
+        background: Background = Gradients.purpleIndigo,
+        completion: @escaping () -> Void
+    ) {
+        self.imageName = imageName
+        self.background = background
+        self.completion = completion
+    }
 
     var body: some View {
         Button {
@@ -12,7 +23,7 @@ struct YCircleButton: View {
                 imageName: imageName,
                 imageSize: Const.circleButtonSize,
                 cornerRadius: Const.circleButtonCornerRadius,
-                background: Gradients.purpleIndigo
+                background: background
             )
         }
         .buttonStyle(.plain)

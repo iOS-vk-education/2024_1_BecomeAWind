@@ -1,19 +1,19 @@
 import SwiftUI
 
-struct GradientLoader: View {
+struct GradientLoader<Background: ShapeStyle>: View {
     let size: CGFloat
-    let background: LinearGradient?
+    let background: Background
 
-    init(size: CGFloat, background: LinearGradient? = nil) {
+    init(size: CGFloat, background: Background = Colors.clear) {
         self.size = size
-        self.background = background ?? nil
+        self.background = background
     }
 
     var body: some View {
         ZStack {
             Rectangle()
                 .frame(width: size, height: size)
-                .background(background ?? Gradients.clear)
+                .background(background)
                 .cornerRadius(SizePack.coreCornerRadius)
             ProgressView()
         }

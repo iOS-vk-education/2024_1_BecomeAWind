@@ -1,19 +1,19 @@
 import SwiftUI
 
-struct GradientImage: View {
+struct GradientImage<Background: ShapeStyle>: View {
     let imageName: String
     let imageSize: CGFloat
     let cornerRadius: CGFloat
-    let background: LinearGradient?
+    let background: Background
 
     init(imageName: String,
          imageSize: CGFloat,
          cornerRadius: CGFloat,
-         background: LinearGradient? = nil) {
+         background: Background = Colors.clear) {
         self.imageName = imageName
         self.imageSize = imageSize
         self.cornerRadius = cornerRadius
-        self.background = background ?? nil
+        self.background = background
     }
 
     var body: some View {
@@ -22,7 +22,7 @@ struct GradientImage: View {
             .padding(10)
             .frame(width: imageSize, height: imageSize)
             .foregroundColor(Colors.white)
-            .background(background ?? Gradients.clear)
+            .background(background)
             .cornerRadius(cornerRadius)
     }
     
