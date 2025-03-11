@@ -9,5 +9,5 @@ struct Event: Identifiable, Hashable {
     var seats: Seats
     var link: String
     var date: Date
-    var geopoint: CLLocation
+    var location: CLLocation
 }

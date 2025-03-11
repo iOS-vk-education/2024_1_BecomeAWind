@@ -44,9 +44,9 @@ final class TempDatabase: ObservableObject {
         let geopoint2 = CLLocation(latitude: 56.7558, longitude: 37.6173)
         let geopoint3 = CLLocation(latitude: 57.7558, longitude: 37.6173)
 
-        let event1 = Event(image: image1, title: title1, seats: seats1, link: link1, date: date, geopoint: geopoint1)
-        let event2 = Event(image: image2, title: title2, seats: seats2, link: link2, date: date, geopoint: geopoint2)
-        let event3 = Event(image: image3, title: title3, seats: seats3, link: link3, date: date, geopoint: geopoint3)
+        let event1 = Event(image: image1, title: title1, seats: seats1, link: link1, date: date, location: geopoint1)
+        let event2 = Event(image: image2, title: title2, seats: seats2, link: link2, date: date, location: geopoint2)
+        let event3 = Event(image: image3, title: title3, seats: seats3, link: link3, date: date, location: geopoint3)
 
         myEvents.append(event1)
         myEvents.append(event2)

@@ -41,7 +41,7 @@ struct ProfileView: View {
             isPresented: $viewModel.isActiveEventLocation
         ) {
             if let event = viewModel.selectedEvent {
-                EventLocationView(event: event)
+                EventLocationView(viewModel: EventLocationViewModel(event: event))
             }
         }
     }

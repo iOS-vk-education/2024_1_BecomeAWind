@@ -4,20 +4,18 @@ import MapKit
 struct EventLocationView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-
-    let event: Event
+    @ObservedObject var viewModel: EventLocationViewModel
 
     var body: some View {
         ZStack {
-            Map(position: $position) {
+            Map(position: $viewModel.position) {
                 UserAnnotation()
                 Annotation("", coordinate: CLLocationCoordinate2D(
-                    latitude: event.geopoint.coordinate.latitude,
-                    longitude: event.geopoint.coordinate.longitude)
+                    latitude: viewModel.event.location.coordinate.latitude,
+                    longitude: viewModel.event.location.coordinate.longitude)
                 ) {
                     YImage(
-                        image: event.image,
+                        image: viewModel.event.image,
                         size: EventLocationConst.imageSize
                     )
                 }
@@ -29,7 +27,7 @@ struct EventLocationView: View {
 
             VStack {
                 YCapsuleLabel(
-                    title: "место добавить",
+                    title: viewModel.placeDescription,
                     font: EventLocationConst.placeDescriptionFont,
                     background: .thinMaterial
                 )
@@ -38,7 +36,9 @@ struct EventLocationView: View {
                 Spacer()
 
                 HStack {
-                    Button(action: centerMapOnEvent) {
+                    Button {
+                        viewModel.centerMapOnEvent()
+                    } label: {
                         YCapsuleLabel(
                             title: "показать место ивента",
                             font: Const.buttonFont
@@ -57,35 +57,15 @@ struct EventLocationView: View {
 
 }
 
-extension EventLocationView {
-
-    private func centerMapOnEvent() {
-        let coordinate = event.geopoint.coordinate
-        withAnimation(.easeInOut(duration: 0.5)) {
-            position = .region(MKCoordinateRegion(
-                center: CLLocationCoordinate2D(
-                    latitude: coordinate.latitude,
-                    longitude: coordinate.longitude
-                ),
-                span: MKCoordinateSpan(
-                    latitudeDelta: 0.05,
-                    longitudeDelta: 0.05
-                )
-            )
-            )
-        }
-    }
-
-}
-
 #Preview {
-    EventLocationView(event: Event(
+    EventLocationView(viewModel: EventLocationViewModel(event: Event(
         image: UIImage(named: "football")!,
         title: "event",
         seats: Seats(busy: 0, all: 100),
         link: "www",
         date: Date(),
-        geopoint: CLLocation()
+        location: CLLocation()
+    )
     )
     )
 }

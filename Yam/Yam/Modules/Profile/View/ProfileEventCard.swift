@@ -103,7 +103,7 @@ struct ProfileEventCard: View {
             seats: Seats(busy: 0, all: 100),
             link: "www",
             date: Date(),
-            geopoint: CLLocation()
+            location: CLLocation()
         )
     )
 }

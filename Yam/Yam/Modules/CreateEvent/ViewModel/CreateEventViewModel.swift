@@ -25,7 +25,7 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
 
     /// create event
     @Published var eventCreationFailed = false
-    private var geopoint = CLLocation()
+    private var location = CLLocation()
 
 }
 
@@ -43,7 +43,7 @@ extension CreateEventViewModel {
                 seats: seats,
                 link: link,
                 date: date,
-                geopoint: geopoint
+                location: location
             )
             model.createEvent(event)
         }
@@ -122,42 +122,16 @@ extension CreateEventViewModel {
 
     func updatePlaceDescription(completion: @escaping (Bool) -> Void) {
         guard let coordinate = centerCoordinate else { return }
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         placeDescription = ""
 
-        getPlacemark(from: coordinate) { [weak self] placemark in
+        LocationHandler.getPlacemark(from: location) { [weak self] placemark in
             if let placemark {
-                var description = ""
-                let ocean = placemark.ocean ?? ""
-                let inlandWater = placemark.inlandWater ?? ""
-                let country = placemark.country ?? ""
-                let locality = placemark.locality ?? ""
-                let thoroughfare = placemark.thoroughfare ?? ""
-                let subThoroughfare = placemark.subThoroughfare ?? ""
-
-                if ocean != "" {
-                    description += "\(ocean)\n"
-                } else if inlandWater != "" {
-                    description += "\(inlandWater)\n"
-                } else {
-                    description += country == "" ? "" : "\(country)\n"
-                    description += locality == "" ? "" : "\(locality)\n"
-                    description += thoroughfare == "" ? "" : "\(thoroughfare)\n"
-                    description += subThoroughfare == "" ? "" : "\(subThoroughfare)\n"
-                }
-
-                description += "\n"
-
-                let latitude = String(format: "%.4f", coordinate.latitude)
-                let longitude = String(format: "%.4f", coordinate.longitude)
-                description += "Широта: \(latitude)\nДолгота: \(longitude)"
+                let description = LocationHandler.parsePlacemark(placemark)
 
                 DispatchQueue.main.async {
                     self?.placeDescription = description
-                    let geopoint = CLLocation(
-                        latitude: coordinate.latitude,
-                        longitude: coordinate.longitude
-                    )
-                    self?.geopoint = geopoint
+                    self?.location = location
                 }
                 completion(true)
             } else {
@@ -165,7 +139,7 @@ extension CreateEventViewModel {
             }
         }
     }
-
+/*
     private func getPlacemark(
         from coordinate: CLLocationCoordinate2D,
         completion: @escaping (CLPlacemark?) -> Void
@@ -203,5 +177,6 @@ extension CreateEventViewModel {
         print("thoroughfare = \(String(describing: placemark.thoroughfare))")
         print()
     }
+     */
 
 }
