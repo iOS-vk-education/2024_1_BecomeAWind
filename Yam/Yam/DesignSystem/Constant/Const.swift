@@ -2,7 +2,7 @@ import UIKit
 import SwiftUI
 
 enum Const {
-    
+
     /// screen
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
@@ -25,6 +25,10 @@ enum Const {
     /// circle button
     static let circleButtonSize = screenWidth * 0.08
     static let circleButtonCornerRadius = circleButtonSize / 2
+
+    /// square button
+    static let squareButtonSize = screenWidth * 0.13
+    static let squareButtonCornerRadius = squareButtonSize / 3
 
     /// animations
     static let tabBarItemSwapAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.2)

@@ -25,6 +25,7 @@ struct GradientImage: View {
             .background(background ?? Gradients.clear)
             .cornerRadius(cornerRadius)
     }
+    
 }
 
 #Preview {

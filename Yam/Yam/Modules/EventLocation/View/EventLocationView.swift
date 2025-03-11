@@ -9,7 +9,10 @@ struct EventLocationView: View {
     var body: some View {
         ZStack {
             Map(position: $viewModel.position) {
+                /// user location
                 UserAnnotation()
+
+                /// event location
                 Annotation("", coordinate: CLLocationCoordinate2D(
                     latitude: viewModel.event.location.coordinate.latitude,
                     longitude: viewModel.event.location.coordinate.longitude)
@@ -21,9 +24,18 @@ struct EventLocationView: View {
                 }
             }
             .tint(Colors.purple)
-            .mapControls {
-                MapUserLocationButton()
+            .colorScheme(.light)
+
+            /// dismiss
+            YCircleButton(imageName: "xmark") {
+                dismiss()
             }
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity,
+                alignment: .topTrailing
+            )
+            .padding(.trailing, Const.sideSpace)
 
             VStack {
                 YCapsuleLabel(
@@ -40,17 +52,17 @@ struct EventLocationView: View {
                         viewModel.centerMapOnEvent()
                     } label: {
                         YCapsuleLabel(
-                            title: "показать место ивента",
+                            title: "показать ивент",
                             font: Const.buttonFont
                         )
                     }
 
-                    YCircleButton(imageName: "xmark") {
-                        dismiss()
+                    YCircleButton(imageName: "location") {
+                        viewModel.centerMapOnUserLocation()
                     }
                 }
             }
-            .padding(.top)
+            .padding(.vertical, Const.sideSpace)
         }
 
     }

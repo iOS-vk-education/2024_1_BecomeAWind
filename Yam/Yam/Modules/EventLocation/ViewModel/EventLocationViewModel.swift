@@ -13,9 +13,27 @@ final class EventLocationViewModel: ObservableObject {
         setupPlaceDescription()
     }
 
+    func setupPlaceDescription() {
+        LocationHandler.getPlacemark(from: event.location) { [weak self] placemark in
+            if let placemark {
+                let description = LocationHandler.parsePlacemark(placemark)
+
+                DispatchQueue.main.async {
+                    self?.placeDescription = description
+                }
+            }
+        }
+    }
+
 }
 
 extension EventLocationViewModel {
+
+    func centerMapOnUserLocation() {
+        withAnimation {
+            position = .userLocation(fallback: .automatic)
+        }
+    }
 
     func centerMapOnEvent() {
         let coordinate = event.location.coordinate
@@ -31,18 +49,6 @@ extension EventLocationViewModel {
                 )
             )
             )
-        }
-    }
-
-    func setupPlaceDescription() {
-        LocationHandler.getPlacemark(from: event.location) { [weak self] placemark in
-            if let placemark {
-                let description = LocationHandler.parsePlacemark(placemark)
-
-                DispatchQueue.main.async {
-                    self?.placeDescription = description
-                }
-            }
         }
     }
 

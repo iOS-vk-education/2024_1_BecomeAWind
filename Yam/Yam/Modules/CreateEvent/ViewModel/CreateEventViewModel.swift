@@ -139,44 +139,5 @@ extension CreateEventViewModel {
             }
         }
     }
-/*
-    private func getPlacemark(
-        from coordinate: CLLocationCoordinate2D,
-        completion: @escaping (CLPlacemark?) -> Void
-    ) {
-        let location = CLLocation(
-            latitude: coordinate.latitude,
-            longitude: coordinate.longitude
-        )
-        let geocoder = CLGeocoder()
-
-        geocoder.reverseGeocodeLocation(
-            location,
-            preferredLocale: Locales.ru
-        ) { placemarks, error in
-            if error == nil {
-                let firstPlacemark = placemarks?[0]
-                if let placemark = firstPlacemark {
-                    completion(placemark)
-                } else {
-                    completion(nil)
-                }
-            }
-        }
-    }
-
-    private func printPlacemarkInfo(placemark: CLPlacemark) {
-        print("AdministrativeArea = \(String(describing: placemark.administrativeArea))")
-        print("Country = \(String(describing: placemark.country))")
-        print("inlandWater = \(String(describing: placemark.inlandWater))")
-        print("locality = \(String(describing: placemark.locality))")
-        print("ocean = \(String(describing: placemark.ocean))")
-        print("subAdministrativeArea = \(String(describing: placemark.subAdministrativeArea))")
-        print("subLocality = \(String(describing: placemark.subLocality))")
-        print("subThoroughfare = \(String(describing: placemark.subThoroughfare))")
-        print("thoroughfare = \(String(describing: placemark.thoroughfare))")
-        print()
-    }
-     */
 
 }
