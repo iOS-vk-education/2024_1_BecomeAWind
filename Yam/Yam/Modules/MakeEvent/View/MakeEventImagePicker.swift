@@ -1,14 +1,14 @@
 import SwiftUI
 import _PhotosUI_SwiftUI
 
-struct CreateEventImagePicker: View {
-    @ObservedObject var viewModel: CreateEventViewModel
+struct MakeEventImagePicker: View {
+    @ObservedObject var viewModel: MakeEventViewModel
 
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                YImage(image: viewModel.image, size: CreateEventConst.imageSize)
+                YImage(image: viewModel.image, size: MakeEventConst.imageSize)
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
                     YCapsuleLabel(
                         title: "выбери превью",

@@ -19,6 +19,10 @@ final class ProfileViewModel: ObservableObject {
 /// top tab bar
 extension ProfileViewModel {
 
+    func toggleCreateEvent() {
+        isActiveCreateEvent.toggle()
+    }
+
     func changeActiveTabTo(_ tab: ProfileTab) {
         activeTab = tab
     }
@@ -28,18 +32,14 @@ extension ProfileViewModel {
 /// event card
 extension ProfileViewModel {
 
-    func toggleCreateEvent() {
-        isActiveCreateEvent.toggle()
+    func toggleEditEvent(for event: Event) {
+        selectedEvent = event
+        isActiveEditEvent.toggle()
     }
 
     func toggleEventLocation(for event: Event) {
         selectedEvent = event
         isActiveEventLocation.toggle()
-    }
-
-    func toggleEditEvent(for event: Event) {
-        selectedEvent = event
-        isActiveEditEvent.toggle()
     }
 
     func openLink(_ link: String) {

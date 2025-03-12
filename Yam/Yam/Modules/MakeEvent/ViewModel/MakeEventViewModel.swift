@@ -2,9 +2,27 @@ import _PhotosUI_SwiftUI
 import SwiftUI
 import MapKit
 
-final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
+final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 
-    private var model = CreateEventModel()
+    enum TypeOfMakeEventView {
+        case createEvent
+        case editEvent
+    }
+
+    private var model = MakeEventModel()
+
+    let typeOfMakeEventView: TypeOfMakeEventView
+    let event: Event?
+
+    init(
+        typeOfMakeEventView: TypeOfMakeEventView = .createEvent,
+        event: Event? = nil
+    ) {
+        self.typeOfMakeEventView = typeOfMakeEventView
+        self.event = event
+    }
+
+    /// create / edit
 
     /// image picker
     @Published private(set) var image = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
@@ -19,9 +37,9 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
     @Published var date = Date()
 
     /// place picker
-    @Published var isActiveCreateEventPlace = false
+    @Published var isActiveMakeEventPlace = false
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
-    @Published var placeDescription = CreateEventConst.emptyPlaceText
+    @Published var placeDescription = MakeEventConst.emptyPlaceText
 
     /// create event
     @Published var eventCreationFailed = false
@@ -30,7 +48,7 @@ final class CreateEventViewModel: NSObject, ObservableObject, MKMapViewDelegate 
 }
 
 /// create event
-extension CreateEventViewModel {
+extension MakeEventViewModel {
 
     func createEvent() -> Bool {
         let eventCreated = validateEventData()
@@ -60,7 +78,7 @@ extension CreateEventViewModel {
 
         if eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
             link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-            placeDescription == CreateEventConst.emptyPlaceText {
+            placeDescription == MakeEventConst.emptyPlaceText {
             result = false
         }
 
@@ -70,7 +88,7 @@ extension CreateEventViewModel {
 }
 
 /// image picker
-extension CreateEventViewModel {
+extension MakeEventViewModel {
 
     func setImage() {
         Task {
@@ -87,7 +105,7 @@ extension CreateEventViewModel {
 }
 
 /// text field
-extension CreateEventViewModel {
+extension MakeEventViewModel {
 
     func limitTextField(_ upper: Int, text: Binding<String>) {
         if text.wrappedValue.count > upper {
@@ -102,7 +120,7 @@ extension CreateEventViewModel {
 }
 
 /// place picker
-extension CreateEventViewModel {
+extension MakeEventViewModel {
 
     // conformance to MKMapViewDelegate
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
@@ -111,14 +129,14 @@ extension CreateEventViewModel {
         }
     }
 
-    func toggleCreateEventPlace() {
-        isActiveCreateEventPlace.toggle()
+    func toggleMakeEventPlace() {
+        isActiveMakeEventPlace.toggle()
     }
 
 }
 
 /// location handler
-extension CreateEventViewModel {
+extension MakeEventViewModel {
 
     func updatePlaceDescription(completion: @escaping (Bool) -> Void) {
         guard let coordinate = centerCoordinate else { return }

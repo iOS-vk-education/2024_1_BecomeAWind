@@ -49,7 +49,7 @@ struct ProfileEventCard: View {
                         }
                     }
 
-                    /// edit
+                    /// open edit event button
                     ProfileVStack {
                         YCircleButton(
                             imageName: "gearshape",

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CreateEventTextField: View {
+struct MakeEventTextField: View {
 
     var text: Binding<String>
     let title: String
@@ -20,17 +20,17 @@ struct CreateEventTextField: View {
     }
 
     var body: some View {
-        YText(title, font: CreateEventConst.sectionTitleFont)
+        YText(title, font: MakeEventConst.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, Const.sideSpace)
 
-        CreateEventVStack {
+        MakeEventVStack {
             TextField(
                 "",
                 text: text,
                 prompt:
                     Text(prompt)
-                    .font(CreateEventConst.sectionContentFont)
+                    .font(MakeEventConst.sectionContentFont)
                     .foregroundColor(Colors.white2),
                 axis: .vertical
             )
@@ -40,7 +40,7 @@ struct CreateEventTextField: View {
             .lineLimit(lineLimit)
             .tint(Colors.purple)
             .foregroundColor(Colors.white)
-            .font(CreateEventConst.sectionContentFont)
+            .font(MakeEventConst.sectionContentFont)
         }
     }
 
@@ -48,7 +48,7 @@ struct CreateEventTextField: View {
 
 #Preview {
     @Previewable @State var text = ""
-    CreateEventTextField(
+    MakeEventTextField(
         text: $text,
         title: "текст",
         lineLimit: 3

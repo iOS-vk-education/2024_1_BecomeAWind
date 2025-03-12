@@ -1,15 +1,19 @@
 import SwiftUI
 import Combine
 
-struct CreateEventView: View {
+struct MakeEventView: View {
 
     enum Field {
         case title, seats, link
     }
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = CreateEventViewModel()
+    @ObservedObject var viewModel: MakeEventViewModel
     @FocusState private var focus: Field?
+
+    init(viewModel: MakeEventViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ZStack {
@@ -22,7 +26,7 @@ struct CreateEventView: View {
                     dismiss()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.trailing, Const.sideSpace)
+                .padding([.trailing, .top], Const.sideSpace)
 
                 /// header
                 YText(
@@ -31,29 +35,29 @@ struct CreateEventView: View {
                 )
 
                 /// image picker
-                CreateEventImagePicker(viewModel: viewModel)
+                MakeEventImagePicker(viewModel: viewModel)
 
                 /// title
-                CreateEventTextField(
+                MakeEventTextField(
                     text: $viewModel.eventTitle,
                     title: "название",
                     prompt: "расскажи об ивенте",
-                    lineLimit: CreateEventConst.lineLimit
+                    lineLimit: MakeEventConst.lineLimit
                 )
                 .onReceive(Just(viewModel.eventTitle)) { _ in
                     viewModel.limitTextField(
-                        CreateEventConst.titleMaxLength,
+                        MakeEventConst.titleMaxLength,
                         text: $viewModel.eventTitle
                     )
                 }
                 .focused($focus, equals: .title)
 
                 /// seats
-                CreateEventTextField(
+                MakeEventTextField(
                     text: $viewModel.allSeats,
                     title: "количество свободных мест",
                     prompt: "1",
-                    lineLimit: CreateEventConst.lineLimit
+                    lineLimit: MakeEventConst.lineLimit
                 )
                 .keyboardType(.decimalPad)
                 .onChange(of: viewModel.allSeats) { _, newValue in
@@ -61,32 +65,32 @@ struct CreateEventView: View {
                 }
                 .onReceive(Just($viewModel.allSeats)) { _ in
                     viewModel.limitTextField(
-                        CreateEventConst.seatsMaxLength,
+                        MakeEventConst.seatsMaxLength,
                         text: $viewModel.allSeats
                     )
                 }
                 .focused($focus, equals: .seats)
 
                 /// link
-                CreateEventTextField(
+                MakeEventTextField(
                     text: $viewModel.link,
                     title: "контакты создателя",
                     prompt: "https://event.creator.link/",
-                    lineLimit: CreateEventConst.lineLimit
+                    lineLimit: MakeEventConst.lineLimit
                 )
                 .onReceive(Just(link)) { _ in
                     viewModel.limitTextField(
-                        CreateEventConst.contactMaxLength,
+                        MakeEventConst.contactMaxLength,
                         text: $viewModel.link
                     )
                 }
                 .focused($focus, equals: .link)
 
                 /// date time
-                CreateEventDatePicker(viewModel: viewModel)
+                MakeEventDatePicker(viewModel: viewModel)
 
                 /// place picker
-                CreateEventPlacePicker(viewModel: viewModel)
+                MakeEventPlacePicker(viewModel: viewModel)
 
                 /// create event button
                 Button {
@@ -126,6 +130,6 @@ struct CreateEventView: View {
 }
 
 #Preview {
-    CreateEventView()
+    MakeEventView(viewModel: MakeEventViewModel())
 }
 

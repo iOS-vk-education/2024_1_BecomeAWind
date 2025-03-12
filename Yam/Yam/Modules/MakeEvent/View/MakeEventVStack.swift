@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CreateEventVStack<Content: View>: View {
+struct MakeEventVStack<Content: View>: View {
     let content: Content
 
     init(@ViewBuilder content: () -> Content) {

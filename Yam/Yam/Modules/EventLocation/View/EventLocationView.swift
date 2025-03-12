@@ -38,7 +38,7 @@ struct EventLocationView: View {
                 maxHeight: .infinity,
                 alignment: .topTrailing
             )
-            .padding(.trailing, Const.sideSpace)
+            .padding([.trailing, .top], Const.sideSpace)
 
             VStack {
                 YCapsuleLabel(

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-final class CreateEventModel {
+final class MakeEventModel {
 
     private var tempDatabase = TempDatabase.shared
 

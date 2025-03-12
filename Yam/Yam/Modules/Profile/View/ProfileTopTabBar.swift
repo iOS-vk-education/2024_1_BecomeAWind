@@ -47,7 +47,9 @@ struct ProfileTopTabBar: View {
         .fullScreenCover(
             isPresented: $viewModel.isActiveCreateEvent
         ) {
-            CreateEventView()
+            MakeEventView(
+                viewModel: MakeEventViewModel()
+            )
         }
     }
 

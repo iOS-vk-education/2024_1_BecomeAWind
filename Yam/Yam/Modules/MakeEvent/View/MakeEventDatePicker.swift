@@ -1,27 +1,27 @@
 import SwiftUI
 
-struct CreateEventDatePicker: View {
+struct MakeEventDatePicker: View {
 
-    @ObservedObject var viewModel: CreateEventViewModel
+    @ObservedObject var viewModel: MakeEventViewModel
 
     var body: some View {
         HStack {
             YText(
                 "дата и время",
-                font: CreateEventConst.sectionTitleFont
+                font: MakeEventConst.sectionTitleFont
             )
             Spacer()
         }
         .padding(.leading, Const.sideSpace)
 
-        CreateEventVStack {
+        MakeEventVStack {
             DatePicker(
                 "выбери дату и время",
                 selection: $viewModel.date
             )
             .labelsHidden()
             .environment(\.locale, Locales.ru)
-            .font(CreateEventConst.sectionContentFont)
+            .font(MakeEventConst.sectionContentFont)
             .tint(Colors.purple)
             .colorScheme(.dark)
             .padding()
@@ -31,6 +31,5 @@ struct CreateEventDatePicker: View {
 }
 
 #Preview {
-    @Previewable @StateObject var vm = CreateEventViewModel()
-    CreateEventDatePicker(viewModel: vm)
+    MakeEventDatePicker(viewModel: MakeEventViewModel())
 }

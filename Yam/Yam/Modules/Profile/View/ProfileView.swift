@@ -46,7 +46,12 @@ struct ProfileView: View {
         }
         .sheet(isPresented: $viewModel.isActiveEditEvent) {
             if let event = viewModel.selectedEvent {
-                EditEventView(viewModel: EditEventViewModel(event: event))
+                MakeEventView(
+                    viewModel: MakeEventViewModel(
+                        typeOfMakeEventView: .editEvent,
+                        event: event
+                    )
+                )
             }
         }
         .alert(
