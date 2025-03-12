@@ -7,7 +7,16 @@ final class MakeEventModel {
 
     func createEvent(_ event: Event) {
         tempDatabase.myEvents.append(event)
-        print(tempDatabase.myEvents)
+    }
+
+    func editEvent(_ event: Event?) {
+        if let event {
+            for (i, nowEvent) in tempDatabase.myEvents.enumerated() {
+                if nowEvent.id == event.id {
+                    tempDatabase.myEvents[i] = event
+                }
+            }
+        }
     }
 
 }

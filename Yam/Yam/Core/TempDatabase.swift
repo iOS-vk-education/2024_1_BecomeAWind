@@ -66,37 +66,4 @@ final class TempDatabase: ObservableObject {
         myEvents.append(event2)
         myEvents.append(event3)
     }
-
-//    @Published var location1 = CLLocation(latitude: 55.9558,
-//                                         longitude: 37.2173)
-//    @Published var location2 = CLLocation(latitude: 55.5568,
-//                                         longitude: 37.1143)
-//    @Published var location3 = CLLocation(latitude: 55.0598,
-//                                         longitude: 37.4103)
-
-
-//    func generateRandomPlacemark() -> CLPlacemark {
-//        // Случайные координаты
-//        let latitude = CLLocationDegrees.random(in: -90...90)
-//        let longitude = CLLocationDegrees.random(in: -180...180)
-//        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//
-//        // Случайные данные для адреса
-//        let addressDictionary: [String: Any] = [
-//            CNPostalAddressStreetKey: "Random Street \(Int.random(in: 1...100))",
-//            CNPostalAddressCityKey: "Random City",
-//            CNPostalAddressStateKey: "Random State",
-//            CNPostalAddressPostalCodeKey: "\(Int.random(in: 10000...99999))",
-//            CNPostalAddressCountryKey: "Random Country",
-//            CNPostalAddressISOCountryCodeKey: "RC"
-//        ]
-//
-//        // Создаем CLLocation
-//        let location = CLLocation(latitude: latitude, longitude: longitude)
-//
-//        // Создаем CLPlacemark
-//        let placemark = CLPlacemark
-//
-//        return placemark
-//    }
 }

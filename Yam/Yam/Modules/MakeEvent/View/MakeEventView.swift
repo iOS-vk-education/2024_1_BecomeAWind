@@ -55,7 +55,7 @@ struct MakeEventView: View {
                 /// seats
                 MakeEventTextField(
                     text: $viewModel.allSeats,
-                    title: "количество свободных мест",
+                    title: "количество мест",
                     prompt: "1",
                     lineLimit: MakeEventConst.lineLimit
                 )
@@ -94,14 +94,14 @@ struct MakeEventView: View {
 
                 /// create event button
                 Button {
-                    if viewModel.createEvent() {
+                    if viewModel.handleEvent() {
                         dismiss()
                     } else {
-                        viewModel.toggleEventCreationFailed()
+                        viewModel.toggleEventHandlingFailed()
                     }
                 } label: {
                     YCapsuleLabel(
-                        title: "создать",
+                        title: viewModel.footerButtonText,
                         font: Const.buttonFont
                     )
                 }
@@ -122,6 +122,12 @@ struct MakeEventView: View {
         .alert(
             "заполни все поля",
             isPresented: $viewModel.eventCreationFailed
+        ) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert(
+            "заполни все поля и введи количество мест не меньше предыдущего",
+            isPresented: $viewModel.eventEditionFailed
         ) {
             Button("ок", role: .cancel) {}
         }

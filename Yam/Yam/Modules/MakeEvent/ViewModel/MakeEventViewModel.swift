@@ -12,7 +12,7 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     private var model = MakeEventModel()
 
     let typeOfMakeEventView: TypeOfMakeEventView
-    let event: Event?
+    var event: Event?
 
     init(
         typeOfMakeEventView: TypeOfMakeEventView = .createEvent,
@@ -62,6 +62,10 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
         location = typeOfMakeEventView == .createEvent
         ? nil
         : event?.place.location ?? nil
+
+        footerButtonText = typeOfMakeEventView == .createEvent
+        ? "создать ивент"
+        : "обновить ивент"
     }
 
     /// header
@@ -87,18 +91,43 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     private var location: CLLocation?
     private var place: Place?
 
-    /// create event
+    /// handle event
     @Published var eventCreationFailed = false
+    @Published var eventEditionFailed = false
+    let footerButtonText: String
 
+}
+
+/// handle event
+extension MakeEventViewModel {
+
+    func handleEvent() -> Bool {
+        var result: Bool
+
+        if typeOfMakeEventView == .createEvent {
+            result = createEvent()
+        } else {
+            result = editEvent()
+        }
+
+        return result
+    }
+
+    func toggleEventHandlingFailed() {
+        typeOfMakeEventView == .createEvent
+        ? eventCreationFailed.toggle()
+        : eventEditionFailed.toggle()
+    }
+    
 }
 
 /// create event
 extension MakeEventViewModel {
 
-    func createEvent() -> Bool {
-        let eventCreated = validateEventData()
+    private func createEvent() -> Bool {
+        let canCreateEvent = validateEventCreation()
 
-        if eventCreated {
+        if canCreateEvent {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
             let event = Event(
@@ -112,18 +141,54 @@ extension MakeEventViewModel {
             model.createEvent(event)
         }
 
-        return eventCreated
+        return canCreateEvent
     }
 
-    func toggleEventCreationFailed() {
-        eventCreationFailed.toggle()
-    }
-
-    private func validateEventData() -> Bool {
+    private func validateEventCreation() -> Bool {
         var result = false
 
         if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            placeDescription != MakeEventConst.emptyPlaceText &&
+            location != nil {
+            result = true
+        }
+
+        return result
+    }
+
+}
+
+/// edit event
+extension MakeEventViewModel {
+
+    private func editEvent() -> Bool {
+        let canEditEvent = validateEventEdition()
+
+        if canEditEvent {
+            let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
+            let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
+
+            event?.image = image
+            event?.title = eventTitle
+            event?.seats = seats
+            event?.link = link
+            event?.date = date
+            event?.place = place
+
+            model.editEvent(event)
+        }
+
+        return canEditEvent
+    }
+
+    private func validateEventEdition() -> Bool {
+        var result = false
+        let oldAllSeats = event?.seats.all ?? 1
+
+        if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            Int(allSeats) ?? 1 >= oldAllSeats &&
             placeDescription != MakeEventConst.emptyPlaceText &&
             location != nil {
             result = true
