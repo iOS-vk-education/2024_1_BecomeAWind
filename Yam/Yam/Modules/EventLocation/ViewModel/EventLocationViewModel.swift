@@ -9,19 +9,7 @@ final class EventLocationViewModel: ObservableObject {
 
     init(event: Event) {
         self.event = event
-        setupPlaceDescription()
-    }
-
-    func setupPlaceDescription() {
-        LocationHandler.getPlacemark(from: event.location) { [weak self] placemark in
-            if let placemark {
-                let description = LocationHandler.parsePlacemark(placemark)
-
-                DispatchQueue.main.async {
-                    self?.placeDescription = description
-                }
-            }
-        }
+        placeDescription = event.place.placeDescription
     }
 
 }
@@ -35,7 +23,7 @@ extension EventLocationViewModel {
     }
 
     func centerMapOnEvent() {
-        let coordinate = event.location.coordinate
+        let coordinate = event.place.location.coordinate
         withAnimation(.easeInOut(duration: 0.5)) {
             position = .region(MKCoordinateRegion(
                 center: CLLocationCoordinate2D(

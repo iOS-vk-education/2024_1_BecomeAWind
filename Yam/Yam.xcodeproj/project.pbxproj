@@ -83,6 +83,7 @@
 		87DAF8CA2D4E775300C8C550 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */; };
 		87DAF8CB2D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C42D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf */; };
 		87DAF8CC2D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */; };
+		87E197F92D821B6300742E7D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E197F82D821B6300742E7D /* Place.swift */; };
 		87FC48442D52089600F6D8CC /* MakeEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* MakeEventVStack.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 /* End PBXBuildFile section */
@@ -165,6 +166,7 @@
 		87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.ttf"; sourceTree = "<group>"; };
 		87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Regular.ttf"; sourceTree = "<group>"; };
 		87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
+		87E197F82D821B6300742E7D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC48432D52089600F6D8CC /* MakeEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventVStack.swift; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				870E3C592D4388D40043DA00 /* MakeEventModel.swift */,
 				870E3C672D4388D40043DA00 /* Event.swift */,
 				87336FAC2D7F6B7F00BD699A /* Seats.swift */,
+				87E197F82D821B6300742E7D /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				870E3CA32D4388D40043DA00 /* YCapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* ProfileViewModel.swift in Sources */,
+				87E197F92D821B6300742E7D /* Place.swift in Sources */,
 				87336F8F2D7C978B00BD699A /* MakeEventConst.swift in Sources */,
 				87336F9B2D7E33DD00BD699A /* trash.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YImage.swift in Sources */,

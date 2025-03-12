@@ -30,7 +30,7 @@ struct MakeEventTextField: View {
                 text: text,
                 prompt:
                     Text(prompt)
-                    .font(MakeEventConst.sectionContentFont)
+                    .font(MakeEventConst.sectionEmptyFont)
                     .foregroundColor(Colors.white2),
                 axis: .vertical
             )
@@ -40,7 +40,7 @@ struct MakeEventTextField: View {
             .lineLimit(lineLimit)
             .tint(Colors.purple)
             .foregroundColor(Colors.white)
-            .font(MakeEventConst.sectionContentFont)
+            .font(Const.placeDescriptionFont)
         }
     }
 

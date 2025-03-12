@@ -11,7 +11,7 @@ struct MakeEventPlacePicker: View {
         MakeEventVStack {
             YText(
                 viewModel.placeDescription,
-                font: MakeEventConst.sectionContentFont
+                font: MakeEventConst.sectionEmptyFont
             )
             .padding(.horizontal)
             .padding(.top)

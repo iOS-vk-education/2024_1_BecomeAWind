@@ -11,7 +11,7 @@ struct MakeEventImagePicker: View {
                 YImage(image: viewModel.image, size: MakeEventConst.imageSize)
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
                     YCapsuleLabel(
-                        title: "выбери превью",
+                        title: viewModel.imagePickerButtonText,
                         font: Const.buttonFont
                     )
                 }

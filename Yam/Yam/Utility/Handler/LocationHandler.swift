@@ -19,6 +19,8 @@ final class LocationHandler {
                 } else {
                     completion(nil)
                 }
+            } else {
+                completion(nil)
             }
         }
     }

@@ -20,30 +20,75 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     ) {
         self.typeOfMakeEventView = typeOfMakeEventView
         self.event = event
+
+        /// constants declaration
+        headerText =
+        typeOfMakeEventView == .createEvent
+        ? "новый ивент"
+        : "редактирование ивента"
+
+        image = typeOfMakeEventView == .createEvent
+        ? UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
+        : event?.image ?? UIImage(systemName: "photo.artframe")!
+
+        imagePickerButtonText =
+        typeOfMakeEventView == .createEvent
+        ? "выбери превью"
+        : "измени превью"
+
+        eventTitle =
+        typeOfMakeEventView == .createEvent
+        ? ""
+        : event?.title ?? ""
+
+        allSeats =
+        typeOfMakeEventView == .createEvent
+        ? "1"
+        : String(event?.seats.all ?? 1)
+
+        link =
+        typeOfMakeEventView == .createEvent
+        ? ""
+        : event?.link ?? ""
+
+        date = typeOfMakeEventView == .createEvent
+        ? Date()
+        : event?.date ?? Date()
+
+        placeDescription = typeOfMakeEventView == .createEvent
+        ? MakeEventConst.emptyPlaceText
+        : event?.place.placeDescription ?? MakeEventConst.emptyPlaceText
+
+        location = typeOfMakeEventView == .createEvent
+        ? nil
+        : event?.place.location ?? nil
     }
 
-    /// create / edit
+    /// header
+    let headerText: String
 
     /// image picker
-    @Published private(set) var image = UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
+    @Published private(set) var image: UIImage
     @Published var photosPickerItem: PhotosPickerItem?
+    let imagePickerButtonText: String
 
     /// text fields
-    @Published var eventTitle = ""
-    @Published var allSeats = "1"
-    @Published var link = ""
+    @Published var eventTitle: String
+    @Published var allSeats: String
+    @Published var link: String
 
     /// date picker
-    @Published var date = Date()
+    @Published var date: Date
 
     /// place picker
     @Published var isActiveMakeEventPlace = false
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
-    @Published var placeDescription = MakeEventConst.emptyPlaceText
+    @Published var placeDescription: String
+    private var location: CLLocation?
+    private var place: Place?
 
     /// create event
     @Published var eventCreationFailed = false
-    private var location = CLLocation()
 
 }
 
@@ -55,13 +100,14 @@ extension MakeEventViewModel {
 
         if eventCreated {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
+            let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
             let event = Event(
                 image: image,
                 title: eventTitle,
                 seats: seats,
                 link: link,
                 date: date,
-                location: location
+                place: place
             )
             model.createEvent(event)
         }
@@ -74,12 +120,13 @@ extension MakeEventViewModel {
     }
 
     private func validateEventData() -> Bool {
-        var result = true
+        var result = false
 
-        if eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-            link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-            placeDescription == MakeEventConst.emptyPlaceText {
-            result = false
+        if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            placeDescription != MakeEventConst.emptyPlaceText &&
+            location != nil {
+            result = true
         }
 
         return result
@@ -141,18 +188,16 @@ extension MakeEventViewModel {
     func updatePlaceDescription(completion: @escaping (Bool) -> Void) {
         guard let coordinate = centerCoordinate else { return }
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        placeDescription = ""
 
         LocationHandler.getPlacemark(from: location) { [weak self] placemark in
             if let placemark {
                 let description = LocationHandler.parsePlacemark(placemark)
-
-                DispatchQueue.main.async {
-                    self?.placeDescription = description
-                    self?.location = location
-                }
+                self?.placeDescription = description
+                self?.location = location
                 completion(true)
             } else {
+                self?.placeDescription = MakeEventConst.emptyPlaceText
+                self?.location = nil
                 completion(false)
             }
         }

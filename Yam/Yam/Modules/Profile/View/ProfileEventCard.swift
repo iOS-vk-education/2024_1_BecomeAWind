@@ -105,7 +105,9 @@ struct ProfileEventCard: View {
             seats: Seats(busy: 0, all: 100),
             link: "www",
             date: Date(),
-            location: CLLocation()
+            place: Place(
+                location: CLLocation(),
+                placeDescription: "placedesc")
+            )
         )
-    )
 }

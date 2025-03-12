@@ -1,5 +1,4 @@
 import UIKit
-import MapKit
 
 struct Event: Identifiable, Hashable {
     var id = UUID()
@@ -9,5 +8,6 @@ struct Event: Identifiable, Hashable {
     var seats: Seats
     var link: String
     var date: Date
-    var location: CLLocation
+    var place: Place
+//    var location: CLLocation
 }

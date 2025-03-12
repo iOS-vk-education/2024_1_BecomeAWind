@@ -16,12 +16,11 @@ struct MakeEventDatePicker: View {
 
         MakeEventVStack {
             DatePicker(
-                "выбери дату и время",
+                "",
                 selection: $viewModel.date
             )
             .labelsHidden()
             .environment(\.locale, Locales.ru)
-            .font(MakeEventConst.sectionContentFont)
             .tint(Colors.purple)
             .colorScheme(.dark)
             .padding()

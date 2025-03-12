@@ -12,14 +12,11 @@ enum MakeEventConst {
     static let lineLimit = 10
 
     /// place picker
-    static let emptyPlaceText = "выбери место проведения мероприятия"
+    static let emptyPlaceText = "выбери место проведения ивента"
 
     /// fonts
-    static let sectionTitleFont = FontManager.getFont(
-        with: .semibold,
-        and: 17
-    )
-    static let sectionContentFont = FontManager.getFont(with: .regular, and: Const.regularFontSize)
+    static let sectionTitleFont = FontManager.getFont(with: .semibold, and: 17)
+    static let sectionEmptyFont = FontManager.getFont(with: .regular, and: 15)
 
 }
 

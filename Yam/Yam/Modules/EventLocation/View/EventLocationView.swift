@@ -14,8 +14,8 @@ struct EventLocationView: View {
 
                 /// event location
                 Annotation("", coordinate: CLLocationCoordinate2D(
-                    latitude: viewModel.event.location.coordinate.latitude,
-                    longitude: viewModel.event.location.coordinate.longitude)
+                    latitude: viewModel.event.place.location.coordinate.latitude,
+                    longitude: viewModel.event.place.location.coordinate.longitude)
                 ) {
                     YImage(
                         image: viewModel.event.image,
@@ -43,7 +43,7 @@ struct EventLocationView: View {
             VStack {
                 YCapsuleLabel(
                     title: viewModel.placeDescription,
-                    font: EventLocationConst.placeDescriptionFont,
+                    font: Const.placeDescriptionFont,
                     background: .thinMaterial
                 )
                 .frame(maxWidth: UIScreen.main.bounds.width / 2)
@@ -79,8 +79,10 @@ struct EventLocationView: View {
         seats: Seats(busy: 0, all: 100),
         link: "www",
         date: Date(),
-        location: CLLocation()
-    )
+        place: Place(
+            location: CLLocation(),
+            placeDescription: "placedesc")
+        )
     )
     )
 }

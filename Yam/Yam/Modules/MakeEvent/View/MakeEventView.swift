@@ -30,7 +30,7 @@ struct MakeEventView: View {
 
                 /// header
                 YText(
-                    "новый ивент",
+                    viewModel.headerText,
                     font: Const.headerTextFont
                 )
 

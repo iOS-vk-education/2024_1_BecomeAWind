@@ -9,16 +9,11 @@ enum Const {
     static let topSafeAreaSize = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
     static let bottomSafeAreaSize = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
 
-    static let headerTextFont = FontManager.getFont(
-        with: .bold,
-        and: 35
-    )
-    static let buttonFont = FontManager.getFont(
-        with: .bold,
-        and: 17
-    )
+    static let headerTextFont = FontManager.getFont(with: .bold, and: 35)
+    static let buttonFont = FontManager.getFont(with: .bold, and: 17)
+    static let placeDescriptionFont = FontManager.getFont(with: .medium, and: 15)
+
     static let fontSize: CGFloat = 20
-    static let regularFontSize: CGFloat = 15
     static let cornerRadius: CGFloat = 20
     static let sideSpace: CGFloat = 15
 
