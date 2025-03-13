@@ -12,6 +12,7 @@ final class TempDatabase: ObservableObject {
 
     /*
     @Published var users: [UserModel] = [
+     /Users/terabrim/Desktop/2024_1_BecomeAWind/Yam/Yam/Modules/Feed/View
         UserModel(login: "1", email: "1", password: "1"),
         UserModel(login: "2", email: "2", password: "2"),
         UserModel(login: "3", email: "3", password: "3")
@@ -76,13 +77,14 @@ final class TempDatabase: ObservableObject {
 
         myEvents.append(event1)
         myEvents.append(event2)
-        myEvents.append(event3)
 
         subscriptions.append(event4)
         subscriptions.append(event3)
-        subscriptions.append(event1)
-        subscriptions.append(event2)
 
-        allEvents += myEvents + subscriptions
+        allEvents.append(event1)
+        allEvents.append(event2)
+        allEvents.append(event4)
+        allEvents.append(event3)
     }
+
 }
