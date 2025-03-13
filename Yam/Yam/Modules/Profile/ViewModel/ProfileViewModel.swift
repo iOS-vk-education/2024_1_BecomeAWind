@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class ProfileViewModel: ObservableObject {
+final class ProfileViewModel: ObservableObject, YEventCardProtocol {
 
     @ObservedObject var db = TempDatabase.shared
 
@@ -43,25 +43,17 @@ extension ProfileViewModel {
     }
 
     func openLink(_ link: String) {
-        guard let url = URL(string: link), UIApplication.shared.canOpenURL(url) else {
+        if !EventHandler.openLink(link) {
             invalidLink.toggle()
-            return
         }
-        UIApplication.shared.open(url)
     }
 
     func getSeatsString(from seats: Seats) -> String {
-        "\(seats.busy) / \(seats.all)"
+        EventHandler.getSeatsString(from: seats)
     }
 
     func getDateString(from date: Date) -> String {
-        var result = ""
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy\nHH:mm"
-
-        result = formatter.string(from: date)
-
-        return result
+        EventHandler.getDateString(from: date)
     }
 
 }

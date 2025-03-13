@@ -1,10 +1,16 @@
 import SwiftUI
 import MapKit
 
-struct ProfileEventCard: View {
+struct YEventCard: View {
 
-    @ObservedObject var viewModel: ProfileViewModel
+    enum CardType {
+        case myEvent
+        case subscriptionEvent
+        case feedEvent
+    }
 
+    var viewModel: YEventCardProtocol
+    let cardType: CardType
     let event: Event
 
     var body: some View {
@@ -50,7 +56,7 @@ struct ProfileEventCard: View {
                     }
 
                     /// open edit event button
-                    if viewModel.activeTab == .myEvents {
+                    if cardType == .myEvent {
                         ProfileVStack {
                             YCircleButton(
                                 imageName: "gearshape",
@@ -99,8 +105,9 @@ struct ProfileEventCard: View {
 }
 
 #Preview {
-    ProfileEventCard(
+    YEventCard(
         viewModel: ProfileViewModel(),
+        cardType: .myEvent,
         event: Event(
             image: UIImage(named: "football")!,
             title: "event",

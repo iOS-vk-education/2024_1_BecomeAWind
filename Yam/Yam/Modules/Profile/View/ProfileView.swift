@@ -19,8 +19,11 @@ struct ProfileView: View {
                      : viewModel.db.subscriptions,
                      id: \.self
                 ) { event in
-                    ProfileEventCard(
+                    YEventCard(
                         viewModel: viewModel,
+                        cardType: viewModel.activeTab == .myEvents
+                        ? .myEvent
+                        : .subscriptionEvent,
                         event: event
                     )
                     .listRowSeparator(.hidden)
