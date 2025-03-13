@@ -48,7 +48,6 @@
 		87336F8F2D7C978B00BD699A /* MakeEventConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F8E2D7C978B00BD699A /* MakeEventConst.swift */; };
 		87336F952D7DCA8700BD699A /* YCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F942D7DCA8700BD699A /* YCircleButton.swift */; };
 		87336F972D7DCF2B00BD699A /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F962D7DCF2B00BD699A /* C.swift */; };
-		87336F992D7E33B400BD699A /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F982D7E33B400BD699A /* ProfileModel.swift */; };
 		87336F9B2D7E33DD00BD699A /* trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9A2D7E33DD00BD699A /* trash.swift */; };
 		87336F9D2D7E960C00BD699A /* ProfileEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9C2D7E960C00BD699A /* ProfileEventCard.swift */; };
 		87336F9F2D7ED82200BD699A /* ProfileVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9E2D7ED82200BD699A /* ProfileVStack.swift */; };
@@ -130,7 +129,6 @@
 		87336F8E2D7C978B00BD699A /* MakeEventConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventConst.swift; sourceTree = "<group>"; };
 		87336F942D7DCA8700BD699A /* YCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCircleButton.swift; sourceTree = "<group>"; };
 		87336F962D7DCF2B00BD699A /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
-		87336F982D7E33B400BD699A /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		87336F9A2D7E33DD00BD699A /* trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trash.swift; sourceTree = "<group>"; };
 		87336F9C2D7E960C00BD699A /* ProfileEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEventCard.swift; sourceTree = "<group>"; };
 		87336F9E2D7ED82200BD699A /* ProfileVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVStack.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				870E3C742D4388D40043DA00 /* FeedView.swift */,
-				87BD28542D5CA7F00085C05F /* Delme.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +390,7 @@
 				87336F9A2D7E33DD00BD699A /* trash.swift */,
 				879F2BFF2D46E20C0027E46D /* GeopointHandler.swift */,
 				879F2BFD2D46CE7F0027E46D /* DateHandler.swift */,
+				87BD28542D5CA7F00085C05F /* Delme.swift */,
 			);
 			path = Trash;
 			sourceTree = "<group>";
@@ -460,7 +458,6 @@
 		87336F5A2D7C42BD00BD699A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				87336F982D7E33B400BD699A /* ProfileModel.swift */,
 				87336FA62D7F56A800BD699A /* ProfileTab.swift */,
 			);
 			path = Model;
@@ -546,11 +543,11 @@
 			isa = PBXGroup;
 			children = (
 				870E3C7D2D4388D40043DA00 /* Entry */,
+				870E3C432D4388010043DA00 /* Authorization */,
 				8730543F2D5A9B53003D6726 /* Profile */,
 				870E3C652D4388D40043DA00 /* MakeEvent */,
-				870E3C432D4388010043DA00 /* Authorization */,
-				870E3C822D4388D40043DA00 /* Map */,
 				870E3C772D4388D40043DA00 /* Feed */,
+				870E3C822D4388D40043DA00 /* Map */,
 				870E3C722D4388D40043DA00 /* DetailedInfo */,
 				879F2C012D46EEEA0027E46D /* EventLocation */,
 			);
@@ -820,7 +817,6 @@
 				870E3CA62D4388D40043DA00 /* MakeEventViewModel.swift in Sources */,
 				87336FA72D7F56A800BD699A /* ProfileTab.swift in Sources */,
 				873054412D5A9B82003D6726 /* ProfileView.swift in Sources */,
-				87336F992D7E33B400BD699A /* ProfileModel.swift in Sources */,
 				870E3CA82D4388D40043DA00 /* MapView.swift in Sources */,
 				87BD28552D5CA7F00085C05F /* Delme.swift in Sources */,
 				870E3CA92D4388D40043DA00 /* MakeEventDatePicker.swift in Sources */,

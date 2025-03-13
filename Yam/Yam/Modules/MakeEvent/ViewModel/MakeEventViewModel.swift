@@ -10,7 +10,6 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     }
 
     private var model = MakeEventModel()
-
     let typeOfMakeEventView: TypeOfMakeEventView
     var event: Event?
 

@@ -50,12 +50,14 @@ struct ProfileEventCard: View {
                     }
 
                     /// open edit event button
-                    ProfileVStack {
-                        YCircleButton(
-                            imageName: "gearshape",
-                            background: Gradients.pinkIndigo
-                        ) {
-                            viewModel.toggleEditEvent(for: event)
+                    if viewModel.activeTab == .myEvents {
+                        ProfileVStack {
+                            YCircleButton(
+                                imageName: "gearshape",
+                                background: Gradients.pinkIndigo
+                            ) {
+                                viewModel.toggleEditEvent(for: event)
+                            }
                         }
                     }
                 }

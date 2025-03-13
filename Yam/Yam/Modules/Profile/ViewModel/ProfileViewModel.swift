@@ -5,8 +5,8 @@ final class ProfileViewModel: ObservableObject {
     @ObservedObject var db = TempDatabase.shared
 
     /// top tab bar
-    @Published var isActiveCreateEvent = false
     @Published var activeTab: ProfileTab = .myEvents
+    @Published var isActiveCreateEvent = false
 
     /// event card
     @Published var selectedEvent: Event?

@@ -5,12 +5,15 @@ private enum FeedViewSizesPack {
 }
 
 struct FeedView: View {
-    @StateObject private var viewModel = FeedViewModel(model: FeedModel())
-    @State private var selectedEvent: Event?
+
+    @StateObject private var viewModel = FeedViewModel()
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
     var body: some View {
+
+        
+
         /*
         ZStack {
             ScrollView {
