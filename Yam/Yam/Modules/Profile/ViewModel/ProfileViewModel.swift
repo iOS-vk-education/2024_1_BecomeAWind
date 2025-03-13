@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class ProfileViewModel: ObservableObject, YEventCardProtocol {
+final class ProfileViewModel: ObservableObject {
 
     @ObservedObject var db = TempDatabase.shared
 
@@ -30,7 +30,7 @@ extension ProfileViewModel {
 }
 
 /// event card
-extension ProfileViewModel {
+extension ProfileViewModel: YEventCardProtocol {
 
     func toggleEditEvent(for event: Event) {
         selectedEvent = event
@@ -47,6 +47,8 @@ extension ProfileViewModel {
             invalidLink.toggle()
         }
     }
+
+    func handleSubscribeButton(for event: Event) {}
 
     func getSeatsString(from seats: Seats) -> String {
         EventHandler.getSeatsString(from: seats)

@@ -86,6 +86,7 @@
 		87FDD9352D82F25700C2B5EC /* YEventCardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* YEventCardProtocol.swift */; };
 		87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9362D82F5D500C2B5EC /* DateHandler.swift */; };
 		87FDD9392D82F73400C2B5EC /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9382D82F73400C2B5EC /* EventHandler.swift */; };
+		87FDD93B2D83471100C2B5EC /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD93A2D83471100C2B5EC /* MapViewModel.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,7 @@
 		87FDD9342D82F25700C2B5EC /* YEventCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YEventCardProtocol.swift; sourceTree = "<group>"; };
 		87FDD9362D82F5D500C2B5EC /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		87FDD9382D82F73400C2B5EC /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
+		87FDD93A2D83471100C2B5EC /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -363,8 +365,6 @@
 				870E3C802D4388D40043DA00 /* View */,
 				87336F4E2D7C392700BD699A /* ViewModel */,
 				87336F4F2D7C392A00BD699A /* Model */,
-				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
-				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -422,6 +422,7 @@
 		87336F4E2D7C392700BD699A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				87FDD93A2D83471100C2B5EC /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -437,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C792D4388D40043DA00 /* EntryView.swift */,
+				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
 				876084C12D7A37B500195B68 /* EntryTabBar.swift */,
 			);
 			path = View;
@@ -446,6 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				87336F532D7C39AB00BD699A /* EntryViewModel.swift */,
+				870E3C7B2D4388D40043DA00 /* LocationServicesStatusManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				87336F9F2D7ED82200BD699A /* ProfileVStack.swift in Sources */,
 				879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */,
 				8752B6F82D455A710017F2B8 /* MakeEventPlaceMap.swift in Sources */,
+				87FDD93B2D83471100C2B5EC /* MapViewModel.swift in Sources */,
 				87FC48442D52089600F6D8CC /* MakeEventVStack.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,

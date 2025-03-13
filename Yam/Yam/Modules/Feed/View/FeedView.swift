@@ -1,9 +1,5 @@
 import SwiftUI
 
-private enum FeedViewSizesPack {
-    static let headerTitleFontSize: CGFloat = 30
-}
-
 struct FeedView: View {
 
     @StateObject private var viewModel = FeedViewModel()
@@ -14,7 +10,7 @@ struct FeedView: View {
             ForEach(viewModel.db.allEvents, id: \.self) { event in
                 YEventCard(
                     viewModel: viewModel,
-                    cardType: .feedEvent,
+                    cardType: .externalEvent,
                     event: event
                 )
                 .listRowSeparator(.hidden)

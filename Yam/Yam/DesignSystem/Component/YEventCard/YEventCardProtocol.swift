@@ -8,6 +8,8 @@ protocol YEventCardProtocol {
 
     func openLink(_ link: String)
 
+    func handleSubscribeButton(for event: Event)
+
     func getSeatsString(from seats: Seats) -> String
 
     func getDateString(from date: Date) -> String

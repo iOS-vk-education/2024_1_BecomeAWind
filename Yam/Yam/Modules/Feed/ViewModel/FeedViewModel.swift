@@ -20,7 +20,11 @@ extension FeedViewModel: YEventCardProtocol {
     }
 
     func openLink(_ link: String) {
-//        print(#function)
+        print(#function)
+    }
+
+    func handleSubscribeButton(for event: Event) {
+        print(#function)
     }
 
     func getSeatsString(from seats: Seats) -> String {

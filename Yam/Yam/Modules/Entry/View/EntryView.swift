@@ -1,23 +1,28 @@
 import SwiftUI
 
 struct EntryView: View {
-    //    @StateObject private var locationManager = LocationServicesStatusManager()
-    //    if locationManager.isLocationServicesEnabled {
-
     @StateObject private var viewModel = EntryViewModel()
+    @StateObject var locationManager = LocationServicesStatusManager()
 
     var body: some View {
         ZStack {
-            switch viewModel.activeTab {
-            case .profile:
-                ProfileView()
-            case .search:
-                FeedView()
-            case .map:
-                MapView()
+            if locationManager.isLocationServicesEnabled {
+                switch viewModel.activeTab {
+                case .profile:
+                    ProfileView()
+                case .search:
+                    FeedView()
+                case .map:
+                    MapView()
+                }
+
+                EntryTabBar(viewModel: viewModel)
+            } else {
+                DisabledLocationServicesView(
+                    locationManager: locationManager
+                )
             }
 
-            EntryTabBar(viewModel: viewModel)
 
         }
         .edgesIgnoringSafeArea(.bottom)

@@ -6,10 +6,7 @@ enum ProfileConst {
     static let topTabBarHeight = Const.screenHeight * 0.13
 
     /// font
-    static let topTabBarItemTitleFont: Font = FontManager.getFont(
-        with: .medium,
-        and: 15
-    )
+    static let topTabBarItemTitleFont: Font = FontManager.getFont(with: .medium, and: 15)
 
     /// event card
     static let capsuleLabelFont = FontManager.getFont(with: .medium, and: 13)

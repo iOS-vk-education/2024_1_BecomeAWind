@@ -23,7 +23,7 @@ struct ProfileView: View {
                         viewModel: viewModel,
                         cardType: viewModel.activeTab == .myEvents
                         ? .myEvent
-                        : .subscriptionEvent,
+                        : .externalEvent,
                         event: event
                     )
                     .listRowSeparator(.hidden)

@@ -5,8 +5,7 @@ struct YEventCard: View {
 
     enum CardType {
         case myEvent
-        case subscriptionEvent
-        case feedEvent
+        case externalEvent
     }
 
     var viewModel: YEventCardProtocol
@@ -55,8 +54,9 @@ struct YEventCard: View {
                         }
                     }
 
-                    /// open edit event button
-                    if cardType == .myEvent {
+                    /// third button
+                    switch cardType {
+                    case .myEvent:
                         ProfileVStack {
                             YCircleButton(
                                 imageName: "gearshape",
@@ -65,7 +65,19 @@ struct YEventCard: View {
                                 viewModel.toggleEditEvent(for: event)
                             }
                         }
+                    case .externalEvent:
+                        ProfileVStack {
+                            YCircleButton(
+                                imageName: "plus",
+                                background: Gradients.greenIndigo
+                            ) {
+                                viewModel.handleSubscribeButton(for: event)
+                            }
+                        }
                     }
+
+
+
                 }
                 .frame(
                     maxWidth: .infinity,

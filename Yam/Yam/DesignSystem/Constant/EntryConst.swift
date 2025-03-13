@@ -11,5 +11,5 @@ enum EntryConst {
         with: .medium,
         and: 15
     )
-
+    
 }
