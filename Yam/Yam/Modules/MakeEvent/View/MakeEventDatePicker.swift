@@ -20,8 +20,8 @@ struct MakeEventDatePicker: View {
                 selection: $viewModel.date
             )
             .labelsHidden()
-            .environment(\.locale, Locales.ru)
-            .tint(Colors.purple)
+            .environment(\.locale, Locale(identifier: "ru_RU"))
+            .tint(.purple)
             .colorScheme(.dark)
             .padding()
         }

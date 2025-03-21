@@ -21,7 +21,7 @@ final class TempDatabase: ObservableObject {
     
     private init() {
         generateEvents()
-        print("TempDatabase initialized")
+        Logger.databaseInit()
     }
 
     func generateEvents() {

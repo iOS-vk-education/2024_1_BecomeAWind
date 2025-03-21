@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ProfileVStack<Content: View>: View {
+struct EventCardVStack<Content: View>: View {
     let content: Content
 
     init(@ViewBuilder content: () -> Content) {
@@ -19,7 +19,7 @@ struct ProfileVStack<Content: View>: View {
 }
 
 #Preview {
-    ProfileVStack {
+    EventCardVStack {
         Button {
             
         } label: {

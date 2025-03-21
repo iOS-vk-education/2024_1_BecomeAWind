@@ -67,8 +67,8 @@ private struct ProfileTabItem: View {
                 thisTab.rawValue,
                 font: ProfileConst.topTabBarItemTitleFont,
                 foregroundColor: thisTab == viewModel.activeTab
-                ? Colors.purple
-                : Colors.white
+                ? .purple
+                : .white
             )
         }
         .frame(maxWidth: .infinity)

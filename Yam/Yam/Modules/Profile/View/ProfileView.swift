@@ -10,7 +10,7 @@ struct ProfileView: View {
             List {
                 Rectangle()
                     .frame(height: ProfileConst.topTabBarHeight)
-                    .foregroundColor(Colors.clear)
+                    .foregroundColor(.clear)
                     .listRowSeparator(.hidden)
 
                 ForEach(
@@ -19,7 +19,7 @@ struct ProfileView: View {
                      : viewModel.db.subscriptions,
                      id: \.self
                 ) { event in
-                    YEventCard(
+                    EventCard(
                         viewModel: viewModel,
                         cardType: viewModel.activeTab == .myEvents
                         ? .myEvent
@@ -31,7 +31,7 @@ struct ProfileView: View {
 
                 Rectangle()
                     .frame(height: EntryConst.tabBarHeight)
-                    .foregroundColor(Colors.clear)
+                    .foregroundColor(.clear)
                     .listRowSeparator(.hidden)
             }
             .listStyle(.plain)

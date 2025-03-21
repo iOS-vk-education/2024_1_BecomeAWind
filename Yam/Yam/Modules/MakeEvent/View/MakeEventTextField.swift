@@ -38,8 +38,8 @@ struct MakeEventTextField: View {
             .autocorrectionDisabled()
             .autocapitalization(.none)
             .lineLimit(lineLimit)
-            .tint(Colors.purple)
-            .foregroundColor(Colors.white)
+            .tint(.purple)
+            .foregroundColor(.white)
             .font(Const.placeDescriptionFont)
         }
     }

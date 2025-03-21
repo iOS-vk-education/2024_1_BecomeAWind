@@ -1,5 +1,7 @@
 import SwiftUI
 import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -13,8 +15,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct YamApp: App {
 
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var delegate
+    
     var body: some Scene {
         WindowGroup {
             EntryView()

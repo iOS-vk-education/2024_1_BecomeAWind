@@ -7,7 +7,7 @@ struct YCapsuleLabel<Background: ShapeStyle>: View {
 
     init(title: String,
          font: Font,
-         background: Background = Gradients.purpleIndigo) {
+         background: Background = Gradient.purpleIndigo) {
         self.title = title
         self.font = font
         self.background = background
@@ -17,7 +17,7 @@ struct YCapsuleLabel<Background: ShapeStyle>: View {
         Text(title)
             .padding()
             .font(font)
-            .foregroundColor(Colors.white)
+            .foregroundColor(.white)
             .background(
                 RoundedRectangle(cornerRadius: Const.cornerRadius)
                     .fill(background)

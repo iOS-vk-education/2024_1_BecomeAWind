@@ -1,38 +1,46 @@
 import SwiftUI
 
 struct GradientImage<Background: ShapeStyle>: View {
-    let imageName: String
-    let imageSize: CGFloat
-    let cornerRadius: CGFloat
-    let background: Background
 
-    init(imageName: String,
-         imageSize: CGFloat,
-         cornerRadius: CGFloat,
-         background: Background = Colors.clear) {
-        self.imageName = imageName
-        self.imageSize = imageSize
-        self.cornerRadius = cornerRadius
-        self.background = background
+    struct ImageSet {
+        let name: String
+        let size: CGFloat
+        let cornerRadius: CGFloat
+        let background: Background
+
+        init(name: String, size: CGFloat, cornerRadius: CGFloat, background: Background = .clear) {
+            self.name = name
+            self.size = size
+            self.cornerRadius = cornerRadius
+            self.background = background
+        }
+    }
+
+    let set: ImageSet
+
+    init(set: ImageSet) {
+        self.set = set
     }
 
     var body: some View {
-        Image(systemName: imageName)
+        Image(systemName: set.name)
             .resizable()
             .padding(10)
-            .frame(width: imageSize, height: imageSize)
-            .foregroundColor(Colors.white)
-            .background(background)
-            .cornerRadius(cornerRadius)
+            .frame(width: set.size, height: set.size)
+            .foregroundColor(.white)
+            .background(set.background)
+            .cornerRadius(set.cornerRadius)
     }
     
 }
 
 #Preview {
-    GradientImage(
-        imageName: "mappin.circle",
-        imageSize: 40,
+    
+    GradientImage(set: GradientImage.ImageSet(
+        name: "mappin.circle",
+        size: 40,
         cornerRadius: Const.cornerRadius,
-        background: Gradients.purpleIndigo
+        background: Gradient.purpleIndigo)
     )
+
 }

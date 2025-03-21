@@ -30,19 +30,19 @@ extension ProfileViewModel {
 }
 
 /// event card
-extension ProfileViewModel: YEventCardProtocol {
+extension ProfileViewModel: EventCardProtocol {
 
-    func toggleEditEvent(for event: Event) {
+    func toggleEdit(event: Event) {
         selectedEvent = event
         isActiveEditEvent.toggle()
     }
 
-    func toggleEventLocation(for event: Event) {
+    func toggleLocation(for event: Event) {
         selectedEvent = event
         isActiveEventLocation.toggle()
     }
 
-    func openLink(_ link: String) {
+    func open(link: String) {
         if !EventHandler.openLink(link) {
             invalidLink.toggle()
         }
@@ -50,11 +50,11 @@ extension ProfileViewModel: YEventCardProtocol {
 
     func handleSubscribeButton(for event: Event) {}
 
-    func getSeatsString(from seats: Seats) -> String {
+    func convertToString(from seats: Seats) -> String {
         EventHandler.getSeatsString(from: seats)
     }
 
-    func getDateString(from date: Date) -> String {
+    func convertToString(from date: Date) -> String {
         EventHandler.getDateString(from: date)
     }
 

@@ -8,41 +8,7 @@ struct EntryTabBar: View {
         VStack {
             Spacer()
             HStack {
-                EntryTabItem(
-                    viewModel: viewModel,
-                    thisTab: .profile,
-                    imageSystemName: "person.crop.circle",
-                    title: "профиль"
-                )
-                .onTapGesture {
-                    withAnimation(Const.tabBarItemSwapAnimation) {
-                        viewModel.changeActiveTabTo(.profile)
-                    }
-                }
-
-                EntryTabItem(
-                    viewModel: viewModel,
-                    thisTab: .search,
-                    imageSystemName: "widget.small",
-                    title: "поиск"
-                )
-                .onTapGesture {
-                    withAnimation(Const.tabBarItemSwapAnimation) {
-                        viewModel.changeActiveTabTo(.search)
-                    }
-                }
-
-                EntryTabItem(
-                    viewModel: viewModel,
-                    thisTab: .map,
-                    imageSystemName: "map",
-                    title: "карта"
-                )
-                .onTapGesture {
-                    withAnimation(Const.tabBarItemSwapAnimation) {
-                        viewModel.changeActiveTabTo(.map)
-                    }
-                }
+                configureTabs()
             }
             .padding()
             .frame(height: EntryConst.tabBarHeight)
@@ -51,6 +17,22 @@ struct EntryTabBar: View {
                 Const.cornerRadius,
                 corners: [.topLeft, .topRight]
             )
+        }
+    }
+
+    private func configureTabs() -> some View {
+        ForEach(viewModel.tabs) { tab in
+            EntryTabItem(
+                viewModel: viewModel,
+                thisTab: tab.tab,
+                imageSystemName: tab.imageName,
+                title: tab.title
+            )
+            .onTapGesture {
+                withAnimation(Const.tabBarItemSwapAnimation) {
+                    viewModel.changeActive(to: tab.tab)
+                }
+            }
         }
     }
 
@@ -74,15 +56,15 @@ private struct EntryTabItem: View {
                 )
                 .foregroundColor(
                     viewModel.activeTab == thisTab
-                    ? Colors.purple
-                    : Colors.white
+                    ? .purple
+                    : .white
                 )
             YText(
                 title,
                 font: EntryConst.tabBarItemTitleFont,
                 foregroundColor: viewModel.activeTab == thisTab
-                ? Colors.purple
-                : Colors.white
+                ? .purple
+                : .white
             )
             Spacer()
         }
@@ -92,6 +74,5 @@ private struct EntryTabItem: View {
 }
 
 #Preview {
-    @Previewable @StateObject var vm = EntryViewModel()
-    EntryTabBar(viewModel: vm)
+    EntryTabBar(viewModel: EntryViewModel())
 }

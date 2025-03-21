@@ -21,7 +21,7 @@ struct MakeEventView: View {
                 /// dismiss
                 YCircleButton(
                     imageName: "xmark",
-                    background: Gradients.pinkIndigo
+                    background: Gradient.pinkIndigo
                 ) {
                     dismiss()
                 }

@@ -8,11 +8,11 @@ struct YSquareButton: View {
         Button {
             completion()
         } label: {
-            GradientImage(
-                imageName: imageName,
-                imageSize: Const.squareButtonSize,
+            GradientImage(set: GradientImage.ImageSet(
+                name: imageName,
+                size: Const.squareButtonSize,
                 cornerRadius: Const.squareButtonCornerRadius,
-                background: Gradients.purpleIndigo
+                background: Gradient.purpleIndigo)
             )
         }
         .buttonStyle(.plain)

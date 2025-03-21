@@ -23,13 +23,13 @@ struct EventLocationView: View {
                     )
                 }
             }
-            .tint(Colors.purple)
+            .tint(.purple)
             .colorScheme(.light)
 
             /// dismiss
             YCircleButton(
                 imageName: "xmark",
-                background: Gradients.pinkIndigo
+                background: Gradient.pinkIndigo
             ) {
                 dismiss()
             }

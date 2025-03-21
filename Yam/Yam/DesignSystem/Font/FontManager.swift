@@ -21,17 +21,13 @@ enum FontManager {
     static let def: Font = getFont(with: .regular, and: 20)
 
     static func getFont(with fontWeight: FontWeight, and fontSize: CGFloat) -> Font {
-        var font: Font
-
         switch fontWeight {
-        case .extrabold: font = Font.custom(CoreFont.extrabold, size: fontSize)
-        case .bold: font = Font.custom(CoreFont.bold, size: fontSize)
-        case .semibold: font = Font.custom(CoreFont.semibold, size: fontSize)
-        case .medium: font = Font.custom(CoreFont.medium, size: fontSize)
-        case .regular: font = Font.custom(CoreFont.regular, size: fontSize)
+        case .extrabold: Font.custom(CoreFont.extrabold, size: fontSize)
+        case .bold: Font.custom(CoreFont.bold, size: fontSize)
+        case .semibold: Font.custom(CoreFont.semibold, size: fontSize)
+        case .medium: Font.custom(CoreFont.medium, size: fontSize)
+        case .regular: Font.custom(CoreFont.regular, size: fontSize)
         }
-
-        return font
     }
     
 }

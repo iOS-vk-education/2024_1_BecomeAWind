@@ -3,27 +3,27 @@ import SwiftUI
 struct YCircleButton<Background: ShapeStyle>: View {
     var imageName: String
     var background: Background
-    var completion: () -> Void
+    var action: () -> Void
 
     init(
         imageName: String,
-        background: Background = Gradients.purpleIndigo,
-        completion: @escaping () -> Void
+        background: Background = Gradient.purpleIndigo,
+        action: @escaping () -> Void
     ) {
         self.imageName = imageName
         self.background = background
-        self.completion = completion
+        self.action = action
     }
 
     var body: some View {
         Button {
-            completion()
+            action()
         } label: {
-            GradientImage(
-                imageName: imageName,
-                imageSize: Const.circleButtonSize,
+            GradientImage(set: GradientImage.ImageSet(
+                name: imageName,
+                size: Const.circleButtonSize,
                 cornerRadius: Const.circleButtonCornerRadius,
-                background: background
+                background: background)
             )
         }
         .buttonStyle(.plain)
@@ -32,5 +32,5 @@ struct YCircleButton<Background: ShapeStyle>: View {
 }
 
 #Preview {
-    YCircleButton(imageName: "xmark", completion: {})
+    YCircleButton(imageName: "xmark", action: {})
 }

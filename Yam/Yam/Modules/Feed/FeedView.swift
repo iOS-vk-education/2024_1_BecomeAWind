@@ -8,7 +8,7 @@ struct FeedView: View {
         /// events list
         List {
             ForEach(viewModel.db.allEvents, id: \.self) { event in
-                YEventCard(
+                EventCard(
                     viewModel: viewModel,
                     cardType: .externalEvent,
                     event: event
@@ -18,7 +18,7 @@ struct FeedView: View {
 
             Rectangle()
                 .frame(height: EntryConst.tabBarHeight)
-                .foregroundColor(Colors.clear)
+                .foregroundColor(.clear)
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
