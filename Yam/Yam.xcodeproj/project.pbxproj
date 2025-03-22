@@ -179,7 +179,7 @@
 		870E3C582D4388D40043DA00 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				87FDD9332D82F22C00C2B5EC /* YEventCard */,
+				87FDD9332D82F22C00C2B5EC /* EventCard */,
 				870E3C5F2D4388D40043DA00 /* YText.swift */,
 				87336F942D7DCA8700BD699A /* YCircleButton.swift */,
 				879ADB002D80AF2600F43C04 /* YSquareButton.swift */,
@@ -509,7 +509,7 @@
 			path = MakeEventPlace;
 			sourceTree = "<group>";
 		};
-		87FDD9332D82F22C00C2B5EC /* YEventCard */ = {
+		87FDD9332D82F22C00C2B5EC /* EventCard */ = {
 			isa = PBXGroup;
 			children = (
 				87FDD9342D82F25700C2B5EC /* EventCardProtocol.swift */,
@@ -521,7 +521,7 @@
 				87CCF4DB2D8B500F005203CA /* EventCardDateLabel.swift */,
 				87336F9E2D7ED82200BD699A /* EventCardVStack.swift */,
 			);
-			path = YEventCard;
+			path = EventCard;
 			sourceTree = "<group>";
 		};
 		DF7D991C2CE122D70018E694 /* Yam */ = {
