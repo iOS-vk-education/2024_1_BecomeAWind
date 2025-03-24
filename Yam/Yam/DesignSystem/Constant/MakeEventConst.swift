@@ -6,9 +6,9 @@ enum MakeEventConst {
     static let imageSize: CGFloat = Const.screenWidth * 0.6
 
     /// text fields
-    static let titleMaxLength = 50
+    static let titleMaxLength = Int(Const.screenHeight * 0.1)
     static let seatsMaxLength = 4
-    static let contactMaxLength = 200
+    static let contactMaxLength = Int(Const.screenHeight * 0.4)
     static let lineLimit = 10
 
     /// place picker
