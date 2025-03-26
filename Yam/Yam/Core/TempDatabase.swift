@@ -1,30 +1,32 @@
 import SwiftUI
 import MapKit
-import Contacts
+
+protocol DatabaseDescription {
+    func add(event: Event)
+    func edit(event: Event)
+    func get(_ type: EventType) -> [Event]
+}
+
+enum EventType {
+    case my
+    case subscriptions
+    case all
+}
 
 final class TempDatabase: ObservableObject {
 
     static let shared = TempDatabase()
 
-    @Published var myEvents: [Event] = []
-    @Published var subscriptions: [Event] = []
-    @Published var allEvents: [Event] = []
+    private var myEvents: [Event] = []
+    private var subscriptions: [Event] = []
+    private var allEvents: [Event] = []
 
-    /*
-    @Published var users: [UserModel] = [
-     /Users/terabrim/Desktop/2024_1_BecomeAWind/Yam/Yam/Modules/Feed/View
-        UserModel(login: "1", email: "1", password: "1"),
-        UserModel(login: "2", email: "2", password: "2"),
-        UserModel(login: "3", email: "3", password: "3")
-    ]
-     */
-    
     private init() {
         generateEvents()
         Logger.databaseInit()
     }
 
-    func generateEvents() {
+    private func generateEvents() {
         let image1 = UIImage(named: "football")!
         let image2 = UIImage(named: "projectx")!
         let image3 = UIImage(named: "default_event_image")!
@@ -85,6 +87,29 @@ final class TempDatabase: ObservableObject {
         allEvents.append(event2)
         allEvents.append(event4)
         allEvents.append(event3)
+    }
+
+}
+
+extension TempDatabase: DatabaseDescription {
+
+    func add(event: Event) {
+        myEvents.append(event)
+    }
+
+    func get(_ type: EventType) -> [Event] {
+        switch type {
+        case .my: myEvents
+        case .subscriptions: subscriptions
+        case .all: allEvents
+        }
+    }
+
+    func edit(event: Event) {
+        guard let index = myEvents.firstIndex(where: {$0.id == event.id}) else { return }
+        if myEvents[index] != event {
+            myEvents[index] = event
+        }
     }
 
 }

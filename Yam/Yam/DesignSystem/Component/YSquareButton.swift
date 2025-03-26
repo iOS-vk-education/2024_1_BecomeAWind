@@ -2,11 +2,11 @@ import SwiftUI
 
 struct YSquareButton: View {
     var imageName: String
-    var completion: () -> Void
+    var action: () -> Void
 
     var body: some View {
         Button {
-            completion()
+            action()
         } label: {
             GradientImage(set: GradientImage.ImageSet(
                 name: imageName,
@@ -21,5 +21,5 @@ struct YSquareButton: View {
 }
 
 #Preview {
-    YSquareButton(imageName: "xmark", completion: {})
+    YSquareButton(imageName: "xmark", action: {})
 }

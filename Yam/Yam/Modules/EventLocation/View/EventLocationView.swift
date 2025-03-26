@@ -8,66 +8,23 @@ struct EventLocationView: View {
 
     var body: some View {
         ZStack {
-            Map(position: $viewModel.position) {
-                /// user location
-                UserAnnotation()
+            EventLocationMap(viewModel: viewModel)
 
-                /// event location
-                Annotation("", coordinate: CLLocationCoordinate2D(
-                    latitude: viewModel.event.place.location.coordinate.latitude,
-                    longitude: viewModel.event.place.location.coordinate.longitude)
-                ) {
-                    YImage(
-                        image: viewModel.event.image,
-                        size: EventLocationConst.imageSize
-                    )
-                }
-            }
-            .tint(.purple)
-            .colorScheme(.light)
-
-            /// dismiss
-            YCircleButton(
-                imageName: "xmark",
-                background: Gradient.pinkIndigo
-            ) {
-                dismiss()
-            }
-            .frame(
-                maxWidth: .infinity,
-                maxHeight: .infinity,
-                alignment: .topTrailing
-            )
-            .padding([.trailing, .top], Const.sideSpace)
+            DismissButton { dismiss() }
 
             VStack {
-                YCapsuleLabel(
-                    title: viewModel.placeDescription,
-                    font: Const.placeDescriptionFont,
-                    background: .thinMaterial
-                )
-                .frame(maxWidth: UIScreen.main.bounds.width / 2)
+                EventLocationPlaceDescription(title: viewModel.placeDescription)
 
                 Spacer()
 
-                HStack {
-                    Button {
-                        viewModel.centerMapOnEvent()
-                    } label: {
-                        YCapsuleLabel(
-                            title: "показать ивент",
-                            font: Const.buttonFont
-                        )
-                    }
-
-                    YCircleButton(imageName: "location") {
-                        viewModel.centerMapOnUserLocation()
-                    }
+                EventLocationBottomButtons {
+                    viewModel.centerMapOnEvent()
+                } showUserAction: {
+                    viewModel.centerMapOnUserLocation()
                 }
             }
             .padding(.vertical, Const.sideSpace)
         }
-
     }
 
 }

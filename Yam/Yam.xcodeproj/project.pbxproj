@@ -37,7 +37,7 @@
 		87336F952D7DCA8700BD699A /* YCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F942D7DCA8700BD699A /* YCircleButton.swift */; };
 		87336F9D2D7E960C00BD699A /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9C2D7E960C00BD699A /* EventCard.swift */; };
 		87336F9F2D7ED82200BD699A /* EventCardVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F9E2D7ED82200BD699A /* EventCardVStack.swift */; };
-		87336FA32D7F45F300BD699A /* ProfileTopTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FA22D7F45F300BD699A /* ProfileTopTabBar.swift */; };
+		87336FA32D7F45F300BD699A /* ProfileNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FA22D7F45F300BD699A /* ProfileNavBar.swift */; };
 		87336FA72D7F56A800BD699A /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FA62D7F56A800BD699A /* ProfileTab.swift */; };
 		87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FAC2D7F6B7F00BD699A /* Seats.swift */; };
 		87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */; };
@@ -60,6 +60,16 @@
 		87CCF4D62D8B3E7D005203CA /* EventCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCF4D52D8B3E7D005203CA /* EventCardButton.swift */; };
 		87CCF4DA2D8B4AD6005203CA /* EventCardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCF4D92D8B4AD6005203CA /* EventCardTitleLabel.swift */; };
 		87CCF4DC2D8B500F005203CA /* EventCardDateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCF4DB2D8B500F005203CA /* EventCardDateLabel.swift */; };
+		87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */; };
+		87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */; };
+		87D4D2902D947E2300A5E4B8 /* EventLocationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */; };
+		87D4D2942D947F5F00A5E4B8 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2932D947F5F00A5E4B8 /* DismissButton.swift */; };
+		87D4D2962D94803700A5E4B8 /* MakeEventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2952D94803700A5E4B8 /* MakeEventHeader.swift */; };
+		87D4D2982D94809D00A5E4B8 /* MakeEventTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2972D94809D00A5E4B8 /* MakeEventTitle.swift */; };
+		87D4D29A2D94815600A5E4B8 /* MakeEventSeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2992D94815600A5E4B8 /* MakeEventSeats.swift */; };
+		87D4D29D2D94822100A5E4B8 /* MakeEventLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D29C2D94822100A5E4B8 /* MakeEventLocation.swift */; };
+		87D4D2A12D94829C00A5E4B8 /* MakeEventFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2A02D94829C00A5E4B8 /* MakeEventFooterButton.swift */; };
+		87D4D2A32D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2A22D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift */; };
 		87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* FontManager.swift */; };
 		87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */; };
 		87DAF8C92D4E775300C8C550 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */; };
@@ -67,12 +77,12 @@
 		87DAF8CB2D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C42D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf */; };
 		87DAF8CC2D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */; };
 		87E197F92D821B6300742E7D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E197F82D821B6300742E7D /* Place.swift */; };
+		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* MakeEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* MakeEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardProtocol.swift */; };
 		87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9362D82F5D500C2B5EC /* DateHandler.swift */; };
 		87FDD9392D82F73400C2B5EC /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9382D82F73400C2B5EC /* EventHandler.swift */; };
 		87FDD93B2D83471100C2B5EC /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD93A2D83471100C2B5EC /* MapViewModel.swift */; };
-		87FDD93F2D8368E300C2B5EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87FDD93E2D8368E300C2B5EC /* GoogleService-Info.plist */; };
 		87FDD9422D836C8300C2B5EC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9412D836C8300C2B5EC /* FirebaseAuth */; };
 		87FDD9442D836C8300C2B5EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9432D836C8300C2B5EC /* FirebaseFirestore */; };
 		87FDD9462D836C8300C2B5EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9452D836C8300C2B5EC /* FirebaseStorage */; };
@@ -110,7 +120,7 @@
 		87336F942D7DCA8700BD699A /* YCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCircleButton.swift; sourceTree = "<group>"; };
 		87336F9C2D7E960C00BD699A /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		87336F9E2D7ED82200BD699A /* EventCardVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardVStack.swift; sourceTree = "<group>"; };
-		87336FA22D7F45F300BD699A /* ProfileTopTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopTabBar.swift; sourceTree = "<group>"; };
+		87336FA22D7F45F300BD699A /* ProfileNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBar.swift; sourceTree = "<group>"; };
 		87336FA62D7F56A800BD699A /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
 		87336FAC2D7F6B7F00BD699A /* Seats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seats.swift; sourceTree = "<group>"; };
 		87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationConst.swift; sourceTree = "<group>"; };
@@ -133,6 +143,16 @@
 		87CCF4D52D8B3E7D005203CA /* EventCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardButton.swift; sourceTree = "<group>"; };
 		87CCF4D92D8B4AD6005203CA /* EventCardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardTitleLabel.swift; sourceTree = "<group>"; };
 		87CCF4DB2D8B500F005203CA /* EventCardDateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardDateLabel.swift; sourceTree = "<group>"; };
+		87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationPlaceDescription.swift; sourceTree = "<group>"; };
+		87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationBottomButtons.swift; sourceTree = "<group>"; };
+		87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationMap.swift; sourceTree = "<group>"; };
+		87D4D2932D947F5F00A5E4B8 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		87D4D2952D94803700A5E4B8 /* MakeEventHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventHeader.swift; sourceTree = "<group>"; };
+		87D4D2972D94809D00A5E4B8 /* MakeEventTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventTitle.swift; sourceTree = "<group>"; };
+		87D4D2992D94815600A5E4B8 /* MakeEventSeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventSeats.swift; sourceTree = "<group>"; };
+		87D4D29C2D94822100A5E4B8 /* MakeEventLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventLocation.swift; sourceTree = "<group>"; };
+		87D4D2A02D94829C00A5E4B8 /* MakeEventFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventFooterButton.swift; sourceTree = "<group>"; };
+		87D4D2A22D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventHideKeyboardButton.swift; sourceTree = "<group>"; };
 		87DAF8C02D4E747D00C8C550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87DAF8C12D4E74DA00C8C550 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
@@ -142,12 +162,12 @@
 		87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
 		87E197F82D821B6300742E7D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* MakeEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventVStack.swift; sourceTree = "<group>"; };
 		87FDD9342D82F25700C2B5EC /* EventCardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardProtocol.swift; sourceTree = "<group>"; };
 		87FDD9362D82F5D500C2B5EC /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		87FDD9382D82F73400C2B5EC /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		87FDD93A2D83471100C2B5EC /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		87FDD93E2D8368E300C2B5EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +207,7 @@
 				8752B7052D468D3E0017F2B8 /* YImage.swift */,
 				870E3C532D4388D40043DA00 /* GradientImage.swift */,
 				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
+				87D4D2932D947F5F00A5E4B8 /* DismissButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -206,10 +227,15 @@
 			isa = PBXGroup;
 			children = (
 				870E3C612D4388D40043DA00 /* MakeEventView.swift */,
+				87D4D2952D94803700A5E4B8 /* MakeEventHeader.swift */,
 				878432E52D512A1500A24538 /* MakeEventImagePicker.swift */,
-				870E3C602D4388D40043DA00 /* MakeEventTextField.swift */,
+				87D4D2972D94809D00A5E4B8 /* MakeEventTitle.swift */,
+				87D4D2992D94815600A5E4B8 /* MakeEventSeats.swift */,
+				87D4D29C2D94822100A5E4B8 /* MakeEventLocation.swift */,
 				870E3C5E2D4388D40043DA00 /* MakeEventDatePicker.swift */,
-				87FC48432D52089600F6D8CC /* MakeEventVStack.swift */,
+				87D4D2A02D94829C00A5E4B8 /* MakeEventFooterButton.swift */,
+				87D4D2A22D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift */,
+				87D4D29B2D9481FF00A5E4B8 /* BaseView */,
 				87FC484A2D52446900F6D8CC /* MakeEventPlace */,
 			);
 			path = View;
@@ -293,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				873054402D5A9B82003D6726 /* ProfileView.swift */,
-				87336FA22D7F45F300BD699A /* ProfileTopTabBar.swift */,
+				87336FA22D7F45F300BD699A /* ProfileNavBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +414,9 @@
 			isa = PBXGroup;
 			children = (
 				879F2C082D46EF2A0027E46D /* EventLocationView.swift */,
+				87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */,
+				87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */,
+				87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,7 +432,7 @@
 		87BA68ED2D494DBD008DF823 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				87FDD93E2D8368E300C2B5EC /* GoogleService-Info.plist */,
+				87F4A6502D93227500C54748 /* GoogleService-Info.plist */,
 				DF7D991B2CE122D70018E694 /* YamApp.swift */,
 				870E3C8B2D4388D40043DA00 /* TempDatabase.swift */,
 				870E3C852D4388D40043DA00 /* Assets.xcassets */,
@@ -469,6 +498,15 @@
 				87C6B69C2D809E6A00AECA90 /* EventLocationViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		87D4D29B2D9481FF00A5E4B8 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				87FC48432D52089600F6D8CC /* MakeEventVStack.swift */,
+				870E3C602D4388D40043DA00 /* MakeEventTextField.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 		87DAF8CE2D4E77DF00C8C550 /* MontserratAlternates */ = {
@@ -598,7 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				870E3CAE2D4388D40043DA00 /* Preview Assets.xcassets in Resources */,
-				87FDD93F2D8368E300C2B5EC /* GoogleService-Info.plist in Resources */,
+				87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */,
 				87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */,
 				87DAF8C92D4E775300C8C550 /* MontserratAlternates-Regular.ttf in Resources */,
 				87DAF8CA2D4E775300C8C550 /* MontserratAlternates-Bold.ttf in Resources */,
@@ -619,13 +657,18 @@
 				87CCF4DA2D8B4AD6005203CA /* EventCardTitleLabel.swift in Sources */,
 				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
-				87336FA32D7F45F300BD699A /* ProfileTopTabBar.swift in Sources */,
+				87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */,
+				87D4D2A32D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift in Sources */,
+				87336FA32D7F45F300BD699A /* ProfileNavBar.swift in Sources */,
+				87D4D2942D947F5F00A5E4B8 /* DismissButton.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
 				87FDD9352D82F25700C2B5EC /* EventCardProtocol.swift in Sources */,
 				87FDD9392D82F73400C2B5EC /* EventHandler.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* MakeEventModel.swift in Sources */,
+				87D4D2902D947E2300A5E4B8 /* EventLocationMap.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */,
 				870E3C902D4388D40043DA00 /* Event.swift in Sources */,
+				87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */,
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
 				87336F9F2D7ED82200BD699A /* EventCardVStack.swift in Sources */,
 				879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */,
@@ -654,6 +697,7 @@
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
 				870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */,
 				870E3CA12D4388D40043DA00 /* Gradient.swift in Sources */,
+				87D4D29A2D94815600A5E4B8 /* MakeEventSeats.swift in Sources */,
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				879ADB012D80AF2600F43C04 /* YSquareButton.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */,
@@ -662,12 +706,16 @@
 				87336F5F2D7C4BBD00BD699A /* ProfileViewModel.swift in Sources */,
 				87E197F92D821B6300742E7D /* Place.swift in Sources */,
 				87336F8F2D7C978B00BD699A /* MakeEventConst.swift in Sources */,
+				87D4D29D2D94822100A5E4B8 /* MakeEventLocation.swift in Sources */,
 				87CCF4D62D8B3E7D005203CA /* EventCardButton.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YImage.swift in Sources */,
+				87D4D2982D94809D00A5E4B8 /* MakeEventTitle.swift in Sources */,
+				87D4D2A12D94829C00A5E4B8 /* MakeEventFooterButton.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* MakeEventTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* MakeEventViewModel.swift in Sources */,
 				87CCF4D02D8B3B78005203CA /* EventCardPreview.swift in Sources */,
 				87336FA72D7F56A800BD699A /* ProfileTab.swift in Sources */,
+				87D4D2962D94803700A5E4B8 /* MakeEventHeader.swift in Sources */,
 				873054412D5A9B82003D6726 /* ProfileView.swift in Sources */,
 				870E3CA82D4388D40043DA00 /* MapView.swift in Sources */,
 				870E3CA92D4388D40043DA00 /* MakeEventDatePicker.swift in Sources */,

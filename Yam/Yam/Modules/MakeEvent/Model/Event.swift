@@ -9,5 +9,4 @@ struct Event: Identifiable, Hashable {
     var link: String
     var date: Date
     var place: Place
-//    var location: CLLocation
 }

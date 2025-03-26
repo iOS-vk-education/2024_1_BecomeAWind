@@ -4,8 +4,7 @@ import MapKit
 struct EventCard: View {
 
     enum EventCardType {
-        case myEvent
-        case externalEvent
+        case my, external
     }
 
     var viewModel: EventCardProtocol
@@ -17,7 +16,7 @@ struct EventCard: View {
             ZStack(alignment: .bottom) {
                 /// preview
                 EventCardPreview(image: event.image)
-
+ 
                 /// buttons
                 HStack {
                     /// place
@@ -32,11 +31,11 @@ struct EventCard: View {
 
                     /// third button
                     switch cardType {
-                    case .myEvent:
+                    case .my:
                         EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
                             viewModel.toggleEdit(event: event)
                         }
-                    case .externalEvent:
+                    case .external:
                         EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
                             viewModel.handleSubscribeButton(for: event)
                         }
@@ -75,7 +74,7 @@ struct EventCard: View {
 
     EventCard(
         viewModel: ProfileViewModel(),
-        cardType: .myEvent,
+        cardType: .my,
         event: Event(
             image: UIImage(named: "football")!,
             title: "event",

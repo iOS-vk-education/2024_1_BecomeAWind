@@ -3,7 +3,7 @@ import SwiftUI
 enum ProfileConst {
 
     /// top tab bar
-    static let topTabBarHeight = Const.screenHeight * 0.13
+    static let navBarHeight = Const.screenHeight * 0.13
 
     /// font
     static let topTabBarItemTitleFont: Font = FontManager.getFont(with: .medium, and: 15)

@@ -9,21 +9,21 @@ struct ProfileView: View {
             /// events list
             List {
                 Rectangle()
-                    .frame(height: ProfileConst.topTabBarHeight)
+                    .frame(height: ProfileConst.navBarHeight)
                     .foregroundColor(.clear)
                     .listRowSeparator(.hidden)
 
                 ForEach(
                     viewModel.activeTab == .myEvents
-                     ? viewModel.db.myEvents
-                     : viewModel.db.subscriptions,
+                     ? viewModel.myEvents
+                     : viewModel.subscriptions,
                      id: \.self
                 ) { event in
                     EventCard(
                         viewModel: viewModel,
                         cardType: viewModel.activeTab == .myEvents
-                        ? .myEvent
-                        : .externalEvent,
+                        ? .my
+                        : .external,
                         event: event
                     )
                     .listRowSeparator(.hidden)
@@ -37,7 +37,7 @@ struct ProfileView: View {
             .listStyle(.plain)
 
             /// top tab bar
-            ProfileTopTabBar(viewModel: viewModel)
+            ProfileNavBar(viewModel: viewModel)
         }
         .edgesIgnoringSafeArea(.top)
         .fullScreenCover(
@@ -51,10 +51,13 @@ struct ProfileView: View {
             if let event = viewModel.selectedEvent {
                 MakeEventView(
                     viewModel: MakeEventViewModel(
-                        typeOfMakeEventView: .editEvent,
+                        typeOfMakeEventView: .edit,
                         event: event
                     )
                 )
+                .onDisappear {
+                    viewModel.updateEvents()
+                }
             }
         }
         .alert(
@@ -62,6 +65,9 @@ struct ProfileView: View {
             isPresented: $viewModel.invalidLink
         ) {
             Button("ок", role: .cancel) { }
+        }
+        .onAppear {
+            viewModel.updateEvents()
         }
     }
 

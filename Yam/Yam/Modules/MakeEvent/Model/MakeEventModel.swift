@@ -3,20 +3,14 @@ import SwiftUI
 
 final class MakeEventModel {
 
-    private var tempDatabase = TempDatabase.shared
+    private var db = TempDatabase.shared
 
-    func createEvent(_ event: Event) {
-        tempDatabase.myEvents.append(event)
+    func create(_ event: Event) {
+        db.add(event: event)
     }
 
-    func editEvent(_ event: Event?) {
-        if let event {
-            for (i, nowEvent) in tempDatabase.myEvents.enumerated() {
-                if nowEvent.id == event.id {
-                    tempDatabase.myEvents[i] = event
-                }
-            }
-        }
+    func edit(_ event: Event?) {
+        if let event { db.edit(event: event) }
     }
 
 }

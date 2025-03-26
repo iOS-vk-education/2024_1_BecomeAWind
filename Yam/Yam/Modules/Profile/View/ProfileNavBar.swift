@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ProfileTopTabBar: View {
+struct ProfileNavBar: View {
 
     @ObservedObject var viewModel: ProfileViewModel
 
@@ -36,7 +36,7 @@ struct ProfileTopTabBar: View {
                 }
             }
             .padding()
-            .frame(height: ProfileConst.topTabBarHeight)
+            .frame(height: ProfileConst.navBarHeight)
             .background(.thinMaterial)
             .cornerRadius(
                 Const.cornerRadius,
@@ -50,6 +50,9 @@ struct ProfileTopTabBar: View {
             MakeEventView(
                 viewModel: MakeEventViewModel()
             )
+            .onDisappear {
+                viewModel.updateEvents()
+            }
         }
     }
 
@@ -77,5 +80,5 @@ private struct ProfileTabItem: View {
 }
 
 #Preview {
-    ProfileTopTabBar(viewModel: ProfileViewModel())
+    ProfileNavBar(viewModel: ProfileViewModel())
 }

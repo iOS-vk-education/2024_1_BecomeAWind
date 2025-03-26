@@ -3,6 +3,8 @@ import SwiftUI
 final class ProfileViewModel: ObservableObject {
 
     @ObservedObject var db = TempDatabase.shared
+    @Published var myEvents: [Event] = []
+    @Published var subscriptions: [Event] = []
 
     /// top tab bar
     @Published var activeTab: ProfileTab = .myEvents
@@ -13,6 +15,21 @@ final class ProfileViewModel: ObservableObject {
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
     @Published var isActiveEditEvent = false
+
+    init() { updateEvents() }
+
+    func updateEvents() {
+        updateMyEvents()
+        updateSubscriptions()
+    }
+
+    private func updateMyEvents() {
+        myEvents = db.get(.my)
+    }
+
+    private func updateSubscriptions() {
+        subscriptions = db.get(.subscriptions)
+    }
 
 }
 

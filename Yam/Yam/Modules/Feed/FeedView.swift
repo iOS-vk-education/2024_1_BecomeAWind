@@ -7,10 +7,10 @@ struct FeedView: View {
     var body: some View {
         /// events list
         List {
-            ForEach(viewModel.db.allEvents, id: \.self) { event in
+            ForEach(viewModel.allEvents, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
-                    cardType: .externalEvent,
+                    cardType: .external,
                     event: event
                 )
                 .listRowSeparator(.hidden)
@@ -22,6 +22,7 @@ struct FeedView: View {
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
+        .onAppear { viewModel.updateFeed() }
     }
 
 }

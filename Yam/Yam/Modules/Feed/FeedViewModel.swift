@@ -5,6 +5,13 @@ import SwiftUI
 final class FeedViewModel: ObservableObject {
 
     @ObservedObject var db = TempDatabase.shared
+    @Published var allEvents: [Event] = []
+
+    init() { updateFeed() }
+
+    func updateFeed() {
+        allEvents = db.get(.all)
+    }
 
 }
 
