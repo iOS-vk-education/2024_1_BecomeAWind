@@ -8,7 +8,7 @@ struct MakeEventDatePicker: View {
         HStack {
             YText(
                 "дата и время",
-                font: MakeEventConst.sectionTitleFont
+                font: Const.sectionTitleFont
             )
             Spacer()
         }

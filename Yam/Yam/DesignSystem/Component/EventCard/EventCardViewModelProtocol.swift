@@ -1,6 +1,6 @@
 import Foundation
 
-protocol EventCardProtocol {
+protocol EventCardViewModelProtocol {
 
     func toggleEdit(event: Event)
 

@@ -6,7 +6,7 @@ struct MakeEventLocation: View {
     @ObservedObject var viewModel: MakeEventViewModel
 
     var body: some View {
-        MakeEventTextField(
+        YTextField(
             text: $viewModel.link,
             title: "контакты создателя",
             prompt: "https://event.creator.link/",

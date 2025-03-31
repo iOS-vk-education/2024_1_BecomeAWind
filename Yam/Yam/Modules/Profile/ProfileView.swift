@@ -5,11 +5,11 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
 
     var body: some View {
-        ZStack {
+        NavBar(viewModel: viewModel) {
             /// events list
             List {
                 Rectangle()
-                    .frame(height: ProfileConst.navBarHeight)
+                    .frame(height: Const.navBarHeight)
                     .foregroundColor(.clear)
                     .listRowSeparator(.hidden)
 
@@ -35,11 +35,15 @@ struct ProfileView: View {
                     .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
-
-            /// top tab bar
-            ProfileNavBar(viewModel: viewModel)
         }
-        .edgesIgnoringSafeArea(.top)
+        .fullScreenCover(
+            isPresented: $viewModel.isActiveCreateEvent
+        ) {
+            MakeEventView()
+                .onDisappear {
+                    viewModel.updateEvents()
+                }
+        }
         .fullScreenCover(
             isPresented: $viewModel.isActiveEventLocation
         ) {

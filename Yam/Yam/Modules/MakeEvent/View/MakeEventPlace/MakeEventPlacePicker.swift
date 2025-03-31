@@ -4,14 +4,14 @@ struct MakeEventPlacePicker: View {
     @ObservedObject var viewModel: MakeEventViewModel
 
     var body: some View {
-        YText("место", font: MakeEventConst.sectionTitleFont)
+        YText("место", font: Const.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, Const.sideSpace)
 
         MakeEventVStack {
             YText(
                 viewModel.placeDescription,
-                font: MakeEventConst.sectionEmptyFont
+                font: Const.sectionEmptyFont
             )
             .padding(.horizontal)
             .padding(.top)

@@ -6,7 +6,7 @@ struct MakeEventTitle: View {
     @ObservedObject var viewModel: MakeEventViewModel
 
     var body: some View {
-        MakeEventTextField(
+        YTextField(
             text: $viewModel.eventTitle,
             title: "название",
             prompt: "расскажи об ивенте",

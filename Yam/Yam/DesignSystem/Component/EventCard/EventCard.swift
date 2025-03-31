@@ -7,7 +7,7 @@ struct EventCard: View {
         case my, external
     }
 
-    var viewModel: EventCardProtocol
+    var viewModel: EventCardViewModelProtocol
     let cardType: EventCardType
     let event: Event
 

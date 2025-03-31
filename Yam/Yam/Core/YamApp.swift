@@ -19,6 +19,7 @@ struct YamApp: App {
     
     var body: some Scene {
         WindowGroup {
+//            AuthEntryView()
             EntryView()
         }
     }

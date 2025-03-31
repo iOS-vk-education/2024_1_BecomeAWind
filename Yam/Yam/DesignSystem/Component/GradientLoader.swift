@@ -14,7 +14,7 @@ struct GradientLoader<Background: ShapeStyle>: View {
             Rectangle()
                 .frame(width: size, height: size)
                 .background(background)
-                .cornerRadius(SizePack.coreCornerRadius)
+                .cornerRadius(Const.cornerRadius)
             ProgressView()
         }
     }

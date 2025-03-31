@@ -14,9 +14,5 @@ enum MakeEventConst {
     /// place picker
     static let emptyPlaceText = "выбери место проведения ивента"
 
-    /// fonts
-    static let sectionTitleFont = FontManager.getFont(with: .semibold, and: 17)
-    static let sectionEmptyFont = FontManager.getFont(with: .regular, and: 15)
-
 }
 

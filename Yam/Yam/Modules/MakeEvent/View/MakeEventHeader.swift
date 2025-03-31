@@ -5,10 +5,7 @@ struct MakeEventHeader: View {
     let text: String
 
     var body: some View {
-        YText(
-            text,
-            font: Const.headerTextFont
-        )
+        YText(text, font: Const.headerTextFont)
     }
     
 }

@@ -8,10 +8,10 @@ struct MakeEventView: View {
     }
 
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject private var viewModel: MakeEventViewModel
     @FocusState private var focus: Field?
 
-    init(viewModel: MakeEventViewModel) {
+    init(viewModel: MakeEventViewModel = MakeEventViewModel()) {
         self.viewModel = viewModel
     }
 
@@ -62,6 +62,6 @@ struct MakeEventView: View {
 }
 
 #Preview {
-    MakeEventView(viewModel: MakeEventViewModel())
+    MakeEventView()
 }
 

@@ -17,6 +17,10 @@ enum Const {
     static let cornerRadius: CGFloat = 20
     static let sideSpace: CGFloat = 15
 
+    /// nav bar
+    static let navBarHeight = Const.screenHeight * 0.13
+    static let navBarItemTitleFont: Font = FontManager.getFont(with: .medium, and: 15)
+
     /// circle button
     static let circleButtonSize = screenWidth * 0.08
     static let circleButtonCornerRadius = circleButtonSize / 2
@@ -28,18 +32,8 @@ enum Const {
     /// animations
     static let tabBarItemSwapAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.2)
 
-}
+    /// text field
+    static let sectionTitleFont = FontManager.getFont(with: .semibold, and: 17)
+    static let sectionEmptyFont = FontManager.getFont(with: .regular, and: 15)
 
-
-public enum SizePack {
-    static let coreFontSize: CGFloat = 20
-
-
-    static let textFieldFontSize: CGFloat = 15
-
-    static let tabBarItemSize: CGFloat = 25
-    static let mediumImageSize: CGFloat = 200
-    static let smallImageSize: CGFloat = 20
-    static let coreSideSpacing: CGFloat = 20
-    static let coreCornerRadius: CGFloat = 20
 }

@@ -15,7 +15,7 @@ final class FeedViewModel: ObservableObject {
 
 }
 
-extension FeedViewModel: EventCardProtocol {
+extension FeedViewModel: EventCardViewModelProtocol {
 
     func toggleEdit(event: Event) {
 //        print(#function)
