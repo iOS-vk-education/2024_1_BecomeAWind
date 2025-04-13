@@ -25,34 +25,55 @@ final class TempDatabase: ObservableObject {
     private var allEvents: [Event] = []
 
     private init() {
-//        generateEvents()
+        generateEvents()
         Logger.databaseInit()
     }
     
-    enum TempDatabaseError: Error {
-        case invalidDocument
-    }
-    
     func loadEvents(completion: @escaping ([Event]?, Error?) -> Void) {
-        db.collection("events").getDocuments() { snapshot, error in
+        db.collection("events").getDocuments { snapshot, error in
             if let error {
                 completion(nil, error)
                 return
             }
             
             var events = [Event]()
-            
-            snapshot.documents.forEach({ document in
-                if let event = Event(document.data()) {
+
+            guard let snapshot = snapshot else {
+                completion(nil, nil)
+                return
+            }
+
+            snapshot.documents.forEach {
+                if let event = Event(data: $0.data()) {
                     events.append(event)
+                    print(events)
                 }
-            })
+            }
             
             completion(events, nil)
+            
+            
         }
     }
 
     private func generateEvents() {
+        loadEvents { events, error in
+            if error != nil {
+                print("failed to load")
+                return
+            }
+            
+            if let events = events {
+                print("all is good")
+                for currEvent in events {
+                    self.allEvents.append(currEvent)
+                    print("loaded event to allEvents")
+                }
+            }
+            
+            print("end func")
+        }
+        
 //        let image1 = UIImage(named: "football")!
 //        let image2 = UIImage(named: "projectx")!
 //        let image3 = UIImage(named: "default_event_image")!
@@ -96,23 +117,23 @@ final class TempDatabase: ObservableObject {
 //            location: geopoint4,
 //            placeDescription: "Северный Атлантический океан\n\nШирота: 44.5782\nДолгота: 44.5782"
 //        )
-
-//        let event1 = Event(image: image1, title: title1, seats: seats1, link: link1, date: date, place: place1)
-//        let event2 = Event(image: image2, title: title2, seats: seats2, link: link2, date: date, place: place2)
-//        let event3 = Event(image: image3, title: title3, seats: seats3, link: link3, date: date, place: place3)
-//        let event4 = Event(image: image4, title: title4, seats: seats4, link: link4, date: date, place: place4)
-
-
-//        myEvents.append(event1)
-//        myEvents.append(event2)
 //
-//        subscriptions.append(event4)
-//        subscriptions.append(event3)
+//        let event1 = Event(title: title1, seats: seats1, link: link1, image: image1, date: date, place: place1)
+//        let event2 = Event(title: title2, seats: seats2, link: link2, image: image2, date: date, place: place2)
+//        let event3 = Event(title: title3, seats: seats3, link: link3, image: image3, date: date, place: place3)
+//        let event4 = Event(title: title4, seats: seats4, link: link4, image: image4, date: date, place: place4)
 //
-//        allEvents.append(event1)
-//        allEvents.append(event2)
-//        allEvents.append(event4)
-//        allEvents.append(event3)
+//
+//        myEvents.append(event1!)
+//        myEvents.append(event2!)
+//
+//        subscriptions.append(event4!)
+//        subscriptions.append(event3!)
+//
+//        allEvents.append(event1!)
+//        allEvents.append(event2!)
+//        allEvents.append(event4!)
+//        allEvents.append(event3!)
     }
 
 }

@@ -148,14 +148,14 @@ extension MakeEventViewModel {
         if canCreateEvent {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
-            let event = Event(
-                image: image,
+            guard let event = Event(
                 title: eventTitle,
                 seats: seats,
                 link: link,
+                image: image,
                 date: date,
                 place: place
-            )
+            ) else { return false }
             model.create(event)
         }
 

@@ -29,17 +29,17 @@ struct EventLocationView: View {
 
 }
 
-#Preview {
-    EventLocationView(viewModel: EventLocationViewModel(event: Event(
-        image: UIImage(named: "football")!,
-        title: "event",
-        seats: Seats(busy: 0, all: 100),
-        link: "www",
-        date: Date(),
-        place: Place(
-            location: CLLocation(),
-            placeDescription: "placedesc")
-        )
-    )
-    )
-}
+//#Preview {
+//    EventLocationView(viewModel: EventLocationViewModel(event: Event(
+//        image: UIImage(named: "football")!,
+//        title: "event",
+//        seats: Seats(busy: 0, all: 100),
+//        link: "www",
+//        date: Date(),
+//        place: Place(
+//            location: CLLocation(),
+//            placeDescription: "placedesc")
+//    ) ?? <#default value#>
+//    )
+//    )
+//}
