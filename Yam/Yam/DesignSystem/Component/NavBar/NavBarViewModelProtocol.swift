@@ -8,6 +8,8 @@ protocol NavBarViewModelProtocol: ObservableObject {
     var rightTab: Tab { get }
     var activeTab: Tab { get }
 
+    var isVisibleCenterButton: Bool { get }
+
     func changeActiveTabTo(_ tab: Tab)
 
     func centerButtonAction()

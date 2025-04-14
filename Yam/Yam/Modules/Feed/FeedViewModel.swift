@@ -26,11 +26,11 @@ extension FeedViewModel: EventCardViewModelProtocol {
     }
 
     func open(link: String) {
-        print(#function)
+//        print(#function)
     }
 
     func handleSubscribeButton(for event: Event) {
-        print(#function)
+//        print(#function)
     }
 
     func convertToString(from seats: Seats) -> String {

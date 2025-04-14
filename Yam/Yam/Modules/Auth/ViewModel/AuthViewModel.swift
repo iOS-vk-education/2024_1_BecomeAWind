@@ -2,14 +2,14 @@ import SwiftUI
 
 final class AuthViewModel: ObservableObject, NavBarViewModelProtocol {
 
-    @Published var username = ""
     @Published var email = ""
     @Published var password = ""
 
     /// nav bar
-    @Published var activeTab: AuthTab = .login
-    var leftTab: AuthTab = .login
-    var rightTab: AuthTab = .signin
+    @Published var activeTab: AuthTab = .signIn
+    var leftTab: AuthTab = .signIn
+    var rightTab: AuthTab = .signUp
+    var isVisibleCenterButton: Bool = false
 
 }
 

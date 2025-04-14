@@ -1,5 +1,5 @@
 
 enum AuthTab: String {
-    case login = "авторизация"
-    case signin = "регистрация"
+    case signIn = "авторизация"
+    case signUp = "регистрация"
 }

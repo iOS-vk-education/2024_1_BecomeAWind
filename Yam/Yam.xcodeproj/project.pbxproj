@@ -40,6 +40,9 @@
 		87336FA72D7F56A800BD699A /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FA62D7F56A800BD699A /* ProfileTab.swift */; };
 		87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FAC2D7F6B7F00BD699A /* Seats.swift */; };
 		87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */; };
+		8744C44E2DAD9CD6001A0A9F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744C44D2DAD9CD6001A0A9F /* AuthService.swift */; };
+		8744C4502DADA1CF001A0A9F /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744C44F2DADA1CF001A0A9F /* PasswordView.swift */; };
+		8744C4522DADA389001A0A9F /* ThinMaterialVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744C4512DADA389001A0A9F /* ThinMaterialVStack.swift */; };
 		8752B6F82D455A710017F2B8 /* MakeEventPlaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B6F72D455A710017F2B8 /* MakeEventPlaceMap.swift */; };
 		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
 		8752B7062D468D3E0017F2B8 /* YImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YImage.swift */; };
@@ -50,14 +53,11 @@
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
 		87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B47A8D2D58B500007AA252 /* CornerRadius.swift */; };
-		87BA690A2D498302008DF823 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA69072D498302008DF823 /* UIViewController.swift */; };
 		87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* MakeEventPlacePicker.swift */; };
 		87C6B69D2D809E6A00AECA90 /* EventLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6B69C2D809E6A00AECA90 /* EventLocationViewModel.swift */; };
 		87C997CF2D9B22E40069F73D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997CE2D9B22E40069F73D /* AuthViewModel.swift */; };
-		87C997D12D9B25EB0069F73D /* AuthEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997D02D9B25EB0069F73D /* AuthEntryView.swift */; };
-		87C997D62D9B26DE0069F73D /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997D42D9B26DE0069F73D /* SigninView.swift */; };
-		87C997D92D9B26DE0069F73D /* AuthLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997D72D9B26DE0069F73D /* AuthLoginView.swift */; };
-		87C997DB2D9B26F10069F73D /* SigninUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997DA2D9B26F10069F73D /* SigninUsernameView.swift */; };
+		87C997D12D9B25EB0069F73D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997D02D9B25EB0069F73D /* AuthView.swift */; };
+		87C997DB2D9B26F10069F73D /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997DA2D9B26F10069F73D /* EmailView.swift */; };
 		87C997DF2D9B28DD0069F73D /* NavBarViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997DE2D9B28DD0069F73D /* NavBarViewModelProtocol.swift */; };
 		87C997E12D9B2A3C0069F73D /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997E02D9B2A3C0069F73D /* NavBar.swift */; };
 		87C997E32D9B2C650069F73D /* NavBarTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C997E22D9B2C650069F73D /* NavBarTabItem.swift */; };
@@ -132,6 +132,9 @@
 		87336FA62D7F56A800BD699A /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
 		87336FAC2D7F6B7F00BD699A /* Seats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seats.swift; sourceTree = "<group>"; };
 		87336FAE2D7F6CE000BD699A /* EventLocationConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationConst.swift; sourceTree = "<group>"; };
+		8744C44D2DAD9CD6001A0A9F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8744C44F2DADA1CF001A0A9F /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		8744C4512DADA389001A0A9F /* ThinMaterialVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinMaterialVStack.swift; sourceTree = "<group>"; };
 		8752B6F72D455A710017F2B8 /* MakeEventPlaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventPlaceMap.swift; sourceTree = "<group>"; };
 		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		8752B7052D468D3E0017F2B8 /* YImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YImage.swift; sourceTree = "<group>"; };
@@ -142,14 +145,11 @@
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
 		87B47A8D2D58B500007AA252 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
-		87BA69072D498302008DF823 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* MakeEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventPlacePicker.swift; sourceTree = "<group>"; };
 		87C6B69C2D809E6A00AECA90 /* EventLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationViewModel.swift; sourceTree = "<group>"; };
 		87C997CE2D9B22E40069F73D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		87C997D02D9B25EB0069F73D /* AuthEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEntryView.swift; sourceTree = "<group>"; };
-		87C997D42D9B26DE0069F73D /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
-		87C997D72D9B26DE0069F73D /* AuthLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginView.swift; sourceTree = "<group>"; };
-		87C997DA2D9B26F10069F73D /* SigninUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninUsernameView.swift; sourceTree = "<group>"; };
+		87C997D02D9B25EB0069F73D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		87C997DA2D9B26F10069F73D /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		87C997DE2D9B28DD0069F73D /* NavBarViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarViewModelProtocol.swift; sourceTree = "<group>"; };
 		87C997E02D9B2A3C0069F73D /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		87C997E22D9B2C650069F73D /* NavBarTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarTabItem.swift; sourceTree = "<group>"; };
@@ -219,6 +219,7 @@
 			children = (
 				87C997DD2D9B28690069F73D /* NavBar */,
 				87FDD9332D82F22C00C2B5EC /* EventCard */,
+				8744C4512DADA389001A0A9F /* ThinMaterialVStack.swift */,
 				870E3C5F2D4388D40043DA00 /* YText.swift */,
 				870E3C602D4388D40043DA00 /* YTextField.swift */,
 				87336F942D7DCA8700BD699A /* YCircleButton.swift */,
@@ -327,10 +328,9 @@
 		870E3C8C2D4388D40043DA00 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				87CCF4CB2D8A054B005203CA /* Logger.swift */,
 				879ADAFD2D80A16E00F43C04 /* Handler */,
 				87B47A8E2D58B500007AA252 /* View */,
-				87BA69082D498302008DF823 /* Keyboard */,
-				87CCF4CB2D8A054B005203CA /* Logger.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -468,14 +468,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		87BA69082D498302008DF823 /* Keyboard */ = {
-			isa = PBXGroup;
-			children = (
-				87BA69072D498302008DF823 /* UIViewController.swift */,
-			);
-			path = Keyboard;
-			sourceTree = "<group>";
-		};
 		87BA69102D4984ED008DF823 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,9 +499,9 @@
 		87C997C52D9B049A0069F73D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				87C997D02D9B25EB0069F73D /* AuthEntryView.swift */,
-				87C997D52D9B26DE0069F73D /* Signin */,
-				87C997D82D9B26DE0069F73D /* Login */,
+				87C997D02D9B25EB0069F73D /* AuthView.swift */,
+				87C997DA2D9B26F10069F73D /* EmailView.swift */,
+				8744C44F2DADA1CF001A0A9F /* PasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,28 +517,12 @@
 		87C997C72D9B049A0069F73D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				8744C44D2DAD9CD6001A0A9F /* AuthService.swift */,
 				87C997C52D9B049A0069F73D /* View */,
 				87C997C62D9B049A0069F73D /* ViewModel */,
 				87C997C42D9B049A0069F73D /* Model */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		87C997D52D9B26DE0069F73D /* Signin */ = {
-			isa = PBXGroup;
-			children = (
-				87C997D42D9B26DE0069F73D /* SigninView.swift */,
-				87C997DA2D9B26F10069F73D /* SigninUsernameView.swift */,
-			);
-			path = Signin;
-			sourceTree = "<group>";
-		};
-		87C997D82D9B26DE0069F73D /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				87C997D72D9B26DE0069F73D /* AuthLoginView.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		87C997DD2D9B28690069F73D /* NavBar */ = {
@@ -713,7 +689,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
-				87C997D62D9B26DE0069F73D /* SigninView.swift in Sources */,
 				87CCF4DA2D8B4AD6005203CA /* EventCardTitleLabel.swift in Sources */,
 				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
@@ -726,7 +701,7 @@
 				870E3C8D2D4388D40043DA00 /* MakeEventModel.swift in Sources */,
 				87C997E52D9B3C7C0069F73D /* AuthTab.swift in Sources */,
 				87D4D2902D947E2300A5E4B8 /* EventLocationMap.swift in Sources */,
-				87C997DB2D9B26F10069F73D /* SigninUsernameView.swift in Sources */,
+				87C997DB2D9B26F10069F73D /* EmailView.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */,
 				870E3C902D4388D40043DA00 /* Event.swift in Sources */,
 				87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */,
@@ -740,13 +715,13 @@
 				87CCF4DC2D8B500F005203CA /* EventCardDateLabel.swift in Sources */,
 				87FDD93B2D83471100C2B5EC /* MapViewModel.swift in Sources */,
 				87FC48442D52089600F6D8CC /* MakeEventVStack.swift in Sources */,
-				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,
 				87336F9D2D7E960C00BD699A /* EventCard.swift in Sources */,
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* Colors.swift in Sources */,
 				878432E62D512A1500A24538 /* MakeEventImagePicker.swift in Sources */,
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
+				8744C4522DADA389001A0A9F /* ThinMaterialVStack.swift in Sources */,
 				87336F572D7C3A5900BD699A /* EntryTab.swift in Sources */,
 				87336F952D7DCA8700BD699A /* YCircleButton.swift in Sources */,
 				87C997DF2D9B28DD0069F73D /* NavBarViewModelProtocol.swift in Sources */,
@@ -758,6 +733,7 @@
 				87336F4B2D7C329F00BD699A /* Const.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* MakeEventPlaceView.swift in Sources */,
 				87C6B69D2D809E6A00AECA90 /* EventLocationViewModel.swift in Sources */,
+				8744C44E2DAD9CD6001A0A9F /* AuthService.swift in Sources */,
 				870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */,
 				870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */,
 				87C997CF2D9B22E40069F73D /* AuthViewModel.swift in Sources */,
@@ -765,6 +741,7 @@
 				87D4D29A2D94815600A5E4B8 /* MakeEventSeats.swift in Sources */,
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				879ADB012D80AF2600F43C04 /* YSquareButton.swift in Sources */,
+				8744C4502DADA1CF001A0A9F /* PasswordView.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* YCapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */,
@@ -779,14 +756,13 @@
 				87D4D2A12D94829C00A5E4B8 /* MakeEventFooterButton.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* YTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* MakeEventViewModel.swift in Sources */,
-				87C997D92D9B26DE0069F73D /* AuthLoginView.swift in Sources */,
 				87CCF4D02D8B3B78005203CA /* EventCardPreview.swift in Sources */,
 				87336FA72D7F56A800BD699A /* ProfileTab.swift in Sources */,
 				87D4D2962D94803700A5E4B8 /* MakeEventHeader.swift in Sources */,
 				873054412D5A9B82003D6726 /* ProfileView.swift in Sources */,
 				870E3CA82D4388D40043DA00 /* MapView.swift in Sources */,
 				870E3CA92D4388D40043DA00 /* MakeEventDatePicker.swift in Sources */,
-				87C997D12D9B25EB0069F73D /* AuthEntryView.swift in Sources */,
+				87C997D12D9B25EB0069F73D /* AuthView.swift in Sources */,
 				870E3CAB2D4388D40043DA00 /* TempDatabase.swift in Sources */,
 				870E3CAC2D4388D40043DA00 /* MakeEventView.swift in Sources */,
 				879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */,

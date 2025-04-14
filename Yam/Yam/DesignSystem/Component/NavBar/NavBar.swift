@@ -12,7 +12,9 @@ struct NavBar<ViewModel: NavBarViewModelProtocol, Content: View>: View {
 
     var body: some View {
         ZStack {
-            viewUnderNavBar
+            VStack {
+                viewUnderNavBar
+            }
 
             NavBarStack {
                 NavBarTabItem(viewModel: viewModel, thisTab: viewModel.leftTab)
@@ -28,6 +30,7 @@ struct NavBar<ViewModel: NavBarViewModelProtocol, Content: View>: View {
                         viewModel.centerButtonAction()
                     }
                 }
+                .opacity(viewModel.isVisibleCenterButton ? 1 : 0)
 
                 NavBarTabItem(viewModel: viewModel, thisTab: viewModel.rightTab)
                     .onTapGesture {

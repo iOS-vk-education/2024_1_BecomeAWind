@@ -11,6 +11,7 @@ final class ProfileViewModel: ObservableObject, NavBarViewModelProtocol {
     @Published var activeTab: ProfileTab = .myEvents
     var leftTab: ProfileTab = .myEvents
     var rightTab: ProfileTab = .subscriptions
+    var isVisibleCenterButton: Bool = true
 
     /// event card
     @Published var selectedEvent: Event?

@@ -17,7 +17,7 @@ struct DisabledLocationServicesView: View {
     }
 
     private func configureOpenSettingsView() -> some View {
-        VStack {
+        ThinMaterialVStack {
             Text("службы геолокации выключены.\nвключи их в настройках.")
                 .font(.headline)
                 .fontWeight(.heavy)
@@ -34,9 +34,6 @@ struct DisabledLocationServicesView: View {
             }
             .padding(.bottom)
         }
-        .padding()
-        .background(.thinMaterial)
-        .cornerRadius(Const.cornerRadius)
         .opacity(viewModel.opacityOfOpenSettingsView)
     }
 

@@ -1,17 +1,33 @@
 import CoreLocation
 
-final class Logger {}
+struct Logger {}
 
-/// database
+// MARK: - Core
+
 extension Logger {
 
-    static func databaseInit() {
-        print("TempDatabase initialized")
+    enum Core {
+
+        static func firebaseConfigured() {
+            print("Firebase configured")
+        }
+
     }
 
 }
 
-/// location
+extension Logger {
+
+    enum Database {
+
+        static func databaseInit() {
+            print("TempDatabase initialized")
+        }
+
+    }
+
+}
+
 extension Logger {
 
     static func printPlacemarkInfo(placemark: CLPlacemark) {
