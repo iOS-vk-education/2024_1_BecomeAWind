@@ -26,6 +26,14 @@ extension Logger {
             print("User created")
         }
 
+        static func userAddedToDatabase() {
+            print("User added to database")
+        }
+
+        static func userNotAddedToDatabase(error: Error) {
+            print("User not added to database, error description = \(error.localizedDescription)")
+        }
+
         static func userNotCreated(error: Error) {
             print("User not created, error description = \(error.localizedDescription)")
         }
