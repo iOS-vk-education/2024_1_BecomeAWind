@@ -30,7 +30,7 @@ final class TempDatabase: ObservableObject {
     }
     
     func loadEvents(completion: @escaping ([Event]?, Error?) -> Void) {
-        db.collection("events").getDocuments { snapshot, error in
+        db.collection("events").getDocuments() { snapshot, error in
             if let error {
                 completion(nil, error)
                 return

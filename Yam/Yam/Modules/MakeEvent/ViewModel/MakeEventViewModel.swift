@@ -36,6 +36,7 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     @Published var eventTitle: String = ""
     @Published var allSeats: String = ""
     @Published var link: String = ""
+    @Published var eventDescription: String = ""
 
     /// date picker
     @Published var date: Date = Date()
@@ -149,6 +150,7 @@ extension MakeEventViewModel {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
             guard let event = Event(
+                description: eventDescription,
                 title: eventTitle,
                 seats: seats,
                 link: link,
