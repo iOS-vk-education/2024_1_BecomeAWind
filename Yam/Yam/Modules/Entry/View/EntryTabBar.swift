@@ -72,7 +72,3 @@ private struct EntryTabItem: View {
     }
 
 }
-
-#Preview {
-    EntryTabBar(viewModel: EntryViewModel())
-}

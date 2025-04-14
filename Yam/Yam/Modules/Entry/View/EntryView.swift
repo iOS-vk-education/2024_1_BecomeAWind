@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EntryView: View {
 
-    @StateObject private var viewModel = EntryViewModel()
+    @StateObject var viewModel = EntryViewModel()
 
     var body: some View {
         ZStack {
@@ -24,8 +24,4 @@ struct EntryView: View {
         .edgesIgnoringSafeArea(.bottom)
     }
 
-}
-
-#Preview {
-    EntryView()
 }

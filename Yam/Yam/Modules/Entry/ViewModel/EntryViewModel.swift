@@ -18,6 +18,7 @@ final class EntryViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
 
     override init() {
         super.init()
+
         locationManager.delegate = self
         tabs = [
             EntryTabItemConfiguration(tab: .profile, title: "профиль", imageName: "person.crop.circle"),

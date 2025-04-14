@@ -20,6 +20,9 @@ struct AuthView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $viewModel.isActiveEntry) {
+            EntryView()
+        }
         .alert(
             AuthConst.singUpFailText,
             isPresented: $viewModel.isActiveSignUpFailAlert
@@ -31,9 +34,6 @@ struct AuthView: View {
             isPresented: $viewModel.isActiveSignInFailAlert
         ) {
             Button("ок", role: .cancel) { }
-        }
-        .fullScreenCover(isPresented: $viewModel.isActiveEntry) {
-            EntryView()
         }
     }
 

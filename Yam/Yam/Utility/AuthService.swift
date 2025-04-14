@@ -9,7 +9,7 @@ final class AuthService {
 
     private let auth = Auth.auth()
 
-    private var currentUser: User? {
+    var currentUser: User? {
         auth.currentUser
     }
 

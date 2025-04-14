@@ -329,6 +329,7 @@
 		870E3C8C2D4388D40043DA00 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8744C44D2DAD9CD6001A0A9F /* AuthService.swift */,
 				87CCF4CB2D8A054B005203CA /* Logger.swift */,
 				879ADAFD2D80A16E00F43C04 /* Handler */,
 				87B47A8E2D58B500007AA252 /* View */,
@@ -550,7 +551,6 @@
 		87C997C72D9B049A0069F73D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				8744C44D2DAD9CD6001A0A9F /* AuthService.swift */,
 				87C997C52D9B049A0069F73D /* View */,
 				87C997C62D9B049A0069F73D /* ViewModel */,
 				87C997C42D9B049A0069F73D /* Model */,

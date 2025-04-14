@@ -39,6 +39,3 @@ struct DisabledLocationServicesView: View {
 
 }
 
-#Preview {
-    DisabledLocationServicesView(viewModel: EntryViewModel())
-}

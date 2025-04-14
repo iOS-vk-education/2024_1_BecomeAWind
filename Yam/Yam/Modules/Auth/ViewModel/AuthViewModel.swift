@@ -27,7 +27,7 @@ extension AuthViewModel {
         if activeTab == .signUp {
             authService.signUp(email: email, password: password) { [weak self] result in
                 switch result {
-                case .success(let user):
+                case .success(_):
                     self?.clearTextFields()
                     self?.isActiveEntry.toggle()
                     Logger.Auth.userCreated()
@@ -39,7 +39,7 @@ extension AuthViewModel {
         } else {
             authService.signIn(email: email, password: password) { [weak self] result in
                 switch result {
-                case .success(let user):
+                case .success(_):
                     self?.clearTextFields()
                     self?.isActiveEntry.toggle()
                     Logger.Auth.authSuccess()
