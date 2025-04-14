@@ -16,17 +16,24 @@ struct AuthView: View {
                 ThinMaterialVStack {
                     EmailView(viewModel: viewModel)
                     PasswordView(viewModel: viewModel)
-
-                    Button {
-
-                    } label: {
-                        YCapsuleLabel(
-                            title: viewModel.activeTab == .signIn ? "войти" : "создать аккаунт",
-                            font: Const.buttonFont
-                        )
-                    }
+                    AuthButton(viewModel: viewModel)
                 }
             }
+        }
+        .alert(
+            AuthConst.singUpFailText,
+            isPresented: $viewModel.isActiveSignUpFailAlert
+        ) {
+            Button("ок", role: .cancel) { }
+        }
+        .alert(
+            AuthConst.singInFailText,
+            isPresented: $viewModel.isActiveSignInFailAlert
+        ) {
+            Button("ок", role: .cancel) { }
+        }
+        .fullScreenCover(isPresented: $viewModel.isActiveEntry) {
+            EntryView()
         }
     }
 

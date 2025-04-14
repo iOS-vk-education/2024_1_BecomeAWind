@@ -5,7 +5,7 @@ struct PasswordView: View {
     @ObservedObject var viewModel: AuthViewModel
 
     var body: some View {
-        YTextField(text: $viewModel.password, title: "пароль", lineLimit: 1)
+        YSecureField(text: $viewModel.password, title: "пароль", lineLimit: 1)
     }
 
 }

@@ -16,6 +16,32 @@ extension Logger {
 
 }
 
+// MARK: - Auth
+
+extension Logger {
+
+    enum Auth {
+
+        static func userCreated() {
+            print("User created")
+        }
+
+        static func userNotCreated(error: Error) {
+            print("User not created, error description = \(error.localizedDescription)")
+        }
+
+        static func authSuccess() {
+            print("Authorization success")
+        }
+
+        static func authFail(error: Error) {
+            print("Authorization fail, error description = \(error.localizedDescription)")
+        }
+
+    }
+
+}
+
 extension Logger {
 
     enum Database {
