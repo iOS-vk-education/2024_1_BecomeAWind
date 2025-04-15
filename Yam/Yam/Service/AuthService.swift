@@ -9,8 +9,6 @@ final class AuthService {
 
     private init() {}
 
-
-
 }
 
 extension AuthService {
@@ -26,9 +24,7 @@ extension AuthService {
     ) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             if let result {
-                let user = YUser(id: result.user.uid,
-                                 email: email,
-                                 password: password)
+                let user = YUser(id: result.user.uid, email: email)
                 self?.dbService.createUser(user: user) { dbResult in
                     switch dbResult {
                     case .success(_):
