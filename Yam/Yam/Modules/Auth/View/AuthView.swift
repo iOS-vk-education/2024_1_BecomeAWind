@@ -4,22 +4,32 @@ import MapKit
 struct AuthView: View {
 
     @StateObject private var viewModel = AuthViewModel()
-
+    @FocusState private var focusedField: AuthField?
+    
     var body: some View {
         NavBar(viewModel: viewModel) {
-            ZStack {
-                Map(interactionModes: [])
-                    Color.black
-                    .opacity(0.5)
-                    .ignoresSafeArea()
+            Rectangle()
+                .fill(Gradient.blackPurple)
+                .opacity(0.5)
+                .ignoresSafeArea()
 
-                ThinMaterialVStack {
-                    EmailView(viewModel: viewModel)
-                    PasswordView(viewModel: viewModel)
-                    AuthButton(viewModel: viewModel)
-                }
+            ThinMaterialVStack {
+                EmailView(viewModel: viewModel)
+                    .focused($focusedField, equals: .email)
+                    .submitLabel(.next)
+                PasswordView(viewModel: viewModel)
+                    .focused($focusedField, equals: .password)
+                    .submitLabel(.done)
+                AuthButton(viewModel: viewModel)
+            }
+            .onSubmit {
+                focusedField = viewModel.getNextFocusedField(from: focusedField)
             }
         }
+        .onTapGesture {
+            viewModel.hideKeyboard()
+        }
+        .ignoresSafeArea(.keyboard)
         .fullScreenCover(isPresented: $viewModel.isActiveEntry) {
             EntryView()
         }

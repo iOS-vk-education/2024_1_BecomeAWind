@@ -10,7 +10,8 @@ struct MakeEventTitle: View {
             text: $viewModel.eventTitle,
             title: "название",
             prompt: "расскажи об ивенте",
-            lineLimit: MakeEventConst.lineLimit
+            lineLimit: MakeEventConst.lineLimit,
+            axis: .vertical
         )
         .onReceive(Just(viewModel.eventTitle)) { _ in
             viewModel.limitTextField(

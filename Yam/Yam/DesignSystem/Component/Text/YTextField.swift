@@ -6,17 +6,20 @@ struct YTextField: View {
     let title: String
     let prompt: String
     let lineLimit: Int
+    let axis: Axis
 
     init(
         text: Binding<String>,
         title: String,
         prompt: String = "введи текст",
-        lineLimit: Int
+        lineLimit: Int,
+        axis: Axis
     ) {
         self.text = text
         self.title = title
         self.prompt = prompt
         self.lineLimit = lineLimit
+        self.axis = axis
     }
 
     var body: some View {
@@ -32,7 +35,7 @@ struct YTextField: View {
                     Text(prompt)
                     .font(Const.sectionEmptyFont)
                     .foregroundColor(Colors.white2),
-                axis: .vertical
+                axis: axis
             )
             .padding()
             .autocorrectionDisabled()
@@ -55,6 +58,7 @@ struct YTextField: View {
     YTextField(
         text: $text,
         title: "текст",
-        lineLimit: 3
+        lineLimit: 3,
+        axis: .vertical
     )
 }

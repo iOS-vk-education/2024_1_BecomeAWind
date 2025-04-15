@@ -2,7 +2,13 @@ import SwiftUI
 
 final class AuthViewModel: ObservableObject {
 
+    enum Field {
+        case email
+        case password
+    }
+
     private let authService = AuthService.shared
+    private let app = UIApplication.shared
 
     @Published var email = ""
     @Published var password = ""
@@ -68,5 +74,24 @@ extension AuthViewModel: NavBarViewModelProtocol {
     }
 
     func centerButtonAction() {}
+
+}
+
+// MARK: - Support
+
+extension AuthViewModel {
+
+    func getNextFocusedField(from nowFocusedField: AuthField?) -> AuthField? {
+        guard let nowFocusedField else { return nil }
+
+        switch nowFocusedField {
+        case .email: return AuthField.password
+        default: return nil
+        }
+    }
+
+    func hideKeyboard() {
+        app.endEditing()
+    }
 
 }

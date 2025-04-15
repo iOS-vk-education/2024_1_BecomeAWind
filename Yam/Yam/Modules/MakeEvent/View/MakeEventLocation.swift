@@ -10,7 +10,8 @@ struct MakeEventLocation: View {
             text: $viewModel.link,
             title: "контакты создателя",
             prompt: "https://event.creator.link/",
-            lineLimit: MakeEventConst.lineLimit
+            lineLimit: MakeEventConst.lineLimit,
+            axis: .vertical
         )
         .onReceive(Just(link)) { _ in
             viewModel.limitTextField(

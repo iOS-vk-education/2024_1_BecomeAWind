@@ -10,7 +10,8 @@ struct MakeEventSeats: View {
             text: $viewModel.allSeats,
             title: "количество мест",
             prompt: "1",
-            lineLimit: MakeEventConst.lineLimit
+            lineLimit: MakeEventConst.lineLimit,
+            axis: .vertical
         )
         .keyboardType(.decimalPad)
         .onChange(of: viewModel.allSeats) { _, newValue in

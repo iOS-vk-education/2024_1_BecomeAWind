@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8704EC702DAEF5270008611D /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */; };
+		8704EC722DAEFC530008611D /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC712DAEFC530008611D /* AuthField.swift */; };
 		870E3C8D2D4388D40043DA00 /* MakeEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C592D4388D40043DA00 /* MakeEventModel.swift */; };
 		870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C862D4388D40043DA00 /* EntryConst.swift */; };
 		870E3C902D4388D40043DA00 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C672D4388D40043DA00 /* Event.swift */; };
@@ -104,6 +106,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
+		8704EC712DAEFC530008611D /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		870E3C532D4388D40043DA00 /* GradientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientImage.swift; sourceTree = "<group>"; };
 		870E3C542D4388D40043DA00 /* YCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCapsuleLabel.swift; sourceTree = "<group>"; };
 		870E3C552D4388D40043DA00 /* GradientLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoader.swift; sourceTree = "<group>"; };
@@ -213,6 +217,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8704EC6E2DAEF5120008611D /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
 		870E3C4C2D4388860043DA00 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +345,7 @@
 		870E3C8C2D4388D40043DA00 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8704EC6E2DAEF5120008611D /* Keyboard */,
 				879ADAFD2D80A16E00F43C04 /* Handler */,
 				87B47A8E2D58B500007AA252 /* View */,
 			);
@@ -536,8 +549,9 @@
 		87C997C42D9B049A0069F73D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				87C997E42D9B3C7C0069F73D /* AuthTab.swift */,
 				8744C4632DADBE65001A0A9F /* YUser.swift */,
+				87C997E42D9B3C7C0069F73D /* AuthTab.swift */,
+				8704EC712DAEFC530008611D /* AuthField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -757,6 +771,7 @@
 				87336F9F2D7ED82200BD699A /* EventCardVStack.swift in Sources */,
 				879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */,
 				87C997E12D9B2A3C0069F73D /* NavBar.swift in Sources */,
+				8704EC722DAEFC530008611D /* AuthField.swift in Sources */,
 				8744C45F2DADB70A001A0A9F /* DismissButton.swift in Sources */,
 				8744C4602DADB70A001A0A9F /* YCircleButton.swift in Sources */,
 				8744C4612DADB70A001A0A9F /* YSquareButton.swift in Sources */,
@@ -771,6 +786,7 @@
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* Colors.swift in Sources */,
 				878432E62D512A1500A24538 /* MakeEventImagePicker.swift in Sources */,
+				8704EC702DAEF5270008611D /* UIApplicationExt.swift in Sources */,
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
 				8744C4522DADA389001A0A9F /* ThinMaterialVStack.swift in Sources */,
 				87336F572D7C3A5900BD699A /* EntryTab.swift in Sources */,

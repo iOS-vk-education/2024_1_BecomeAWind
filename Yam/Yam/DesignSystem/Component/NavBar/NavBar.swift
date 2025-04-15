@@ -12,9 +12,7 @@ struct NavBar<ViewModel: NavBarViewModelProtocol, Content: View>: View {
 
     var body: some View {
         ZStack {
-            VStack {
-                viewUnderNavBar
-            }
+            viewUnderNavBar
 
             NavBarStack {
                 NavBarTabItem(viewModel: viewModel, thisTab: viewModel.leftTab)
