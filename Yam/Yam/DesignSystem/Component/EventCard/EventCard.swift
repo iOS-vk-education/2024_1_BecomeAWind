@@ -62,7 +62,7 @@ struct EventCard: View {
             }
         }
         .frame(
-            width: Const.screenWidth - ProfileConst.sideSpace * 2,
+            width: Const.screenWidth - EventsConst.sideSpace * 2,
             height: Const.screenHeight * 0.5
         )
         .cornerRadius(Const.cornerRadius)
@@ -73,7 +73,7 @@ struct EventCard: View {
 #Preview {
 
     EventCard(
-        viewModel: ProfileViewModel(),
+        viewModel: EventsViewModel(),
         cardType: .my,
         event: Event(
             image: UIImage(named: "football")!,

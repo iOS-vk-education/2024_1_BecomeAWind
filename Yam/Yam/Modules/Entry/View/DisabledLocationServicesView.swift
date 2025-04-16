@@ -8,9 +8,6 @@ struct DisabledLocationServicesView: View {
     var body: some View {
         ZStack {
             Map(interactionModes: [])
-                Color.black
-                .opacity(0.5)
-                .ignoresSafeArea()
 
             configureOpenSettingsView()
         }

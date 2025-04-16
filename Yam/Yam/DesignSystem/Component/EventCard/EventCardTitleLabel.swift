@@ -7,7 +7,7 @@ struct EventCardTitleLabel: View {
     var body: some View {
         YCapsuleLabel(
             title: title,
-            font: ProfileConst.capsuleLabelFont,
+            font: EventsConst.capsuleLabelFont,
             background: .thinMaterial)
         .padding(.horizontal, Const.sideSpace)
     }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum ProfileConst {
+enum EventsConst {
 
     /// event card
     static let capsuleLabelFont = FontManager.getFont(with: .medium, and: 13)

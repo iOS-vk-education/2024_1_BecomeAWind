@@ -1,7 +1,7 @@
 
 enum EntryTab {
 
-    case profile
+    case events
     case search
     case map
     

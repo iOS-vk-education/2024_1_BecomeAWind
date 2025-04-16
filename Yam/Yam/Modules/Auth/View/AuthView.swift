@@ -8,10 +8,7 @@ struct AuthView: View {
     
     var body: some View {
         NavBar(viewModel: viewModel) {
-            Rectangle()
-                .fill(Gradient.blackPurple)
-                .opacity(0.5)
-                .ignoresSafeArea()
+            Map(interactionModes: [])
 
             ThinMaterialVStack {
                 EmailView(viewModel: viewModel)

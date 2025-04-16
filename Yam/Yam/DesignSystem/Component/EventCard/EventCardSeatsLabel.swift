@@ -7,7 +7,7 @@ struct EventCardSeatsLabel: View {
     var body: some View {
         YCapsuleLabel(
             title: seatsTitle,
-            font: ProfileConst.capsuleLabelFont,
+            font: EventsConst.capsuleLabelFont,
             background: .thinMaterial
         )
         .frame(

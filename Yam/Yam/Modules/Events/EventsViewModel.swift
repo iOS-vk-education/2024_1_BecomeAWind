@@ -1,6 +1,6 @@
 import SwiftUI
 
-final class ProfileViewModel: ObservableObject, NavBarViewModelProtocol {
+final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
 
     @ObservedObject var db = TempDatabase.shared
     @Published var myEvents: [Event] = []
@@ -8,9 +8,9 @@ final class ProfileViewModel: ObservableObject, NavBarViewModelProtocol {
 
     /// nav bar
     @Published var isActiveCreateEvent = false
-    @Published var activeTab: ProfileTab = .myEvents
-    var leftTab: ProfileTab = .myEvents
-    var rightTab: ProfileTab = .subscriptions
+    @Published var activeTab: EventsTab = .myEvents
+    var leftTab: EventsTab = .myEvents
+    var rightTab: EventsTab = .subscriptions
     var isVisibleCenterButton: Bool = true
 
     /// event card
@@ -37,20 +37,20 @@ final class ProfileViewModel: ObservableObject, NavBarViewModelProtocol {
 }
 
 /// nav bar
-extension ProfileViewModel {
+extension EventsViewModel {
 
     func centerButtonAction() {
         isActiveCreateEvent.toggle()
     }
 
-    func changeActiveTabTo(_ tab: ProfileTab) {
+    func changeActiveTabTo(_ tab: EventsTab) {
         activeTab = tab
     }
 
 }
 
 /// event card
-extension ProfileViewModel: EventCardViewModelProtocol {
+extension EventsViewModel: EventCardViewModelProtocol {
 
     func toggleEdit(event: Event) {
         selectedEvent = event

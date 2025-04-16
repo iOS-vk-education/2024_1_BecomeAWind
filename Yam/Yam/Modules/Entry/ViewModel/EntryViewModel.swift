@@ -21,15 +21,15 @@ final class EntryViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
 
         locationManager.delegate = self
         tabs = [
-            EntryTabItemConfiguration(tab: .profile, title: "профиль", imageName: "person.crop.circle"),
-            EntryTabItemConfiguration(tab: .search, title: "поиск", imageName: "widget.small"),
+            EntryTabItemConfiguration(tab: .events, title: "ивенты", imageName: "mail.stack"),
+            EntryTabItemConfiguration(tab: .search, title: "поиск", imageName: "magnifyingglass.circle"),
             EntryTabItemConfiguration(tab: .map, title: "карта", imageName: "map")
         ]
     }
 
     private let locationManager = CLLocationManager()
     private(set) var tabs: [EntryTabItemConfiguration] = []
-    @Published var activeTab: EntryTab = .profile
+    @Published var activeTab: EntryTab = .events
     @Published var isLocationServicesEnabled = false
     @Published var authStatus: LocationAuthStatus = .notDetermined
     @Published var opacityOfOpenSettingsView: Double = 0

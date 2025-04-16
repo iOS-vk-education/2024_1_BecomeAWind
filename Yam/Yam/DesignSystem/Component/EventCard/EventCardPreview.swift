@@ -9,7 +9,7 @@ struct EventCardPreview: View {
             .resizable()
             .scaledToFill()
             .frame(
-                width: Const.screenWidth - ProfileConst.sideSpace * 2,
+                width: Const.screenWidth - EventsConst.sideSpace * 2,
                 height: Const.screenHeight * 0.5
             )
     }

@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct ProfileView: View {
+struct EventsView: View {
 
-    @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var viewModel = EventsViewModel()
 
     var body: some View {
         NavBar(viewModel: viewModel) {
@@ -78,5 +78,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    EventsView()
 }

@@ -8,8 +8,8 @@ struct EntryView: View {
         ZStack {
             if viewModel.isLocationServicesEnabled {
                 switch viewModel.activeTab {
-                case .profile:
-                    ProfileView()
+                case .events:
+                    EventsView()
                 case .search:
                     FeedView()
                 case .map:
