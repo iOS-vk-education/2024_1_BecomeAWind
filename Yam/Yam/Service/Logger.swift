@@ -12,7 +12,7 @@ extension Logger {
     }
 
     static func ping() {
-        print("ping")
+        print("... ping ...")
     }
 }
 
@@ -61,7 +61,9 @@ extension Logger {
                 print("email = \(user.email)")
                 print("--- USER DATA ---")
             } else {
-                print("--- USER = nil ---")
+                print("--- USER DATA ---")
+                print("nil")
+                print("--- USER DATA ---")
             }
             print()
         }
@@ -74,8 +76,8 @@ extension Logger {
 
     enum Database {
 
-        static func postImgServiceInited() {
-            print("PostImgService inited\n")
+        static func imageServiceInited() {
+            print("ImageService inited\n")
         }
 
         static func databaseInit() {

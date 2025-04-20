@@ -29,6 +29,9 @@
 		870E3CAC2D4388D40043DA00 /* MakeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C612D4388D40043DA00 /* MakeEventView.swift */; };
 		870E3CAE2D4388D40043DA00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C832D4388D40043DA00 /* Preview Assets.xcassets */; };
 		870E3CAF2D4388D40043DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C852D4388D40043DA00 /* Assets.xcassets */; };
+		8723CFEF2DB55C8800A0E194 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFEE2DB55C8800A0E194 /* Cloudinary */; };
+		8723CFF22DB562A400A0E194 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFF12DB562A400A0E194 /* SDWebImage */; };
+		8723CFF42DB562A400A0E194 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFF32DB562A400A0E194 /* SDWebImageMapKit */; };
 		872CBC4F2DB18E6900C7EBC4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CBC4E2DB18E6900C7EBC4 /* ProfileView.swift */; };
 		873054412D5A9B82003D6726 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054402D5A9B82003D6726 /* EventsView.swift */; };
 		87336F4B2D7C329F00BD699A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F4A2D7C329F00BD699A /* Const.swift */; };
@@ -66,7 +69,7 @@
 		8786CF372DB4FCC60010D079 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF362DB4FCC60010D079 /* Event.swift */; };
 		879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADAFE2D80A18400F43C04 /* LocationHandler.swift */; };
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
-		879D29862DB52B96004A0B4D /* PostImgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879D29852DB52B96004A0B4D /* PostImgService.swift */; };
+		879D29862DB52B96004A0B4D /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879D29852DB52B96004A0B4D /* ImageService.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
 		87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B47A8D2D58B500007AA252 /* CornerRadius.swift */; };
 		87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* MakeEventPlacePicker.swift */; };
@@ -173,7 +176,7 @@
 		8786CF362DB4FCC60010D079 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		879ADAFE2D80A18400F43C04 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
-		879D29852DB52B96004A0B4D /* PostImgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImgService.swift; sourceTree = "<group>"; };
+		879D29852DB52B96004A0B4D /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
 		87B47A8D2D58B500007AA252 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* MakeEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventPlacePicker.swift; sourceTree = "<group>"; };
@@ -224,9 +227,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8723CFEF2DB55C8800A0E194 /* Cloudinary in Frameworks */,
 				87FDD9422D836C8300C2B5EC /* FirebaseAuth in Frameworks */,
 				87FDD9442D836C8300C2B5EC /* FirebaseFirestore in Frameworks */,
 				87FDD9462D836C8300C2B5EC /* FirebaseStorage in Frameworks */,
+				8723CFF42DB562A400A0E194 /* SDWebImageMapKit in Frameworks */,
+				8723CFF22DB562A400A0E194 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,8 +471,8 @@
 				8786CF242DB4CB120010D079 /* NavigationManager.swift */,
 				8744C44D2DAD9CD6001A0A9F /* AuthService.swift */,
 				8744C4682DADC05F001A0A9F /* DatabaseService.swift */,
+				879D29852DB52B96004A0B4D /* ImageService.swift */,
 				87CCF4CB2D8A054B005203CA /* Logger.swift */,
-				879D29852DB52B96004A0B4D /* PostImgService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -756,6 +762,8 @@
 			mainGroup = 87E6FC012CCE2B8000B2DA3B;
 			packageReferences = (
 				87FDD9402D836C8300C2B5EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8723CFED2DB55C8800A0E194 /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
+				8723CFF02DB562A400A0E194 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 87E6FC0B2CCE2B8000B2DA3B /* Products */;
 			projectDirPath = "";
@@ -796,7 +804,7 @@
 				8786CF2D2DB4D3260010D079 /* LocationAuthStatus.swift in Sources */,
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
 				87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */,
-				879D29862DB52B96004A0B4D /* PostImgService.swift in Sources */,
+				879D29862DB52B96004A0B4D /* ImageService.swift in Sources */,
 				87D4D2A32D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift in Sources */,
 				8786CF372DB4FCC60010D079 /* Event.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
@@ -1111,6 +1119,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8723CFED2DB55C8800A0E194 /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cloudinary/cloudinary_ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		8723CFF02DB562A400A0E194 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.0;
+			};
+		};
 		87FDD9402D836C8300C2B5EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1122,6 +1146,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8723CFEE2DB55C8800A0E194 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8723CFED2DB55C8800A0E194 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+		8723CFF12DB562A400A0E194 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8723CFF02DB562A400A0E194 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		8723CFF32DB562A400A0E194 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8723CFF02DB562A400A0E194 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
 		87FDD9412D836C8300C2B5EC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87FDD9402D836C8300C2B5EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

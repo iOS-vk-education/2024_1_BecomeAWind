@@ -4,7 +4,7 @@ import FirebaseFirestore
 struct Event: Identifiable {
     var id: String
 
-//    var image: UIImage
+    var imageUrl: String
     var title: String
     var seats: Seats
     var link: String
@@ -15,6 +15,7 @@ struct Event: Identifiable {
         var res = [String: Any]()
 
         res["id"] = id
+        res["imageUrl"] = imageUrl
         res["title"] = title
         res["seats"] = seats.representation
         res["link"] = link
