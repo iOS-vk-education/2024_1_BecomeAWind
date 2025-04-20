@@ -5,7 +5,7 @@ struct EventLocationPlaceDescription: View {
     let title: String
 
     var body: some View {
-        YCapsuleLabel(
+        CapsuleLabel(
             title: title,
             font: Const.placeDescriptionFont,
             background: .thinMaterial

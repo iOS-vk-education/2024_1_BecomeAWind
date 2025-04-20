@@ -32,6 +32,10 @@ extension AuthService {
             if let result {
                 let user = YUser(id: result.user.uid, email: email)
                 self?.dbService.createUser(user: user) { dbResult in
+                    defer {
+                        Logger.Auth.printCurrentUserSession(self?.auth.currentUser)
+                    }
+
                     switch dbResult {
                     case .success(_):
                         completion(.success(result.user))
@@ -50,7 +54,11 @@ extension AuthService {
         password: String,
         completion: @escaping (Result<User, Error>) -> Void
     ) {
-        auth.signIn(withEmail: email, password: password) { result, error in
+        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
+            defer {
+                Logger.Auth.printCurrentUserSession(self?.auth.currentUser)
+            }
+
             if let result {
                 completion(.success(result.user))
             } else if let error {
@@ -60,6 +68,10 @@ extension AuthService {
     }
 
     func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
+        defer {
+            Logger.Auth.printCurrentUserSession(auth.currentUser)
+        }
+
         do {
             try auth.signOut()
             completion(.success(Void()))

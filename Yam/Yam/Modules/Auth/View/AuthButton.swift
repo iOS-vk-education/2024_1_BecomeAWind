@@ -5,13 +5,8 @@ struct AuthButton: View {
     @ObservedObject var viewModel: AuthViewModel
 
     var body: some View {
-        Button {
+        CapsuleButton(title: viewModel.activeTab == .signIn ? "войти" : "создать аккаунт") {
             viewModel.auth()
-        } label: {
-            YCapsuleLabel(
-                title: viewModel.activeTab == .signIn ? "войти" : "создать аккаунт",
-                font: Const.buttonFont
-            )
         }
     }
 

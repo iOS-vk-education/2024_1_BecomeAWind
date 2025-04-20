@@ -16,7 +16,7 @@ struct MakeEventPlacePicker: View {
             .padding(.horizontal)
             .padding(.top)
 
-            YCircleButton(imageName: "location") {
+            CircleButton(imageName: "location") {
                 viewModel.toggleMakeEventPlace()
             }
             .padding(.bottom)

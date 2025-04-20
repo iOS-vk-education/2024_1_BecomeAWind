@@ -13,7 +13,7 @@ struct MakeEventFooterButton: View {
                 viewModel.toggleEventHandlingFailed()
             }
         } label: {
-            YCapsuleLabel(
+            CapsuleLabel(
                 title: viewModel.footerButtonText,
                 font: Const.buttonFont
             )

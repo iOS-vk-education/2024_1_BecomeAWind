@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YCapsuleLabel<Background: ShapeStyle>: View {
+struct CapsuleLabel<Background: ShapeStyle>: View {
     let title: String
     let font: Font
     let background: Background
@@ -27,7 +27,7 @@ struct YCapsuleLabel<Background: ShapeStyle>: View {
 }
 
 #Preview {
-    YCapsuleLabel(
+    CapsuleLabel(
         title: "текст",
         font: FontManager.def,
         background: .purple

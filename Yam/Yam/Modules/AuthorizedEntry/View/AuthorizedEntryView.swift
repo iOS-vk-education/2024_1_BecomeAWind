@@ -15,7 +15,7 @@ struct AuthorizedEntryView: View {
                 case .map:
                     MapView()
                 case .profile:
-                    ProfileView()
+                    ProfileView(viewModel: viewModel.makeProfileViewModel())
                 }
 
                 EntryTabBar(viewModel: viewModel)

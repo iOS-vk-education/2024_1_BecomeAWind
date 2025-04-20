@@ -6,23 +6,16 @@ struct RootView: View {
 
     var body: some View {
         if !navManager.isUserAuthorized {
-            Text("Not auth")
-            Button {
-                navManager.goToAuthorizedEntry()
-            } label: {
-                Text("log in")
-            }
-//            AuthorizedEntryView(viewModel: viewModel.makeAuthorizedEntryViewModel())
+            AuthView(viewModel: makeAuthViewModel())
         } else {
-//            AuthView(viewModel: viewModel.makeAuthViewModel())
-            Button {
-                navManager.backToRoot()
-            } label: {
-                Text("log out")
-            }
+            AuthorizedEntryView(viewModel: makeAuthorizedEntryViewModel())
         }
     }
 
+}
+
+extension RootView {
+    
     func makeAuthorizedEntryViewModel() -> AuthorizedEntryViewModel {
         AuthorizedEntryViewModel(navManager: navManager)
     }

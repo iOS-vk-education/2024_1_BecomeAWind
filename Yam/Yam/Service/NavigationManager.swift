@@ -12,12 +12,10 @@ final class NavigationManager: ObservableObject {
 
     func goToAuthorizedEntry() {
         isUserAuthorized = true
-        print(#function)
     }
 
     func backToRoot() {
         isUserAuthorized = false
-        print(#function)
     }
 
 }

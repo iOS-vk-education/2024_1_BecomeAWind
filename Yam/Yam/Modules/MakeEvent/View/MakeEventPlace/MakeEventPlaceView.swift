@@ -22,14 +22,14 @@ struct MakeEventPlaceView: View {
                         } // else { alert }
                     }
                 } label: {
-                    YCapsuleLabel(
+                    CapsuleLabel(
                         title: "выбрать",
                         font: Const.buttonFont
                     )
                 }
             }
 
-            YCircleButton(imageName: "location") {}
+            CircleButton(imageName: "location") {}
         }
     }
 

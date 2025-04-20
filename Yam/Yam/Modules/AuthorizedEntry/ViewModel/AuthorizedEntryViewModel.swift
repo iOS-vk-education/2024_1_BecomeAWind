@@ -30,6 +30,10 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject, CLLocationMana
 
 extension AuthorizedEntryViewModel {
 
+    func makeProfileViewModel() -> ProfileViewModel {
+        ProfileViewModel(navManager: navManager)
+    }
+
     func changeActive(to tab: AuthorizedEntryTab) {
         activeTab = tab
     }

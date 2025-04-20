@@ -24,27 +24,35 @@ extension Logger {
     enum Auth {
 
         static func userCreated() {
-            print("User created")
+            print("User created\n")
         }
 
         static func userNotCreated(error: Error) {
-            print("User not created, error description = \(error.localizedDescription)")
+            print("User not created, error description = \(error.localizedDescription)\n")
         }
 
         static func userAddedToDatabase() {
-            print("User added to database")
+            print("User added to database\n")
         }
 
         static func userNotAddedToDatabase(error: Error) {
-            print("User not added to database, error description = \(error.localizedDescription)")
+            print("User not added to database, error description = \(error.localizedDescription)\n")
         }
 
         static func authSuccess() {
-            print("Authorization success")
+            print("Authorization success\n")
         }
 
         static func authFail(error: Error) {
-            print("Authorization fail, error description = \(error.localizedDescription)")
+            print("Authorization fail, error description = \(error.localizedDescription)\n")
+        }
+
+        static func signOutSuccess() {
+            print("Sing out success\n")
+        }
+
+        static func signOutFail(error: Error) {
+            print("Sign out fail, error description = \(error.localizedDescription)\n")
         }
 
         static func printCurrentUserSession(_ user: User?) {
@@ -68,7 +76,7 @@ extension Logger {
     enum Database {
 
         static func databaseInit() {
-            print("TempDatabase initialized")
+            print("TempDatabase initialized\n")
         }
 
     }

@@ -24,7 +24,7 @@ struct NavBar<ViewModel: NavBarViewModelProtocol, Content: View>: View {
 
                 VStack {
                     Spacer()
-                    YCircleButton(imageName: "plus") {
+                    CircleButton(imageName: "plus") {
                         viewModel.centerButtonAction()
                     }
                 }

@@ -24,7 +24,7 @@ struct DisabledLocationServicesView: View {
             Button {
                 viewModel.openSettings()
             } label: {
-                YCapsuleLabel(
+                CapsuleLabel(
                     title: "открыть настройки",
                     font: Const.buttonFont
                 )

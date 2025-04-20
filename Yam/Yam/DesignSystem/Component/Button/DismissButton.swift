@@ -5,7 +5,7 @@ struct DismissButton: View {
     let action: () -> Void
 
     var body: some View {
-        YCircleButton(
+        CircleButton(
             imageName: "xmark",
             background: Gradient.pinkIndigo
         ) {

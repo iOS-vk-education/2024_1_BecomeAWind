@@ -2,16 +2,26 @@ import SwiftUI
 
 struct ProfileView: View {
 
-    var body: some View {
-        Button {
+    @ObservedObject var viewModel: ProfileViewModel
 
-        } label: {
-            Text("log out")
+    var body: some View {
+        VStack {
+            Rectangle()
+                .frame(height: Const.navBarHeight)
+                .foregroundColor(.clear)
+            Spacer()
+            CapsuleButton(title: "выйти", background: Gradient.blackPink) {
+                viewModel.signOut()
+            }
+            Rectangle()
+                .frame(height: EntryConst.tabBarHeight)
+                .foregroundColor(.clear)
+        }
+        .alert(
+            "не удалось выйти",
+            isPresented: $viewModel.isActiveSignOutFailAlert) {
+                Button("ок", role: .cancel) {}
         }
     }
 
-}
-
-#Preview {
-    ProfileView()
 }

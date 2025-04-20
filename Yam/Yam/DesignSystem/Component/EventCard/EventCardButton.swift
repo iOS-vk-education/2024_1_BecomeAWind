@@ -8,7 +8,7 @@ struct EventCardButton<Background: ShapeStyle>: View {
 
     var body: some View {
         EventCardVStack {
-            YCircleButton(imageName: imageName, background: background) {
+            CircleButton(imageName: imageName, background: background) {
                 action()
             }
         }

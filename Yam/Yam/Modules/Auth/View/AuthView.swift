@@ -31,13 +31,13 @@ struct AuthView: View {
             AuthConst.singUpFailText,
             isPresented: $viewModel.isActiveSignUpFailAlert
         ) {
-            Button("ок", role: .cancel) { }
+            Button("ок", role: .cancel) {}
         }
         .alert(
             AuthConst.singInFailText,
             isPresented: $viewModel.isActiveSignInFailAlert
         ) {
-            Button("ок", role: .cancel) { }
+            Button("ок", role: .cancel) {}
         }
     }
 }

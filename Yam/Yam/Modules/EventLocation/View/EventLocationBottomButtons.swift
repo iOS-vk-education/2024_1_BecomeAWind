@@ -10,13 +10,13 @@ struct EventLocationBottomButtons: View {
             Button {
                 showEventAction()
             } label: {
-                YCapsuleLabel(
+                CapsuleLabel(
                     title: "показать ивент",
                     font: Const.buttonFont
                 )
             }
 
-            YCircleButton(imageName: "location") {
+            CircleButton(imageName: "location") {
                 showUserAction()
             }
         }

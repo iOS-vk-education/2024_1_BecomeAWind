@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YCircleButton<Background: ShapeStyle>: View {
+struct CircleButton<Background: ShapeStyle>: View {
     var imageName: String
     var background: Background
     var action: () -> Void
@@ -32,5 +32,5 @@ struct YCircleButton<Background: ShapeStyle>: View {
 }
 
 #Preview {
-    YCircleButton(imageName: "xmark", action: {})
+    CircleButton(imageName: "xmark", action: {})
 }
