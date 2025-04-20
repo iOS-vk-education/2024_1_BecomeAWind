@@ -20,6 +20,14 @@ final class AuthService {
 
 extension AuthService {
 
+    func getUserID() -> String? {
+        if let user = currentUser {
+            return user.uid
+        }
+
+        return nil
+    }
+
     func isCurrentUserAuthorized() -> Bool {
         currentUser != nil
     }

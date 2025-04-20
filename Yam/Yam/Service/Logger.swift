@@ -82,6 +82,10 @@ extension Logger {
 
     enum MakeEvent {
 
+        static func notJpegData() {
+            print("Data is not JPEG")
+        }
+
         static func imageUploadSuccess(with url: String) {
             print("Image upload success, imageUrl = \(url)")
         }
@@ -90,6 +94,14 @@ extension Logger {
             print("Image upload fail")
         }
 
+        static func eventCreateSuccess() {
+            print("Event create success")
+        }
+
+        static func eventCreateFail() {
+            print("Event create fail")
+        }
+        
     }
 
 }

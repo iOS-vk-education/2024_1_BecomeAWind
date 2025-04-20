@@ -29,6 +29,7 @@ extension ImageService {
 
     func uploadImage(image: UIImage) async throws -> String {
         guard let data = image.jpegData(compressionQuality: 0.8) else {
+            Logger.MakeEvent.notJpegData()
             throw ImageServiceError.notJpegData
         }
 
@@ -38,6 +39,7 @@ extension ImageService {
                 DispatchQueue.main.async {
                     if let url = response?.secureUrl {
                         continuation.resume(returning: url)
+                        Logger.MakeEvent.imageUploadSuccess(with: url)
                     } else if let error = error {
                         Logger.printErrorDescription(error)
                         continuation.resume(throwing: error)

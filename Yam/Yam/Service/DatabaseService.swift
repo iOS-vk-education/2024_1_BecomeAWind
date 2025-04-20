@@ -14,6 +14,8 @@ final class DatabaseService {
     
 }
 
+// MARK: - Auth
+
 extension DatabaseService {
 
     func createUser(user: YUser, completion: @escaping (Result<YUser, Error>) -> Void) {
@@ -26,6 +28,20 @@ extension DatabaseService {
                 Logger.Auth.userAddedToDatabase()
             }
         }
+    }
+
+}
+
+// MARK: - MakeEvent
+
+extension DatabaseService {
+
+    func addEventFor(userID: String, event: Event) {
+        let userDocument = usersReference.document(userID)
+
+        userDocument.updateData([
+            "myEvents": FieldValue.arrayUnion([event.representation])
+        ])
     }
 
 }

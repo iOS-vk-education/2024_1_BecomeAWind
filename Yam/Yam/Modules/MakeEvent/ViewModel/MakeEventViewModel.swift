@@ -169,7 +169,7 @@ extension MakeEventViewModel {
                 date: date,
                 place: place
             )
-//            model.create(event)
+            model.create(event: event)
         }
 
         return canCreateEvent
@@ -191,7 +191,6 @@ extension MakeEventViewModel {
     private func getImageUrl() async -> String? {
         do {
             let url = try await imageService.uploadImage(image: image)
-            Logger.MakeEvent.imageUploadSuccess(with: url)
             return url
         } catch {
             Logger.MakeEvent.imageUploadFail()
