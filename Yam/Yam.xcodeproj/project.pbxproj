@@ -66,6 +66,7 @@
 		8786CF372DB4FCC60010D079 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF362DB4FCC60010D079 /* Event.swift */; };
 		879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADAFE2D80A18400F43C04 /* LocationHandler.swift */; };
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
+		879D29862DB52B96004A0B4D /* PostImgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879D29852DB52B96004A0B4D /* PostImgService.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
 		87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B47A8D2D58B500007AA252 /* CornerRadius.swift */; };
 		87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BD45322D515BD0001B8E1B /* MakeEventPlacePicker.swift */; };
@@ -172,6 +173,7 @@
 		8786CF362DB4FCC60010D079 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		879ADAFE2D80A18400F43C04 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
+		879D29852DB52B96004A0B4D /* PostImgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImgService.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
 		87B47A8D2D58B500007AA252 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		87BD45322D515BD0001B8E1B /* MakeEventPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventPlacePicker.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				8744C44D2DAD9CD6001A0A9F /* AuthService.swift */,
 				8744C4682DADC05F001A0A9F /* DatabaseService.swift */,
 				87CCF4CB2D8A054B005203CA /* Logger.swift */,
+				879D29852DB52B96004A0B4D /* PostImgService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				8786CF2D2DB4D3260010D079 /* LocationAuthStatus.swift in Sources */,
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
 				87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */,
+				879D29862DB52B96004A0B4D /* PostImgService.swift in Sources */,
 				87D4D2A32D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift in Sources */,
 				8786CF372DB4FCC60010D079 /* Event.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,

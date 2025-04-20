@@ -7,14 +7,13 @@ struct Logger {}
 
 extension Logger {
 
-    enum Core {
-
-        static func firebaseConfigured() {
-            print("Firebase configured\n")
-        }
-
+    static func firebaseConfigured() {
+        print("Firebase configured\n")
     }
 
+    static func ping() {
+        print("ping")
+    }
 }
 
 // MARK: - Auth
@@ -74,6 +73,10 @@ extension Logger {
 extension Logger {
 
     enum Database {
+
+        static func postImgServiceInited() {
+            print("PostImgService inited\n")
+        }
 
         static func databaseInit() {
             print("TempDatabase initialized\n")
