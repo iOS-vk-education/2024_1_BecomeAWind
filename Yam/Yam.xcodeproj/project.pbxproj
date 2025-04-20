@@ -15,7 +15,7 @@
 		870E3C912D4388D40043DA00 /* AuthorizedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C792D4388D40043DA00 /* AuthorizedEntryView.swift */; };
 		870E3C952D4388D40043DA00 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* Colors.swift */; };
 		870E3C9A2D4388D40043DA00 /* YText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YText.swift */; };
-		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
+		870E3C9B2D4388D40043DA00 /* YLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* YLoader.swift */; };
 		870E3C9C2D4388D40043DA00 /* MakeEventPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5D2D4388D40043DA00 /* MakeEventPlaceView.swift */; };
 		870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C742D4388D40043DA00 /* FeedView.swift */; };
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
@@ -32,6 +32,7 @@
 		8723CFEF2DB55C8800A0E194 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFEE2DB55C8800A0E194 /* Cloudinary */; };
 		8723CFF22DB562A400A0E194 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFF12DB562A400A0E194 /* SDWebImage */; };
 		8723CFF42DB562A400A0E194 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFF32DB562A400A0E194 /* SDWebImageMapKit */; };
+		8723CFF62DB56A2700A0E194 /* TypeOfMakeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8723CFF52DB56A2700A0E194 /* TypeOfMakeEventView.swift */; };
 		872CBC4F2DB18E6900C7EBC4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CBC4E2DB18E6900C7EBC4 /* ProfileView.swift */; };
 		873054412D5A9B82003D6726 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054402D5A9B82003D6726 /* EventsView.swift */; };
 		87336F4B2D7C329F00BD699A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87336F4A2D7C329F00BD699A /* Const.swift */; };
@@ -121,7 +122,7 @@
 		8704EC712DAEFC530008611D /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		870E3C532D4388D40043DA00 /* GradientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientImage.swift; sourceTree = "<group>"; };
 		870E3C542D4388D40043DA00 /* CapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLabel.swift; sourceTree = "<group>"; };
-		870E3C552D4388D40043DA00 /* GradientLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoader.swift; sourceTree = "<group>"; };
+		870E3C552D4388D40043DA00 /* YLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLoader.swift; sourceTree = "<group>"; };
 		870E3C592D4388D40043DA00 /* MakeEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventModel.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* MakeEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventPlaceView.swift; sourceTree = "<group>"; };
 		870E3C5E2D4388D40043DA00 /* MakeEventDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventDatePicker.swift; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		870E3C872D4388D40043DA00 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		870E3C892D4388D40043DA00 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		870E3C8B2D4388D40043DA00 /* TempDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDatabase.swift; sourceTree = "<group>"; };
+		8723CFF52DB56A2700A0E194 /* TypeOfMakeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfMakeEventView.swift; sourceTree = "<group>"; };
 		872CBC4E2DB18E6900C7EBC4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		873054402D5A9B82003D6726 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		87336F4A2D7C329F00BD699A /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -267,7 +269,7 @@
 				8744C45E2DADB70A001A0A9F /* Button */,
 				8744C4622DADB713001A0A9F /* Image */,
 				8744C4512DADA389001A0A9F /* ThinMaterialVStack.swift */,
-				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
+				870E3C552D4388D40043DA00 /* YLoader.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -278,6 +280,7 @@
 				870E3C592D4388D40043DA00 /* MakeEventModel.swift */,
 				870E3C672D4388D40043DA00 /* UIEvent.swift */,
 				87E197F82D821B6300742E7D /* Place.swift */,
+				8723CFF52DB56A2700A0E194 /* TypeOfMakeEventView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -848,7 +851,7 @@
 				870E3C9A2D4388D40043DA00 /* YText.swift in Sources */,
 				876084C22D7A37B500195B68 /* EntryTabBar.swift in Sources */,
 				87336F612D7C51A600BD699A /* ProfileConst.swift in Sources */,
-				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
+				870E3C9B2D4388D40043DA00 /* YLoader.swift in Sources */,
 				87CCF4D22D8B3C34005203CA /* EventCardSeatsLabel.swift in Sources */,
 				87336F4B2D7C329F00BD699A /* Const.swift in Sources */,
 				8786CF232DB3EF9D0010D079 /* ProfileViewModel.swift in Sources */,
@@ -866,6 +869,7 @@
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				8744C4502DADA1CF001A0A9F /* PasswordView.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */,
+				8723CFF62DB56A2700A0E194 /* TypeOfMakeEventView.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* CapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* AuthorizedEntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* EventsViewModel.swift in Sources */,

@@ -2,7 +2,7 @@ import Foundation
 import FirebaseFirestore
 
 struct Event: Identifiable {
-    var id: String
+    let id = UUID().uuidString
 
     var imageUrl: String
     var title: String

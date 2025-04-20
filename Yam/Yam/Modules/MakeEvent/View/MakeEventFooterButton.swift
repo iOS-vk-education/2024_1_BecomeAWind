@@ -7,16 +7,24 @@ struct MakeEventFooterButton: View {
 
     var body: some View {
         Button {
-            if viewModel.handleEvent() {
-                action()
-            } else {
-                viewModel.toggleEventHandlingFailed()
+            Task {
+                let eventCreated = await viewModel.handleEvent()
+
+                if eventCreated {
+                    action()
+                } else {
+                    viewModel.toggleEventHandlingFailed()
+                }
             }
         } label: {
-            CapsuleLabel(
-                title: viewModel.footerButtonText,
-                font: Const.buttonFont
-            )
+            if viewModel.isCreatingEvent {
+                YLoader(size: 50)
+            } else {
+                CapsuleLabel(
+                    title: viewModel.footerButtonText,
+                    font: Const.buttonFont
+                )
+            }
         }
     }
 

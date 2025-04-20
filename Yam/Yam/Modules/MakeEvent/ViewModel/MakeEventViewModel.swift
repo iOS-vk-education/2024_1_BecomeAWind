@@ -1,28 +1,14 @@
 import _PhotosUI_SwiftUI
 import SwiftUI
 import MapKit
+import FirebaseFirestore
 
 final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 
-    enum TypeOfMakeEventView {
-        case create
-        case edit
-    }
-
     private var model = MakeEventModel()
+    private let imageService = ImageService.shared
     let typeOfMakeEventView: TypeOfMakeEventView
-    var event: UIEvent?
-
-    init(
-        typeOfMakeEventView: TypeOfMakeEventView = .create,
-        event: UIEvent? = nil
-    ) {
-        self.typeOfMakeEventView = typeOfMakeEventView
-        self.event = event
-        super.init()
-
-        initConstants()
-    }
+    var uievent: UIEvent?
 
     /// header
     var headerText: String = ""
@@ -30,31 +16,43 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     /// image picker
     @Published private(set) var image: UIImage = UIImage()
     @Published var photosPickerItem: PhotosPickerItem?
-    var imagePickerButtonText: String = ""
+    var imagePickerButtonText = ""
 
     /// text fields
-    @Published var eventTitle: String = ""
-    @Published var allSeats: String = ""
-    @Published var link: String = ""
+    @Published var eventTitle = ""
+    @Published var allSeats = ""
+    @Published var link = ""
 
     /// date picker
-    @Published var date: Date = Date()
+    @Published var date = Date()
 
     /// place picker
     @Published var isActiveMakeEventPlace = false
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
-    @Published var placeDescription: String = ""
+    @Published var placeDescription = ""
     private var location: CLLocation?
     private var place: Place?
 
     /// handle event
+    @Published var isCreatingEvent = false
     @Published var eventCreationFailed = false
     @Published var eventEditionFailed = false
     var footerButtonText: String = ""
 
+    init(
+        typeOfMakeEventView: TypeOfMakeEventView = .create,
+        event: UIEvent? = nil
+    ) {
+        self.typeOfMakeEventView = typeOfMakeEventView
+        self.uievent = event
+        super.init()
+
+        initConstants()
+    }
+
 }
 
-// MARK: - init
+// MARK: - Init
 extension MakeEventViewModel {
 
     private func initConstants() {
@@ -77,7 +75,7 @@ extension MakeEventViewModel {
     private func initImage() {
         image = typeOfMakeEventView == .create
         ? UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
-        : event?.image ?? UIImage(systemName: "photo.artframe")!
+        : uievent?.image ?? UIImage(systemName: "photo.artframe")!
     }
 
     private func initImagePicker() {
@@ -85,29 +83,29 @@ extension MakeEventViewModel {
     }
 
     private func initEventTitle() {
-        eventTitle = typeOfMakeEventView == .create ? "" : event?.title ?? ""
+        eventTitle = typeOfMakeEventView == .create ? "" : uievent?.title ?? ""
     }
 
     private func initAllSeats() {
-        allSeats = typeOfMakeEventView == .create ? "1" : String(event?.seats.all ?? 1)
+        allSeats = typeOfMakeEventView == .create ? "1" : String(uievent?.seats.all ?? 1)
     }
 
     private func initLink() {
-        link = typeOfMakeEventView == .create ? "" : event?.link ?? ""
+        link = typeOfMakeEventView == .create ? "" : uievent?.link ?? ""
     }
 
     private func initDate() {
-        date = typeOfMakeEventView == .create ? Date() : event?.date ?? Date()
+        date = typeOfMakeEventView == .create ? Date() : uievent?.date ?? Date()
     }
 
     private func initPlaceDescription() {
         placeDescription = typeOfMakeEventView == .create
         ? MakeEventConst.emptyPlaceText
-        : event?.place.placeDescription ?? MakeEventConst.emptyPlaceText
+        : uievent?.place.placeDescription ?? MakeEventConst.emptyPlaceText
     }
 
     private func initLocation() {
-        location = typeOfMakeEventView == .create ? nil : event?.place.location ?? nil
+        location = typeOfMakeEventView == .create ? nil : uievent?.place.location ?? nil
     }
 
     private func initFooterButtonText() {
@@ -116,14 +114,21 @@ extension MakeEventViewModel {
 
 }
 
-// MARK: - handle event
+// MARK: - Handle event
 extension MakeEventViewModel {
 
-    func handleEvent() -> Bool {
+    func handleEvent() async -> Bool {
+        await MainActor.run { isCreatingEvent = true }
+        defer {
+            Task { @MainActor in
+                isCreatingEvent = false
+            }
+        }
+
         var result: Bool
 
         if typeOfMakeEventView == .create {
-            result = createEvent()
+            result = await createEvent()
         } else {
             result = editEvent()
         }
@@ -139,24 +144,32 @@ extension MakeEventViewModel {
     
 }
 
-// MARK: - create event
+// MARK: - Create event
 extension MakeEventViewModel {
 
-    private func createEvent() -> Bool {
+    private func createEvent() async -> Bool {
         let canCreateEvent = validateEventCreation()
 
         if canCreateEvent {
+            guard let url = await getImageUrl() else {
+                return false
+            }
+
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
-            let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
-            let event = UIEvent(
-                image: image,
+            let place = GeoPoint(
+                latitude: location?.coordinate.latitude ?? 0.0,
+                longitude: location?.coordinate.latitude ?? 0.0
+            )
+
+            let event = Event(
+                imageUrl: url,
                 title: eventTitle,
                 seats: seats,
                 link: link,
                 date: date,
                 place: place
             )
-            model.create(event)
+//            model.create(event)
         }
 
         return canCreateEvent
@@ -175,9 +188,20 @@ extension MakeEventViewModel {
         return result
     }
 
+    private func getImageUrl() async -> String? {
+        do {
+            let url = try await imageService.uploadImage(image: image)
+            Logger.MakeEvent.imageUploadSuccess(with: url)
+            return url
+        } catch {
+            Logger.MakeEvent.imageUploadFail()
+            return nil
+        }
+    }
+
 }
 
-// MARK: - edit event
+// MARK: - Edit event
 extension MakeEventViewModel {
 
     private func editEvent() -> Bool {
@@ -187,14 +211,14 @@ extension MakeEventViewModel {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
 
-            event?.image = image
-            event?.title = eventTitle
-            event?.seats = seats
-            event?.link = link
-            event?.date = date
-            event?.place = place
+            uievent?.image = image
+            uievent?.title = eventTitle
+            uievent?.seats = seats
+            uievent?.link = link
+            uievent?.date = date
+            uievent?.place = place
 
-            model.edit(event)
+            model.edit(uievent)
         }
 
         return canEditEvent
@@ -202,7 +226,7 @@ extension MakeEventViewModel {
 
     private func validateEventEdition() -> Bool {
         var result = false
-        let oldAllSeats = event?.seats.all ?? 1
+        let oldAllSeats = uievent?.seats.all ?? 1
 
         if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
@@ -217,7 +241,7 @@ extension MakeEventViewModel {
 
 }
 
-// MARK: - image picker
+// MARK: - Image picker
 extension MakeEventViewModel {
 
     func setImage() {
@@ -233,7 +257,7 @@ extension MakeEventViewModel {
 
 }
 
-// MARK: - text field
+// MARK: - Text field
 extension MakeEventViewModel {
 
     func limitTextField(_ upper: Int, text: Binding<String>) {
@@ -248,7 +272,7 @@ extension MakeEventViewModel {
 
 }
 
-// MARK: - place picker
+// MARK: - Place picker
 extension MakeEventViewModel {
 
     // conformance to MKMapViewDelegate
@@ -264,7 +288,7 @@ extension MakeEventViewModel {
 
 }
 
-// MARK: - location handler
+// MARK: - Location handler
 extension MakeEventViewModel {
 
     func updatePlaceDescription(completion: @escaping (Bool) -> Void) {

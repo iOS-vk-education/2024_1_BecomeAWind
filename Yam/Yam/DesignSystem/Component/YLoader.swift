@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct GradientLoader<Background: ShapeStyle>: View {
+struct YLoader<Background: ShapeStyle>: View {
     let size: CGFloat
     let background: Background
 
-    init(size: CGFloat, background: Background = .clear) {
+    init(size: CGFloat, background: Background = Gradient.purpleIndigo) {
         self.size = size
         self.background = background
     }
@@ -12,14 +12,15 @@ struct GradientLoader<Background: ShapeStyle>: View {
     var body: some View {
         ZStack {
             Rectangle()
+                .fill(background)
                 .frame(width: size, height: size)
-                .background(background)
                 .cornerRadius(Const.cornerRadius)
             ProgressView()
         }
+
     }
 }
 
 #Preview {
-    GradientLoader(size: 50, background: Gradient.purpleIndigo)
+    YLoader(size: 50, background: Gradient.purpleIndigo)
 }

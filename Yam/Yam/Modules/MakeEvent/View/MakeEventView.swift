@@ -46,13 +46,13 @@ struct MakeEventView: View {
             .opacity(focus == nil ? 0 : 1)
         }
         .alert(
-            "заполни все поля",
+            "ошибка. проверь, все ли поля заполнены и попробуй еще раз",
             isPresented: $viewModel.eventCreationFailed
         ) {
             Button("ок", role: .cancel) {}
         }
         .alert(
-            "заполни все поля и введи количество мест не меньше предыдущего",
+            "ошибка. проверь, все ли поля заполнены, убедись, что введенное количество мест не меньше предыдущего, попробуй еще раз",
             isPresented: $viewModel.eventEditionFailed
         ) {
             Button("ок", role: .cancel) {}

@@ -11,8 +11,12 @@ extension Logger {
         print("Firebase configured\n")
     }
 
+    static func printErrorDescription(_ error: Error) {
+        print("Error description = \(error.localizedDescription)\n")
+    }
+
     static func ping() {
-        print("... ping ...")
+        print("... ping ...\n")
     }
 }
 
@@ -66,6 +70,24 @@ extension Logger {
                 print("--- USER DATA ---")
             }
             print()
+        }
+
+    }
+
+}
+
+// MARK: - MakeEvent
+
+extension Logger {
+
+    enum MakeEvent {
+
+        static func imageUploadSuccess(with url: String) {
+            print("Image upload success, imageUrl = \(url)")
+        }
+
+        static func imageUploadFail() {
+            print("Image upload fail")
         }
 
     }
