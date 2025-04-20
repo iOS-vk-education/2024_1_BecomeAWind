@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct EntryView: View {
+struct AuthorizedEntryView: View {
 
-    @StateObject var viewModel = EntryViewModel()
+    @ObservedObject var viewModel: AuthorizedEntryViewModel
 
     var body: some View {
         ZStack {
@@ -10,10 +10,12 @@ struct EntryView: View {
                 switch viewModel.activeTab {
                 case .events:
                     EventsView()
-                case .search:
+                case .feed:
                     FeedView()
                 case .map:
                     MapView()
+                case .profile:
+                    ProfileView()
                 }
 
                 EntryTabBar(viewModel: viewModel)

@@ -9,13 +9,17 @@ final class AuthViewModel: ObservableObject {
 
     private let authService = AuthService.shared
     private let app = UIApplication.shared
+    private var navManager: NavigationManager
+
+    init(navManager: NavigationManager) {
+        self.navManager = navManager
+    }
 
     @Published var email = ""
     @Published var password = ""
 
     @Published var isActiveSignUpFailAlert = false
     @Published var isActiveSignInFailAlert = false
-    @Published var isActiveEntry = false
 
     /// nav bar
     @Published var activeTab: AuthTab = .signIn
@@ -35,7 +39,7 @@ extension AuthViewModel {
                 switch result {
                 case .success(_):
                     self?.clearTextFields()
-                    self?.isActiveEntry.toggle()
+                    self?.navManager.goToAuthorizedEntry()
                     Logger.Auth.userCreated()
                 case .failure(let error):
                     self?.isActiveSignUpFailAlert.toggle()
@@ -47,7 +51,7 @@ extension AuthViewModel {
                 switch result {
                 case .success(_):
                     self?.clearTextFields()
-                    self?.isActiveEntry.toggle()
+                    self?.navManager.goToAuthorizedEntry()
                     Logger.Auth.authSuccess()
                 case .failure(let error):
                     self?.isActiveSignInFailAlert.toggle()
@@ -55,6 +59,10 @@ extension AuthViewModel {
                 }
             }
         }
+    }
+
+    private func isCurrentUserAuthorized() -> Bool {
+        authService.isCurrentUserAuthorized()
     }
 
     private func clearTextFields() {
@@ -85,8 +93,10 @@ extension AuthViewModel {
         guard let nowFocusedField else { return nil }
 
         switch nowFocusedField {
-        case .email: return AuthField.password
-        default: return nil
+        case .email:
+            return AuthField.password
+        default:
+            return nil
         }
     }
 

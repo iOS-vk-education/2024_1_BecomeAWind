@@ -3,9 +3,9 @@ import MapKit
 
 struct AuthView: View {
 
-    @StateObject private var viewModel = AuthViewModel()
+    @ObservedObject var viewModel: AuthViewModel
     @FocusState private var focusedField: AuthField?
-    
+
     var body: some View {
         NavBar(viewModel: viewModel) {
             Map(interactionModes: [])
@@ -23,12 +23,9 @@ struct AuthView: View {
                 focusedField = viewModel.getNextFocusedField(from: focusedField)
             }
         }
+        .ignoresSafeArea(.keyboard)
         .onTapGesture {
             viewModel.hideKeyboard()
-        }
-        .ignoresSafeArea(.keyboard)
-        .fullScreenCover(isPresented: $viewModel.isActiveEntry) {
-            EntryView()
         }
         .alert(
             AuthConst.singUpFailText,
@@ -43,9 +40,4 @@ struct AuthView: View {
             Button("ок", role: .cancel) { }
         }
     }
-
-}
-
-#Preview {
-    AuthView()
 }

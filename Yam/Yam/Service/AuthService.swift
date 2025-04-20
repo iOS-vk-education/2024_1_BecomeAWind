@@ -7,14 +7,20 @@ final class AuthService {
     private let auth = Auth.auth()
     private let dbService = DatabaseService.shared
 
-    private init() {}
+    private var currentUser: User? {
+        auth.currentUser
+    }
+
+    private init() {
+        Logger.Auth.printCurrentUserSession(auth.currentUser)
+    }
 
 }
 
 extension AuthService {
 
-    var currentUser: User? {
-        auth.currentUser
+    func isCurrentUserAuthorized() -> Bool {
+        currentUser != nil
     }
 
     func signUp(
@@ -50,6 +56,15 @@ extension AuthService {
             } else if let error {
                 completion(.failure(error))
             }
+        }
+    }
+
+    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
+        do {
+            try auth.signOut()
+            completion(.success(Void()))
+        } catch {
+            completion(.failure(error))
         }
     }
 

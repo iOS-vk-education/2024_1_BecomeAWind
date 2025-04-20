@@ -1,4 +1,5 @@
 import CoreLocation
+import FirebaseAuth
 
 struct Logger {}
 
@@ -26,6 +27,10 @@ extension Logger {
             print("User created")
         }
 
+        static func userNotCreated(error: Error) {
+            print("User not created, error description = \(error.localizedDescription)")
+        }
+
         static func userAddedToDatabase() {
             print("User added to database")
         }
@@ -34,16 +39,24 @@ extension Logger {
             print("User not added to database, error description = \(error.localizedDescription)")
         }
 
-        static func userNotCreated(error: Error) {
-            print("User not created, error description = \(error.localizedDescription)")
-        }
-
         static func authSuccess() {
             print("Authorization success")
         }
 
         static func authFail(error: Error) {
             print("Authorization fail, error description = \(error.localizedDescription)")
+        }
+
+        static func printCurrentUserSession(_ user: User?) {
+            if let user {
+                print("--- USER DATA ---")
+                print("uid = \(user.uid)")
+                print("email = \(user.email)")
+                print("--- USER DATA ---")
+            } else {
+                print("--- USER = nil ---")
+            }
+            print()
         }
 
     }

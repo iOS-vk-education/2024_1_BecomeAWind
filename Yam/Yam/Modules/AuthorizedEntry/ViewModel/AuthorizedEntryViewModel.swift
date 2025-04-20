@@ -1,44 +1,36 @@
 import SwiftUI
 import CoreLocation
 
-final class EntryViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-
-    enum LocationAuthStatus {
-        case notDetermined
-        case access
-        case restricted
-    }
-
-    struct EntryTabItemConfiguration: Identifiable {
-        let id = UUID()
-        var tab: EntryTab
-        var title: String
-        var imageName: String
-    }
-
-    override init() {
-        super.init()
-
-        locationManager.delegate = self
-        tabs = [
-            EntryTabItemConfiguration(tab: .events, title: "ивенты", imageName: "mail.stack"),
-            EntryTabItemConfiguration(tab: .search, title: "поиск", imageName: "magnifyingglass.circle"),
-            EntryTabItemConfiguration(tab: .map, title: "карта", imageName: "map")
-        ]
-    }
-
+final class AuthorizedEntryViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    
     private let locationManager = CLLocationManager()
-    private(set) var tabs: [EntryTabItemConfiguration] = []
-    @Published var activeTab: EntryTab = .events
+    private(set) var tabs: [AuthorizedEntryTabItemConfig] = []
+    private var navManager: NavigationManager
+
+    @Published var activeTab: AuthorizedEntryTab = .events
     @Published var isLocationServicesEnabled = false
     @Published var authStatus: LocationAuthStatus = .notDetermined
     @Published var opacityOfOpenSettingsView: Double = 0
 
+    init(navManager: NavigationManager) {
+        self.navManager = navManager
+
+        super.init()
+
+        locationManager.delegate = self
+        tabs = [
+            AuthorizedEntryTabItemConfig(tab: .events, title: "ивенты", imageName: "mail.stack"),
+            AuthorizedEntryTabItemConfig(tab: .feed, title: "поиск", imageName: "magnifyingglass.circle"),
+            AuthorizedEntryTabItemConfig(tab: .map, title: "карта", imageName: "map"),
+            AuthorizedEntryTabItemConfig(tab: .profile, title: "профиль", imageName: "person.crop.circle")
+        ]
+    }
+
 }
 
-extension EntryViewModel {
+extension AuthorizedEntryViewModel {
 
-    func changeActive(to tab: EntryTab) {
+    func changeActive(to tab: AuthorizedEntryTab) {
         activeTab = tab
     }
 
@@ -53,7 +45,7 @@ extension EntryViewModel {
 }
 
 // MARK: - location manager logic
-extension EntryViewModel {
+extension AuthorizedEntryViewModel {
     
     /*  Функция locationManagerDidChangeAuthorization(_ manager: CLLocationManager) принадлежит делегату CLLocationManagerDelegate. Она вызывается каждый раз когда создается объект класса CLLocationManager и когда меняется статус авторизации служб геолокации.
      https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/locationmanagerdidchangeauthorization(_:)

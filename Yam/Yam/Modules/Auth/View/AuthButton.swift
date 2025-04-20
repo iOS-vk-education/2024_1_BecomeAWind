@@ -17,6 +17,3 @@ struct AuthButton: View {
 
 }
 
-#Preview {
-    AuthButton(viewModel: AuthViewModel())
-}

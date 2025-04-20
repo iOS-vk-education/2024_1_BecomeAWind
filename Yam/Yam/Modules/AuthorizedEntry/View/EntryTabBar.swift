@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EntryTabBar: View {
 
-    @ObservedObject var viewModel: EntryViewModel
+    @ObservedObject var viewModel: AuthorizedEntryViewModel
 
     var body: some View {
         VStack {
@@ -40,8 +40,8 @@ struct EntryTabBar: View {
 
 private struct EntryTabItem: View {
 
-    @ObservedObject var viewModel: EntryViewModel
-    let thisTab: EntryTab
+    @ObservedObject var viewModel: AuthorizedEntryViewModel
+    let thisTab: AuthorizedEntryTab
 
     let imageSystemName: String
     let title: String

@@ -14,7 +14,3 @@ struct EmailView: View {
     }
 
 }
-
-#Preview {
-    EmailView(viewModel: AuthViewModel())
-}

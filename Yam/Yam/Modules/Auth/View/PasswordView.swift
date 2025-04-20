@@ -9,7 +9,3 @@ struct PasswordView: View {
     }
 
 }
-
-#Preview {
-    EmailView(viewModel: AuthViewModel())
-}
