@@ -3,10 +3,6 @@ import Combine
 
 struct MakeEventView: View {
 
-    enum Field {
-        case title, seats, link
-    }
-
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var viewModel: MakeEventViewModel
     @FocusState private var focus: Field?

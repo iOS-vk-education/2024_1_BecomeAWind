@@ -145,6 +145,7 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Create event
+
 extension MakeEventViewModel {
 
     private func createEvent() async -> Bool {
@@ -201,6 +202,7 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Edit event
+
 extension MakeEventViewModel {
 
     private func editEvent() -> Bool {
