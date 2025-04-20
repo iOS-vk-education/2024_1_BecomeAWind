@@ -2,18 +2,9 @@ import SwiftUI
 
 final class AuthViewModel: ObservableObject {
 
-    enum Field {
-        case email
-        case password
-    }
-
     private let authService = AuthService.shared
     private let app = UIApplication.shared
     private var navManager: NavigationManager
-
-    init(navManager: NavigationManager) {
-        self.navManager = navManager
-    }
 
     @Published var email = ""
     @Published var password = ""
@@ -26,6 +17,10 @@ final class AuthViewModel: ObservableObject {
     var leftTab: AuthTab = .signIn
     var rightTab: AuthTab = .signUp
     var isVisibleCenterButton = false
+
+    init(navManager: NavigationManager) {
+        self.navManager = navManager
+    }
 
 }
 

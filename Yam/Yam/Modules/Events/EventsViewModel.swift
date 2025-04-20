@@ -3,8 +3,8 @@ import SwiftUI
 final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
 
     @ObservedObject var db = TempDatabase.shared
-    @Published var myEvents: [Event] = []
-    @Published var subscriptions: [Event] = []
+    @Published var myEvents: [UIEvent] = []
+    @Published var subscriptions: [UIEvent] = []
 
     /// nav bar
     @Published var isActiveCreateEvent = false
@@ -14,7 +14,7 @@ final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
     var isVisibleCenterButton: Bool = true
 
     /// event card
-    @Published var selectedEvent: Event?
+    @Published var selectedEvent: UIEvent?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
     @Published var isActiveEditEvent = false
@@ -52,12 +52,12 @@ extension EventsViewModel {
 /// event card
 extension EventsViewModel: EventCardViewModelProtocol {
 
-    func toggleEdit(event: Event) {
+    func toggleEdit(event: UIEvent) {
         selectedEvent = event
         isActiveEditEvent.toggle()
     }
 
-    func toggleLocation(for event: Event) {
+    func toggleLocation(for event: UIEvent) {
         selectedEvent = event
         isActiveEventLocation.toggle()
     }
@@ -68,7 +68,7 @@ extension EventsViewModel: EventCardViewModelProtocol {
         }
     }
 
-    func handleSubscribeButton(for event: Event) {}
+    func handleSubscribeButton(for event: UIEvent) {}
 
     func convertToString(from seats: Seats) -> String {
         EventHandler.getSeatsString(from: seats)

@@ -30,7 +30,7 @@ struct EventLocationView: View {
 }
 
 #Preview {
-    EventLocationView(viewModel: EventLocationViewModel(event: Event(
+    EventLocationView(viewModel: EventLocationViewModel(event: UIEvent(
         image: UIImage(named: "football")!,
         title: "event",
         seats: Seats(busy: 0, all: 100),

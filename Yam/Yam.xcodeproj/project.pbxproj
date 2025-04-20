@@ -11,7 +11,7 @@
 		8704EC722DAEFC530008611D /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC712DAEFC530008611D /* AuthField.swift */; };
 		870E3C8D2D4388D40043DA00 /* MakeEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C592D4388D40043DA00 /* MakeEventModel.swift */; };
 		870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C862D4388D40043DA00 /* EntryConst.swift */; };
-		870E3C902D4388D40043DA00 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C672D4388D40043DA00 /* Event.swift */; };
+		870E3C902D4388D40043DA00 /* UIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C672D4388D40043DA00 /* UIEvent.swift */; };
 		870E3C912D4388D40043DA00 /* AuthorizedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C792D4388D40043DA00 /* AuthorizedEntryView.swift */; };
 		870E3C952D4388D40043DA00 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* Colors.swift */; };
 		870E3C9A2D4388D40043DA00 /* YText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YText.swift */; };
@@ -63,6 +63,7 @@
 		8786CF2D2DB4D3260010D079 /* LocationAuthStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF2C2DB4D3260010D079 /* LocationAuthStatus.swift */; };
 		8786CF2F2DB4D3440010D079 /* AuthorizedEntryTabItemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF2E2DB4D3440010D079 /* AuthorizedEntryTabItemConfig.swift */; };
 		8786CF352DB4EA920010D079 /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF342DB4EA920010D079 /* CapsuleButton.swift */; };
+		8786CF372DB4FCC60010D079 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF362DB4FCC60010D079 /* Event.swift */; };
 		879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADAFE2D80A18400F43C04 /* LocationHandler.swift */; };
 		879B8A8E2D4BB81000DB28CC /* DisabledLocationServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */; };
 		879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C082D46EF2A0027E46D /* EventLocationView.swift */; };
@@ -124,7 +125,7 @@
 		870E3C602D4388D40043DA00 /* YTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTextField.swift; sourceTree = "<group>"; };
 		870E3C612D4388D40043DA00 /* MakeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventView.swift; sourceTree = "<group>"; };
 		870E3C632D4388D40043DA00 /* MakeEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventViewModel.swift; sourceTree = "<group>"; };
-		870E3C672D4388D40043DA00 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		870E3C672D4388D40043DA00 /* UIEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEvent.swift; sourceTree = "<group>"; };
 		870E3C742D4388D40043DA00 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		870E3C792D4388D40043DA00 /* AuthorizedEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedEntryView.swift; sourceTree = "<group>"; };
 		870E3C7F2D4388D40043DA00 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 		8786CF2C2DB4D3260010D079 /* LocationAuthStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthStatus.swift; sourceTree = "<group>"; };
 		8786CF2E2DB4D3440010D079 /* AuthorizedEntryTabItemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedEntryTabItemConfig.swift; sourceTree = "<group>"; };
 		8786CF342DB4EA920010D079 /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
+		8786CF362DB4FCC60010D079 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		879ADAFE2D80A18400F43C04 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationServicesView.swift; sourceTree = "<group>"; };
 		879F2C082D46EF2A0027E46D /* EventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationView.swift; sourceTree = "<group>"; };
@@ -266,8 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				870E3C592D4388D40043DA00 /* MakeEventModel.swift */,
-				870E3C672D4388D40043DA00 /* Event.swift */,
-				87336FAC2D7F6B7F00BD699A /* Seats.swift */,
+				870E3C672D4388D40043DA00 /* UIEvent.swift */,
 				87E197F82D821B6300742E7D /* Place.swift */,
 			);
 			path = Model;
@@ -584,6 +585,8 @@
 			isa = PBXGroup;
 			children = (
 				8744C4632DADBE65001A0A9F /* YUser.swift */,
+				8786CF362DB4FCC60010D079 /* Event.swift */,
+				87336FAC2D7F6B7F00BD699A /* Seats.swift */,
 				87C997E42D9B3C7C0069F73D /* AuthTab.swift */,
 				8704EC712DAEFC530008611D /* AuthField.swift */,
 			);
@@ -791,6 +794,7 @@
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
 				87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */,
 				87D4D2A32D94836100A5E4B8 /* MakeEventHideKeyboardButton.swift in Sources */,
+				8786CF372DB4FCC60010D079 /* Event.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
 				8786CF252DB4CB120010D079 /* NavigationManager.swift in Sources */,
 				87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */,
@@ -801,7 +805,7 @@
 				8786CF2B2DB4CBC80010D079 /* RootView.swift in Sources */,
 				87C997DB2D9B26F10069F73D /* EmailView.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* EntryConst.swift in Sources */,
-				870E3C902D4388D40043DA00 /* Event.swift in Sources */,
+				870E3C902D4388D40043DA00 /* UIEvent.swift in Sources */,
 				8744C4642DADBE65001A0A9F /* YUser.swift in Sources */,
 				87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */,
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,

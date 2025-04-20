@@ -28,7 +28,7 @@ struct EventLocationMap: View {
 }
 
 #Preview {
-    EventLocationMap(viewModel: EventLocationViewModel(event: Event(
+    EventLocationMap(viewModel: EventLocationViewModel(event: UIEvent(
         image: UIImage(named: "football")!,
         title: "event",
         seats: Seats(busy: 0, all: 100),

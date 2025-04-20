@@ -5,7 +5,7 @@ import SwiftUI
 final class FeedViewModel: ObservableObject {
 
     @ObservedObject var db = TempDatabase.shared
-    @Published var allEvents: [Event] = []
+    @Published var allEvents: [UIEvent] = []
 
     init() { updateFeed() }
 
@@ -17,11 +17,11 @@ final class FeedViewModel: ObservableObject {
 
 extension FeedViewModel: EventCardViewModelProtocol {
 
-    func toggleEdit(event: Event) {
+    func toggleEdit(event: UIEvent) {
 //        print(#function)
     }
 
-    func toggleLocation(for event: Event) {
+    func toggleLocation(for event: UIEvent) {
 //        print(#function)
     }
 
@@ -29,7 +29,7 @@ extension FeedViewModel: EventCardViewModelProtocol {
 //        print(#function)
     }
 
-    func handleSubscribeButton(for event: Event) {
+    func handleSubscribeButton(for event: UIEvent) {
 //        print(#function)
     }
 

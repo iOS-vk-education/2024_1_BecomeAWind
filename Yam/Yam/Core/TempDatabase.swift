@@ -2,9 +2,9 @@ import SwiftUI
 import MapKit
 
 protocol DatabaseDescription {
-    func add(event: Event)
-    func edit(event: Event)
-    func get(_ type: EventType) -> [Event]
+    func add(event: UIEvent)
+    func edit(event: UIEvent)
+    func get(_ type: EventType) -> [UIEvent]
 }
 
 enum EventType {
@@ -17,9 +17,9 @@ final class TempDatabase: ObservableObject {
 
     static let shared = TempDatabase()
 
-    private var myEvents: [Event] = []
-    private var subscriptions: [Event] = []
-    private var allEvents: [Event] = []
+    private var myEvents: [UIEvent] = []
+    private var subscriptions: [UIEvent] = []
+    private var allEvents: [UIEvent] = []
 
     private init() {
         generateEvents()
@@ -71,10 +71,10 @@ final class TempDatabase: ObservableObject {
             placeDescription: "Северный Атлантический океан\n\nШирота: 44.5782\nДолгота: 44.5782"
         )
 
-        let event1 = Event(image: image1, title: title1, seats: seats1, link: link1, date: date, place: place1)
-        let event2 = Event(image: image2, title: title2, seats: seats2, link: link2, date: date, place: place2)
-        let event3 = Event(image: image3, title: title3, seats: seats3, link: link3, date: date, place: place3)
-        let event4 = Event(image: image4, title: title4, seats: seats4, link: link4, date: date, place: place4)
+        let event1 = UIEvent(image: image1, title: title1, seats: seats1, link: link1, date: date, place: place1)
+        let event2 = UIEvent(image: image2, title: title2, seats: seats2, link: link2, date: date, place: place2)
+        let event3 = UIEvent(image: image3, title: title3, seats: seats3, link: link3, date: date, place: place3)
+        let event4 = UIEvent(image: image4, title: title4, seats: seats4, link: link4, date: date, place: place4)
 
 
         myEvents.append(event1)
@@ -93,11 +93,11 @@ final class TempDatabase: ObservableObject {
 
 extension TempDatabase: DatabaseDescription {
 
-    func add(event: Event) {
+    func add(event: UIEvent) {
         myEvents.append(event)
     }
 
-    func get(_ type: EventType) -> [Event] {
+    func get(_ type: EventType) -> [UIEvent] {
         switch type {
         case .my: myEvents
         case .subscriptions: subscriptions
@@ -105,7 +105,7 @@ extension TempDatabase: DatabaseDescription {
         }
     }
 
-    func edit(event: Event) {
+    func edit(event: UIEvent) {
         guard let index = myEvents.firstIndex(where: {$0.id == event.id}) else { return }
         if myEvents[index] != event {
             myEvents[index] = event

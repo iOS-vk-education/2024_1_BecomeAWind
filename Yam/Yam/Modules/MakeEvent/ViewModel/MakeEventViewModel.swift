@@ -11,11 +11,11 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 
     private var model = MakeEventModel()
     let typeOfMakeEventView: TypeOfMakeEventView
-    var event: Event?
+    var event: UIEvent?
 
     init(
         typeOfMakeEventView: TypeOfMakeEventView = .create,
-        event: Event? = nil
+        event: UIEvent? = nil
     ) {
         self.typeOfMakeEventView = typeOfMakeEventView
         self.event = event
@@ -148,7 +148,7 @@ extension MakeEventViewModel {
         if canCreateEvent {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
-            let event = Event(
+            let event = UIEvent(
                 image: image,
                 title: eventTitle,
                 seats: seats,

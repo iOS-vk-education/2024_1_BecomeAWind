@@ -1,5 +1,6 @@
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 final class AuthService {
 
@@ -30,7 +31,21 @@ extension AuthService {
     ) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             if let result {
-                let user = YUser(id: result.user.uid, email: email)
+                let user = YUser(
+                    id: result.user.uid,
+                    email: email,
+                    myEvents: [
+                        Event(
+                            id: "1",
+                            title: "title",
+                            seats: Seats(busy: 5, all: 100),
+                            link: "link",
+                            date: Date(),
+                            place: GeoPoint(latitude: 1.0, longitude: 2.0)
+                        )
+                    ],
+                    subscriptions: []
+                )
                 self?.dbService.createUser(user: user) { dbResult in
                     defer {
                         Logger.Auth.printCurrentUserSession(self?.auth.currentUser)

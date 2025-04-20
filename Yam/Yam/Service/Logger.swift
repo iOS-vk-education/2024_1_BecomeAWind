@@ -10,7 +10,7 @@ extension Logger {
     enum Core {
 
         static func firebaseConfigured() {
-            print("Firebase configured")
+            print("Firebase configured\n")
         }
 
     }

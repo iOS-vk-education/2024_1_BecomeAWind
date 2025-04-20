@@ -1,7 +1,7 @@
 import UIKit
 
-struct Event: Identifiable, Hashable {
-    var id = UUID()
+struct UIEvent: Identifiable, Hashable {
+    let id = UUID()
 
     var image: UIImage
     var title: String

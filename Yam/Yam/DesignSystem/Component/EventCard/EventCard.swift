@@ -9,7 +9,7 @@ struct EventCard: View {
 
     var viewModel: EventCardViewModelProtocol
     let cardType: EventCardType
-    let event: Event
+    let event: UIEvent
 
     var body: some View {
         VStack {
@@ -75,7 +75,7 @@ struct EventCard: View {
     EventCard(
         viewModel: EventsViewModel(),
         cardType: .my,
-        event: Event(
+        event: UIEvent(
             image: UIImage(named: "football")!,
             title: "event",
             seats: Seats(busy: 0, all: 100),
