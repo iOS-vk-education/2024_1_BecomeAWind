@@ -8,17 +8,21 @@ final class MakeEventModel {
     private let authService = AuthService.shared
 
     func create(event: Event) {
-        if let userID = authService.getUserID() {
-            dbService.addEventFor(userID: userID, event: event)
-            Logger.MakeEvent.eventCreateSuccess()
+        guard let userID = authService.getUserID() else {
+            Logger.MakeEvent.eventCreateFail()
             return
         }
 
-        Logger.MakeEvent.eventCreateFail()
+        dbService.addEventFor(userID: userID, event: event)
+        Logger.MakeEvent.eventCreateSuccess()
     }
 
     func edit(_ event: UIEvent?) {
-        if let event { db.edit(event: event) }
+        guard let event else {
+            return
+        }
+
+        db.edit(event: event)
     }
 
 }

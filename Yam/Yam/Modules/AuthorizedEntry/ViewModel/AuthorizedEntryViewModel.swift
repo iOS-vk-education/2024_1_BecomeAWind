@@ -1,8 +1,8 @@
 import SwiftUI
 import CoreLocation
 
-final class AuthorizedEntryViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
+final class AuthorizedEntryViewModel: NSObject, ObservableObject {
+
     private let locationManager = CLLocationManager()
     private(set) var tabs: [AuthorizedEntryTabItemConfig] = []
     private var navManager: NavigationManager
@@ -18,6 +18,7 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject, CLLocationMana
         super.init()
 
         locationManager.delegate = self
+
         tabs = [
             AuthorizedEntryTabItemConfig(tab: .events, title: "ивенты", imageName: "mail.stack"),
             AuthorizedEntryTabItemConfig(tab: .feed, title: "поиск", imageName: "magnifyingglass.circle"),
@@ -48,9 +49,10 @@ extension AuthorizedEntryViewModel {
 
 }
 
-// MARK: - location manager logic
-extension AuthorizedEntryViewModel {
-    
+// MARK: - Location manager logic
+
+extension AuthorizedEntryViewModel: CLLocationManagerDelegate {
+
     /*  Функция locationManagerDidChangeAuthorization(_ manager: CLLocationManager) принадлежит делегату CLLocationManagerDelegate. Она вызывается каждый раз когда создается объект класса CLLocationManager и когда меняется статус авторизации служб геолокации.
      https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/locationmanagerdidchangeauthorization(_:)
      */

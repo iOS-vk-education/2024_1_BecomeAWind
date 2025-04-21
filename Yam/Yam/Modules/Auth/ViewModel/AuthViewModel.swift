@@ -29,7 +29,8 @@ final class AuthViewModel: ObservableObject {
 extension AuthViewModel {
 
     func auth() {
-        if activeTab == .signUp {
+        switch activeTab {
+        case .signUp:
             authService.signUp(email: email, password: password) { [weak self] result in
                 switch result {
                 case .success(_):
@@ -41,7 +42,7 @@ extension AuthViewModel {
                     Logger.Auth.userNotCreated(error: error)
                 }
             }
-        } else {
+        case .signIn:
             authService.signIn(email: email, password: password) { [weak self] result in
                 switch result {
                 case .success(_):
@@ -75,8 +76,6 @@ extension AuthViewModel: NavBarViewModelProtocol {
     func changeActiveTabTo(_ tab: AuthTab) {
         activeTab = tab
     }
-
-    func centerButtonAction() {}
 
 }
 

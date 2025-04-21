@@ -8,13 +8,7 @@ struct MakeEventFooterButton: View {
     var body: some View {
         Button {
             Task {
-                let eventCreated = await viewModel.handleEvent()
-
-                if eventCreated {
-                    action()
-                } else {
-                    viewModel.toggleEventHandlingFailed()
-                }
+                await viewModel.handleEvent() ? action() : viewModel.toggleEventHandlingFailed()
             }
         } label: {
             if viewModel.isCreatingEvent {

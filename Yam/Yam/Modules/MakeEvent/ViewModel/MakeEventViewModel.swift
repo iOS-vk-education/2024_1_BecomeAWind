@@ -3,7 +3,7 @@ import SwiftUI
 import MapKit
 import FirebaseFirestore
 
-final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
+final class MakeEventViewModel: NSObject, ObservableObject {
 
     private var model = MakeEventModel()
     private let imageService = ImageService.shared
@@ -53,6 +53,7 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 }
 
 // MARK: - Init
+
 extension MakeEventViewModel {
 
     private func initConstants() {
@@ -115,6 +116,7 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Handle event
+
 extension MakeEventViewModel {
 
     func handleEvent() async -> Bool {
@@ -152,7 +154,7 @@ extension MakeEventViewModel {
         let canCreateEvent = validateEventCreation()
 
         if canCreateEvent {
-            guard let url = await getImageUrl() else {
+            guard let imagePath = await getImagePath() else {
                 return false
             }
 
@@ -163,7 +165,7 @@ extension MakeEventViewModel {
             )
 
             let event = Event(
-                imageUrl: url,
+                imagePath: imagePath,
                 title: eventTitle,
                 seats: seats,
                 link: link,
@@ -189,10 +191,10 @@ extension MakeEventViewModel {
         return result
     }
 
-    private func getImageUrl() async -> String? {
+    private func getImagePath() async -> String? {
         do {
-            let url = try await imageService.uploadImage(image: image)
-            return url
+            let path = try await imageService.uploadImage(image: image)
+            return path
         } catch {
             Logger.MakeEvent.imageUploadFail()
             return nil
@@ -243,6 +245,7 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Image picker
+
 extension MakeEventViewModel {
 
     func setImage() {
@@ -259,6 +262,7 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Text field
+
 extension MakeEventViewModel {
 
     func limitTextField(_ upper: Int, text: Binding<String>) {
@@ -274,7 +278,8 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Place picker
-extension MakeEventViewModel {
+
+extension MakeEventViewModel: MKMapViewDelegate {
 
     // conformance to MKMapViewDelegate
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
@@ -290,6 +295,7 @@ extension MakeEventViewModel {
 }
 
 // MARK: - Location handler
+
 extension MakeEventViewModel {
 
     func updatePlaceDescription(completion: @escaping (Bool) -> Void) {

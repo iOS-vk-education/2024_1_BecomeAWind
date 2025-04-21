@@ -12,6 +12,10 @@ protocol NavBarViewModelProtocol: ObservableObject {
 
     func changeActiveTabTo(_ tab: Tab)
 
-    func centerButtonAction()
+}
+
+extension NavBarViewModelProtocol {
+
+    func centerButtonAction() {}
 
 }
