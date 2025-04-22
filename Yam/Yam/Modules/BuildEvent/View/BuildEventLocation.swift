@@ -1,21 +1,21 @@
 import SwiftUI
 import Combine
 
-struct MakeEventLocation: View {
+struct BuildEventLocation: View {
 
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
         YTextField(
             text: $viewModel.link,
             title: "контакты создателя",
             prompt: "https://event.creator.link/",
-            lineLimit: MakeEventConst.lineLimit,
+            lineLimit: BuildEventConst.lineLimit,
             axis: .vertical
         )
         .onReceive(Just(link)) { _ in
             viewModel.limitTextField(
-                MakeEventConst.contactMaxLength,
+                BuildEventConst.contactMaxLength,
                 text: $viewModel.link
             )
         }
@@ -24,5 +24,5 @@ struct MakeEventLocation: View {
 }
 
 #Preview {
-    MakeEventLocation(viewModel: MakeEventViewModel())
+    BuildEventLocation(viewModel: BuildEventViewModel())
 }

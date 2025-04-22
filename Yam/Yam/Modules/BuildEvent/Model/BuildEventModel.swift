@@ -1,20 +1,20 @@
 import Foundation
 import SwiftUI
 
-final class MakeEventModel {
+final class BuildEventModel {
 
     private var db = TempDatabase.shared
     private let dbService = DatabaseService.shared
-    private let authService = AuthService.shared
+    private let authInteractor = AuthInteractor.shared
 
     func create(event: Event) {
-        guard let userID = authService.getUserID() else {
-            Logger.MakeEvent.eventCreateFail()
+        guard let userID = authInteractor.getUserID() else {
+            Logger.BuildEvent.eventCreateFail()
             return
         }
 
         dbService.addEventFor(userID: userID, event: event)
-        Logger.MakeEvent.eventCreateSuccess()
+        Logger.BuildEvent.eventCreateSuccess()
     }
 
     func edit(_ event: UIEvent?) {

@@ -76,11 +76,11 @@ extension Logger {
 
 }
 
-// MARK: - MakeEvent
+// MARK: - BuildEvent
 
 extension Logger {
 
-    enum MakeEvent {
+    enum BuildEvent {
 
         static func notJpegData() {
             print("Data is not JPEG")

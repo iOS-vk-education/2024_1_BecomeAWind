@@ -17,7 +17,7 @@ struct FeedView: View {
             }
 
             Rectangle()
-                .frame(height: EntryConst.tabBarHeight)
+                .frame(height: AuthorizedEntryConst.tabBarHeight)
                 .foregroundColor(.clear)
                 .listRowSeparator(.hidden)
         }

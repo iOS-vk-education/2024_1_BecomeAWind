@@ -30,7 +30,7 @@ struct EventsView: View {
                 }
 
                 Rectangle()
-                    .frame(height: EntryConst.tabBarHeight)
+                    .frame(height: AuthorizedEntryConst.tabBarHeight)
                     .foregroundColor(.clear)
                     .listRowSeparator(.hidden)
             }
@@ -39,7 +39,7 @@ struct EventsView: View {
         .fullScreenCover(
             isPresented: $viewModel.isActiveCreateEvent
         ) {
-            MakeEventView()
+            BuildEventView()
                 .onDisappear {
                     viewModel.updateEvents()
                 }
@@ -53,9 +53,9 @@ struct EventsView: View {
         }
         .sheet(isPresented: $viewModel.isActiveEditEvent) {
             if let event = viewModel.selectedEvent {
-                MakeEventView(
-                    viewModel: MakeEventViewModel(
-                        typeOfMakeEventView: .edit,
+                BuildEventView(
+                    viewModel: BuildEventViewModel(
+                        typeOfBuildEventView: .edit,
                         event: event
                     )
                 )

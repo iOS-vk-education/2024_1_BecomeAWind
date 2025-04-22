@@ -11,7 +11,7 @@ struct EntryTabBar: View {
                 configureTabs()
             }
             .padding()
-            .frame(height: EntryConst.tabBarHeight)
+            .frame(height: AuthorizedEntryConst.tabBarHeight)
             .background(.thinMaterial)
             .cornerRadius(
                 Const.cornerRadius,
@@ -51,8 +51,8 @@ private struct EntryTabItem: View {
             Image(systemName: imageSystemName)
                 .resizable()
                 .frame(
-                    width: EntryConst.tabBarImageSize,
-                    height: EntryConst.tabBarImageSize
+                    width: AuthorizedEntryConst.tabBarImageSize,
+                    height: AuthorizedEntryConst.tabBarImageSize
                 )
                 .foregroundColor(
                     viewModel.activeTab == thisTab
@@ -61,7 +61,7 @@ private struct EntryTabItem: View {
                 )
             YText(
                 title,
-                font: EntryConst.tabBarItemTitleFont,
+                font: AuthorizedEntryConst.tabBarItemTitleFont,
                 foregroundColor: viewModel.activeTab == thisTab
                 ? .purple
                 : .white

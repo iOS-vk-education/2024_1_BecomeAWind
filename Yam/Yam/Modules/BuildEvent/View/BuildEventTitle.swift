@@ -1,21 +1,21 @@
 import SwiftUI
 import Combine
 
-struct MakeEventTitle: View {
+struct BuildEventTitle: View {
 
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
         YTextField(
             text: $viewModel.eventTitle,
             title: "название",
             prompt: "расскажи об ивенте",
-            lineLimit: MakeEventConst.lineLimit,
+            lineLimit: BuildEventConst.lineLimit,
             axis: .vertical
         )
         .onReceive(Just(viewModel.eventTitle)) { _ in
             viewModel.limitTextField(
-                MakeEventConst.titleMaxLength,
+                BuildEventConst.titleMaxLength,
                 text: $viewModel.eventTitle
             )
         }
@@ -24,5 +24,5 @@ struct MakeEventTitle: View {
 }
 
 #Preview {
-    MakeEventTitle(viewModel: MakeEventViewModel())
+    BuildEventTitle(viewModel: BuildEventViewModel())
 }

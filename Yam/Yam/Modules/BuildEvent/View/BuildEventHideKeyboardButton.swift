@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MakeEventHideKeyboardButton: View {
+struct BuildEventHideKeyboardButton: View {
 
     let action: () -> Void
 
@@ -19,5 +19,5 @@ struct MakeEventHideKeyboardButton: View {
 }
 
 #Preview {
-    MakeEventHideKeyboardButton(action: {})
+    BuildEventHideKeyboardButton(action: {})
 }

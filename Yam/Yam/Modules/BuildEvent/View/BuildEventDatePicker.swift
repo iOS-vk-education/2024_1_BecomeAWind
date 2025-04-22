@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct MakeEventDatePicker: View {
+struct BuildEventDatePicker: View {
 
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
         HStack {
@@ -14,7 +14,7 @@ struct MakeEventDatePicker: View {
         }
         .padding(.leading, Const.sideSpace)
 
-        MakeEventVStack {
+        BuildEventVStack {
             DatePicker(
                 "",
                 selection: $viewModel.date
@@ -30,5 +30,5 @@ struct MakeEventDatePicker: View {
 }
 
 #Preview {
-    MakeEventDatePicker(viewModel: MakeEventViewModel())
+    BuildEventDatePicker(viewModel: BuildEventViewModel())
 }

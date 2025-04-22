@@ -14,7 +14,7 @@ struct ProfileView: View {
                 viewModel.signOut()
             }
             Rectangle()
-                .frame(height: EntryConst.tabBarHeight)
+                .frame(height: AuthorizedEntryConst.tabBarHeight)
                 .foregroundColor(.clear)
         }
         .alert(

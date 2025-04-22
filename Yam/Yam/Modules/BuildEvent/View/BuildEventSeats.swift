@@ -1,16 +1,16 @@
 import SwiftUI
 import Combine
 
-struct MakeEventSeats: View {
+struct BuildEventSeats: View {
 
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
         YTextField(
             text: $viewModel.allSeats,
             title: "количество мест",
             prompt: "1",
-            lineLimit: MakeEventConst.lineLimit,
+            lineLimit: BuildEventConst.lineLimit,
             axis: .vertical
         )
         .keyboardType(.decimalPad)
@@ -19,7 +19,7 @@ struct MakeEventSeats: View {
         }
         .onReceive(Just($viewModel.allSeats)) { _ in
             viewModel.limitTextField(
-                MakeEventConst.seatsMaxLength,
+                BuildEventConst.seatsMaxLength,
                 text: $viewModel.allSeats
             )
         }
@@ -28,5 +28,5 @@ struct MakeEventSeats: View {
 }
 
 #Preview {
-    MakeEventSeats(viewModel: MakeEventViewModel())
+    BuildEventSeats(viewModel: BuildEventViewModel())
 }

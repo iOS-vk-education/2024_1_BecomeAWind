@@ -3,11 +3,11 @@ import SwiftUI
 import MapKit
 import FirebaseFirestore
 
-final class MakeEventViewModel: NSObject, ObservableObject {
+final class BuildEventViewModel: NSObject, ObservableObject {
 
-    private var model = MakeEventModel()
+    private var model = BuildEventModel()
     private let imageService = ImageService.shared
-    let typeOfMakeEventView: TypeOfMakeEventView
+    let typeOfBuildEventView: TypeOfBuildEventView
     var uievent: UIEvent?
 
     /// header
@@ -27,23 +27,23 @@ final class MakeEventViewModel: NSObject, ObservableObject {
     @Published var date = Date()
 
     /// place picker
-    @Published var isActiveMakeEventPlace = false
+    @Published var isActiveBuildEventPlace = false
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
     @Published var placeDescription = ""
     private var location: CLLocation?
     private var place: Place?
 
     /// handle event
-    @Published var isCreatingEvent = false
+    @Published var isCreatingEventLoaderFlag = false
     @Published var eventCreationFailed = false
     @Published var eventEditionFailed = false
     var footerButtonText: String = ""
 
     init(
-        typeOfMakeEventView: TypeOfMakeEventView = .create,
+        typeOfBuildEventView: TypeOfBuildEventView = .create,
         event: UIEvent? = nil
     ) {
-        self.typeOfMakeEventView = typeOfMakeEventView
+        self.typeOfBuildEventView = typeOfBuildEventView
         self.uievent = event
         super.init()
 
@@ -54,7 +54,7 @@ final class MakeEventViewModel: NSObject, ObservableObject {
 
 // MARK: - Init
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     private func initConstants() {
         initHeaderText()
@@ -70,66 +70,66 @@ extension MakeEventViewModel {
     }
 
     private func initHeaderText() {
-        headerText = typeOfMakeEventView == .create ? "новый ивент" : "редактирование ивента"
+        headerText = typeOfBuildEventView == .create ? "новый ивент" : "редактирование ивента"
     }
 
     private func initImage() {
-        image = typeOfMakeEventView == .create
+        image = typeOfBuildEventView == .create
         ? UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
         : uievent?.image ?? UIImage(systemName: "photo.artframe")!
     }
 
     private func initImagePicker() {
-        imagePickerButtonText = typeOfMakeEventView == .create ? "выбери превью" : "измени превью"
+        imagePickerButtonText = typeOfBuildEventView == .create ? "выбери превью" : "измени превью"
     }
 
     private func initEventTitle() {
-        eventTitle = typeOfMakeEventView == .create ? "" : uievent?.title ?? ""
+        eventTitle = typeOfBuildEventView == .create ? "" : uievent?.title ?? ""
     }
 
     private func initAllSeats() {
-        allSeats = typeOfMakeEventView == .create ? "1" : String(uievent?.seats.all ?? 1)
+        allSeats = typeOfBuildEventView == .create ? "1" : String(uievent?.seats.all ?? 1)
     }
 
     private func initLink() {
-        link = typeOfMakeEventView == .create ? "" : uievent?.link ?? ""
+        link = typeOfBuildEventView == .create ? "" : uievent?.link ?? ""
     }
 
     private func initDate() {
-        date = typeOfMakeEventView == .create ? Date() : uievent?.date ?? Date()
+        date = typeOfBuildEventView == .create ? Date() : uievent?.date ?? Date()
     }
 
     private func initPlaceDescription() {
-        placeDescription = typeOfMakeEventView == .create
-        ? MakeEventConst.emptyPlaceText
-        : uievent?.place.placeDescription ?? MakeEventConst.emptyPlaceText
+        placeDescription = typeOfBuildEventView == .create
+        ? BuildEventConst.emptyPlaceText
+        : uievent?.place.placeDescription ?? BuildEventConst.emptyPlaceText
     }
 
     private func initLocation() {
-        location = typeOfMakeEventView == .create ? nil : uievent?.place.location ?? nil
+        location = typeOfBuildEventView == .create ? nil : uievent?.place.location ?? nil
     }
 
     private func initFooterButtonText() {
-        footerButtonText = typeOfMakeEventView == .create ? "создать ивент" : "обновить ивент"
+        footerButtonText = typeOfBuildEventView == .create ? "создать ивент" : "обновить ивент"
     }
 
 }
 
 // MARK: - Handle event
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     func handleEvent() async -> Bool {
-        await MainActor.run { isCreatingEvent = true }
+        await MainActor.run { isCreatingEventLoaderFlag = true }
         defer {
             Task { @MainActor in
-                isCreatingEvent = false
+                isCreatingEventLoaderFlag = false
             }
         }
 
         var result: Bool
 
-        if typeOfMakeEventView == .create {
+        if typeOfBuildEventView == .create {
             result = await createEvent()
         } else {
             result = editEvent()
@@ -139,7 +139,7 @@ extension MakeEventViewModel {
     }
 
     func toggleEventHandlingFailed() {
-        typeOfMakeEventView == .create
+        typeOfBuildEventView == .create
         ? eventCreationFailed.toggle()
         : eventEditionFailed.toggle()
     }
@@ -148,34 +148,36 @@ extension MakeEventViewModel {
 
 // MARK: - Create event
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     private func createEvent() async -> Bool {
-        let canCreateEvent = validateEventCreation()
-
-        if canCreateEvent {
-            guard let imagePath = await getImagePath() else {
-                return false
-            }
-
-            let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
-            let place = GeoPoint(
-                latitude: location?.coordinate.latitude ?? 0.0,
-                longitude: location?.coordinate.latitude ?? 0.0
-            )
-
-            let event = Event(
-                imagePath: imagePath,
-                title: eventTitle,
-                seats: seats,
-                link: link,
-                date: date,
-                place: place
-            )
-            model.create(event: event)
+        guard validateEventCreation(),
+              let imagePath = await getImagePath() else {
+            return false
         }
 
-        return canCreateEvent
+        model.create(event: prepareEvent(with: imagePath))
+
+        return true
+    }
+
+    private func prepareEvent(with imagePath: String) -> Event {
+        let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
+        let place = GeoPoint(
+            latitude: location?.coordinate.latitude ?? 0.0,
+            longitude: location?.coordinate.latitude ?? 0.0
+        )
+
+        let event = Event(
+            imagePath: imagePath,
+            title: eventTitle,
+            seats: seats,
+            link: link,
+            date: date,
+            place: place
+        )
+
+        return event
     }
 
     private func validateEventCreation() -> Bool {
@@ -183,7 +185,7 @@ extension MakeEventViewModel {
 
         if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
-            placeDescription != MakeEventConst.emptyPlaceText &&
+            placeDescription != BuildEventConst.emptyPlaceText &&
             location != nil {
             result = true
         }
@@ -196,7 +198,7 @@ extension MakeEventViewModel {
             let path = try await imageService.uploadImage(image: image)
             return path
         } catch {
-            Logger.MakeEvent.imageUploadFail()
+            Logger.BuildEvent.imageUploadFail()
             return nil
         }
     }
@@ -205,7 +207,7 @@ extension MakeEventViewModel {
 
 // MARK: - Edit event
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     private func editEvent() -> Bool {
         let canEditEvent = validateEventEdition()
@@ -234,7 +236,7 @@ extension MakeEventViewModel {
         if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             Int(allSeats) ?? 1 >= oldAllSeats &&
-            placeDescription != MakeEventConst.emptyPlaceText &&
+            placeDescription != BuildEventConst.emptyPlaceText &&
             location != nil {
             result = true
         }
@@ -244,18 +246,25 @@ extension MakeEventViewModel {
 
 }
 
+
 // MARK: - Image picker
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     func setImage() {
         Task {
             if let photosPickerItem,
                let data = try? await photosPickerItem.loadTransferable(type: Data.self),
                let image = UIImage(data: data) {
-                self.image = image
+
+                await MainActor.run {
+                    self.image = image
+                }
             }
-            photosPickerItem = nil
+
+            await MainActor.run {
+                self.photosPickerItem = nil
+            }
         }
     }
 
@@ -263,7 +272,7 @@ extension MakeEventViewModel {
 
 // MARK: - Text field
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     func limitTextField(_ upper: Int, text: Binding<String>) {
         if text.wrappedValue.count > upper {
@@ -279,7 +288,7 @@ extension MakeEventViewModel {
 
 // MARK: - Place picker
 
-extension MakeEventViewModel: MKMapViewDelegate {
+extension BuildEventViewModel: MKMapViewDelegate {
 
     // conformance to MKMapViewDelegate
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
@@ -288,15 +297,15 @@ extension MakeEventViewModel: MKMapViewDelegate {
         }
     }
 
-    func toggleMakeEventPlace() {
-        isActiveMakeEventPlace.toggle()
+    func toggleBuildEventPlace() {
+        isActiveBuildEventPlace.toggle()
     }
 
 }
 
 // MARK: - Location handler
 
-extension MakeEventViewModel {
+extension BuildEventViewModel {
 
     func updatePlaceDescription(completion: @escaping (Bool) -> Void) {
         guard let coordinate = centerCoordinate else { return }
@@ -309,7 +318,7 @@ extension MakeEventViewModel {
                 self?.location = location
                 completion(true)
             } else {
-                self?.placeDescription = MakeEventConst.emptyPlaceText
+                self?.placeDescription = BuildEventConst.emptyPlaceText
                 self?.location = nil
                 completion(false)
             }

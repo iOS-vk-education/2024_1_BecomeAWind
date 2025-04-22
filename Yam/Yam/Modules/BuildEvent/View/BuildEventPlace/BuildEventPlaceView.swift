@@ -1,16 +1,16 @@
 import SwiftUI
 import MapKit
 
-struct MakeEventPlaceView: View {
+struct BuildEventPlaceView: View {
 
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject var viewModel: BuildEventViewModel
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ZStack {
             ZStack(alignment: .bottom) {
                 /// map
-                MakeEventPlaceMap(viewModel: viewModel)
+                BuildEventPlaceMap(viewModel: viewModel)
                     .ignoresSafeArea()
                     .colorScheme(.light)
 
@@ -36,5 +36,5 @@ struct MakeEventPlaceView: View {
 }
 
  #Preview {
-     MakeEventPlaceView(viewModel: MakeEventViewModel())
+     BuildEventPlaceView(viewModel: BuildEventViewModel())
  }

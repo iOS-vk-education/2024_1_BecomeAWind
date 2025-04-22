@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct MakeEventPlacePicker: View {
-    @ObservedObject var viewModel: MakeEventViewModel
+struct BuildEventPlacePicker: View {
+    @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
         YText("место", font: Const.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, Const.sideSpace)
 
-        MakeEventVStack {
+        BuildEventVStack {
             YText(
                 viewModel.placeDescription,
                 font: Const.sectionEmptyFont
@@ -17,20 +17,20 @@ struct MakeEventPlacePicker: View {
             .padding(.top)
 
             CircleButton(imageName: "location") {
-                viewModel.toggleMakeEventPlace()
+                viewModel.toggleBuildEventPlace()
             }
             .padding(.bottom)
         }
         .fullScreenCover(
-            isPresented: $viewModel.isActiveMakeEventPlace
+            isPresented: $viewModel.isActiveBuildEventPlace
         ) {
-            MakeEventPlaceView(viewModel: viewModel)
+            BuildEventPlaceView(viewModel: viewModel)
         }
     }
 }
 
 #Preview {
-    MakeEventPlacePicker(
-        viewModel: MakeEventViewModel()
+    BuildEventPlacePicker(
+        viewModel: BuildEventViewModel()
     )
 }

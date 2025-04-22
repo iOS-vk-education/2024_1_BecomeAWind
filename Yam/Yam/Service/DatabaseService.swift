@@ -32,7 +32,7 @@ extension DatabaseService {
 
 }
 
-// MARK: - MakeEvent
+// MARK: - BuildEvent
 
 extension DatabaseService {
 

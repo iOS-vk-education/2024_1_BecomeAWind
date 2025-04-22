@@ -1,13 +1,13 @@
 import SwiftUI
 import Combine
 
-struct MakeEventView: View {
+struct BuildEventView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var viewModel: MakeEventViewModel
+    @ObservedObject private var viewModel: BuildEventViewModel
     @FocusState private var focus: Field?
 
-    init(viewModel: MakeEventViewModel = MakeEventViewModel()) {
+    init(viewModel: BuildEventViewModel = BuildEventViewModel()) {
         self.viewModel = viewModel
     }
 
@@ -16,27 +16,27 @@ struct MakeEventView: View {
             ScrollView(showsIndicators: false) {
                 DismissButton { dismiss() }
 
-                MakeEventHeader(text: viewModel.headerText)
+                BuildEventHeader(text: viewModel.headerText)
 
-                MakeEventImagePicker(viewModel: viewModel)
+                BuildEventImagePicker(viewModel: viewModel)
 
-                MakeEventTitle(viewModel: viewModel)
+                BuildEventTitle(viewModel: viewModel)
                     .focused($focus, equals: .title)
 
-                MakeEventSeats(viewModel: viewModel)
+                BuildEventSeats(viewModel: viewModel)
                     .focused($focus, equals: .seats)
 
-                MakeEventLocation(viewModel: viewModel)
+                BuildEventLocation(viewModel: viewModel)
                     .focused($focus, equals: .link)
 
-                MakeEventDatePicker(viewModel: viewModel)
+                BuildEventDatePicker(viewModel: viewModel)
 
-                MakeEventPlacePicker(viewModel: viewModel)
+                BuildEventPlacePicker(viewModel: viewModel)
 
-                MakeEventFooterButton(viewModel: viewModel) { dismiss() }
+                BuildEventFooterButton(viewModel: viewModel) { dismiss() }
             }
 
-            MakeEventHideKeyboardButton {
+            BuildEventHideKeyboardButton {
                 focus = nil
             }
             .opacity(focus == nil ? 0 : 1)
@@ -58,6 +58,6 @@ struct MakeEventView: View {
 }
 
 #Preview {
-    MakeEventView()
+    BuildEventView()
 }
 

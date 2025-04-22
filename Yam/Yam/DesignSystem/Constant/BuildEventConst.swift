@@ -1,6 +1,6 @@
 import Foundation
 
-enum MakeEventConst {
+enum BuildEventConst {
 
     /// image picker
     static let imageSize: CGFloat = Const.screenWidth * 0.6

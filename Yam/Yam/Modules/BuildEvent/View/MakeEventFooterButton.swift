@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct MakeEventFooterButton: View {
+struct BuildEventFooterButton: View {
 
-    @ObservedObject var viewModel: MakeEventViewModel
+    @ObservedObject var viewModel: BuildEventViewModel
     let action: () -> Void
 
     var body: some View {
@@ -25,5 +25,5 @@ struct MakeEventFooterButton: View {
 }
 
 #Preview {
-    MakeEventFooterButton(viewModel: MakeEventViewModel(), action: {})
+    BuildEventFooterButton(viewModel: BuildEventViewModel(), action: {})
 }

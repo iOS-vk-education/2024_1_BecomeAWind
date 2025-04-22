@@ -3,11 +3,11 @@ import SwiftUI
 
 final class NavigationManager: ObservableObject {
 
-    private let authService = AuthService.shared
-    @Published var isUserAuthorized: Bool 
+    private let authInteractor = AuthInteractor.shared
+    @Published var isUserAuthorized: Bool
 
     init() {
-        isUserAuthorized = authService.isCurrentUserAuthorized()
+        isUserAuthorized = authInteractor.isCurrentUserAuthorized()
     }
 
     func goToAuthorizedEntry() {

@@ -21,5 +21,5 @@ struct YText: View {
 }
 
 #Preview {
-    YText("текст", font: EntryConst.tabBarItemTitleFont)
+    YText("текст", font: AuthorizedEntryConst.tabBarItemTitleFont)
 }

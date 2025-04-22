@@ -2,7 +2,7 @@ import SwiftUI
 
 final class AuthViewModel: ObservableObject {
 
-    private let authService = AuthService.shared
+    private let authInteractor = AuthInteractor.shared
     private let app = UIApplication.shared
     private var navManager: NavigationManager
 
@@ -31,26 +31,30 @@ extension AuthViewModel {
     func auth() {
         switch activeTab {
         case .signUp:
-            authService.signUp(email: email, password: password) { [weak self] result in
+            authInteractor.signUp(email: email, password: password) { [weak self] result in
+                guard let self = self else { return }
+
                 switch result {
                 case .success(_):
-                    self?.clearTextFields()
-                    self?.navManager.goToAuthorizedEntry()
+                    self.clearTextFields()
+                    self.navManager.goToAuthorizedEntry()
                     Logger.Auth.userCreated()
                 case .failure(let error):
-                    self?.isActiveSignUpFailAlert.toggle()
+                    self.isActiveSignUpFailAlert.toggle()
                     Logger.Auth.userNotCreated(error: error)
                 }
             }
         case .signIn:
-            authService.signIn(email: email, password: password) { [weak self] result in
+            authInteractor.signIn(email: email, password: password) { [weak self] result in
+                guard let self = self else { return }
+
                 switch result {
                 case .success(_):
-                    self?.clearTextFields()
-                    self?.navManager.goToAuthorizedEntry()
+                    self.clearTextFields()
+                    self.navManager.goToAuthorizedEntry()
                     Logger.Auth.authSuccess()
                 case .failure(let error):
-                    self?.isActiveSignInFailAlert.toggle()
+                    self.isActiveSignInFailAlert.toggle()
                     Logger.Auth.authFail(error: error)
                 }
             }
@@ -58,7 +62,7 @@ extension AuthViewModel {
     }
 
     private func isCurrentUserAuthorized() -> Bool {
-        authService.isCurrentUserAuthorized()
+        authInteractor.isCurrentUserAuthorized()
     }
 
     private func clearTextFields() {
@@ -76,6 +80,8 @@ extension AuthViewModel: NavBarViewModelProtocol {
     func changeActiveTabTo(_ tab: AuthTab) {
         activeTab = tab
     }
+
+    func centerButtonAction() {}
 
 }
 

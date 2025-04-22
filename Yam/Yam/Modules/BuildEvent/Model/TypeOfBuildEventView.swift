@@ -1,4 +1,4 @@
-enum TypeOfMakeEventView {
+enum TypeOfBuildEventView {
     case create
     case edit
 }

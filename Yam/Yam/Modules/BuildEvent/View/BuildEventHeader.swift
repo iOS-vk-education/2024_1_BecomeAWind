@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MakeEventHeader: View {
+struct BuildEventHeader: View {
 
     let text: String
 
@@ -11,5 +11,5 @@ struct MakeEventHeader: View {
 }
 
 #Preview {
-    MakeEventHeader(text: "text")
+    BuildEventHeader(text: "text")
 }

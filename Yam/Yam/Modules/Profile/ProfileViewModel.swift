@@ -3,7 +3,7 @@ import Foundation
 final class ProfileViewModel: ObservableObject {
 
     let navManager: NavigationManager
-    private let authService = AuthService.shared
+    private let authInteractor = AuthInteractor.shared
 
     @Published var isActiveSignOutFailAlert = false
 
@@ -16,7 +16,7 @@ final class ProfileViewModel: ObservableObject {
 extension ProfileViewModel {
 
     func signOut() {
-        authService.signOut { [weak self] result in
+        authInteractor.signOut { [weak self] result in
             switch result {
             case .success(_):
                 self?.navManager.backToRoot()

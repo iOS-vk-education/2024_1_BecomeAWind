@@ -1,11 +1,11 @@
 import SwiftUI
 import MapKit
 
-struct MakeEventPlaceMap {
-    @ObservedObject var viewModel: MakeEventViewModel
+struct BuildEventPlaceMap {
+    @ObservedObject var viewModel: BuildEventViewModel
 }
 
-extension MakeEventPlaceMap: UIViewRepresentable {
+extension BuildEventPlaceMap: UIViewRepresentable {
     /*
      The system calls this method only once, when it creates your view for the first time.
      https://developer.apple.com/documentation/swiftui/uiviewrepresentable/makeuiview(context:)
@@ -18,7 +18,7 @@ extension MakeEventPlaceMap: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIViewType, context: Context) {}
 
-    func makeCoordinator() -> MakeEventViewModel {
+    func makeCoordinator() -> BuildEventViewModel {
         viewModel
     }
 }
