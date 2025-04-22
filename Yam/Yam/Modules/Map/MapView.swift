@@ -3,7 +3,7 @@ import _MapKit_SwiftUI
 
 struct MapView: View {
 
-    @StateObject private var viewModel = MapViewModel()
+    @ObservedObject var viewModel: MapViewModel
 
     var body: some View {
         Map(position: $viewModel.position) {
@@ -19,5 +19,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView()
+    MapView(viewModel: MapViewModel())
 }

@@ -29,11 +29,40 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject {
 
 }
 
+// MARK: - Configure views
+
 extension AuthorizedEntryViewModel {
 
-    func makeProfileViewModel() -> ProfileViewModel {
-        ProfileViewModel(navManager: navManager)
+    func makeEventsView() -> EventsView {
+        let mod = EventsModel()
+        let vm = EventsViewModel(model: mod)
+        let view = EventsView(viewModel: vm)
+        return view
     }
+
+    func makeFeedView() -> FeedView {
+        let vm = FeedViewModel()
+        let view = FeedView(viewModel: vm)
+        return view
+    }
+
+    func makeMapView() -> MapView {
+        let vm = MapViewModel()
+        let view = MapView(viewModel: vm)
+        return view
+    }
+
+    func makeProfileView() -> ProfileView {
+        let vm = ProfileViewModel(navManager: navManager)
+        let view = ProfileView(viewModel: vm)
+        return view
+    }
+
+}
+
+// MARK: - Support
+
+extension AuthorizedEntryViewModel {
 
     func changeActive(to tab: AuthorizedEntryTab) {
         activeTab = tab

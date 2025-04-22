@@ -30,10 +30,11 @@
 		870E3CAE2D4388D40043DA00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C832D4388D40043DA00 /* Preview Assets.xcassets */; };
 		870E3CAF2D4388D40043DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870E3C852D4388D40043DA00 /* Assets.xcassets */; };
 		871903612DB834B4005DED9E /* BuildEventUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871903602DB834B4005DED9E /* BuildEventUIConfig.swift */; };
+		871903642DB84335005DED9E /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871903632DB84335005DED9E /* EventsModel.swift */; };
+		871903682DB844DB005DED9E /* BuildEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871903672DB844DB005DED9E /* BuildEventType.swift */; };
 		8723CFEF2DB55C8800A0E194 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFEE2DB55C8800A0E194 /* Cloudinary */; };
 		8723CFF22DB562A400A0E194 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFF12DB562A400A0E194 /* SDWebImage */; };
 		8723CFF42DB562A400A0E194 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8723CFF32DB562A400A0E194 /* SDWebImageMapKit */; };
-		8723CFF62DB56A2700A0E194 /* TypeOfBuildEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8723CFF52DB56A2700A0E194 /* TypeOfBuildEventView.swift */; };
 		8723CFF82DB5985D00A0E194 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8723CFF72DB5985D00A0E194 /* Field.swift */; };
 		872CBC4F2DB18E6900C7EBC4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CBC4E2DB18E6900C7EBC4 /* ProfileView.swift */; };
 		873054412D5A9B82003D6726 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873054402D5A9B82003D6726 /* EventsView.swift */; };
@@ -143,7 +144,8 @@
 		870E3C892D4388D40043DA00 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		870E3C8B2D4388D40043DA00 /* TempDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDatabase.swift; sourceTree = "<group>"; };
 		871903602DB834B4005DED9E /* BuildEventUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventUIConfig.swift; sourceTree = "<group>"; };
-		8723CFF52DB56A2700A0E194 /* TypeOfBuildEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfBuildEventView.swift; sourceTree = "<group>"; };
+		871903632DB84335005DED9E /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
+		871903672DB844DB005DED9E /* BuildEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventType.swift; sourceTree = "<group>"; };
 		8723CFF72DB5985D00A0E194 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		872CBC4E2DB18E6900C7EBC4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		873054402D5A9B82003D6726 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
@@ -282,9 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				870E3C592D4388D40043DA00 /* BuildEventModel.swift */,
+				871903672DB844DB005DED9E /* BuildEventType.swift */,
 				870E3C672D4388D40043DA00 /* UIEvent.swift */,
 				87E197F82D821B6300742E7D /* Place.swift */,
-				8723CFF52DB56A2700A0E194 /* TypeOfBuildEventView.swift */,
 				8723CFF72DB5985D00A0E194 /* Field.swift */,
 			);
 			path = Model;
@@ -346,20 +348,11 @@
 			path = AuthorizedEntry;
 			sourceTree = "<group>";
 		};
-		870E3C802D4388D40043DA00 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				870E3C7F2D4388D40043DA00 /* MapView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		870E3C822D4388D40043DA00 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				870E3C802D4388D40043DA00 /* View */,
-				87336F4E2D7C392700BD699A /* ViewModel */,
-				87336F4F2D7C392A00BD699A /* Model */,
+				870E3C7F2D4388D40043DA00 /* MapView.swift */,
+				87FDD93A2D83471100C2B5EC /* MapViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -382,6 +375,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		871903622DB842E5005DED9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				871903632DB84335005DED9E /* EventsModel.swift */,
+				87336FA62D7F56A800BD699A /* EventsTab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		872CBC4D2DB18E4100C7EBC4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,24 +398,9 @@
 			children = (
 				873054402D5A9B82003D6726 /* EventsView.swift */,
 				87336F5E2D7C4BBD00BD699A /* EventsViewModel.swift */,
-				87336FA62D7F56A800BD699A /* EventsTab.swift */,
+				871903622DB842E5005DED9E /* Model */,
 			);
 			path = Events;
-			sourceTree = "<group>";
-		};
-		87336F4E2D7C392700BD699A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				87FDD93A2D83471100C2B5EC /* MapViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		87336F4F2D7C392A00BD699A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		87336F502D7C399100BD699A /* View */ = {
@@ -819,6 +806,7 @@
 				8723CFF82DB5985D00A0E194 /* Field.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
 				8786CF252DB4CB120010D079 /* NavigationManager.swift in Sources */,
+				871903642DB84335005DED9E /* EventsModel.swift in Sources */,
 				87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */,
 				87FDD9392D82F73400C2B5EC /* EventHandler.swift in Sources */,
 				870E3C8D2D4388D40043DA00 /* BuildEventModel.swift in Sources */,
@@ -877,7 +865,6 @@
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				8744C4502DADA1CF001A0A9F /* PasswordView.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* BuildEventPlacePicker.swift in Sources */,
-				8723CFF62DB56A2700A0E194 /* TypeOfBuildEventView.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* CapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* AuthorizedEntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* EventsViewModel.swift in Sources */,
@@ -892,6 +879,7 @@
 				8744C4562DADAC47001A0A9F /* AuthConst.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* YTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* BuildEventViewModel.swift in Sources */,
+				871903682DB844DB005DED9E /* BuildEventType.swift in Sources */,
 				87CCF4D02D8B3B78005203CA /* EventCardPreview.swift in Sources */,
 				87336FA72D7F56A800BD699A /* EventsTab.swift in Sources */,
 				87D4D2962D94803700A5E4B8 /* BuildEventHeader.swift in Sources */,

@@ -3,6 +3,7 @@ import SwiftUI
 final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
 
     @ObservedObject var db = TempDatabase.shared
+    @ObservedObject var model: EventsModel
     @Published var myEvents: [UIEvent] = []
     @Published var subscriptions: [UIEvent] = []
 
@@ -19,18 +20,21 @@ final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
     @Published var isActiveEventLocation = false
     @Published var isActiveEditEvent = false
 
-    init() { updateEvents() }
-
-    func updateEvents() {
-        updateMyEvents()
-        updateSubscriptions()
+    init(model: EventsModel) {
+        self.model = model
+        getEvents()
     }
 
-    private func updateMyEvents() {
+    func getEvents() {
+        getMyEvents()
+        getSubscriptions()
+    }
+
+    private func getMyEvents() {
         myEvents = db.get(.my)
     }
 
-    private func updateSubscriptions() {
+    private func getSubscriptions() {
         subscriptions = db.get(.subscriptions)
     }
 

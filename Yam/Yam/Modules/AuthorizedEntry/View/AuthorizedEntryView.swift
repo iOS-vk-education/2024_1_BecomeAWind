@@ -9,13 +9,13 @@ struct AuthorizedEntryView: View {
             if viewModel.isLocationServicesEnabled {
                 switch viewModel.activeTab {
                 case .events:
-                    EventsView()
+                    viewModel.makeEventsView()
                 case .feed:
-                    FeedView()
+                    viewModel.makeFeedView()
                 case .map:
-                    MapView()
+                    viewModel.makeMapView()
                 case .profile:
-                    ProfileView(viewModel: viewModel.makeProfileViewModel())
+                    viewModel.makeProfileView()
                 }
 
                 EntryTabBar(viewModel: viewModel)

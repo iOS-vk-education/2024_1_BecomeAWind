@@ -73,7 +73,7 @@ struct EventCard: View {
 #Preview {
 
     EventCard(
-        viewModel: EventsViewModel(),
+        viewModel: EventsViewModel(model: EventsModel()),
         cardType: .my,
         event: UIEvent(
             image: UIImage(named: "football")!,

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EventsView: View {
 
-    @StateObject private var viewModel = EventsViewModel()
+    @ObservedObject var viewModel: EventsViewModel
 
     var body: some View {
         NavBar(viewModel: viewModel) {
@@ -41,7 +41,7 @@ struct EventsView: View {
         ) {
             BuildEventView()
                 .onDisappear {
-                    viewModel.updateEvents()
+                    viewModel.getEvents()
                 }
         }
         .fullScreenCover(
@@ -55,12 +55,12 @@ struct EventsView: View {
             if let event = viewModel.selectedEvent {
                 BuildEventView(
                     viewModel: BuildEventViewModel(
-                        typeOfBuildEventView: .edit,
+                        builtEventType: .edit,
                         event: event
                     )
                 )
                 .onDisappear {
-                    viewModel.updateEvents()
+                    viewModel.getEvents()
                 }
             }
         }
@@ -71,12 +71,12 @@ struct EventsView: View {
             Button("ок", role: .cancel) { }
         }
         .onAppear {
-            viewModel.updateEvents()
+            viewModel.getEvents()
         }
     }
 
 }
 
 #Preview {
-    EventsView()
+    EventsView(viewModel: EventsViewModel(model: EventsModel()))
 }

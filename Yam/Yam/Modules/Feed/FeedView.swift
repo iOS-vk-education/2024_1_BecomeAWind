@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FeedView: View {
 
-    @StateObject private var viewModel = FeedViewModel()
+    @ObservedObject var viewModel: FeedViewModel
 
     var body: some View {
         /// events list
@@ -28,5 +28,5 @@ struct FeedView: View {
 }
 
 #Preview {
-    FeedView()
+    FeedView(viewModel: FeedViewModel())
 }

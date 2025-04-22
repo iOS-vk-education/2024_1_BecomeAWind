@@ -3,7 +3,7 @@ import CoreLocation
 
 struct BuildEventUIConfig {
 
-    let type: TypeOfBuildEventView
+    let type: BuildEventType
     var event: UIEvent?
 
     var headerText: String {
@@ -50,7 +50,7 @@ struct BuildEventUIConfig {
         type == .create ? "создать ивент" : "обновить ивент"
     }
 
-    init(type: TypeOfBuildEventView, event: UIEvent?) {
+    init(type: BuildEventType, event: UIEvent?) {
         self.type = type
         self.event = event
     }

@@ -32,6 +32,15 @@ extension DatabaseService {
 
 }
 
+// MARK: - Events
+
+extension DatabaseService {
+
+//    funcr getEvents(of type: )
+
+}
+
+
 // MARK: - BuildEvent
 
 extension DatabaseService {

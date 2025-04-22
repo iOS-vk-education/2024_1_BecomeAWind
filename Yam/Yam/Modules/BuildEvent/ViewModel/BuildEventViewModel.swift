@@ -8,7 +8,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     private let model = BuildEventModel()
     private let imageService = ImageService.shared
     private let uiconfig: BuildEventUIConfig
-    let typeOfBuildEventView: TypeOfBuildEventView
+    let buildEventType: BuildEventType
     var uievent: UIEvent?
 
     /// header
@@ -41,12 +41,12 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     var footerButtonText: String = ""
 
     init(
-        typeOfBuildEventView: TypeOfBuildEventView = .create,
+        builtEventType: BuildEventType = .create,
         event: UIEvent? = nil
     ) {
-        self.typeOfBuildEventView = typeOfBuildEventView
+        self.buildEventType = builtEventType
         self.uievent = event
-        uiconfig = BuildEventUIConfig(type: typeOfBuildEventView, event: event)
+        uiconfig = BuildEventUIConfig(type: builtEventType, event: event)
         super.init()
         applyUIConfig()
     }
@@ -80,7 +80,7 @@ extension BuildEventViewModel {
 
         var result: Bool
 
-        if typeOfBuildEventView == .create {
+        if buildEventType == .create {
             result = await createEvent()
         } else {
             result = editEvent()
@@ -90,7 +90,7 @@ extension BuildEventViewModel {
     }
 
     func toggleEventHandlingFailed() {
-        typeOfBuildEventView == .create
+        buildEventType == .create
         ? eventCreationFailed.toggle()
         : eventEditionFailed.toggle()
     }

@@ -4,10 +4,10 @@ import MapKit
 protocol DatabaseDescription {
     func add(event: UIEvent)
     func edit(event: UIEvent)
-    func get(_ type: EventType) -> [UIEvent]
+    func get(_ type: EventsType) -> [UIEvent]
 }
 
-enum EventType {
+enum EventsType {
     case my
     case subscriptions
     case all
@@ -97,7 +97,7 @@ extension TempDatabase: DatabaseDescription {
         myEvents.append(event)
     }
 
-    func get(_ type: EventType) -> [UIEvent] {
+    func get(_ type: EventsType) -> [UIEvent] {
         switch type {
         case .my: myEvents
         case .subscriptions: subscriptions
