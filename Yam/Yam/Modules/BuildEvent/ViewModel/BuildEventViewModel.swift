@@ -5,8 +5,9 @@ import FirebaseFirestore
 
 final class BuildEventViewModel: NSObject, ObservableObject {
 
-    private var model = BuildEventModel()
+    private let model = BuildEventModel()
     private let imageService = ImageService.shared
+    private let uiconfig: BuildEventUIConfig
     let typeOfBuildEventView: TypeOfBuildEventView
     var uievent: UIEvent?
 
@@ -45,72 +46,22 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     ) {
         self.typeOfBuildEventView = typeOfBuildEventView
         self.uievent = event
+        uiconfig = BuildEventUIConfig(type: typeOfBuildEventView, event: event)
         super.init()
-
-        initConstants()
+        applyUIConfig()
     }
 
-}
-
-// MARK: - Init
-
-extension BuildEventViewModel {
-
-    private func initConstants() {
-        initHeaderText()
-        initImage()
-        initImagePicker()
-        initEventTitle()
-        initAllSeats()
-        initLink()
-        initDate()
-        initPlaceDescription()
-        initLocation()
-        initFooterButtonText()
-    }
-
-    private func initHeaderText() {
-        headerText = typeOfBuildEventView == .create ? "новый ивент" : "редактирование ивента"
-    }
-
-    private func initImage() {
-        image = typeOfBuildEventView == .create
-        ? UIImage(named: "default_event_image") ?? UIImage(systemName: "photo.artframe")!
-        : uievent?.image ?? UIImage(systemName: "photo.artframe")!
-    }
-
-    private func initImagePicker() {
-        imagePickerButtonText = typeOfBuildEventView == .create ? "выбери превью" : "измени превью"
-    }
-
-    private func initEventTitle() {
-        eventTitle = typeOfBuildEventView == .create ? "" : uievent?.title ?? ""
-    }
-
-    private func initAllSeats() {
-        allSeats = typeOfBuildEventView == .create ? "1" : String(uievent?.seats.all ?? 1)
-    }
-
-    private func initLink() {
-        link = typeOfBuildEventView == .create ? "" : uievent?.link ?? ""
-    }
-
-    private func initDate() {
-        date = typeOfBuildEventView == .create ? Date() : uievent?.date ?? Date()
-    }
-
-    private func initPlaceDescription() {
-        placeDescription = typeOfBuildEventView == .create
-        ? BuildEventConst.emptyPlaceText
-        : uievent?.place.placeDescription ?? BuildEventConst.emptyPlaceText
-    }
-
-    private func initLocation() {
-        location = typeOfBuildEventView == .create ? nil : uievent?.place.location ?? nil
-    }
-
-    private func initFooterButtonText() {
-        footerButtonText = typeOfBuildEventView == .create ? "создать ивент" : "обновить ивент"
+    private func applyUIConfig() {
+        headerText = uiconfig.headerText
+        image = uiconfig.image
+        imagePickerButtonText = uiconfig.imagePickerButtonText
+        eventTitle = uiconfig.eventTitle
+        allSeats = uiconfig.allSeats
+        link = uiconfig.link
+        date = uiconfig.date
+        placeDescription = uiconfig.placeDescription
+        location = uiconfig.location
+        footerButtonText = uiconfig.footerButtonText
     }
 
 }
