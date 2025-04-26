@@ -6,24 +6,24 @@ struct EventLocationMap: View {
     @ObservedObject var viewModel: EventLocationViewModel
 
     var body: some View {
-        Text("123")
-//        Map(position: $viewModel.position) {
-//            /// user location
-//            UserAnnotation()
-//
-//            /// event location
-//            Annotation("", coordinate: CLLocationCoordinate2D(
-//                latitude: viewModel.event.place.location.coordinate.latitude,
-//                longitude: viewModel.event.place.location.coordinate.longitude)
-//            ) {
-//                YImage(
-//                    image: viewModel.event.image,
-//                    size: EventLocationConst.imageSize
-//                )
-//            }
-//        }
-//        .tint(.purple)
-//        .colorScheme(.light)
+        Map(position: $viewModel.position) {
+            /// user location
+            UserAnnotation()
+
+            /// event location
+            Annotation("", coordinate: CLLocationCoordinate2D(
+                latitude: viewModel.event.place.latitude,
+                longitude: viewModel.event.place.longitude)
+            ) {
+                ImageDownloader(path: viewModel.event.imagePath)
+                    .scaledToFill()
+                    .frame(width: EventLocationConst.imageSize, height: EventLocationConst.imageSize)
+                    .clipped()
+                    .cornerRadius(Const.cornerRadius)
+            }
+        }
+        .tint(.purple)
+        .colorScheme(.light)
     }
 
 }

@@ -23,7 +23,6 @@ extension EventLocationViewModel {
     }
 
     func centerMapOnEvent() {
-        event.place.latitude
         withAnimation(.easeInOut(duration: 0.5)) {
             position = .region(MKCoordinateRegion(
                 center: CLLocationCoordinate2D(

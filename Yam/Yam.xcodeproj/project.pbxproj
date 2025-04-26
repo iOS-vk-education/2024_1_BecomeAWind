@@ -58,7 +58,6 @@
 		8751D8692DBAD5C80004C61B /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8612DBAD5C80004C61B /* EventCard.swift */; };
 		8751D86A2DBAD5C80004C61B /* EventCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8622DBAD5C80004C61B /* EventCardButton.swift */; };
 		8751D86B2DBAD5C80004C61B /* EventCardDateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8632DBAD5C80004C61B /* EventCardDateLabel.swift */; };
-		8751D86C2DBAD5C80004C61B /* EventCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8642DBAD5C80004C61B /* EventCardImage.swift */; };
 		8751D86D2DBAD5C80004C61B /* EventCardSeatsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8652DBAD5C80004C61B /* EventCardSeatsLabel.swift */; };
 		8751D86E2DBAD5C80004C61B /* EventCardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8662DBAD5C80004C61B /* EventCardTitleLabel.swift */; };
 		8751D86F2DBAD5C80004C61B /* EventCardVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751D8672DBAD5C80004C61B /* EventCardVStack.swift */; };
@@ -106,6 +105,9 @@
 		87DAF8CA2D4E775300C8C550 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */; };
 		87DAF8CB2D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C42D4E775300C8C550 /* MontserratAlternates-ExtraBold.ttf */; };
 		87DAF8CC2D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */; };
+		87DE0D752DBD285200D4DDF8 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D732DBD285200D4DDF8 /* ImageDownloader.swift */; };
+		87DE0D792DBD289900D4DDF8 /* ImageDownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */; };
+		87DE0D7B2DBD2AD300D4DDF8 /* EventCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */; };
 		87E197F92D821B6300742E7D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E197F82D821B6300742E7D /* Place.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
@@ -169,7 +171,6 @@
 		8751D8612DBAD5C80004C61B /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		8751D8622DBAD5C80004C61B /* EventCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardButton.swift; sourceTree = "<group>"; };
 		8751D8632DBAD5C80004C61B /* EventCardDateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardDateLabel.swift; sourceTree = "<group>"; };
-		8751D8642DBAD5C80004C61B /* EventCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardImage.swift; sourceTree = "<group>"; };
 		8751D8652DBAD5C80004C61B /* EventCardSeatsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardSeatsLabel.swift; sourceTree = "<group>"; };
 		8751D8662DBAD5C80004C61B /* EventCardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardTitleLabel.swift; sourceTree = "<group>"; };
 		8751D8672DBAD5C80004C61B /* EventCardVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardVStack.swift; sourceTree = "<group>"; };
@@ -217,6 +218,9 @@
 		87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.ttf"; sourceTree = "<group>"; };
 		87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Regular.ttf"; sourceTree = "<group>"; };
 		87DAF8C72D4E775300C8C550 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
+		87DE0D732DBD285200D4DDF8 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderViewModel.swift; sourceTree = "<group>"; };
+		87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardImage.swift; sourceTree = "<group>"; };
 		87E197F82D821B6300742E7D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		870E3C582D4388D40043DA00 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				87DE0D6F2DBD280C00D4DDF8 /* ImageDownloader */,
 				87C997DD2D9B28690069F73D /* NavBar */,
 				87FDD9332D82F22C00C2B5EC /* EventCard */,
 				8744C4592DADB6BC001A0A9F /* Text */,
@@ -465,7 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				8751D8612DBAD5C80004C61B /* EventCard.swift */,
-				8751D8642DBAD5C80004C61B /* EventCardImage.swift */,
+				87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */,
 				8751D8622DBAD5C80004C61B /* EventCardButton.swift */,
 				8751D8632DBAD5C80004C61B /* EventCardDateLabel.swift */,
 				8751D8652DBAD5C80004C61B /* EventCardSeatsLabel.swift */,
@@ -668,6 +673,15 @@
 			path = MontserratAlternates;
 			sourceTree = "<group>";
 		};
+		87DE0D6F2DBD280C00D4DDF8 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				87DE0D732DBD285200D4DDF8 /* ImageDownloader.swift */,
+				87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
@@ -826,11 +840,11 @@
 				8751D8692DBAD5C80004C61B /* EventCard.swift in Sources */,
 				8751D86A2DBAD5C80004C61B /* EventCardButton.swift in Sources */,
 				8751D86B2DBAD5C80004C61B /* EventCardDateLabel.swift in Sources */,
-				8751D86C2DBAD5C80004C61B /* EventCardImage.swift in Sources */,
 				8751D86D2DBAD5C80004C61B /* EventCardSeatsLabel.swift in Sources */,
 				8751D86E2DBAD5C80004C61B /* EventCardTitleLabel.swift in Sources */,
 				8751D86F2DBAD5C80004C61B /* EventCardVStack.swift in Sources */,
 				8704EC722DAEFC530008611D /* AuthField.swift in Sources */,
+				87DE0D792DBD289900D4DDF8 /* ImageDownloaderViewModel.swift in Sources */,
 				8786CF2F2DB4D3440010D079 /* AuthorizedEntryTabItemConfig.swift in Sources */,
 				8744C45F2DADB70A001A0A9F /* DismissButton.swift in Sources */,
 				8744C4602DADB70A001A0A9F /* CircleButton.swift in Sources */,
@@ -840,8 +854,10 @@
 				87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */,
 				870E3C912D4388D40043DA00 /* AuthorizedEntryView.swift in Sources */,
 				8751D8752DBAD5E10004C61B /* NavBar.swift in Sources */,
+				87DE0D752DBD285200D4DDF8 /* ImageDownloader.swift in Sources */,
 				8751D8762DBAD5E10004C61B /* NavBarStack.swift in Sources */,
 				8751D8772DBAD5E10004C61B /* NavBarTabItem.swift in Sources */,
+				87DE0D7B2DBD2AD300D4DDF8 /* EventCardImage.swift in Sources */,
 				879F2C092D46EF2A0027E46D /* EventLocationView.swift in Sources */,
 				870E3C952D4388D40043DA00 /* Colors.swift in Sources */,
 				878432E62D512A1500A24538 /* BuildEventImagePicker.swift in Sources */,
