@@ -38,6 +38,8 @@ extension AuthInteractor {
         completion: @escaping (Result<User, Error>) -> Void
     ) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
+            guard let self = self else { return }
+
             if let result {
                 let user = YUser(
                     id: result.user.uid,
@@ -45,9 +47,9 @@ extension AuthInteractor {
                     myEvents: [],
                     subscriptions: []
                 )
-                self?.dbService.createUser(user: user) { dbResult in
+                self.dbService.createUser(user: user) { dbResult in
                     defer {
-                        Logger.Auth.printCurrentUserSession(self?.auth.currentUser)
+                        Logger.Auth.printCurrentUserSession(self.auth.currentUser)
                     }
 
                     switch dbResult {
@@ -69,8 +71,10 @@ extension AuthInteractor {
         completion: @escaping (Result<User, Error>) -> Void
     ) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
+            guard let self = self else { return }
+
             defer {
-                Logger.Auth.printCurrentUserSession(self?.auth.currentUser)
+                Logger.Auth.printCurrentUserSession(self.auth.currentUser)
             }
 
             if let result {

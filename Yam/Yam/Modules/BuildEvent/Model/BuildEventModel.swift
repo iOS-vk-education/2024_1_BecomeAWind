@@ -22,7 +22,7 @@ final class BuildEventModel {
             return
         }
 
-        db.edit(event: event)
+//        db.edit(event: event)
     }
 
 }

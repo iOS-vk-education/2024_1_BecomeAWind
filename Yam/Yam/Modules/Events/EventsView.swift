@@ -21,9 +21,9 @@ struct EventsView: View {
                 ) { event in
                     EventCard(
                         viewModel: viewModel,
-                        cardType: viewModel.activeTab == .myEvents
+                        eventType: viewModel.activeTab == .myEvents
                         ? .my
-                        : .external,
+                        : .notMy,
                         event: event
                     )
                     .listRowSeparator(.hidden)
@@ -75,8 +75,4 @@ struct EventsView: View {
         }
     }
 
-}
-
-#Preview {
-    EventsView(viewModel: EventsViewModel(model: EventsModel()))
 }

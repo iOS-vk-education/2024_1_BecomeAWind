@@ -1,4 +1,4 @@
-struct Seats: Hashable {
+struct Seats: Hashable, Codable {
 
     var busy: Int
     var all: Int

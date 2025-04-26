@@ -10,12 +10,12 @@ final class FeedViewModel: ObservableObject {
     init() { updateFeed() }
 
     func updateFeed() {
-        allEvents = db.get(.all)
+//        allEvents = db.get(.all)
     }
 
 }
 
-extension FeedViewModel: EventCardViewModelProtocol {
+extension FeedViewModel/*: EventCardViewModelProtocol*/ {
 
     func toggleEdit(event: UIEvent) {
 //        print(#function)

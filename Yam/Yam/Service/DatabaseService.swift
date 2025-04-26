@@ -36,7 +36,26 @@ extension DatabaseService {
 
 extension DatabaseService {
 
-//    funcr getEvents(of type: )
+    func getEvents(of type: EventType, from userID: String) async -> (myEvents: [Event], subscriptions: [Event]) {
+        var myEvents = [Event](), subscriptions = [Event]()
+        let userRef = usersReference.document(userID)
+
+        do {
+            let userDoc = try await userRef.getDocument()
+
+            if userDoc.exists {
+                let user = try userDoc.data(as: YUser.self)
+                myEvents = user.myEvents
+                subscriptions = user.subscriptions
+            } else {
+                Logger.Events.docDoesntExist()
+            }
+        } catch {
+            Logger.Events.errorGettingDocument(error)
+        }
+
+        return (myEvents, subscriptions)
+    }
 
 }
 

@@ -7,9 +7,9 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
     private let model = BuildEventModel()
     private let imageService = ImageService.shared
-    private let uiconfig: BuildEventUIConfig
+//    private let uiconfig: BuildEventUIConfig
     let buildEventType: BuildEventType
-    var uievent: UIEvent?
+    var event: Event?
 
     /// header
     var headerText: String = ""
@@ -42,27 +42,27 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
     init(
         builtEventType: BuildEventType = .create,
-        event: UIEvent? = nil
+        event: Event? = nil
     ) {
         self.buildEventType = builtEventType
-        self.uievent = event
-        uiconfig = BuildEventUIConfig(type: builtEventType, event: event)
+        self.event = event
+//        uiconfig = BuildEventUIConfig(type: builtEventType, event: event)
         super.init()
-        applyUIConfig()
+//        applyUIConfig()
     }
 
-    private func applyUIConfig() {
-        headerText = uiconfig.headerText
-        image = uiconfig.image
-        imagePickerButtonText = uiconfig.imagePickerButtonText
-        eventTitle = uiconfig.eventTitle
-        allSeats = uiconfig.allSeats
-        link = uiconfig.link
-        date = uiconfig.date
-        placeDescription = uiconfig.placeDescription
-        location = uiconfig.location
-        footerButtonText = uiconfig.footerButtonText
-    }
+//    private func applyUIConfig() {
+//        headerText = uiconfig.headerText
+//        image = uiconfig.image
+//        imagePickerButtonText = uiconfig.imagePickerButtonText
+//        eventTitle = uiconfig.eventTitle
+//        allSeats = uiconfig.allSeats
+//        link = uiconfig.link
+//        date = uiconfig.date
+//        placeDescription = uiconfig.placeDescription
+//        location = uiconfig.location
+//        footerButtonText = uiconfig.footerButtonText
+//    }
 
 }
 
@@ -146,7 +146,7 @@ extension BuildEventViewModel {
 
     private func getImagePath() async -> String? {
         do {
-            let path = try await imageService.uploadImage(image: image)
+            let path = try await imageService.uploadImage(image)
             return path
         } catch {
             Logger.BuildEvent.imageUploadFail()
@@ -161,28 +161,30 @@ extension BuildEventViewModel {
 extension BuildEventViewModel {
 
     private func editEvent() -> Bool {
-        let canEditEvent = validateEventEdition()
+//        let canEditEvent = validateEventEdition()
+//
+//        if canEditEvent {
+//            let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
+//            let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
+//
+//            event?.imagePath = image
+//            event?.title = eventTitle
+//            event?.seats = seats
+//            event?.link = link
+//            event?.date = date
+//            event?.place = place
+//
+//            model.edit(event)
+//        }
+//
+//        return canEditEvent
 
-        if canEditEvent {
-            let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
-            let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
-
-            uievent?.image = image
-            uievent?.title = eventTitle
-            uievent?.seats = seats
-            uievent?.link = link
-            uievent?.date = date
-            uievent?.place = place
-
-            model.edit(uievent)
-        }
-
-        return canEditEvent
+        return false
     }
 
     private func validateEventEdition() -> Bool {
         var result = false
-        let oldAllSeats = uievent?.seats.all ?? 1
+        let oldAllSeats = event?.seats.all ?? 1
 
         if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&

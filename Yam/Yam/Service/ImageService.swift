@@ -1,5 +1,6 @@
 import UIKit
 import Cloudinary
+import SDWebImageSwiftUI
 
 enum ImageServiceError: Error {
     case notJpegData
@@ -27,7 +28,7 @@ final class ImageService {
 
 extension ImageService {
 
-    func uploadImage(image: UIImage) async throws -> String {
+    func uploadImage(_ image: UIImage) async throws -> String {
         guard let data = image.jpegData(compressionQuality: 0.8) else {
             Logger.BuildEvent.notJpegData()
             throw ImageServiceError.notJpegData
@@ -56,6 +57,10 @@ extension ImageService {
 
             }
         }
+
+    }
+
+    func downloadImage(from path: String)/* -> UIImage*/ {
 
     }
 

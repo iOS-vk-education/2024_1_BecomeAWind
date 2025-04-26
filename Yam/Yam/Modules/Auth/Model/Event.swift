@@ -1,8 +1,8 @@
-import Foundation
 import FirebaseFirestore
 
-struct Event: Identifiable {
-    let id = UUID().uuidString
+struct Event: Identifiable, Hashable, Codable {
+
+    let id: String = UUID().uuidString
 
     var imagePath: String
     var title: String
@@ -24,4 +24,5 @@ struct Event: Identifiable {
 
         return res
     }
+    
 }

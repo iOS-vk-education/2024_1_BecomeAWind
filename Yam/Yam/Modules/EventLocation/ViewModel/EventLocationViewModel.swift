@@ -5,11 +5,11 @@ final class EventLocationViewModel: ObservableObject {
 
     @Published var position: MapCameraPosition = .userLocation(fallback: .automatic)
     @Published var placeDescription: String = "возникла ошибка при определении места ивента"
-    @Published var event: UIEvent
+    @Published var event: Event
 
-    init(event: UIEvent) {
+    init(event: Event) {
         self.event = event
-        placeDescription = event.place.placeDescription
+//        placeDescription = event.place.placeDescription
     }
 
 }
@@ -23,12 +23,12 @@ extension EventLocationViewModel {
     }
 
     func centerMapOnEvent() {
-        let coordinate = event.place.location.coordinate
+        event.place.latitude
         withAnimation(.easeInOut(duration: 0.5)) {
             position = .region(MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
-                    latitude: coordinate.latitude,
-                    longitude: coordinate.longitude
+                    latitude: event.place.latitude,
+                    longitude: event.place.longitude
                 ),
                 span: MKCoordinateSpan(
                     latitudeDelta: 0.05,

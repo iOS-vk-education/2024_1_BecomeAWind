@@ -3,20 +3,16 @@ import MapKit
 
 struct EventCard: View {
 
-    enum EventCardType {
-        case my, external
-    }
-
     var viewModel: EventCardViewModelProtocol
-    let cardType: EventCardType
-    let event: UIEvent
+    let eventType: EventType
+    let event: Event
 
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
-                /// preview
-                EventCardPreview(image: event.image)
- 
+                /// image
+                EventCardImage(path: event.imagePath)
+
                 /// buttons
                 HStack {
                     /// place
@@ -30,12 +26,12 @@ struct EventCard: View {
                     }
 
                     /// third button
-                    switch cardType {
+                    switch eventType {
                     case .my:
                         EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
                             viewModel.toggleEdit(event: event)
                         }
-                    case .external:
+                    case .notMy:
                         EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
                             viewModel.handleSubscribeButton(for: event)
                         }
@@ -67,24 +63,5 @@ struct EventCard: View {
         )
         .cornerRadius(Const.cornerRadius)
     }
-
-}
-
-#Preview {
-
-    EventCard(
-        viewModel: EventsViewModel(model: EventsModel()),
-        cardType: .my,
-        event: UIEvent(
-            image: UIImage(named: "football")!,
-            title: "event",
-            seats: Seats(busy: 0, all: 100),
-            link: "www",
-            date: Date(),
-            place: Place(
-                location: CLLocation(),
-                placeDescription: "placedesc")
-            )
-        )
 
 }

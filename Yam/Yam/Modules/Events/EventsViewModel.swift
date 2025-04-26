@@ -1,11 +1,12 @@
 import SwiftUI
 
-final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
+final class EventsViewModel: ObservableObject {
 
-    @ObservedObject var db = TempDatabase.shared
-    @ObservedObject var model: EventsModel
-    @Published var myEvents: [UIEvent] = []
-    @Published var subscriptions: [UIEvent] = []
+    private let authInteractor = AuthInteractor.shared
+    private let dbService = DatabaseService.shared
+
+    @Published var myEvents: [Event] = []
+    @Published var subscriptions: [Event] = []
 
     /// nav bar
     @Published var isActiveCreateEvent = false
@@ -15,33 +16,35 @@ final class EventsViewModel: ObservableObject, NavBarViewModelProtocol {
     var isVisibleCenterButton: Bool = true
 
     /// event card
-    @Published var selectedEvent: UIEvent?
+    @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
     @Published var isActiveEditEvent = false
 
-    init(model: EventsModel) {
-        self.model = model
-        getEvents()
-    }
+//    init() {
+//        getEvents()
+//    }
 
+    @MainActor
     func getEvents() {
-        getMyEvents()
-        getSubscriptions()
-    }
+        Task { [weak self] in
+            guard let self else { return }
 
-    private func getMyEvents() {
-        myEvents = db.get(.my)
-    }
+            let (myEvents, subscriptions) = await dbService.getEvents(of: .my, from: authInteractor.getUserID() ?? "")
 
-    private func getSubscriptions() {
-        subscriptions = db.get(.subscriptions)
+            DispatchQueue.main.async {
+                self.myEvents = myEvents
+                self.subscriptions = subscriptions
+            }
+        }
+
     }
 
 }
 
-/// nav bar
-extension EventsViewModel {
+// MARK: - NavBar
+
+extension EventsViewModel: NavBarViewModelProtocol {
 
     func centerButtonAction() {
         isActiveCreateEvent.toggle()
@@ -53,15 +56,16 @@ extension EventsViewModel {
 
 }
 
-/// event card
+// MARK: - EventCard
+
 extension EventsViewModel: EventCardViewModelProtocol {
 
-    func toggleEdit(event: UIEvent) {
+    func toggleEdit(event: Event) {
         selectedEvent = event
         isActiveEditEvent.toggle()
     }
 
-    func toggleLocation(for event: UIEvent) {
+    func toggleLocation(for event: Event) {
         selectedEvent = event
         isActiveEventLocation.toggle()
     }
@@ -72,7 +76,7 @@ extension EventsViewModel: EventCardViewModelProtocol {
         }
     }
 
-    func handleSubscribeButton(for event: UIEvent) {}
+    func handleSubscribeButton(for event: Event) {}
 
     func convertToString(from seats: Seats) -> String {
         EventHandler.getSeatsString(from: seats)

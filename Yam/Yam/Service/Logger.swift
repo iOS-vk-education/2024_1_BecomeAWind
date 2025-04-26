@@ -76,6 +76,28 @@ extension Logger {
 
 }
 
+// MARK: - Events
+
+extension Logger {
+
+    enum Events {
+
+        static func docDoesntExist() {
+            print("Document doesn't exist\n")
+        }
+
+        static func errorGettingDocument(_ error: Error) {
+            print("Error getting document description = \(error)\n")
+        }
+
+        static func loadImageFail(by path: String, with error: Error) {
+            print("Load image fail by path = \(path), error description = \(error)")
+        }
+
+    }
+
+}
+
 // MARK: - BuildEvent
 
 extension Logger {
@@ -105,6 +127,8 @@ extension Logger {
     }
 
 }
+
+// MARK: - Database
 
 extension Logger {
 

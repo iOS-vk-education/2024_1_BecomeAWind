@@ -1,11 +1,12 @@
 import Foundation
 
-struct YUser: Identifiable {
+struct YUser: Identifiable, Codable {
 
     var id: String = UUID().uuidString
-    let email: String
-    let myEvents: [Event]
-    let subscriptions: [Event]
+
+    var email: String
+    var myEvents: [Event]
+    var subscriptions: [Event]
 
     var representation: [String: Any] {
         var res = [String: Any]()

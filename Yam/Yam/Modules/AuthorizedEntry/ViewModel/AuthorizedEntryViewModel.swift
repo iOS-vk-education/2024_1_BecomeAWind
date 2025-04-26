@@ -34,8 +34,7 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject {
 extension AuthorizedEntryViewModel {
 
     func makeEventsView() -> EventsView {
-        let mod = EventsModel()
-        let vm = EventsViewModel(model: mod)
+        let vm = EventsViewModel()
         let view = EventsView(viewModel: vm)
         return view
     }
