@@ -87,11 +87,11 @@ extension Logger {
         }
 
         static func errorGettingDocument(_ error: Error) {
-            print("Error getting document description = \(error)\n")
+            print("Error getting document description = \(error.localizedDescription)\n")
         }
 
         static func loadImageFail(by path: String, with error: Error) {
-            print("Load image fail by path = \(path), error description = \(error)")
+            print("Load image fail by path = \(path), error description = \(error.localizedDescription)")
         }
 
     }
@@ -146,19 +146,29 @@ extension Logger {
 
 }
 
+// MARK: - Location Handler
+
 extension Logger {
 
-    static func printPlacemarkInfo(placemark: CLPlacemark) {
-        print("AdministrativeArea = \(String(describing: placemark.administrativeArea))")
-        print("Country = \(String(describing: placemark.country))")
-        print("inlandWater = \(String(describing: placemark.inlandWater))")
-        print("locality = \(String(describing: placemark.locality))")
-        print("ocean = \(String(describing: placemark.ocean))")
-        print("subAdministrativeArea = \(String(describing: placemark.subAdministrativeArea))")
-        print("subLocality = \(String(describing: placemark.subLocality))")
-        print("subThoroughfare = \(String(describing: placemark.subThoroughfare))")
-        print("thoroughfare = \(String(describing: placemark.thoroughfare))")
-        print()
+    enum LocationHandler {
+
+        static func getPlacemarkFail(with error: Error) {
+            print("Get placemark fail, error description = \(error.localizedDescription)")
+        }
+
+        static func printPlacemarkInfo(placemark: CLPlacemark) {
+            print("AdministrativeArea = \(String(describing: placemark.administrativeArea))")
+            print("Country = \(String(describing: placemark.country))")
+            print("inlandWater = \(String(describing: placemark.inlandWater))")
+            print("locality = \(String(describing: placemark.locality))")
+            print("ocean = \(String(describing: placemark.ocean))")
+            print("subAdministrativeArea = \(String(describing: placemark.subAdministrativeArea))")
+            print("subLocality = \(String(describing: placemark.subLocality))")
+            print("subThoroughfare = \(String(describing: placemark.subThoroughfare))")
+            print("thoroughfare = \(String(describing: placemark.thoroughfare))")
+            print()
+        }
+
     }
 
 }

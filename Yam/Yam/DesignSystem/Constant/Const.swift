@@ -35,5 +35,5 @@ enum Const {
     /// text field
     static let sectionTitleFont = FontManager.getFont(with: .semibold, and: 17)
     static let sectionEmptyFont = FontManager.getFont(with: .regular, and: 15)
-
+    
 }

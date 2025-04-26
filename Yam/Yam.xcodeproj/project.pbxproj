@@ -108,7 +108,7 @@
 		87DE0D752DBD285200D4DDF8 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D732DBD285200D4DDF8 /* ImageDownloader.swift */; };
 		87DE0D792DBD289900D4DDF8 /* ImageDownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */; };
 		87DE0D7B2DBD2AD300D4DDF8 /* EventCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */; };
-		87E197F92D821B6300742E7D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E197F82D821B6300742E7D /* Place.swift */; };
+		87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7C2DBD353300D4DDF8 /* Place.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardViewModelProtocol.swift */; };
@@ -221,7 +221,7 @@
 		87DE0D732DBD285200D4DDF8 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderViewModel.swift; sourceTree = "<group>"; };
 		87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardImage.swift; sourceTree = "<group>"; };
-		87E197F82D821B6300742E7D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		87DE0D7C2DBD353300D4DDF8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* BuildEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventVStack.swift; sourceTree = "<group>"; };
@@ -287,7 +287,6 @@
 			children = (
 				870E3C592D4388D40043DA00 /* BuildEventModel.swift */,
 				871903672DB844DB005DED9E /* BuildEventType.swift */,
-				87E197F82D821B6300742E7D /* Place.swift */,
 				8723CFF72DB5985D00A0E194 /* Field.swift */,
 			);
 			path = Model;
@@ -609,6 +608,7 @@
 				8744C4632DADBE65001A0A9F /* YUser.swift */,
 				8786CF362DB4FCC60010D079 /* Event.swift */,
 				87336FAC2D7F6B7F00BD699A /* Seats.swift */,
+				87DE0D7C2DBD353300D4DDF8 /* Place.swift */,
 				87C997E42D9B3C7C0069F73D /* AuthTab.swift */,
 				8704EC712DAEFC530008611D /* AuthField.swift */,
 			);
@@ -854,6 +854,7 @@
 				87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */,
 				870E3C912D4388D40043DA00 /* AuthorizedEntryView.swift in Sources */,
 				8751D8752DBAD5E10004C61B /* NavBar.swift in Sources */,
+				87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */,
 				87DE0D752DBD285200D4DDF8 /* ImageDownloader.swift in Sources */,
 				8751D8762DBAD5E10004C61B /* NavBarStack.swift in Sources */,
 				8751D8772DBAD5E10004C61B /* NavBarTabItem.swift in Sources */,
@@ -891,7 +892,6 @@
 				870E3CA32D4388D40043DA00 /* CapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* AuthorizedEntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* EventsViewModel.swift in Sources */,
-				87E197F92D821B6300742E7D /* Place.swift in Sources */,
 				87336F8F2D7C978B00BD699A /* BuildEventConst.swift in Sources */,
 				87D4D29D2D94822100A5E4B8 /* BuildEventLocation.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YImage.swift in Sources */,

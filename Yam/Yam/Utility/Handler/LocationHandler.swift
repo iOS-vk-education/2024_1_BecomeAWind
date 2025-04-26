@@ -2,24 +2,22 @@ import CoreLocation
 
 final class LocationHandler {
 
-    static func getPlacemark(from location: CLLocation, completion: @escaping (CLPlacemark?) -> Void) {
+    static func getPlacemarkDescription(from location: CLLocation) async -> String {
         let geocoder = CLGeocoder()
+        var placemarks = [CLPlacemark]()
 
-        geocoder.reverseGeocodeLocation(location, preferredLocale: Locale(identifier: "ru_RU")) { placemarks, error in
-            if let error {
-                completion(nil)
-            }
-
-            guard let placemarks, placemarks.count > 0 else {
-                completion(nil)
-                return
-            }
-
-            completion(placemarks[0])
+        do {
+            placemarks = try await geocoder.reverseGeocodeLocation(location, preferredLocale: Locale(identifier: "ru_RU"))
+        } catch {
+            Logger.LocationHandler.getPlacemarkFail(with: error)
         }
+
+        return LocationHandler.parsePlacemark(placemarks.first)
     }
 
-    static func parsePlacemark(_ placemark: CLPlacemark) -> String {
+    static private func parsePlacemark(_ placemark: CLPlacemark?) -> String {
+        guard let placemark else { return BuildEventConst.getPlacemarkDescriptionFailText }
+
         var description = [placemark.ocean, placemark.inlandWater, placemark.country, placemark.locality, placemark.thoroughfare, placemark.subThoroughfare]
             .compactMap { $0 }
             .filter { $0 != "" }

@@ -16,8 +16,8 @@ struct BuildEventPlaceView: View {
 
                 /// choose button
                 Button {
-                    viewModel.updatePlaceDescription { placemarkReceived in
-                        if placemarkReceived {
+                    Task {
+                        if await viewModel.updatePlaceDescription() {
                             dismiss()
                         } // else { alert }
                     }

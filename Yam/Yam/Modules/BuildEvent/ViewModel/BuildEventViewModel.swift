@@ -114,10 +114,12 @@ extension BuildEventViewModel {
 
     private func prepareEvent(with imagePath: String) -> Event {
         let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
-        let place = GeoPoint(
+
+        let geopoint = GeoPoint(
             latitude: location?.coordinate.latitude ?? 0.0,
             longitude: location?.coordinate.latitude ?? 0.0
         )
+        let place = Place(geopoint: geopoint, description: placeDescription)
 
         let event = Event(
             imagePath: imagePath,
@@ -260,21 +262,20 @@ extension BuildEventViewModel: MKMapViewDelegate {
 
 extension BuildEventViewModel {
 
-    func updatePlaceDescription(completion: @escaping (Bool) -> Void) {
-        guard let coordinate = centerCoordinate else { return }
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+    func updatePlaceDescription() async -> Bool {
+        guard let coordinate = centerCoordinate else { return false }
+        let loc = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-        LocationHandler.getPlacemark(from: location) { [weak self] placemark in
-            if let placemark {
-                let description = LocationHandler.parsePlacemark(placemark)
-                self?.placeDescription = description
-                self?.location = location
-                completion(true)
-            } else {
-                self?.placeDescription = BuildEventConst.emptyPlaceText
-                self?.location = nil
-                completion(false)
-            }
+        let description = await LocationHandler.getPlacemarkDescription(from: loc)
+
+        if description != BuildEventConst.getPlacemarkDescriptionFailText {
+            placeDescription = description
+            location = loc
+            return true
+        } else {
+            placeDescription = BuildEventConst.emptyPlaceText
+            location = nil
+            return false
         }
     }
 

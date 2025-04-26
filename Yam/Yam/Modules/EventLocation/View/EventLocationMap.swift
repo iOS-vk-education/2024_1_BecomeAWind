@@ -12,8 +12,8 @@ struct EventLocationMap: View {
 
             /// event location
             Annotation("", coordinate: CLLocationCoordinate2D(
-                latitude: viewModel.event.place.latitude,
-                longitude: viewModel.event.place.longitude)
+                latitude: viewModel.event.place.geopoint.latitude,
+                longitude: viewModel.event.place.geopoint.longitude)
             ) {
                 ImageDownloader(path: viewModel.event.imagePath)
                     .scaledToFill()

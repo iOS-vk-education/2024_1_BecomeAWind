@@ -13,6 +13,8 @@ enum BuildEventConst {
 
     /// place picker
     static let emptyPlaceText = "выбери место проведения ивента"
+    static let getPlacemarkDescriptionFailText = "возникла ошибка при определении места ивента"
+
 
 }
 

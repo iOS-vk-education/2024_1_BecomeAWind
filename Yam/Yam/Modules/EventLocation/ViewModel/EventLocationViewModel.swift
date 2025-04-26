@@ -4,14 +4,14 @@ import MapKit
 final class EventLocationViewModel: ObservableObject {
 
     @Published var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @Published var placeDescription: String = "возникла ошибка при определении места ивента"
+    @Published var placeDescription: String
     @Published var event: Event
 
     init(event: Event) {
         self.event = event
-//        placeDescription = event.place.placeDescription
+        placeDescription = event.place.description
     }
-
+    
 }
 
 extension EventLocationViewModel {
@@ -26,8 +26,8 @@ extension EventLocationViewModel {
         withAnimation(.easeInOut(duration: 0.5)) {
             position = .region(MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
-                    latitude: event.place.latitude,
-                    longitude: event.place.longitude
+                    latitude: event.place.geopoint.latitude,
+                    longitude: event.place.geopoint.longitude
                 ),
                 span: MKCoordinateSpan(
                     latitudeDelta: 0.05,
