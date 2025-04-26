@@ -111,7 +111,7 @@ extension BuildEventViewModel {
 extension BuildEventViewModel {
 
     private func createEvent() async -> Bool {
-        guard validateEventCreation(),
+        guard canCreate(),
               let imagePath = await getImagePath() else { return false }
 
         model.create(event: prepareEvent(with: imagePath))
@@ -119,7 +119,7 @@ extension BuildEventViewModel {
         return true
     }
 
-    private func validateEventCreation() -> Bool {
+    private func canCreate() -> Bool {
         var result = false
 
         if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
@@ -167,12 +167,15 @@ extension BuildEventViewModel {
         let editEventFlags = compareOldEventWithNew()
         if editEventFlags.isOldEventEqualNewEvent() { return true }
 
-        guard validateEventEdition() else { return false }
+        guard let event = event,
+                canEdit() else { return false }
 
         var imagePath = ""
         if imageChangedFlag {
             guard let path = await getImagePath() else { return false }
             imagePath = path
+        } else {
+            imagePath = event.imagePath
         }
 
         model.edit(prepareNewEvent(with: imagePath), with: editEventFlags)
@@ -180,10 +183,10 @@ extension BuildEventViewModel {
         return true
     }
 
-    private func compareOldEventWithNew() -> EditEventFlags {
+    private func compareOldEventWithNew() -> Bool {
         guard let event,
               let location = location,
-              let allSeats = Int(allSeats) else { return EditEventFlags() }
+              let allSeats = Int(allSeats) else { return  }
 
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
@@ -200,7 +203,7 @@ extension BuildEventViewModel {
         return editEventFlags
     }
 
-    private func validateEventEdition() -> Bool {
+    private func canEdit() -> Bool {
         var result = false
         let oldAllSeats = event?.seats.all ?? 1
 
