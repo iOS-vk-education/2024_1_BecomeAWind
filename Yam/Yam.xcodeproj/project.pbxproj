@@ -271,7 +271,6 @@
 		870E3C582D4388D40043DA00 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				87DE0D6F2DBD280C00D4DDF8 /* ImageDownloader */,
 				87C997DD2D9B28690069F73D /* NavBar */,
 				87FDD9332D82F22C00C2B5EC /* EventCard */,
 				8744C4592DADB6BC001A0A9F /* Text */,
@@ -448,6 +447,7 @@
 		8744C4622DADB713001A0A9F /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				87DE0D6F2DBD280C00D4DDF8 /* ImageDownloader */,
 				8752B7052D468D3E0017F2B8 /* YImage.swift */,
 				870E3C532D4388D40043DA00 /* GradientImage.swift */,
 			);
