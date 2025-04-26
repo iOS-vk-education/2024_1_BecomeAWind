@@ -65,11 +65,17 @@ extension DatabaseService {
 extension DatabaseService {
 
     func addEventFor(userID: String, event: Event) {
-        let userDocument = usersReference.document(userID)
+        let userDoc = usersReference.document(userID)
 
-        userDocument.updateData([
+        userDoc.updateData([
             "myEvents": FieldValue.arrayUnion([event.representation])
         ])
+    }
+
+    func editEventFor(userID: String, dictToEdit: [String: Any]) {
+        let userDoc = usersReference.document(userID)
+
+        userDoc.updateData(dictToEdit)
     }
 
 }

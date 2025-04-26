@@ -123,7 +123,15 @@ extension Logger {
         static func eventCreateFail() {
             print("Event create fail")
         }
-        
+
+        static func eventEditSuccess() {
+            print("Event edit success")
+        }
+
+        static func eventEditFail() {
+            print("Event edit fail")
+        }
+
     }
 
 }

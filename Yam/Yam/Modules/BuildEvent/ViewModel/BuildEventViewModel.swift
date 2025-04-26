@@ -7,7 +7,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
     private let model = BuildEventModel()
     private let imageService = ImageService.shared
-    private let uiconfig: BuildEventUIConfig
+    private let uiConfig: BuildEventUIConfig
     let buildEventType: BuildEventType
     var event: Event?
 
@@ -18,6 +18,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     @Published private(set) var image: UIImage = UIImage(named: "default_event_image") ?? UIImage()
     @Published var photosPickerItem: PhotosPickerItem?
     var imagePickerButtonText = ""
+    private var imageChangedFlag = false
 
     /// text fields
     @Published var eventTitle = ""
@@ -32,10 +33,9 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
     @Published var placeDescription = ""
     private var location: CLLocation?
-    private var place: Place?
 
     /// handle event
-    @Published var isCreatingEventLoaderFlag = false
+    @Published var isBuildingEventLoaderFlag = false
     @Published var eventCreationFailed = false
     @Published var eventEditionFailed = false
     var footerButtonText: String = ""
@@ -46,21 +46,21 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     ) {
         self.buildEventType = builtEventType
         self.event = event
-        uiconfig = BuildEventUIConfig(type: builtEventType, event: event)
+        uiConfig = BuildEventUIConfig(type: builtEventType, event: event)
         super.init()
         applyUIConfig()
     }
 
     private func applyUIConfig() {
-        headerText = uiconfig.headerText
-        imagePickerButtonText = uiconfig.imagePickerButtonText
-        eventTitle = uiconfig.eventTitle
-        allSeats = uiconfig.allSeats
-        link = uiconfig.link
-        date = uiconfig.date
-        placeDescription = uiconfig.placeDescription
-        location = uiconfig.location
-        footerButtonText = uiconfig.footerButtonText
+        headerText = uiConfig.headerText
+        imagePickerButtonText = uiConfig.imagePickerButtonText
+        eventTitle = uiConfig.eventTitle
+        allSeats = uiConfig.allSeats
+        link = uiConfig.link
+        date = uiConfig.date
+        placeDescription = uiConfig.placeDescription
+        location = uiConfig.location
+        footerButtonText = uiConfig.footerButtonText
     }
 
 }
@@ -70,10 +70,10 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 extension BuildEventViewModel {
 
     func handleEvent() async -> Bool {
-        await MainActor.run { isCreatingEventLoaderFlag = true }
+        await MainActor.run { isBuildingEventLoaderFlag = true }
         defer {
             Task { @MainActor in
-                isCreatingEventLoaderFlag = false
+                isBuildingEventLoaderFlag = false
             }
         }
 
@@ -82,7 +82,7 @@ extension BuildEventViewModel {
         if buildEventType == .create {
             result = await createEvent()
         } else {
-            result = editEvent()
+            result = await editEvent()
         }
 
         return result
@@ -93,7 +93,17 @@ extension BuildEventViewModel {
         ? eventCreationFailed.toggle()
         : eventEditionFailed.toggle()
     }
-    
+
+    private func getImagePath() async -> String? {
+        do {
+            let path = try await imageService.uploadImage(image)
+            return path
+        } catch {
+            Logger.BuildEvent.imageUploadFail()
+            return nil
+        }
+    }
+
 }
 
 // MARK: - Create event
@@ -102,13 +112,24 @@ extension BuildEventViewModel {
 
     private func createEvent() async -> Bool {
         guard validateEventCreation(),
-              let imagePath = await getImagePath() else {
-            return false
-        }
+              let imagePath = await getImagePath() else { return false }
 
         model.create(event: prepareEvent(with: imagePath))
 
         return true
+    }
+
+    private func validateEventCreation() -> Bool {
+        var result = false
+
+        if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+            placeDescription != BuildEventConst.emptyPlaceText &&
+            location != nil {
+            result = true
+        }
+
+        return result
     }
 
     private func prepareEvent(with imagePath: String) -> Event {
@@ -132,55 +153,51 @@ extension BuildEventViewModel {
         return event
     }
 
-    private func validateEventCreation() -> Bool {
-        var result = false
-
-        if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
-            !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
-            placeDescription != BuildEventConst.emptyPlaceText &&
-            location != nil {
-            result = true
-        }
-
-        return result
-    }
-
-    private func getImagePath() async -> String? {
-        do {
-            let path = try await imageService.uploadImage(image)
-            return path
-        } catch {
-            Logger.BuildEvent.imageUploadFail()
-            return nil
-        }
-    }
-
 }
 
 // MARK: - Edit event
 
 extension BuildEventViewModel {
 
-    private func editEvent() -> Bool {
-//        let canEditEvent = validateEventEdition()
-//
-//        if canEditEvent {
-//            let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
-//            let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
-//
-//            event?.imagePath = image
-//            event?.title = eventTitle
-//            event?.seats = seats
-//            event?.link = link
-//            event?.date = date
-//            event?.place = place
-//
-//            model.edit(event)
-//        }
-//
-//        return canEditEvent
+    func imageChanged() {
+        imageChangedFlag = true
+    }
 
-        return false
+    private func editEvent() async -> Bool {
+        let editEventFlags = compareOldEventWithNew()
+        if editEventFlags.isOldEventEqualNewEvent() { return true }
+
+        guard validateEventEdition() else { return false }
+
+        var imagePath = ""
+        if imageChangedFlag {
+            guard let path = await getImagePath() else { return false }
+            imagePath = path
+        }
+
+        model.edit(prepareNewEvent(with: imagePath), with: editEventFlags)
+
+        return true
+    }
+
+    private func compareOldEventWithNew() -> EditEventFlags {
+        guard let event,
+              let location = location,
+              let allSeats = Int(allSeats) else { return EditEventFlags() }
+
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        let geopoint = GeoPoint(latitude: latitude, longitude: longitude)
+
+        var editEventFlags = EditEventFlags()
+        editEventFlags.imageChanged = imageChangedFlag
+        editEventFlags.titleChanged = !(eventTitle == event.title)
+        editEventFlags.allSeatsChanged = !(allSeats == event.seats.all)
+        editEventFlags.linkChanged = !(link == event.link)
+        editEventFlags.dateChanged = !(date == event.date)
+        editEventFlags.geopointChanged = !(geopoint == event.place.geopoint)
+
+        return editEventFlags
     }
 
     private func validateEventEdition() -> Bool {
@@ -191,11 +208,31 @@ extension BuildEventViewModel {
             !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
             Int(allSeats) ?? 1 >= oldAllSeats &&
             placeDescription != BuildEventConst.emptyPlaceText &&
-            location != nil {
-            result = true
-        }
+            placeDescription != BuildEventConst.placeFailText &&
+            location != nil { result = true }
 
         return result
+    }
+
+    private func prepareNewEvent(with imagePath: String) -> Event {
+        let seats = Seats(busy: event?.seats.busy ?? 0, all: Int(allSeats) ?? 1)
+
+        let geopoint = GeoPoint(
+            latitude: location?.coordinate.latitude ?? 0.0,
+            longitude: location?.coordinate.latitude ?? 0.0
+        )
+        let place = Place(geopoint: geopoint, description: placeDescription)
+
+        let event = Event(
+            imagePath: imagePath,
+            title: eventTitle,
+            seats: seats,
+            link: link,
+            date: date,
+            place: place
+        )
+
+        return event
     }
 
 }
@@ -268,7 +305,7 @@ extension BuildEventViewModel {
         let description = await LocationHandler.getPlacemarkDescription(from: loc)
 
         await MainActor.run {
-            if description != BuildEventConst.getPlacemarkDescriptionFailText {
+            if description != BuildEventConst.placeFailText {
                 placeDescription = description
                 location = loc
                 return true
@@ -279,7 +316,7 @@ extension BuildEventViewModel {
             }
         }
 
-        return description != BuildEventConst.getPlacemarkDescriptionFailText
+        return description != BuildEventConst.placeFailText
     }
 
 }

@@ -11,7 +11,7 @@ struct BuildEventFooterButton: View {
                 await viewModel.handleEvent() ? action() : viewModel.toggleEventHandlingFailed()
             }
         } label: {
-            if viewModel.isCreatingEventLoaderFlag {
+            if viewModel.isBuildingEventLoaderFlag {
                 YLoader(size: 50)
             } else {
                 CapsuleLabel(

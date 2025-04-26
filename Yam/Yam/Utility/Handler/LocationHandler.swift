@@ -16,7 +16,7 @@ final class LocationHandler {
     }
 
     static private func parsePlacemark(_ placemark: CLPlacemark?) -> String {
-        guard let placemark else { return BuildEventConst.getPlacemarkDescriptionFailText }
+        guard let placemark else { return BuildEventConst.placeFailText }
 
         var description = [placemark.ocean, placemark.inlandWater, placemark.country, placemark.locality, placemark.thoroughfare, placemark.subThoroughfare]
             .compactMap { $0 }

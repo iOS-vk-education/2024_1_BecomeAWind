@@ -17,6 +17,7 @@ struct BuildEventImagePicker: View {
                 }
                 .onChange(of: viewModel.photosPickerItem) {
                     viewModel.setImage()
+                    viewModel.imageChanged()
                 }
             }
             Spacer()
