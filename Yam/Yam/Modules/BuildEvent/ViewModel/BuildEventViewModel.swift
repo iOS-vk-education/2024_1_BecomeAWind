@@ -7,7 +7,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
     private let model = BuildEventModel()
     private let imageService = ImageService.shared
-//    private let uiconfig: BuildEventUIConfig
+    private let uiconfig: BuildEventUIConfig
     let buildEventType: BuildEventType
     var event: Event?
 
@@ -15,7 +15,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     var headerText: String = ""
 
     /// image picker
-    @Published private(set) var image: UIImage = UIImage()
+    @Published private(set) var image: UIImage = UIImage(named: "default_event_image") ?? UIImage()
     @Published var photosPickerItem: PhotosPickerItem?
     var imagePickerButtonText = ""
 
@@ -46,23 +46,22 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     ) {
         self.buildEventType = builtEventType
         self.event = event
-//        uiconfig = BuildEventUIConfig(type: builtEventType, event: event)
+        uiconfig = BuildEventUIConfig(type: builtEventType, event: event)
         super.init()
-//        applyUIConfig()
+        applyUIConfig()
     }
 
-//    private func applyUIConfig() {
-//        headerText = uiconfig.headerText
-//        image = uiconfig.image
-//        imagePickerButtonText = uiconfig.imagePickerButtonText
-//        eventTitle = uiconfig.eventTitle
-//        allSeats = uiconfig.allSeats
-//        link = uiconfig.link
-//        date = uiconfig.date
-//        placeDescription = uiconfig.placeDescription
-//        location = uiconfig.location
-//        footerButtonText = uiconfig.footerButtonText
-//    }
+    private func applyUIConfig() {
+        headerText = uiconfig.headerText
+        imagePickerButtonText = uiconfig.imagePickerButtonText
+        eventTitle = uiconfig.eventTitle
+        allSeats = uiconfig.allSeats
+        link = uiconfig.link
+        date = uiconfig.date
+        placeDescription = uiconfig.placeDescription
+        location = uiconfig.location
+        footerButtonText = uiconfig.footerButtonText
+    }
 
 }
 
@@ -268,15 +267,19 @@ extension BuildEventViewModel {
 
         let description = await LocationHandler.getPlacemarkDescription(from: loc)
 
-        if description != BuildEventConst.getPlacemarkDescriptionFailText {
-            placeDescription = description
-            location = loc
-            return true
-        } else {
-            placeDescription = BuildEventConst.emptyPlaceText
-            location = nil
-            return false
+        await MainActor.run {
+            if description != BuildEventConst.getPlacemarkDescriptionFailText {
+                placeDescription = description
+                location = loc
+                return true
+            } else {
+                placeDescription = BuildEventConst.emptyPlaceText
+                location = nil
+                return false
+            }
         }
+
+        return description != BuildEventConst.getPlacemarkDescriptionFailText
     }
 
 }

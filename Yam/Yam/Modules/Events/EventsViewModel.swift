@@ -21,10 +21,6 @@ final class EventsViewModel: ObservableObject {
     @Published var isActiveEventLocation = false
     @Published var isActiveEditEvent = false
 
-//    init() {
-//        getEvents()
-//    }
-
     @MainActor
     func getEvents() {
         Task { [weak self] in

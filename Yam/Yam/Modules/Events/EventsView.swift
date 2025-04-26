@@ -36,17 +36,11 @@ struct EventsView: View {
             }
             .listStyle(.plain)
         }
-        .fullScreenCover(
-            isPresented: $viewModel.isActiveCreateEvent
-        ) {
+        .fullScreenCover(isPresented: $viewModel.isActiveCreateEvent) {
             BuildEventView()
-                .onDisappear {
-                    viewModel.getEvents()
-                }
+                .onDisappear { viewModel.getEvents() }
         }
-        .fullScreenCover(
-            isPresented: $viewModel.isActiveEventLocation
-        ) {
+        .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
             }
@@ -64,10 +58,7 @@ struct EventsView: View {
                 }
             }
         }
-        .alert(
-            "указана неверная ссылка",
-            isPresented: $viewModel.invalidLink
-        ) {
+        .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
             Button("ок", role: .cancel) { }
         }
         .onAppear {
