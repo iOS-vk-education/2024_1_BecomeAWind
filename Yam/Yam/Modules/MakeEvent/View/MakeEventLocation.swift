@@ -8,7 +8,7 @@ struct MakeEventLocation: View {
     var body: some View {
         MakeEventTextField(
             text: $viewModel.link,
-            title: "контакты создателя",
+            title: "Контакты создателя",
             prompt: "https://event.creator.link/",
             lineLimit: MakeEventConst.lineLimit
         )

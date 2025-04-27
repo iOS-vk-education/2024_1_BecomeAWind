@@ -4,7 +4,7 @@ struct MakeEventPlacePicker: View {
     @ObservedObject var viewModel: MakeEventViewModel
 
     var body: some View {
-        YText("место", font: MakeEventConst.sectionTitleFont)
+        YText("Место", font: MakeEventConst.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, Const.sideSpace)
 

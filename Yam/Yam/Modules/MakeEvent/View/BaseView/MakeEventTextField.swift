@@ -10,7 +10,7 @@ struct MakeEventTextField: View {
     init(
         text: Binding<String>,
         title: String,
-        prompt: String = "введи текст",
+        prompt: String = "Введи текст",
         lineLimit: Int
     ) {
         self.text = text

@@ -61,10 +61,10 @@ struct ProfileView: View {
             }
         }
         .alert(
-            "указана неверная ссылка",
+            "Указана неверная ссылка",
             isPresented: $viewModel.invalidLink
         ) {
-            Button("ок", role: .cancel) { }
+            Button("ОК", role: .cancel) { }
         }
         .onAppear {
             viewModel.updateEvents()

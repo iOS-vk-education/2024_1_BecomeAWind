@@ -1,6 +1,7 @@
 import _PhotosUI_SwiftUI
 import SwiftUI
 import MapKit
+import FirebaseFirestore
 
 final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
 
@@ -36,6 +37,7 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     @Published var eventTitle: String = ""
     @Published var allSeats: String = ""
     @Published var link: String = ""
+    @Published var eventDescription: String = ""
 
     /// date picker
     @Published var date: Date = Date()
@@ -44,14 +46,24 @@ final class MakeEventViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     @Published var isActiveMakeEventPlace = false
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
     @Published var placeDescription: String = ""
-    private var location: CLLocation?
-    private var place: Place?
+    @Published var geoPoint: GeoPoint?
+    @Published var location: CLLocation?
+    @Published var place: Place?
 
     /// handle event
     @Published var eventCreationFailed = false
     @Published var eventEditionFailed = false
     var footerButtonText: String = ""
+    
+    @Published var busySeats: Int = 0
 
+    var seatsFb: [String: Int] {
+        return [
+            "all": Int(allSeats) ?? 0,
+            "busy": busySeats
+        ]
+    }
+    
 }
 
 // MARK: - init
@@ -71,7 +83,7 @@ extension MakeEventViewModel {
     }
 
     private func initHeaderText() {
-        headerText = typeOfMakeEventView == .create ? "новый ивент" : "редактирование ивента"
+        headerText = typeOfMakeEventView == .create ? "Новый ивент" : "Редактирование ивента"
     }
 
     private func initImage() {
@@ -81,7 +93,7 @@ extension MakeEventViewModel {
     }
 
     private func initImagePicker() {
-        imagePickerButtonText = typeOfMakeEventView == .create ? "выбери превью" : "измени превью"
+        imagePickerButtonText = typeOfMakeEventView == .create ? "Выбери превью" : "Измени превью"
     }
 
     private func initEventTitle() {
@@ -89,7 +101,7 @@ extension MakeEventViewModel {
     }
 
     private func initAllSeats() {
-        allSeats = typeOfMakeEventView == .create ? "1" : String(event?.seats.all ?? 1)
+        allSeats = typeOfMakeEventView == .create ? "" : String(event?.seats.all ?? 1)
     }
 
     private func initLink() {
@@ -111,7 +123,7 @@ extension MakeEventViewModel {
     }
 
     private func initFooterButtonText() {
-        footerButtonText = typeOfMakeEventView == .create ? "создать ивент" : "обновить ивент"
+        footerButtonText = typeOfMakeEventView == .create ? "Создать ивент" : "Обновить ивент"
     }
 
 }
@@ -148,14 +160,15 @@ extension MakeEventViewModel {
         if canCreateEvent {
             let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
             let place = Place(location: location ?? CLLocation(), placeDescription: placeDescription)
-            let event = Event(
-                image: image,
+            guard let event = Event(
+                description: eventDescription,
                 title: eventTitle,
                 seats: seats,
                 link: link,
+                image: image,
                 date: date,
                 place: place
-            )
+            ) else { return false }
             model.create(event)
         }
 
@@ -276,11 +289,39 @@ extension MakeEventViewModel {
                 let description = LocationHandler.parsePlacemark(placemark)
                 self?.placeDescription = description
                 self?.location = location
+                self?.updatePlace(from: description, location: location)
                 completion(true)
             } else {
                 self?.placeDescription = MakeEventConst.emptyPlaceText
                 self?.location = nil
                 completion(false)
+            }
+        }
+    }
+    
+    func updatePlace(from description: String, location: CLLocation) {
+        let latitudePrefix = "Широта:"
+        let longitudePrefix = "Долгота:"
+
+        if let latRange = description.range(of: latitudePrefix),
+           let lonRange = description.range(of: longitudePrefix) {
+
+            let latitudeStartIndex = description.index(latRange.upperBound, offsetBy: 1)
+            let longitudeStartIndex = description.index(lonRange.upperBound, offsetBy: 1)
+
+            let latitudePattern = "[+-]?([0-9]*[.])?[0-9]+"
+            let longitudePattern = "[+-]?([0-9]*[.])?[0-9]+"
+
+            if let latitudeMatch = description.range(of: latitudePattern, options: .regularExpression, range: latitudeStartIndex..<description.endIndex),
+               let longitudeMatch = description.range(of: longitudePattern, options: .regularExpression, range: longitudeStartIndex..<description.endIndex) {
+
+                let latitudeString = description[latitudeMatch]
+                let longitudeString = description[longitudeMatch]
+
+                if let latitude = Double(latitudeString), let longitude = Double(longitudeString) {
+                    self.geoPoint = GeoPoint(latitude: latitude, longitude: longitude)
+                    self.placeDescription = description
+                }
             }
         }
     }
