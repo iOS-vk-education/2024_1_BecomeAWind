@@ -35,7 +35,7 @@ final class TempDatabase: ObservableObject {
                 completion(nil, error)
                 return
             }
-            
+
             var events = [Event]()
 
             guard let snapshot = snapshot else {
@@ -59,19 +59,17 @@ final class TempDatabase: ObservableObject {
     private func generateEvents() {
         loadEvents { events, error in
             if error != nil {
-                print("failed to load")
                 return
             }
             
             if let events = events {
-                print("all is good")
-                for currEvent in events {
-                    self.allEvents.append(currEvent)
-                    print("loaded event to allEvents")
+                DispatchQueue.main.async {
+                    for currEvent in events {
+                        self.allEvents.append(currEvent)
+                    }
+                    
                 }
             }
-            
-            print("end func")
         }
         
 //        let image1 = UIImage(named: "football")!

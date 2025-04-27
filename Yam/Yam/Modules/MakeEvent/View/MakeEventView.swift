@@ -1,10 +1,11 @@
 import SwiftUI
 import Combine
+import UIKit
 
 struct MakeEventView: View {
 
     enum Field {
-        case title, seats, link
+        case title, seats, link, description
     }
 
     @Environment(\.dismiss) private var dismiss
@@ -27,6 +28,9 @@ struct MakeEventView: View {
                 MakeEventTitle(viewModel: viewModel)
                     .focused($focus, equals: .title)
 
+                MakeEventDescription(viewModel: viewModel)
+                    .focused($focus, equals: .description)
+
                 MakeEventSeats(viewModel: viewModel)
                     .focused($focus, equals: .seats)
 
@@ -39,26 +43,40 @@ struct MakeEventView: View {
 
                 MakeEventFooterButton(viewModel: viewModel) { dismiss() }
             }
+            .scrollDismissesKeyboard(.interactively)
+            .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
+            
 
-            MakeEventHideKeyboardButton {
-                focus = nil
-            }
-            .opacity(focus == nil ? 0 : 1)
+//            MakeEventHideKeyboardButton {
+//                focus = nil
+//            }
+//            .opacity(focus == nil ? 0 : 1)
         }
         .alert(
-            "заполни все поля",
+            "Заполни все поля",
             isPresented: $viewModel.eventCreationFailed
         ) {
-            Button("ок", role: .cancel) {}
+            Button("ОК", role: .cancel) {}
         }
         .alert(
-            "заполни все поля и введи количество мест не меньше предыдущего",
+            "Заполни все поля и введи количество мест не меньше предыдущего",
             isPresented: $viewModel.eventEditionFailed
         ) {
-            Button("ок", role: .cancel) {}
+            Button("ОК", role: .cancel) {}
         }
     }
 
+}
+
+extension UIApplication: @retroactive UIGestureRecognizerDelegate {
+    func addTapGestureRecognizer() {
+        guard let window = windows.first else { return }
+        let tapGesture = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self
+        tapGesture.name = "MyTapGesture"
+        window.addGestureRecognizer(tapGesture)
+    }
 }
 
 #Preview {

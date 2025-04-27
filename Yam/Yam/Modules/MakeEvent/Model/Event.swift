@@ -1,5 +1,6 @@
 import UIKit
 import CoreLocation
+import FirebaseFirestore
 
 struct Event: Identifiable, Hashable {
     var id = UUID()
@@ -25,46 +26,31 @@ struct Event: Identifiable, Hashable {
         guard
             let title = data["title"] as? String,
             let link = data["link"] as? String,
-            let description = data["description"] as? String
+            let description = data["description"] as? String,
+            let seats = data["seats"] as? [String: Int],
+            let place = data["place"] as? GeoPoint,
+            let placeDescription = data["placeDescription"] as? String,
+            let dateTimestamp = data["date"] as? Timestamp
         else {
+            print("govno")
             return nil
         }
     
 //        let image = data["image"] as? UIImage
-        let seats = data["seats"] as? Seats
-        let place = data["place"] as? Place
-        let date = data["date"] as? Date
-            
+        
+        if let seats = data["seats"] as? [String: Int],
+           let busy = seats["busy"],
+           let all = seats["all"] {
+            self.seats = Seats(busy: busy, all: all)
+        } else { return nil }
+        
+        self.place = Place(location: CLLocation(latitude: place.latitude,
+                                                longitude: place.longitude),
+                           placeDescription: placeDescription)
+        self.date = dateTimestamp.dateValue()
         self.title = title
         self.link = link
         self.image = .init(systemName: "circle.fill")!
         self.description = description
-        if let date = date { self.date = date } else { return nil }
-        if let seats = seats { self.seats = seats } else { return nil }
-        if let place = place { self.place = place } else { return nil }
     }
-        
-        
-//        init?(data: [String: Any] ) {
-//        guard
-//            let title = data["title"] as? String
-//        else {
-//            return nil
-//        }
-//
-//        let place = data["place"] as? Place
-//        let link = data["link"] as? String
-//        let image = data["image"] as? UIImage
-//        let date = data["date"] as? Date
-//        let seats = data["seats"] as? Seats
-//        let body = data["description"] as? String
-//        let description = data["description"] as? String
-//
-//        self.title = title
-//        self.description = description
-//        if let seats = seats { self.seats = seats } else { return nil }
-//        if let place = place { self.place = place } else { return nil }
-//        if let link = link { self.link = link } else { return nil }
-//        if let image = image { self.image = image } else { return nil }
-//        if let date = date { self.date = date } else { return nil }
 }

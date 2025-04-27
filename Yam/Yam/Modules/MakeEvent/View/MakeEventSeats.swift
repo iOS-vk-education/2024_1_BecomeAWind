@@ -8,7 +8,7 @@ struct MakeEventSeats: View {
     var body: some View {
         MakeEventTextField(
             text: $viewModel.allSeats,
-            title: "количество мест",
+            title: "Количество мест",
             prompt: "1",
             lineLimit: MakeEventConst.lineLimit
         )

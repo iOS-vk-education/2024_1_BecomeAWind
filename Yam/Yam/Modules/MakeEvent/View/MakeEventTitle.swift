@@ -8,8 +8,8 @@ struct MakeEventTitle: View {
     var body: some View {
         MakeEventTextField(
             text: $viewModel.eventTitle,
-            title: "название",
-            prompt: "расскажи об ивенте",
+            title: "Название",
+            prompt: "Выбери название события",
             lineLimit: MakeEventConst.lineLimit
         )
         .onReceive(Just(viewModel.eventTitle)) { _ in

@@ -23,7 +23,7 @@ struct MakeEventPlaceView: View {
                     }
                 } label: {
                     YCapsuleLabel(
-                        title: "выбрать",
+                        title: "Выбрать",
                         font: Const.buttonFont
                     )
                 }

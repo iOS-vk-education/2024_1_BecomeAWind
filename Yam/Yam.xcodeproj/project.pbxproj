@@ -86,6 +86,7 @@
 		87FDD9422D836C8300C2B5EC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9412D836C8300C2B5EC /* FirebaseAuth */; };
 		87FDD9442D836C8300C2B5EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9432D836C8300C2B5EC /* FirebaseFirestore */; };
 		87FDD9462D836C8300C2B5EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9452D836C8300C2B5EC /* FirebaseStorage */; };
+		CE3C33AC2DBEBE5500FC6B9B /* MakeEventDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C33AB2DBEBE3C00FC6B9B /* MakeEventDescription.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +169,7 @@
 		87FDD9362D82F5D500C2B5EC /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		87FDD9382D82F73400C2B5EC /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		87FDD93A2D83471100C2B5EC /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		CE3C33AB2DBEBE3C00FC6B9B /* MakeEventDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventDescription.swift; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +228,7 @@
 		870E3C622D4388D40043DA00 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE3C33AB2DBEBE3C00FC6B9B /* MakeEventDescription.swift */,
 				870E3C612D4388D40043DA00 /* MakeEventView.swift */,
 				87D4D2952D94803700A5E4B8 /* MakeEventHeader.swift */,
 				878432E52D512A1500A24538 /* MakeEventImagePicker.swift */,
@@ -700,6 +703,7 @@
 				87D4D29A2D94815600A5E4B8 /* MakeEventSeats.swift in Sources */,
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				879ADB012D80AF2600F43C04 /* YSquareButton.swift in Sources */,
+				CE3C33AC2DBEBE5500FC6B9B /* MakeEventDescription.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* YCapsuleLabel.swift in Sources */,
 				87336F542D7C39AC00BD699A /* EntryViewModel.swift in Sources */,
