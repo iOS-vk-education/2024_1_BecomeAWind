@@ -109,7 +109,6 @@
 		87DE0D792DBD289900D4DDF8 /* ImageDownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */; };
 		87DE0D7B2DBD2AD300D4DDF8 /* EventCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */; };
 		87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7C2DBD353300D4DDF8 /* Place.swift */; };
-		87DE0D7F2DBD5F6400D4DDF8 /* EditEventFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7E2DBD5F6400D4DDF8 /* EditEventFlags.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardViewModelProtocol.swift */; };
@@ -223,7 +222,6 @@
 		87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderViewModel.swift; sourceTree = "<group>"; };
 		87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardImage.swift; sourceTree = "<group>"; };
 		87DE0D7C2DBD353300D4DDF8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		87DE0D7E2DBD5F6400D4DDF8 /* EditEventFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventFlags.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* BuildEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventVStack.swift; sourceTree = "<group>"; };
@@ -289,7 +287,6 @@
 			children = (
 				870E3C592D4388D40043DA00 /* BuildEventModel.swift */,
 				871903672DB844DB005DED9E /* BuildEventType.swift */,
-				87DE0D7E2DBD5F6400D4DDF8 /* EditEventFlags.swift */,
 				8723CFF72DB5985D00A0E194 /* Field.swift */,
 			);
 			path = Model;
@@ -835,7 +832,6 @@
 				87D4D2902D947E2300A5E4B8 /* EventLocationMap.swift in Sources */,
 				8786CF2B2DB4CBC80010D079 /* RootView.swift in Sources */,
 				87C997DB2D9B26F10069F73D /* EmailView.swift in Sources */,
-				87DE0D7F2DBD5F6400D4DDF8 /* EditEventFlags.swift in Sources */,
 				870E3C8E2D4388D40043DA00 /* AuthorizedEntryConst.swift in Sources */,
 				8744C4642DADBE65001A0A9F /* YUser.swift in Sources */,
 				87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */,

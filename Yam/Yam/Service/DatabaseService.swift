@@ -6,12 +6,11 @@ final class DatabaseService {
     static let shared = DatabaseService()
     private let db = Firestore.firestore()
 
-    private var usersReference: CollectionReference {
-        db.collection("users")
-    }
-
     private init() {}
-    
+
+    private func getUserDoc(userID: String) -> DocumentReference {
+        db.collection("users").document(userID)
+    }
 }
 
 // MARK: - Auth
@@ -19,7 +18,7 @@ final class DatabaseService {
 extension DatabaseService {
 
     func createUser(user: YUser, completion: @escaping (Result<YUser, Error>) -> Void) {
-        usersReference.document(user.id).setData(user.representation) { error in
+        getUserDoc(userID: user.id).setData(user.representation) { error in
             if let error {
                 completion(.failure(error))
                 Logger.Auth.userNotAddedToDatabase(error: error)
@@ -36,17 +35,15 @@ extension DatabaseService {
 
 extension DatabaseService {
 
-    func getEvents(of type: EventType, from userID: String) async -> (myEvents: [Event], subscriptions: [Event]) {
-        var myEvents = [Event](), subscriptions = [Event]()
-        let userRef = usersReference.document(userID)
+    func getEvents(of type: EventType, userID: String) async -> [Event] {
+        var events = [Event]()
 
         do {
-            let userDoc = try await userRef.getDocument()
+            let userDoc = try await getUserDoc(userID: userID).getDocument()
 
             if userDoc.exists {
                 let user = try userDoc.data(as: YUser.self)
-                myEvents = user.myEvents
-                subscriptions = user.subscriptions
+                events = type == .my ? user.myEvents : user.subscriptions
             } else {
                 Logger.Events.docDoesntExist()
             }
@@ -54,7 +51,7 @@ extension DatabaseService {
             Logger.Events.errorGettingDocument(error)
         }
 
-        return (myEvents, subscriptions)
+        return events
     }
 
 }
@@ -65,17 +62,40 @@ extension DatabaseService {
 extension DatabaseService {
 
     func addEventFor(userID: String, event: Event) {
-        let userDoc = usersReference.document(userID)
-
-        userDoc.updateData([
+        getUserDoc(userID: userID).updateData([
             "myEvents": FieldValue.arrayUnion([event.representation])
         ])
     }
 
-    func editEventFor(userID: String, dictToEdit: [String: Any]) {
-        let userDoc = usersReference.document(userID)
+    func editEventFor(userID: String, event: Event) async {
+        func findIndexToRemove() -> Int? {
+            for (i, now) in myEvents.enumerated() {
+                if now.id == event.id {
+                    return i
+                }
+            }
+            return nil
+        }
 
-        userDoc.updateData(dictToEdit)
+        let userDoc = getUserDoc(userID: userID)
+
+        var myEvents = await getEvents(of: .my, userID: userID)
+
+        let indexToRemove = findIndexToRemove()
+        if let indexToRemove {
+            myEvents.remove(at: indexToRemove)
+            myEvents.insert(event, at: indexToRemove)
+        }
+
+
+        do {
+            try await userDoc.updateData([
+                "myEvents": myEvents.map { $0.representation }
+            ])
+            Logger.BuildEvent.eventEditSuccess()
+        } catch {
+            Logger.BuildEvent.eventEditFail(error)
+        }
     }
 
 }

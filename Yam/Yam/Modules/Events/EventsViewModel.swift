@@ -26,7 +26,8 @@ final class EventsViewModel: ObservableObject {
         Task { [weak self] in
             guard let self else { return }
 
-            let (myEvents, subscriptions) = await dbService.getEvents(of: .my, from: authInteractor.getUserID() ?? "")
+            let myEvents = await dbService.getEvents(of: .my, userID: authInteractor.getUserID() ?? "")
+            let subscriptions = await dbService.getEvents(of: .notMy, userID: authInteractor.getUserID() ?? "")
 
             DispatchQueue.main.async {
                 self.myEvents = myEvents

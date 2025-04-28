@@ -12,7 +12,7 @@ extension Logger {
     }
 
     static func printErrorDescription(_ error: Error) {
-        print("Error description = \(error.localizedDescription)\n")
+        print("Error desc = \(error.localizedDescription)\n")
     }
 
     static func ping() {
@@ -31,7 +31,7 @@ extension Logger {
         }
 
         static func userNotCreated(error: Error) {
-            print("User not created, error description = \(error.localizedDescription)\n")
+            print("User not created, error desc = \(error.localizedDescription)\n")
         }
 
         static func userAddedToDatabase() {
@@ -39,7 +39,7 @@ extension Logger {
         }
 
         static func userNotAddedToDatabase(error: Error) {
-            print("User not added to database, error description = \(error.localizedDescription)\n")
+            print("User not added to database, error desc = \(error.localizedDescription)\n")
         }
 
         static func authSuccess() {
@@ -47,7 +47,7 @@ extension Logger {
         }
 
         static func authFail(error: Error) {
-            print("Authorization fail, error description = \(error.localizedDescription)\n")
+            print("Authorization fail, error desc = \(error.localizedDescription)\n")
         }
 
         static func signOutSuccess() {
@@ -55,7 +55,7 @@ extension Logger {
         }
 
         static func signOutFail(error: Error) {
-            print("Sign out fail, error description = \(error.localizedDescription)\n")
+            print("Sign out fail, error desc = \(error.localizedDescription)\n")
         }
 
         static func printCurrentUserSession(_ user: User?) {
@@ -87,11 +87,11 @@ extension Logger {
         }
 
         static func errorGettingDocument(_ error: Error) {
-            print("Error getting document description = \(error.localizedDescription)\n")
+            print("Error getting document desc = \(error.localizedDescription)\n")
         }
 
         static func loadImageFail(by path: String, with error: Error) {
-            print("Load image fail by path = \(path), error description = \(error.localizedDescription)")
+            print("Load image fail by path = \(path), error desc = \(error.localizedDescription)")
         }
 
     }
@@ -128,8 +128,11 @@ extension Logger {
             print("Event edit success")
         }
 
-        static func eventEditFail() {
-            print("Event edit fail")
+        static func eventEditFail(_ error: Error?) {
+            print("Event edit fail, ", terminator: "")
+            if let error {
+                print("error desc = \(error)")
+            }
         }
 
     }
@@ -161,7 +164,7 @@ extension Logger {
     enum LocationHandler {
 
         static func getPlacemarkFail(with error: Error) {
-            print("Get placemark fail, error description = \(error.localizedDescription)")
+            print("Get placemark fail, error desc = \(error.localizedDescription)")
         }
 
         static func printPlacemarkInfo(placemark: CLPlacemark) {

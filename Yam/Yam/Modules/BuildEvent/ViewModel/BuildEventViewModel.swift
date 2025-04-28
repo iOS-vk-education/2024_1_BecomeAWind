@@ -114,7 +114,7 @@ extension BuildEventViewModel {
         guard canCreate(),
               let imagePath = await getImagePath() else { return false }
 
-        model.create(event: prepareEvent(with: imagePath))
+        model.create(prepareEventForCreate(with: imagePath))
 
         return true
     }
@@ -132,7 +132,7 @@ extension BuildEventViewModel {
         return result
     }
 
-    private func prepareEvent(with imagePath: String) -> Event {
+    private func prepareEventForCreate(with imagePath: String) -> Event {
         let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
 
         let geopoint = GeoPoint(
@@ -164,11 +164,9 @@ extension BuildEventViewModel {
     }
 
     private func editEvent() async -> Bool {
-        let editEventFlags = compareOldEventWithNew()
-        if editEventFlags.isOldEventEqualNewEvent() { return true }
-
-        guard let event = event,
-                canEdit() else { return false }
+        guard let event = event else { return false }
+        if isOldEqualNew(oldEvent: event) { return true }
+        if !canEdit(oldEvent: event) { return false }
 
         var imagePath = ""
         if imageChangedFlag {
@@ -178,47 +176,38 @@ extension BuildEventViewModel {
             imagePath = event.imagePath
         }
 
-        model.edit(prepareNewEvent(with: imagePath), with: editEventFlags)
+        await model.edit(prepareEventForEdit(with: imagePath, oldEvent: event))
 
         return true
     }
 
-    private func compareOldEventWithNew() -> Bool {
-        guard let event,
-              let location = location,
-              let allSeats = Int(allSeats) else { return  }
+    private func isOldEqualNew(oldEvent: Event) -> Bool {
+        guard let location = location,
+              let allSeats = Int(allSeats) else { return false }
 
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let geopoint = GeoPoint(latitude: latitude, longitude: longitude)
 
-        var editEventFlags = EditEventFlags()
-        editEventFlags.imageChanged = imageChangedFlag
-        editEventFlags.titleChanged = !(eventTitle == event.title)
-        editEventFlags.allSeatsChanged = !(allSeats == event.seats.all)
-        editEventFlags.linkChanged = !(link == event.link)
-        editEventFlags.dateChanged = !(date == event.date)
-        editEventFlags.geopointChanged = !(geopoint == event.place.geopoint)
-
-        return editEventFlags
+        return !imageChangedFlag &&
+        eventTitle == oldEvent.title &&
+        allSeats == oldEvent.seats.all &&
+        link == oldEvent.link &&
+        date == oldEvent.date &&
+        geopoint == oldEvent.place.geopoint
     }
 
-    private func canEdit() -> Bool {
-        var result = false
-        let oldAllSeats = event?.seats.all ?? 1
-
-        if !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
-            !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
-            Int(allSeats) ?? 1 >= oldAllSeats &&
-            placeDescription != BuildEventConst.emptyPlaceText &&
-            placeDescription != BuildEventConst.placeFailText &&
-            location != nil { result = true }
-
-        return result
+    private func canEdit(oldEvent: Event) -> Bool {
+        !eventTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        Int(allSeats) ?? 1 >= oldEvent.seats.all &&
+        placeDescription != BuildEventConst.emptyPlaceText &&
+        placeDescription != BuildEventConst.placeFailText &&
+        location != nil
     }
 
-    private func prepareNewEvent(with imagePath: String) -> Event {
-        let seats = Seats(busy: event?.seats.busy ?? 0, all: Int(allSeats) ?? 1)
+    private func prepareEventForEdit(with imagePath: String, oldEvent: Event) -> Event {
+        let seats = Seats(busy: oldEvent.seats.busy, all: Int(allSeats) ?? 1)
 
         let geopoint = GeoPoint(
             latitude: location?.coordinate.latitude ?? 0.0,
@@ -227,6 +216,7 @@ extension BuildEventViewModel {
         let place = Place(geopoint: geopoint, description: placeDescription)
 
         let event = Event(
+            id: oldEvent.id,
             imagePath: imagePath,
             title: eventTitle,
             seats: seats,
