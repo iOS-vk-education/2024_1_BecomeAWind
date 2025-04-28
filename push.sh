@@ -1,2 +1,2 @@
-git add -A && read -p "Введите коммит: " msg && git commit -m "$msg" && git push
+git add -A && read -p "commit: " msg && git commit -m "$msg" && git push
 
