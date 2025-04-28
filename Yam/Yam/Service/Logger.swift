@@ -135,6 +135,17 @@ extension Logger {
             }
         }
 
+        static func eventDeleteSuccess() {
+            print("Event delete success")
+        }
+
+        static func eventDeleteFail(_ error: Error?) {
+            print("Event delete fail, ", terminator: "")
+            if let error {
+                print("error desc = \(error)")
+            }
+        }
+
     }
 
 }

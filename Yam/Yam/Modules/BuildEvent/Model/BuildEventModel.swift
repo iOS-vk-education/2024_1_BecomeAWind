@@ -17,14 +17,20 @@ final class BuildEventModel {
         Logger.BuildEvent.eventCreateSuccess()
     }
 
-    func edit(_ preparedEvent: Event) async {
+    func edit(_ preparedEvent: Event) async -> Bool {
         guard let userID = authInteractor.getUserID() else {
-            Logger.BuildEvent.eventEditFail(nil)
-            return
+            return false
         }
 
-        await dbService.editEventFor(userID: userID, event: preparedEvent)
-        Logger.BuildEvent.eventEditSuccess()
+        return await dbService.editEventFor(userID: userID, event: preparedEvent)
+    }
+
+    func delete(_ event: Event) async -> Bool {
+        guard let userID = authInteractor.getUserID() else {
+            return false
+        }
+
+        return await dbService.deleteEventFor(userID: userID, event: event)
     }
 
 }

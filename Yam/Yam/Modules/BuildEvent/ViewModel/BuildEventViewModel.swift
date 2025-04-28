@@ -36,9 +36,13 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
     /// handle event
     @Published var isBuildingEventLoaderFlag = false
+    @Published var isDeletingEventLoaderFlag = false
     @Published var eventCreationFailed = false
     @Published var eventEditionFailed = false
+    @Published var eventDeletionFailed = false
+    @Published var savingAlert = false
     var footerButtonText: String = ""
+    var deleteEventButtonText: String = ""
 
     init(
         builtEventType: BuildEventType = .create,
@@ -61,6 +65,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
         placeDescription = uiConfig.placeDescription
         location = uiConfig.location
         footerButtonText = uiConfig.footerButtonText
+        deleteEventButtonText = uiConfig.deleteEventButtonText
     }
 
 }
@@ -176,9 +181,7 @@ extension BuildEventViewModel {
             imagePath = event.imagePath
         }
 
-        await model.edit(prepareEventForEdit(with: imagePath, oldEvent: event))
-
-        return true
+        return await model.edit(prepareEventForEdit(with: imagePath, oldEvent: event))
     }
 
     private func isOldEqualNew(oldEvent: Event) -> Bool {
@@ -226,6 +229,33 @@ extension BuildEventViewModel {
         )
 
         return event
+    }
+
+}
+
+// MARK: - Delete event
+
+extension BuildEventViewModel {
+
+    func deleteEvent() async -> Bool {
+        guard let event = event else { return false }
+
+        await MainActor.run { isDeletingEventLoaderFlag = true }
+        defer {
+            Task { @MainActor in
+                isDeletingEventLoaderFlag = false
+            }
+        }
+
+        return await model.delete(event)
+    }
+
+    func showSavingAlert() {
+        savingAlert.toggle()
+    }
+
+    func toggleEventDeletionFailed() {
+        eventDeletionFailed.toggle()
     }
 
 }

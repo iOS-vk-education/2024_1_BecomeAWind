@@ -33,7 +33,10 @@ struct BuildEventView: View {
 
                 BuildEventPlacePicker(viewModel: viewModel)
 
-                BuildEventFooterButton(viewModel: viewModel) { dismiss() }
+                FooterButtonsPack(viewModel: viewModel) {
+                    dismiss()
+                }
+
             }
 
             BuildEventHideKeyboardButton {
@@ -50,6 +53,20 @@ struct BuildEventView: View {
         .alert(
             "ошибка. проверь, все ли поля заполнены, убедись, что введенное количество мест не меньше предыдущего, попробуй еще раз",
             isPresented: $viewModel.eventEditionFailed
+        ) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("удалить ивент?", isPresented: $viewModel.savingAlert) {
+            Button("отмена", role: .cancel) {}
+            Button("удалить", role: .destructive) {
+                Task {
+                    await viewModel.deleteEvent() ? dismiss() : viewModel.toggleEventDeletionFailed()
+                }
+            }
+        }
+        .alert(
+            "ошибка. не удалось удалить ивент. попробуй еще раз.",
+            isPresented: $viewModel.eventDeletionFailed
         ) {
             Button("ок", role: .cancel) {}
         }

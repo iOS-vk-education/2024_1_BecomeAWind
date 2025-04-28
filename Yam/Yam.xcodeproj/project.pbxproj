@@ -109,6 +109,8 @@
 		87DE0D792DBD289900D4DDF8 /* ImageDownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */; };
 		87DE0D7B2DBD2AD300D4DDF8 /* EventCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */; };
 		87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7C2DBD353300D4DDF8 /* Place.swift */; };
+		87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */; };
+		87DE0DA02DC002FF00D4DDF8 /* FooterButtonsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardViewModelProtocol.swift */; };
@@ -222,6 +224,8 @@
 		87DE0D782DBD289900D4DDF8 /* ImageDownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderViewModel.swift; sourceTree = "<group>"; };
 		87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardImage.swift; sourceTree = "<group>"; };
 		87DE0D7C2DBD353300D4DDF8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEventButton.swift; sourceTree = "<group>"; };
+		87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonsPack.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* BuildEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventVStack.swift; sourceTree = "<group>"; };
@@ -302,7 +306,7 @@
 				87D4D2992D94815600A5E4B8 /* BuildEventSeats.swift */,
 				87D4D29C2D94822100A5E4B8 /* BuildEventLocation.swift */,
 				870E3C5E2D4388D40043DA00 /* BuildEventDatePicker.swift */,
-				87D4D2A02D94829C00A5E4B8 /* BuildEventFooterButton.swift */,
+				87DE0D9E2DC001CC00D4DDF8 /* FooterButtonsPack */,
 				87D4D2A22D94836100A5E4B8 /* BuildEventHideKeyboardButton.swift */,
 				87FC484A2D52446900F6D8CC /* BuildEventPlace */,
 				87D4D29B2D9481FF00A5E4B8 /* BaseView */,
@@ -682,6 +686,16 @@
 			path = ImageDownloader;
 			sourceTree = "<group>";
 		};
+		87DE0D9E2DC001CC00D4DDF8 /* FooterButtonsPack */ = {
+			isa = PBXGroup;
+			children = (
+				87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */,
+				87D4D2A02D94829C00A5E4B8 /* BuildEventFooterButton.swift */,
+				87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */,
+			);
+			path = FooterButtonsPack;
+			sourceTree = "<group>";
+		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +849,7 @@
 				870E3C8E2D4388D40043DA00 /* AuthorizedEntryConst.swift in Sources */,
 				8744C4642DADBE65001A0A9F /* YUser.swift in Sources */,
 				87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */,
+				87DE0DA02DC002FF00D4DDF8 /* FooterButtonsPack.swift in Sources */,
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
 				879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */,
 				8751D8692DBAD5C80004C61B /* EventCard.swift in Sources */,
@@ -900,6 +915,7 @@
 				8744C4562DADAC47001A0A9F /* AuthConst.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* YTextField.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* BuildEventViewModel.swift in Sources */,
+				87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */,
 				871903682DB844DB005DED9E /* BuildEventType.swift in Sources */,
 				87336FA72D7F56A800BD699A /* EventsTab.swift in Sources */,
 				87D4D2962D94803700A5E4B8 /* BuildEventHeader.swift in Sources */,

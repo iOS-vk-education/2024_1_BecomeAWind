@@ -67,21 +67,12 @@ extension DatabaseService {
         ])
     }
 
-    func editEventFor(userID: String, event: Event) async {
-        func findIndexToRemove() -> Int? {
-            for (i, now) in myEvents.enumerated() {
-                if now.id == event.id {
-                    return i
-                }
-            }
-            return nil
-        }
-
+    func editEventFor(userID: String, event: Event) async -> Bool {
         let userDoc = getUserDoc(userID: userID)
 
         var myEvents = await getEvents(of: .my, userID: userID)
 
-        let indexToRemove = findIndexToRemove()
+        let indexToRemove = findIndexToRemove(in: myEvents, with: event.id)
         if let indexToRemove {
             myEvents.remove(at: indexToRemove)
             myEvents.insert(event, at: indexToRemove)
@@ -93,9 +84,42 @@ extension DatabaseService {
                 "myEvents": myEvents.map { $0.representation }
             ])
             Logger.BuildEvent.eventEditSuccess()
+            return true
         } catch {
             Logger.BuildEvent.eventEditFail(error)
+            return false
         }
+    }
+
+    func deleteEventFor(userID: String, event: Event) async -> Bool {
+        let userDoc = getUserDoc(userID: userID)
+
+        var myEvents = await getEvents(of: .my, userID: userID)
+
+        let indexToRemove = findIndexToRemove(in: myEvents, with: event.id)
+        if let indexToRemove {
+            myEvents.remove(at: indexToRemove)
+        }
+
+        do {
+            try await userDoc.updateData([
+                "myEvents": myEvents.map { $0.representation }
+            ])
+            Logger.BuildEvent.eventDeleteSuccess()
+            return true
+        } catch {
+            Logger.BuildEvent.eventDeleteFail(error)
+            return false
+        }
+    }
+
+    private func findIndexToRemove(in eventArray: [Event], with id: String) -> Int? {
+        for (i, now) in eventArray.enumerated() {
+            if now.id == id {
+                return i
+            }
+        }
+        return nil
     }
 
 }

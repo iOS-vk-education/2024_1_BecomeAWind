@@ -48,8 +48,10 @@ struct BuildEventUIConfig {
     }
 
     var footerButtonText: String {
-        type == .create ? "создать ивент" : "обновить ивент"
+        type == .create ? "создать" : "обновить"
     }
+
+    let deleteEventButtonText = "удалить"
 
     init(type: BuildEventType, event: Event?) {
         self.type = type
