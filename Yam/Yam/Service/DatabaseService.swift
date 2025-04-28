@@ -15,6 +15,7 @@ final class DatabaseService {
     private func getEventDoc(eventID: String) -> DocumentReference {
         db.collection("events").document(eventID)
     }
+
 }
 
 // MARK: - Auth
@@ -74,6 +75,7 @@ extension DatabaseService {
 
     func editEventFor(userID: String, event: Event) async -> Bool {
         let userDoc = getUserDoc(userID: userID)
+        let eventDoc = getEventDoc(eventID: event.id)
 
         var myEvents = await getEvents(of: .my, userID: userID)
 
@@ -88,6 +90,7 @@ extension DatabaseService {
             try await userDoc.updateData([
                 "myEvents": myEvents.map { $0.representation }
             ])
+            try await eventDoc.updateData(event.representation)
             Logger.BuildEvent.eventEditSuccess()
             return true
         } catch {
@@ -98,6 +101,7 @@ extension DatabaseService {
 
     func deleteEventFor(userID: String, event: Event) async -> Bool {
         let userDoc = getUserDoc(userID: userID)
+        let eventDoc = getEventDoc(eventID: event.id)
 
         var myEvents = await getEvents(of: .my, userID: userID)
 
@@ -110,6 +114,7 @@ extension DatabaseService {
             try await userDoc.updateData([
                 "myEvents": myEvents.map { $0.representation }
             ])
+            try await eventDoc.delete()
             Logger.BuildEvent.eventDeleteSuccess()
             return true
         } catch {
