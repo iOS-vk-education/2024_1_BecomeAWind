@@ -4,13 +4,22 @@ import SwiftUI
 
 final class FeedViewModel: ObservableObject {
 
-    @ObservedObject var db = TempDatabase.shared
-    @Published var allEvents: [UIEvent] = []
+    private let authInteractor = AuthInteractor.shared
+    private let dbService = DatabaseService.shared
 
-    init() { updateFeed() }
+    @Published var allEvents: [Event] = []
 
-    func updateFeed() {
-//        allEvents = db.get(.all)
+    init() {
+        Task { @MainActor in
+            await getFeed()
+        }
+
+    }
+
+    @MainActor
+    func getFeed() async {
+        let allEvents = await dbService.getAllEvents()
+        self.allEvents = allEvents
     }
 
 }

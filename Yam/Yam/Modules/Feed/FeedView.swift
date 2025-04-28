@@ -7,14 +7,14 @@ struct FeedView: View {
     var body: some View {
         /// events list
         List {
-//            ForEach(viewModel.allEvents, id: \.self) { event in
-//                EventCard(
-//                    viewModel: viewModel,
-//                    eventType: .notMy,
-//                    event: event
-//                )
-//                .listRowSeparator(.hidden)
-//            }
+            ForEach(viewModel.allEvents, id: \.self) { event in
+                EventCard(
+                    viewModel: viewModel,
+                    eventType: .notMy,
+                    event: event
+                )
+                .listRowSeparator(.hidden)
+            }
 
             Rectangle()
                 .frame(height: AuthorizedEntryConst.tabBarHeight)
@@ -22,7 +22,6 @@ struct FeedView: View {
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
-        .onAppear { viewModel.updateFeed() }
     }
 
 }

@@ -13,7 +13,11 @@ final class DatabaseService {
     }
 
     private func getEventDoc(eventID: String) -> DocumentReference {
-        db.collection("events").document(eventID)
+        db.collection("allEvents").document(eventID)
+    }
+
+    private func getEventsCollection() -> CollectionReference {
+        db.collection("allEvents")
     }
 
 }
@@ -56,6 +60,30 @@ extension DatabaseService {
             Logger.Events.errorGettingDocument(error)
         }
 
+        return events
+    }
+
+}
+
+// MARK: - Feed
+
+extension DatabaseService {
+
+    func getAllEvents() async -> [Event] {
+        var events = [Event]()
+
+        do {
+            let allEvents = try await getEventsCollection().getDocuments()
+
+            for nowEvent in allEvents.documents {
+                let event = try nowEvent.data(as: Event.self)
+                events.append(event)
+            }
+            Logger.Feed.getEventsSuccess()
+        } catch {
+            Logger.Feed.getEventsFail(error)
+        }
+        
         return events
     }
 

@@ -111,7 +111,6 @@
 		87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7C2DBD353300D4DDF8 /* Place.swift */; };
 		87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */; };
 		87DE0DA02DC002FF00D4DDF8 /* FooterButtonsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */; };
-		87DE0DA22DC00DE500D4DDF8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0DA12DC00DE500D4DDF8 /* FeedModel.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardViewModelProtocol.swift */; };
@@ -227,7 +226,6 @@
 		87DE0D7C2DBD353300D4DDF8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEventButton.swift; sourceTree = "<group>"; };
 		87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonsPack.swift; sourceTree = "<group>"; };
-		87DE0DA12DC00DE500D4DDF8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* BuildEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventVStack.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 			children = (
 				870E3C742D4388D40043DA00 /* FeedView.swift */,
 				8752B7012D464DF90017F2B8 /* FeedViewModel.swift */,
-				87DE0DA12DC00DE500D4DDF8 /* FeedModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -882,7 +879,6 @@
 				878432E62D512A1500A24538 /* BuildEventImagePicker.swift in Sources */,
 				8704EC702DAEF5270008611D /* UIApplicationExt.swift in Sources */,
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
-				87DE0DA22DC00DE500D4DDF8 /* FeedModel.swift in Sources */,
 				8786CF352DB4EA920010D079 /* CapsuleButton.swift in Sources */,
 				8744C4522DADA389001A0A9F /* ThinMaterialVStack.swift in Sources */,
 				87336F572D7C3A5900BD699A /* AuthorizedEntryTab.swift in Sources */,

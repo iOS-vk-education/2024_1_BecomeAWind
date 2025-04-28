@@ -144,6 +144,24 @@ extension Logger {
 
 }
 
+// MARK: - Feed
+
+extension Logger {
+
+    enum Feed {
+
+        static func getEventsSuccess() {
+            print("Get events success")
+        }
+
+        static func getEventsFail(_ error: Error) {
+            print("Get events fail, error desc = \(error.localizedDescription)")
+        }
+
+    }
+
+}
+
 // MARK: - Database
 
 extension Logger {
