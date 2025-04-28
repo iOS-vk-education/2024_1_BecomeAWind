@@ -2,7 +2,7 @@ import Foundation
 
 protocol EventCardViewModelProtocol {
 
-    func toggleEdit(event: Event)
+    func toggleAction(event: Event)
 
     func toggleLocation(for event: Event)
 

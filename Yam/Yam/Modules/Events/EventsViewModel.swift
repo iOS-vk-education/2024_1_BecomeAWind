@@ -57,7 +57,7 @@ extension EventsViewModel: NavBarViewModelProtocol {
 
 extension EventsViewModel: EventCardViewModelProtocol {
 
-    func toggleEdit(event: Event) {
+    func toggleAction(event: Event) {
         selectedEvent = event
         isActiveEditEvent.toggle()
     }

@@ -15,13 +15,13 @@ final class FeedViewModel: ObservableObject {
 
 }
 
-extension FeedViewModel/*: EventCardViewModelProtocol*/ {
+extension FeedViewModel: EventCardViewModelProtocol {
 
-    func toggleEdit(event: UIEvent) {
+    func toggleAction(event: Event) {
 //        print(#function)
     }
 
-    func toggleLocation(for event: UIEvent) {
+    func toggleLocation(for event: Event) {
 //        print(#function)
     }
 
@@ -29,7 +29,7 @@ extension FeedViewModel/*: EventCardViewModelProtocol*/ {
 //        print(#function)
     }
 
-    func handleSubscribeButton(for event: UIEvent) {
+    func handleSubscribeButton(for event: Event) {
 //        print(#function)
     }
 

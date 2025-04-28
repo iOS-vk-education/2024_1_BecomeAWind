@@ -11,6 +11,10 @@ final class DatabaseService {
     private func getUserDoc(userID: String) -> DocumentReference {
         db.collection("users").document(userID)
     }
+
+    private func getEventDoc(eventID: String) -> DocumentReference {
+        db.collection("events").document(eventID)
+    }
 }
 
 // MARK: - Auth
@@ -62,6 +66,7 @@ extension DatabaseService {
 extension DatabaseService {
 
     func addEventFor(userID: String, event: Event) {
+        getEventDoc(eventID: event.id).setData(event.representation)
         getUserDoc(userID: userID).updateData([
             "myEvents": FieldValue.arrayUnion([event.representation])
         ])

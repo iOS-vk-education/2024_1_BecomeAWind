@@ -128,22 +128,16 @@ extension Logger {
             print("Event edit success")
         }
 
-        static func eventEditFail(_ error: Error?) {
-            print("Event edit fail, ", terminator: "")
-            if let error {
-                print("error desc = \(error)")
-            }
+        static func eventEditFail(_ error: Error) {
+            print("Event edit fail, error desc = \(error)")
         }
 
         static func eventDeleteSuccess() {
             print("Event delete success")
         }
 
-        static func eventDeleteFail(_ error: Error?) {
-            print("Event delete fail, ", terminator: "")
-            if let error {
-                print("error desc = \(error)")
-            }
+        static func eventDeleteFail(_ error: Error) {
+            print("Event delete fail, error desc = \(error)")
         }
 
     }
