@@ -6,6 +6,8 @@ final class DatabaseService {
     static let shared = DatabaseService()
     private let db = Firestore.firestore()
 
+    private var myEventsIDsTempStorage = [String]()
+
     private init() {}
 
     private func getUserDoc(userID: String) -> DocumentReference {
@@ -52,7 +54,13 @@ extension DatabaseService {
 
             if userDoc.exists {
                 let user = try userDoc.data(as: YUser.self)
-                events = type == .my ? user.myEvents : user.subscriptions
+
+                if type == .my {
+                    events = user.myEvents
+                    myEventsIDsTempStorage = getEventsIDs(events)
+                } else {
+                    events = user.subscriptions
+                }
             } else {
                 Logger.Events.docDoesntExist()
             }
@@ -61,6 +69,16 @@ extension DatabaseService {
         }
 
         return events
+    }
+
+    private func getEventsIDs(_ events: [Event]) -> [String] {
+        var res = [String]()
+
+        for now in events {
+            res.append(now.id)
+        }
+
+        return res
     }
 
 }
@@ -77,7 +95,9 @@ extension DatabaseService {
 
             for nowEvent in allEvents.documents {
                 let event = try nowEvent.data(as: Event.self)
-                events.append(event)
+                if !myEventsIDsTempStorage.contains(event.id) {
+                    events.append(event)
+                }
             }
             Logger.Feed.getEventsSuccess()
         } catch {
