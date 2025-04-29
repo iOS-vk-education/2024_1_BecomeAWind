@@ -22,6 +22,14 @@ struct FeedView: View {
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
+        .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
+            if let event = viewModel.selectedEvent {
+                EventLocationView(viewModel: EventLocationViewModel(event: event))
+            }
+        }
+        .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
+            Button("ок", role: .cancel) { }
+        }
     }
 
 }

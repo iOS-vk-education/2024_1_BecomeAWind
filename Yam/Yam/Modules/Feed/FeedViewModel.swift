@@ -44,7 +44,7 @@ extension FeedViewModel: EventCardViewModelProtocol {
     }
 
     func handleSubscribeButton(for event: Event) {
-        if 
+        
     }
 
 }

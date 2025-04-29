@@ -29,7 +29,7 @@ struct EventCard: View {
                     switch eventType {
                     case .my:
                         EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
-                            viewModel.toggleAction(event: event)
+                            viewModel.toggleAction(for: event)
                         }
                     case .notMy:
                         EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
