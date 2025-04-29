@@ -1,4 +1,5 @@
 enum EventType {
     case my
-    case notMy
+    case added
+    case notAdded
 }

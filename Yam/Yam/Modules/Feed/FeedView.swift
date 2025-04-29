@@ -7,13 +7,24 @@ struct FeedView: View {
     var body: some View {
         /// events list
         List {
-            ForEach(viewModel.allEvents, id: \.self) { event in
+            ForEach(viewModel.events, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
-                    eventType: .notMy,
+                    eventType: .notAdded,
                     event: event
                 )
                 .listRowSeparator(.hidden)
+                .onAppear {
+                    if viewModel.events.last?.id == event.id {
+                        Task {
+                            await viewModel.loadMoreEventsIfNeeded(currentEvent: event)
+                        }
+                    }
+                }
+            }
+
+            if viewModel.isLoadingMore {
+                Loader()
             }
 
             Rectangle()
@@ -22,6 +33,11 @@ struct FeedView: View {
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
+        .refreshable {
+            Task {
+                await viewModel.refresh()
+            }
+        }
         .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))

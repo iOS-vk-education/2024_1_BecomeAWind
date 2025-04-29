@@ -14,7 +14,7 @@
 		870E3C912D4388D40043DA00 /* AuthorizedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C792D4388D40043DA00 /* AuthorizedEntryView.swift */; };
 		870E3C952D4388D40043DA00 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C872D4388D40043DA00 /* Colors.swift */; };
 		870E3C9A2D4388D40043DA00 /* YText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5F2D4388D40043DA00 /* YText.swift */; };
-		870E3C9B2D4388D40043DA00 /* YLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* YLoader.swift */; };
+		870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C552D4388D40043DA00 /* GradientLoader.swift */; };
 		870E3C9C2D4388D40043DA00 /* BuildEventPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5D2D4388D40043DA00 /* BuildEventPlaceView.swift */; };
 		870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C742D4388D40043DA00 /* FeedView.swift */; };
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
@@ -111,6 +111,7 @@
 		87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D7C2DBD353300D4DDF8 /* Place.swift */; };
 		87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */; };
 		87DE0DA02DC002FF00D4DDF8 /* FooterButtonsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */; };
+		87DE0DAA2DC15DDC00D4DDF8 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0DA92DC15DDC00D4DDF8 /* Loader.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardViewModelProtocol.swift */; };
@@ -128,7 +129,7 @@
 		8704EC712DAEFC530008611D /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		870E3C532D4388D40043DA00 /* GradientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientImage.swift; sourceTree = "<group>"; };
 		870E3C542D4388D40043DA00 /* CapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLabel.swift; sourceTree = "<group>"; };
-		870E3C552D4388D40043DA00 /* YLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLoader.swift; sourceTree = "<group>"; };
+		870E3C552D4388D40043DA00 /* GradientLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoader.swift; sourceTree = "<group>"; };
 		870E3C592D4388D40043DA00 /* BuildEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventModel.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* BuildEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventPlaceView.swift; sourceTree = "<group>"; };
 		870E3C5E2D4388D40043DA00 /* BuildEventDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventDatePicker.swift; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		87DE0D7C2DBD353300D4DDF8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEventButton.swift; sourceTree = "<group>"; };
 		87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonsPack.swift; sourceTree = "<group>"; };
+		87DE0DA92DC15DDC00D4DDF8 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* BuildEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventVStack.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		870E3C4C2D4388860043DA00 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				87DE0DA82DC15D8E00D4DDF8 /* Loader */,
 				870E3C582D4388D40043DA00 /* Component */,
 				87BA69102D4984ED008DF823 /* Constant */,
 				87BA69042D49828C008DF823 /* Font */,
@@ -281,7 +284,6 @@
 				8744C45E2DADB70A001A0A9F /* Button */,
 				8744C4622DADB713001A0A9F /* Image */,
 				8744C4512DADA389001A0A9F /* ThinMaterialVStack.swift */,
-				870E3C552D4388D40043DA00 /* YLoader.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -696,6 +698,15 @@
 			path = FooterButtonsPack;
 			sourceTree = "<group>";
 		};
+		87DE0DA82DC15D8E00D4DDF8 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				87DE0DA92DC15DDC00D4DDF8 /* Loader.swift */,
+				870E3C552D4388D40043DA00 /* GradientLoader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
@@ -886,7 +897,7 @@
 				870E3C9A2D4388D40043DA00 /* YText.swift in Sources */,
 				876084C22D7A37B500195B68 /* EntryTabBar.swift in Sources */,
 				87336F612D7C51A600BD699A /* EventsConst.swift in Sources */,
-				870E3C9B2D4388D40043DA00 /* YLoader.swift in Sources */,
+				870E3C9B2D4388D40043DA00 /* GradientLoader.swift in Sources */,
 				87336F4B2D7C329F00BD699A /* Const.swift in Sources */,
 				8786CF232DB3EF9D0010D079 /* ProfileViewModel.swift in Sources */,
 				8744C4692DADC05F001A0A9F /* DatabaseService.swift in Sources */,
@@ -914,6 +925,7 @@
 				87D4D2A12D94829C00A5E4B8 /* BuildEventFooterButton.swift in Sources */,
 				8744C4562DADAC47001A0A9F /* AuthConst.swift in Sources */,
 				870E3CA52D4388D40043DA00 /* YTextField.swift in Sources */,
+				87DE0DAA2DC15DDC00D4DDF8 /* Loader.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* BuildEventViewModel.swift in Sources */,
 				87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */,
 				871903682DB844DB005DED9E /* BuildEventType.swift in Sources */,

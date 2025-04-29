@@ -12,7 +12,7 @@ struct BuildEventButton: View {
             }
         } label: {
             if viewModel.isBuildingEventLoaderFlag {
-                YLoader(size: 50)
+                GradientLoader(size: 50)
             } else {
                 CapsuleLabel(
                     title: viewModel.footerButtonText,

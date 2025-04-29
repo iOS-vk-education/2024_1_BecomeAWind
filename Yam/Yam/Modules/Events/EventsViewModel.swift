@@ -15,19 +15,20 @@ final class EventsViewModel: ObservableObject {
     var rightTab: EventsTab = .subscriptions
     var isVisibleCenterButton: Bool = true
 
-    /// event card
+    /// EventCardViewModelProtocol conformance
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
-    @Published var isActiveEditEvent = false
+    @Published var isActiveAction = false
+    ///
 
     @MainActor
     func getEvents() {
         Task { [weak self] in
             guard let self else { return }
 
-            let myEvents = await dbService.getEvents(of: .my, userID: authInteractor.getUserID() ?? "")
-            let subscriptions = await dbService.getEvents(of: .notMy, userID: authInteractor.getUserID() ?? "")
+            let myEvents = await dbService.getEvents(my: true, userID: authInteractor.getUserID() ?? "")
+            let subscriptions = await dbService.getEvents(my: false, userID: authInteractor.getUserID() ?? "")
 
             DispatchQueue.main.async {
                 self.myEvents = myEvents
@@ -59,7 +60,7 @@ extension EventsViewModel: EventCardViewModelProtocol {
 
     func toggleAction(for event: Event) {
         selectedEvent = event
-        isActiveEditEvent.toggle()
+        isActiveAction.toggle()
     }
 
     func toggleLocation(for event: Event) {

@@ -31,7 +31,11 @@ struct EventCard: View {
                         EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
                             viewModel.toggleAction(for: event)
                         }
-                    case .notMy:
+                    case .added:
+                        EventCardButton(imageName: "xmark", background: Gradient.blackPink) {
+                            viewModel.handleSubscribeButton(for: event)
+                        }
+                    case .notAdded:
                         EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
                             viewModel.handleSubscribeButton(for: event)
                         }

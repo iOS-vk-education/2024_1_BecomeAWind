@@ -11,16 +11,16 @@ final class DatabaseService {
 
     private init() {}
 
+    func getEventsCollection() -> CollectionReference {
+        db.collection("allEvents")
+    }
+
     private func getUserDoc(userID: String) -> DocumentReference {
         db.collection("users").document(userID)
     }
 
     private func getEventDoc(eventID: String) -> DocumentReference {
         db.collection("allEvents").document(eventID)
-    }
-
-    private func getEventsCollection() -> CollectionReference {
-        db.collection("allEvents")
     }
 
 }
@@ -47,7 +47,7 @@ extension DatabaseService {
 
 extension DatabaseService {
 
-    func getEvents(of type: EventType, userID: String) async -> [Event] {
+    func getEvents(my: Bool, userID: String) async -> [Event] {
         var events = [Event]()
 
         do {
@@ -56,7 +56,7 @@ extension DatabaseService {
             if userDoc.exists {
                 let user = try userDoc.data(as: YUser.self)
 
-                if type == .my {
+                if my {
                     events = user.myEvents
                     myEventsIDsTempStorage = getEventsIDs(events)
                 } else {
@@ -89,25 +89,25 @@ extension DatabaseService {
 
 extension DatabaseService {
 
-    func getAllEvents() async -> [Event] {
-        var events = [Event]()
-
-        do {
-            let allEvents = try await getEventsCollection().getDocuments()
-
-            for nowEvent in allEvents.documents {
-                let event = try nowEvent.data(as: Event.self)
-                if !myEventsIDsTempStorage.contains(event.id) {
-                    events.append(event)
-                }
-            }
-            Logger.Feed.getEventsSuccess()
-        } catch {
-            Logger.Feed.getEventsFail(error)
-        }
-        
-        return events
-    }
+//    func getAllEvents() async -> [Event] {
+//        var events = [Event]()
+//
+//        do {
+//            let allEvents = try await getEventsCollection().getDocuments()
+//
+//            for nowEvent in allEvents.documents {
+//                let event = try nowEvent.data(as: Event.self)
+//                if !myEventsIDsTempStorage.contains(event.id) {
+//                    events.append(event)
+//                }
+//            }
+//
+//        } catch {
+//
+//        }
+//        
+//        return events
+//    }
 
     func isEventInSubcsriptions(_ eventID: String) -> Bool {
         subscriptionsIDsTempStorage.contains(eventID)
@@ -131,7 +131,7 @@ extension DatabaseService {
         let userDoc = getUserDoc(userID: userID)
         let eventDoc = getEventDoc(eventID: event.id)
 
-        var myEvents = await getEvents(of: .my, userID: userID)
+        var myEvents = await getEvents(my: true, userID: userID)
 
         let indexToRemove = findIndexToRemove(in: myEvents, with: event.id)
         if let indexToRemove {
@@ -157,7 +157,7 @@ extension DatabaseService {
         let userDoc = getUserDoc(userID: userID)
         let eventDoc = getEventDoc(eventID: event.id)
 
-        var myEvents = await getEvents(of: .my, userID: userID)
+        var myEvents = await getEvents(my: true, userID: userID)
 
         let indexToRemove = findIndexToRemove(in: myEvents, with: event.id)
         if let indexToRemove {

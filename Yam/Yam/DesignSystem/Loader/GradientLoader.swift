@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YLoader<Background: ShapeStyle>: View {
+struct GradientLoader<Background: ShapeStyle>: View {
     let size: CGFloat
     let background: Background
 
@@ -22,5 +22,5 @@ struct YLoader<Background: ShapeStyle>: View {
 }
 
 #Preview {
-    YLoader(size: 50, background: Gradient.purpleIndigo)
+    GradientLoader(size: 50, background: Gradient.purpleIndigo)
 }

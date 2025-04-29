@@ -150,12 +150,12 @@ extension Logger {
 
     enum Feed {
 
-        static func getEventsSuccess() {
-            print("Get events success")
+        static func initialEventsLoadFail(_ error: Error) {
+            print("Initial events load fail, error desc = \(error.localizedDescription)")
         }
 
-        static func getEventsFail(_ error: Error) {
-            print("Get events fail, error desc = \(error.localizedDescription)")
+        static func nextPackEventsLoadFail(_ error: Error) {
+            print("Next pack events load fail, error desc = \(error.localizedDescription)")
         }
 
     }

@@ -23,7 +23,7 @@ struct EventsView: View {
                         viewModel: viewModel,
                         eventType: viewModel.activeTab == .myEvents
                         ? .my
-                        : .notMy,
+                        : .added,
                         event: event
                     )
                     .listRowSeparator(.hidden)
@@ -45,7 +45,7 @@ struct EventsView: View {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
             }
         }
-        .sheet(isPresented: $viewModel.isActiveEditEvent) {
+        .sheet(isPresented: $viewModel.isActiveAction) {
             if let event = viewModel.selectedEvent {
                 BuildEventView(
                     viewModel: BuildEventViewModel(

@@ -10,7 +10,7 @@ struct DeleteEventButton: View {
             viewModel.showSavingAlert()
         } label: {
             if viewModel.isDeletingEventLoaderFlag {
-                YLoader(size: 50, background: Gradient.blackPink)
+                GradientLoader(size: 50, background: Gradient.blackPink)
             } else {
                 CapsuleLabel(
                     title: viewModel.deleteEventButtonText,
