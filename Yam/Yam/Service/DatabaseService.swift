@@ -115,50 +115,6 @@ extension DatabaseService {
         }
     }
 
-    private func getQuery(lastDoc: DocumentSnapshot?, initialLoad: Bool) -> Query {
-        if initialLoad {
-            getEventsCollection()
-                .order(by: "date", descending: false)
-                .limit(to: 3)
-        } else {
-            if let lastDoc {
-                getEventsCollection()
-                    .order(by: "date", descending: false)
-                    .start(afterDocument: lastDoc)
-                    .limit(to: 3)
-            } else {
-                getEventsCollection()
-                    .order(by: "date", descending: false)
-                    .limit(to: 3)
-            }
-
-        }
-    }
-
-//    func getAllEvents() async -> [Event] {
-//        var events = [Event]()
-//
-//        do {
-//            let allEvents = try await getEventsCollection().getDocuments()
-//
-//            for nowEvent in allEvents.documents {
-//                let event = try nowEvent.data(as: Event.self)
-//                if !myEventsIDsTempStorage.contains(event.id) {
-//                    events.append(event)
-//                }
-//            }
-//
-//        } catch {
-//
-//        }
-//        
-//        return events
-//    }
-
-    func isEventInSubcsriptions(_ eventID: String) -> Bool {
-        subscriptionsIDsTempStorage.contains(eventID)
-    }
-
 }
 
 

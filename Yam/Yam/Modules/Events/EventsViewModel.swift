@@ -15,7 +15,7 @@ final class EventsViewModel: ObservableObject {
     var rightTab: EventsTab = .subscriptions
     var isVisibleCenterButton: Bool = true
 
-    /// EventCardViewModelProtocol conformance
+    /// EventCardViewModelProtocol
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
