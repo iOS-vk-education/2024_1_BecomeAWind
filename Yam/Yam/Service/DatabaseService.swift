@@ -7,6 +7,7 @@ final class DatabaseService {
     private let db = Firestore.firestore()
 
     private var myEventsIDsTempStorage = [String]()
+    private var subscriptionsIDsTempStorage = [String]()
 
     private init() {}
 
@@ -60,6 +61,7 @@ extension DatabaseService {
                     myEventsIDsTempStorage = getEventsIDs(events)
                 } else {
                     events = user.subscriptions
+                    subscriptionsIDsTempStorage = getEventsIDs(events)
                 }
             } else {
                 Logger.Events.docDoesntExist()
@@ -105,6 +107,10 @@ extension DatabaseService {
         }
         
         return events
+    }
+
+    func isEventInSubcsriptions(_ eventID: String) -> Bool {
+        subscriptionsIDsTempStorage.contains(eventID)
     }
 
 }

@@ -25,7 +25,7 @@ struct EventCard: View {
                         viewModel.open(link: event.link)
                     }
 
-                    /// third button
+                    /// action button
                     switch eventType {
                     case .my:
                         EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {

@@ -57,7 +57,7 @@ extension EventsViewModel: NavBarViewModelProtocol {
 
 extension EventsViewModel: EventCardViewModelProtocol {
 
-    func toggleAction(event: Event) {
+    func toggleAction(for event: Event) {
         selectedEvent = event
         isActiveEditEvent.toggle()
     }
@@ -74,13 +74,5 @@ extension EventsViewModel: EventCardViewModelProtocol {
     }
 
     func handleSubscribeButton(for event: Event) {}
-
-    func convertToString(from seats: Seats) -> String {
-        EventHandler.getSeatsString(from: seats)
-    }
-
-    func convertToString(from date: Date) -> String {
-        EventHandler.getDateString(from: date)
-    }
 
 }

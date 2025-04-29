@@ -2,7 +2,7 @@ import Foundation
 
 protocol EventCardViewModelProtocol {
 
-    func toggleAction(event: Event)
+    func toggleAction(for event: Event)
 
     func toggleLocation(for event: Event)
 
@@ -10,8 +10,16 @@ protocol EventCardViewModelProtocol {
 
     func handleSubscribeButton(for event: Event)
 
-    func convertToString(from seats: Seats) -> String
+}
 
-    func convertToString(from date: Date) -> String
+extension EventCardViewModelProtocol {
+
+    func convertToString(from seats: Seats) -> String {
+        EventHandler.getSeatsString(from: seats)
+    }
+
+    func convertToString(from date: Date) -> String {
+        EventHandler.getDateString(from: date)
+    }
 
 }

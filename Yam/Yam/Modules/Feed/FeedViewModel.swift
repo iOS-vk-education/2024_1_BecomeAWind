@@ -9,11 +9,15 @@ final class FeedViewModel: ObservableObject {
 
     @Published var allEvents: [Event] = []
 
+    /// event card
+    @Published var selectedEvent: Event?
+    @Published var invalidLink = false
+    @Published var isActiveEventLocation = false
+
     init() {
         Task { @MainActor in
             await getFeed()
         }
-
     }
 
     @MainActor
@@ -26,28 +30,21 @@ final class FeedViewModel: ObservableObject {
 
 extension FeedViewModel: EventCardViewModelProtocol {
 
-    func toggleAction(event: Event) {
-//        print(#function)
-    }
+    func toggleAction(for event: Event) {}
 
     func toggleLocation(for event: Event) {
-//        print(#function)
+        selectedEvent = event
+        isActiveEventLocation.toggle()
     }
 
     func open(link: String) {
-//        print(#function)
+        if !EventHandler.openLink(link) {
+            invalidLink.toggle()
+        }
     }
 
     func handleSubscribeButton(for event: Event) {
-//        print(#function)
-    }
-
-    func convertToString(from seats: Seats) -> String {
-        EventHandler.getSeatsString(from: seats)
-    }
-
-    func convertToString(from date: Date) -> String {
-        EventHandler.getDateString(from: date)
+        if 
     }
 
 }
