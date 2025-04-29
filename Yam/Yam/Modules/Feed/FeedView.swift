@@ -17,7 +17,7 @@ struct FeedView: View {
                 .onAppear {
                     if viewModel.events.last?.id == event.id {
                         Task {
-                            await viewModel.loadMoreEventsIfNeeded(currentEvent: event)
+                            await viewModel.loadNextPackItemsIfNeeded(currentItem: event)
                         }
                     }
                 }

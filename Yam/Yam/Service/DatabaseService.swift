@@ -11,16 +11,16 @@ final class DatabaseService {
 
     private init() {}
 
-    func getEventsCollection() -> CollectionReference {
-        db.collection("allEvents")
-    }
-
     private func getUserDoc(userID: String) -> DocumentReference {
         db.collection("users").document(userID)
     }
 
     private func getEventDoc(eventID: String) -> DocumentReference {
         db.collection("allEvents").document(eventID)
+    }
+
+    private func getEventsCollection() -> CollectionReference {
+        db.collection("allEvents")
     }
 
 }
@@ -88,6 +88,52 @@ extension DatabaseService {
 // MARK: - Feed
 
 extension DatabaseService {
+
+    func loadEventsPack(lastDoc: DocumentSnapshot?) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
+        do {
+            var query = getEventsCollection().order(by: "date", descending: false)
+            if let lastDoc {
+                query = query.start(afterDocument: lastDoc)
+            }
+            query = query.limit(to: 3)
+
+            let snapshot = try await query.getDocuments()
+            let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
+
+            let newLastDoc = snapshot.documents.last
+            let isEndReached = newEvents.isEmpty
+
+            return (newEvents, newLastDoc, isEndReached)
+        } catch {
+            if lastDoc != nil {
+                Logger.Feed.initialEventsLoadFail(error)
+            } else {
+                Logger.Feed.nextPackEventsLoadFail(error)
+            }
+
+            return ([], lastDoc, true)
+        }
+    }
+
+    private func getQuery(lastDoc: DocumentSnapshot?, initialLoad: Bool) -> Query {
+        if initialLoad {
+            getEventsCollection()
+                .order(by: "date", descending: false)
+                .limit(to: 3)
+        } else {
+            if let lastDoc {
+                getEventsCollection()
+                    .order(by: "date", descending: false)
+                    .start(afterDocument: lastDoc)
+                    .limit(to: 3)
+            } else {
+                getEventsCollection()
+                    .order(by: "date", descending: false)
+                    .limit(to: 3)
+            }
+
+        }
+    }
 
 //    func getAllEvents() async -> [Event] {
 //        var events = [Event]()

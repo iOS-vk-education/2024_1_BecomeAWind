@@ -112,6 +112,7 @@
 		87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */; };
 		87DE0DA02DC002FF00D4DDF8 /* FooterButtonsPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */; };
 		87DE0DAA2DC15DDC00D4DDF8 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0DA92DC15DDC00D4DDF8 /* Loader.swift */; };
+		87DE0DAD2DC1777A00D4DDF8 /* TableFetchDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE0DAC2DC1777A00D4DDF8 /* TableFetchDataProtocol.swift */; };
 		87F4A6512D93227500C54748 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F4A6502D93227500C54748 /* GoogleService-Info.plist */; };
 		87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC48432D52089600F6D8CC /* BuildEventVStack.swift */; };
 		87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FDD9342D82F25700C2B5EC /* EventCardViewModelProtocol.swift */; };
@@ -228,6 +229,7 @@
 		87DE0D9C2DBFFF6800D4DDF8 /* DeleteEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEventButton.swift; sourceTree = "<group>"; };
 		87DE0D9F2DC002FF00D4DDF8 /* FooterButtonsPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonsPack.swift; sourceTree = "<group>"; };
 		87DE0DA92DC15DDC00D4DDF8 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		87DE0DAC2DC1777A00D4DDF8 /* TableFetchDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFetchDataProtocol.swift; sourceTree = "<group>"; };
 		87E6FC0A2CCE2B8000B2DA3B /* Yam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4A6502D93227500C54748 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87FC48432D52089600F6D8CC /* BuildEventVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventVStack.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		870E3C8C2D4388D40043DA00 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				87DE0DAB2DC1775F00D4DDF8 /* Table */,
 				8704EC6E2DAEF5120008611D /* Keyboard */,
 				879ADAFD2D80A16E00F43C04 /* Handler */,
 				87B47A8E2D58B500007AA252 /* View */,
@@ -707,6 +710,14 @@
 			path = Loader;
 			sourceTree = "<group>";
 		};
+		87DE0DAB2DC1775F00D4DDF8 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				87DE0DAC2DC1777A00D4DDF8 /* TableFetchDataProtocol.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		87E6FC012CCE2B8000B2DA3B = {
 			isa = PBXGroup;
 			children = (
@@ -928,6 +939,7 @@
 				87DE0DAA2DC15DDC00D4DDF8 /* Loader.swift in Sources */,
 				870E3CA62D4388D40043DA00 /* BuildEventViewModel.swift in Sources */,
 				87DE0D9D2DBFFF6800D4DDF8 /* DeleteEventButton.swift in Sources */,
+				87DE0DAD2DC1777A00D4DDF8 /* TableFetchDataProtocol.swift in Sources */,
 				871903682DB844DB005DED9E /* BuildEventType.swift in Sources */,
 				87336FA72D7F56A800BD699A /* EventsTab.swift in Sources */,
 				87D4D2962D94803700A5E4B8 /* BuildEventHeader.swift in Sources */,

@@ -10,14 +10,14 @@ final class FeedViewModel: ObservableObject {
 
     @Published var events: [Event] = []
 
-    /// Events loading
+    /// TableFetchDataProtocol
     @Published var isLoadingMore = false
-    private var isRefreshing = false
-    private var lastDoc: DocumentSnapshot? = nil
-    private var isEndReached = false
+    var isRefreshing = false
+    var lastDoc: DocumentSnapshot? = nil
+    var isEndReached = false
     ///
 
-    /// EventCardViewModelProtocol conformance
+    /// EventCardViewModelProtocol
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
@@ -25,52 +25,41 @@ final class FeedViewModel: ObservableObject {
     ///
 
     init() {
-        Task { await loadInitialEvents() }
+        Task { await loadInitialItems() }
     }
 
+}
+
+extension FeedViewModel: TableFetchDataProtocol {
+
+    typealias Item = Event
+
     @MainActor
-    private func loadInitialEvents() async {
+    func loadInitialItems() async {
         isRefreshing = true
 
-        do {
-            let query = dbService.getEventsCollection().order(by: "date", descending: false).limit(to: 3)
-            let snapshot = try await query.getDocuments()
-            let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
+        let result = await dbService.loadEventsPack(lastDoc: nil)
 
-            events = newEvents
-            lastDoc = snapshot.documents.last
-            isEndReached = newEvents.isEmpty
-        } catch {
-            Logger.Feed.initialEventsLoadFail(error)
-        }
+        events = result.events
+        lastDoc = result.newLastDoc
+        isEndReached = result.isEndReached
 
         isRefreshing = false
     }
 
     @MainActor
-    func loadMoreEventsIfNeeded(currentEvent event: Event) async {
+    func loadNextPackItemsIfNeeded(currentItem item: Item) async {
         guard !isLoadingMore,
-              let last = lastDoc,
               !isEndReached,
-              events.last?.id == event.id else { return }
+              events.last?.id == item.id else { return }
 
         isLoadingMore = true
 
-        do {
-            let query = dbService.getEventsCollection()
-                .order(by: "date", descending: false)
-                .start(afterDocument: last)
-                .limit(to: 3)
+        let result = await dbService.loadEventsPack(lastDoc: lastDoc)
 
-            let snapshot = try await query.getDocuments()
-            let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
-
-            events.append(contentsOf: newEvents)
-            lastDoc = snapshot.documents.last
-            isEndReached = newEvents.isEmpty
-        } catch {
-            Logger.Feed.nextPackEventsLoadFail(error)
-        }
+        events.append(contentsOf: result.events)
+        lastDoc = result.newLastDoc
+        isEndReached = result.isEndReached
 
         isLoadingMore = false
     }
@@ -79,16 +68,9 @@ final class FeedViewModel: ObservableObject {
         guard !isRefreshing else { return }
 
         isRefreshing = true
-        await loadInitialEvents()
+        await loadInitialItems()
         isRefreshing = false
     }
-    
-//
-//    @MainActor
-//    func getFeed() async {
-//        let allEvents = await dbService.getAllEvents()
-//        self.allEvents = allEvents
-//    }
 
 }
 
