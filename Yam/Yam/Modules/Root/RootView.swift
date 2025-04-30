@@ -4,6 +4,8 @@ struct RootView: View {
 
     @StateObject private var navManager = NavigationManager()
 
+    private let delme = DelmeViewModel()
+
     var body: some View {
         if !navManager.isUserAuthorized {
             AuthView(viewModel: makeAuthViewModel())

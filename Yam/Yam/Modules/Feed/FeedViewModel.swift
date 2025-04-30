@@ -38,7 +38,7 @@ extension FeedViewModel: TableFetchDataProtocol {
     func loadInitialItems() async {
         isRefreshing = true
 
-        let result = await dbService.loadEventsPack(lastDoc: nil)
+        let result = await dbService.loadFeed(lastDoc: nil)
 
         events = result.events
         lastDoc = result.newLastDoc
@@ -55,7 +55,7 @@ extension FeedViewModel: TableFetchDataProtocol {
 
         isLoadingMore = true
 
-        let result = await dbService.loadEventsPack(lastDoc: lastDoc)
+        let result = await dbService.loadFeed(lastDoc: lastDoc)
 
         events.append(contentsOf: result.events)
         lastDoc = result.newLastDoc

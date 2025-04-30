@@ -47,6 +47,18 @@ extension DatabaseService {
 
 extension DatabaseService {
 
+//    func loadEvents(
+//        of type: EventType,
+//        for userID: String,
+//        lastDoc: DocumentSnapshot?
+//    ) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
+//        do {
+//            var query = try await getUserDoc(userID: userID).
+//        } catch {
+//
+//        }
+//    }
+
     func getEvents(my: Bool, userID: String) async -> [Event] {
         var events = [Event]()
 
@@ -89,7 +101,7 @@ extension DatabaseService {
 
 extension DatabaseService {
 
-    func loadEventsPack(lastDoc: DocumentSnapshot?) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
+    func loadFeed(lastDoc: DocumentSnapshot?) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
         do {
             var query = getEventsCollection().order(by: "date", descending: false)
             if let lastDoc {

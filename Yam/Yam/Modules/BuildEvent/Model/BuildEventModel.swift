@@ -3,7 +3,6 @@ import SwiftUI
 
 final class BuildEventModel {
 
-    private var db = TempDatabase.shared
     private let dbService = DatabaseService.shared
     private let authInteractor = AuthInteractor.shared
 
