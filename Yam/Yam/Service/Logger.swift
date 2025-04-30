@@ -18,6 +18,7 @@ extension Logger {
     static func ping() {
         print("... ping ...\n")
     }
+    
 }
 
 // MARK: - Auth
@@ -94,6 +95,14 @@ extension Logger {
             print("Load image fail by path = \(path), error desc = \(error.localizedDescription)")
         }
 
+        static func initialMyEventsLoadFail(_ error: Error) {
+            print("Initial myEvents load fail, error desc = \(error.localizedDescription)")
+        }
+
+        static func nextPackMyEventsLoadFail(_ error: Error) {
+            print("Next pack myEvents load fail, error desc = \(error.localizedDescription)")
+        }
+
     }
 
 }
@@ -105,39 +114,39 @@ extension Logger {
     enum BuildEvent {
 
         static func notJpegData() {
-            print("Data is not JPEG")
+            print("Data is not JPEG\n")
         }
 
         static func imageUploadSuccess(with url: String) {
-            print("Image upload success, imageUrl = \(url)")
+            print("Image upload success, imageUrl = \(url)\n")
         }
 
         static func imageUploadFail() {
-            print("Image upload fail")
+            print("Image upload fail\n")
         }
 
         static func eventCreateSuccess() {
-            print("Event create success")
+            print("Event create success\n")
         }
 
         static func eventCreateFail() {
-            print("Event create fail")
+            print("Event create fail\n")
         }
 
         static func eventEditSuccess() {
-            print("Event edit success")
+            print("Event edit success\n")
         }
 
         static func eventEditFail(_ error: Error) {
-            print("Event edit fail, error desc = \(error)")
+            print("Event edit fail, error desc = \(error)\n")
         }
 
         static func eventDeleteSuccess() {
-            print("Event delete success")
+            print("Event delete success\n")
         }
 
         static func eventDeleteFail(_ error: Error) {
-            print("Event delete fail, error desc = \(error)")
+            print("Event delete fail, error desc = \(error)\n")
         }
 
     }
@@ -150,12 +159,12 @@ extension Logger {
 
     enum Feed {
 
-        static func initialEventsLoadFail(_ error: Error) {
-            print("Initial events load fail, error desc = \(error.localizedDescription)")
+        static func initialFeedLoadFail(_ error: Error) {
+            print("Initial feed load fail, error desc = \(error.localizedDescription)\n")
         }
 
-        static func nextPackEventsLoadFail(_ error: Error) {
-            print("Next pack events load fail, error desc = \(error.localizedDescription)")
+        static func nextPackFeedLoadFail(_ error: Error) {
+            print("Next pack feed load fail, error desc = \(error.localizedDescription)\n")
         }
 
     }

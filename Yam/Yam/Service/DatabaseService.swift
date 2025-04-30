@@ -7,13 +7,16 @@ final class DatabaseService {
     private let db = Firestore.firestore()
 
     private var myEventsIDsTempStorage = [String]()
-    private var subscriptionsIDsTempStorage = [String]()
 
     private init() {}
 
     ///
+    private func getUsersCollection() -> CollectionReference {
+        db.collection("users")
+    }
+
     private func getUserDoc(userID: String) -> DocumentReference {
-        db.collection("users").document(userID)
+        getUsersCollection().document(userID)
     }
 
     ///
@@ -26,17 +29,21 @@ final class DatabaseService {
     }
 
     ///
+    private func getMyEventsCollection(userID: String) -> CollectionReference {
+        getUserDoc(userID: userID).collection("myEvents")
+    }
+
+    private func getSubscriptionsCollection(userID: String) -> CollectionReference {
+        getUserDoc(userID: userID).collection("subscriptions")
+    }
+
     private func getEventInMyEvents(userID: String, eventID: String) -> DocumentReference {
-        let myEventsCollection = getUserDoc(userID: userID).collection("myEvents")
-        return myEventsCollection.document(eventID)
+        getMyEventsCollection(userID: userID).document(eventID)
     }
 
-    ///
     private func getEventInSubscriptions(userID: String, eventID: String) -> DocumentReference {
-        let subscriptionsCollection = getUserDoc(userID: userID).collection("subscriptions")
-        return subscriptionsCollection.document(eventID)
+        getSubscriptionsCollection(userID: userID).document(eventID)
     }
-
 
 }
 
@@ -62,52 +69,51 @@ extension DatabaseService {
 
 extension DatabaseService {
 
-//    func loadEvents(
-//        of type: EventType,
-//        for userID: String,
-//        lastDoc: DocumentSnapshot?
-//    ) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
-//        do {
-//            var query = try await getUserDoc(userID: userID).
-//        } catch {
-//
-//        }
-//    }
-
-    func getEvents(my: Bool, userID: String) async -> [Event] {
-        var events = [Event]()
-
+    func loadEvents(
+        isMy: Bool,
+        for userID: String,
+        lastDoc: DocumentSnapshot?
+    ) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
         do {
-            let userDoc = try await getUserDoc(userID: userID).getDocument()
-
-            if userDoc.exists {
-                let user = try userDoc.data(as: YUser.self)
-
-                if my {
-                    events = user.myEvents
-                    myEventsIDsTempStorage = getEventsIDs(events)
-                } else {
-                    events = user.subscriptions
-                    subscriptionsIDsTempStorage = getEventsIDs(events)
-                }
-            } else {
-                Logger.Events.docDoesntExist()
+            var query = isMy
+            ? getMyEventsCollection(userID: userID).order(by: "date", descending: false)
+            : getSubscriptionsCollection(userID: userID).order(by: "date", descending: false)
+            if let lastDoc {
+                query = query.start(afterDocument: lastDoc)
             }
+            query = query.limit(to: 3)
+
+            let snapshot = try await query.getDocuments()
+            let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
+            let newLastDoc = snapshot.documents.last
+            let isEndReached = newEvents.isEmpty
+
+            return (newEvents, newLastDoc, isEndReached)
+        } catch {
+            if lastDoc != nil {
+                Logger.Events.initialMyEventsLoadFail(error)
+            } else {
+                Logger.Events.nextPackMyEventsLoadFail(error)
+            }
+
+            return ([], lastDoc, true)
+        }
+    }
+
+    func getMyEventsIDs(userID: String) async -> [String] {
+        await fetchMyEventsIDs(userID: userID)
+        return myEventsIDsTempStorage
+    }
+
+    private func fetchMyEventsIDs(userID: String) async {
+        do {
+            let myEventsCollection = getMyEventsCollection(userID: userID)
+            let snapshot = try await myEventsCollection.getDocuments()
+            let myEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
+            myEventsIDsTempStorage = myEvents.map { $0.id }
         } catch {
             Logger.Events.errorGettingDocument(error)
         }
-
-        return events
-    }
-
-    private func getEventsIDs(_ events: [Event]) -> [String] {
-        var res = [String]()
-
-        for now in events {
-            res.append(now.id)
-        }
-
-        return res
     }
 
 }
@@ -126,16 +132,15 @@ extension DatabaseService {
 
             let snapshot = try await query.getDocuments()
             let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
-
             let newLastDoc = snapshot.documents.last
             let isEndReached = newEvents.isEmpty
 
             return (newEvents, newLastDoc, isEndReached)
         } catch {
             if lastDoc != nil {
-                Logger.Feed.initialEventsLoadFail(error)
+                Logger.Feed.initialFeedLoadFail(error)
             } else {
-                Logger.Feed.nextPackEventsLoadFail(error)
+                Logger.Feed.nextPackFeedLoadFail(error)
             }
 
             return ([], lastDoc, true)

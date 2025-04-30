@@ -9,10 +9,10 @@ final class FeedViewModel: ObservableObject {
     private let dbService = DatabaseService.shared
 
     @Published var events: [Event] = []
+    var myEventsIDs: [String] = []
 
     /// TableFetchDataProtocol
-    @Published var isLoadingMore = false
-    var isRefreshing = false
+    @Published var isLoading = false
     var lastDoc: DocumentSnapshot? = nil
     var isEndReached = false
     ///
@@ -25,51 +25,50 @@ final class FeedViewModel: ObservableObject {
     ///
 
     init() {
-        Task { await loadInitialItems() }
+        Task {
+            await loadItems(isInit: true)
+        }
+    }
+
+    func getMyEventsIDs() async {
+        guard let userID = authInteractor.getUserID() else { return }
+
+        myEventsIDs = await dbService.getMyEventsIDs(userID: userID)
     }
 
 }
 
 extension FeedViewModel: TableFetchDataProtocol {
 
-    typealias Item = Event
-
     @MainActor
-    func loadInitialItems() async {
-        isRefreshing = true
+    func loadItems(isInit: Bool) async {
+        guard !isLoading,
+              !isEndReached else { return }
 
-        let result = await dbService.loadFeed(lastDoc: nil)
+        isLoading = true
 
-        events = result.events
+        let result = isInit
+        ? await dbService.loadFeed(lastDoc: nil)
+        : await dbService.loadFeed(lastDoc: lastDoc)
+
+        if isInit {
+            events = result.events
+        } else {
+            events.append(contentsOf: result.events)
+        }
+
         lastDoc = result.newLastDoc
         isEndReached = result.isEndReached
 
-        isRefreshing = false
-    }
-
-    @MainActor
-    func loadNextPackItemsIfNeeded(currentItem item: Item) async {
-        guard !isLoadingMore,
-              !isEndReached,
-              events.last?.id == item.id else { return }
-
-        isLoadingMore = true
-
-        let result = await dbService.loadFeed(lastDoc: lastDoc)
-
-        events.append(contentsOf: result.events)
-        lastDoc = result.newLastDoc
-        isEndReached = result.isEndReached
-
-        isLoadingMore = false
+        isLoading = false
     }
 
     func refresh() async {
-        guard !isRefreshing else { return }
+        guard !isLoading else { return }
 
-        isRefreshing = true
-        await loadInitialItems()
-        isRefreshing = false
+        isLoading = true
+        await loadItems(isInit: true)
+        isLoading = false
     }
 
 }

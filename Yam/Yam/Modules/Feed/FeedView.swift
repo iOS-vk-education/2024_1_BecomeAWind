@@ -8,6 +8,7 @@ struct FeedView: View {
         /// events list
         List {
             ForEach(viewModel.events, id: \.self) { event in
+                if viewModel.myEventsNotContains(event.id)
                 EventCard(
                     viewModel: viewModel,
                     eventType: .notAdded,
@@ -15,15 +16,16 @@ struct FeedView: View {
                 )
                 .listRowSeparator(.hidden)
                 .onAppear {
+                    viewModel.
                     if viewModel.events.last?.id == event.id {
                         Task {
-                            await viewModel.loadNextPackItemsIfNeeded(currentItem: event)
+                            await viewModel.loadItems(isInit: false)
                         }
                     }
                 }
             }
 
-            if viewModel.isLoadingMore {
+            if viewModel.isLoading {
                 Loader()
             }
 

@@ -27,6 +27,17 @@ struct EventsView: View {
                         event: event
                     )
                     .listRowSeparator(.hidden)
+                    .onAppear {
+                        if viewModel.myEvents.last?.id == event.id {
+                            Task {
+                                await viewModel.loadItems(isInit: false)
+                            }
+                        }
+                    }
+                }
+
+                if viewModel.isLoading {
+                    Loader()
                 }
 
                 Rectangle()
@@ -36,9 +47,14 @@ struct EventsView: View {
             }
             .listStyle(.plain)
         }
+        .refreshable {
+            Task {
+                await viewModel.refresh()
+            }
+        }
         .fullScreenCover(isPresented: $viewModel.isActiveCreateEvent) {
             BuildEventView()
-                .onDisappear { viewModel.getEvents() }
+                .onDisappear {  }
         }
         .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
@@ -54,15 +70,12 @@ struct EventsView: View {
                     )
                 )
                 .onDisappear {
-                    viewModel.getEvents()
+
                 }
             }
         }
         .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
             Button("ок", role: .cancel) { }
-        }
-        .onAppear {
-            viewModel.getEvents()
         }
     }
 
