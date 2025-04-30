@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseFirestore
 
 final class EventsViewModel: ObservableObject {
 
@@ -20,6 +21,14 @@ final class EventsViewModel: ObservableObject {
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
     @Published var isActiveAction = false
+    ///
+
+
+    /// TableFetchDataProtocol
+    @Published var isLoadingMore = false
+    var isRefreshing = false
+    var lastDoc: DocumentSnapshot? = nil
+    var isEndReached = false
     ///
 
     @MainActor
@@ -75,5 +84,29 @@ extension EventsViewModel: EventCardViewModelProtocol {
     }
 
     func handleSubscribeButton(for event: Event) {}
+
+}
+
+// MARK: - Table
+
+extension EventsViewModel: TableFetchDataProtocol {
+    typealias Item = Event
+
+    func loadInitialItems() async {
+        isRefreshing = true
+
+//        await dbService.
+
+        isRefreshing = false
+    }
+
+    func loadNextPackItemsIfNeeded(currentItem item: Item) async {
+
+    }
+
+    func refresh() async {
+
+    }
+    
 
 }

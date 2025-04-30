@@ -11,17 +11,32 @@ final class DatabaseService {
 
     private init() {}
 
+    ///
     private func getUserDoc(userID: String) -> DocumentReference {
         db.collection("users").document(userID)
     }
 
-    private func getEventDoc(eventID: String) -> DocumentReference {
-        db.collection("allEvents").document(eventID)
+    ///
+    private func getFeedCollection() -> CollectionReference {
+        db.collection("feed")
     }
 
-    private func getEventsCollection() -> CollectionReference {
-        db.collection("allEvents")
+    private func getEventInFeed(eventID: String) -> DocumentReference {
+        getFeedCollection().document(eventID)
     }
+
+    ///
+    private func getEventInMyEvents(userID: String, eventID: String) -> DocumentReference {
+        let myEventsCollection = getUserDoc(userID: userID).collection("myEvents")
+        return myEventsCollection.document(eventID)
+    }
+
+    ///
+    private func getEventInSubscriptions(userID: String, eventID: String) -> DocumentReference {
+        let subscriptionsCollection = getUserDoc(userID: userID).collection("subscriptions")
+        return subscriptionsCollection.document(eventID)
+    }
+
 
 }
 
@@ -103,7 +118,7 @@ extension DatabaseService {
 
     func loadFeed(lastDoc: DocumentSnapshot?) async -> (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool) {
         do {
-            var query = getEventsCollection().order(by: "date", descending: false)
+            var query = getFeedCollection().order(by: "date", descending: false)
             if let lastDoc {
                 query = query.start(afterDocument: lastDoc)
             }
@@ -135,30 +150,18 @@ extension DatabaseService {
 extension DatabaseService {
 
     func addEventFor(userID: String, event: Event) {
-        getEventDoc(eventID: event.id).setData(event.representation)
-        getUserDoc(userID: userID).updateData([
-            "myEvents": FieldValue.arrayUnion([event.representation])
-        ])
+        getEventInFeed(eventID: event.id).setData(event.representation)
+        getEventInMyEvents(userID: userID, eventID: event.id).setData(event.representation)
     }
 
     func editEventFor(userID: String, event: Event) async -> Bool {
-        let userDoc = getUserDoc(userID: userID)
-        let eventDoc = getEventDoc(eventID: event.id)
-
-        var myEvents = await getEvents(my: true, userID: userID)
-
-        let indexToRemove = findIndexToRemove(in: myEvents, with: event.id)
-        if let indexToRemove {
-            myEvents.remove(at: indexToRemove)
-            myEvents.insert(event, at: indexToRemove)
-        }
-
+        let eventInFeed = getEventInFeed(eventID: event.id)
+        let eventInMyEvents = getEventInMyEvents(userID: userID, eventID: event.id)
 
         do {
-            try await userDoc.updateData([
-                "myEvents": myEvents.map { $0.representation }
-            ])
-            try await eventDoc.updateData(event.representation)
+            try await eventInFeed.updateData(event.representation)
+            try await eventInMyEvents.updateData(event.representation)
+
             Logger.BuildEvent.eventEditSuccess()
             return true
         } catch {
@@ -168,36 +171,19 @@ extension DatabaseService {
     }
 
     func deleteEventFor(userID: String, event: Event) async -> Bool {
-        let userDoc = getUserDoc(userID: userID)
-        let eventDoc = getEventDoc(eventID: event.id)
-
-        var myEvents = await getEvents(my: true, userID: userID)
-
-        let indexToRemove = findIndexToRemove(in: myEvents, with: event.id)
-        if let indexToRemove {
-            myEvents.remove(at: indexToRemove)
-        }
+        let eventInFeed = getEventInFeed(eventID: event.id)
+        let eventInMyEvents = getEventInMyEvents(userID: userID, eventID: event.id)
 
         do {
-            try await userDoc.updateData([
-                "myEvents": myEvents.map { $0.representation }
-            ])
-            try await eventDoc.delete()
+            try await eventInFeed.delete()
+            try await eventInMyEvents.delete()
+
             Logger.BuildEvent.eventDeleteSuccess()
             return true
         } catch {
             Logger.BuildEvent.eventDeleteFail(error)
             return false
         }
-    }
-
-    private func findIndexToRemove(in eventArray: [Event], with id: String) -> Int? {
-        for (i, now) in eventArray.enumerated() {
-            if now.id == id {
-                return i
-            }
-        }
-        return nil
     }
 
 }

@@ -59,6 +59,7 @@ extension AuthInteractor {
                         completion(.failure(error))
                     }
                 }
+                Logger.Auth.printCurrentUserSession(self.auth.currentUser)
             } else if let error {
                 completion(.failure(error))
             }

@@ -3,8 +3,8 @@ import Foundation
 struct YUser: Identifiable, Codable {
 
     var id: String = UUID().uuidString
-
     var email: String
+
     var myEvents: [Event]
     var subscriptions: [Event]
 
@@ -13,8 +13,6 @@ struct YUser: Identifiable, Codable {
 
         res["id"] = id
         res["email"] = email
-        res["myEvents"] = myEvents.map { $0.representation }
-        res["subscriptions"] = subscriptions.map { $0.representation }
 
         return res
     }

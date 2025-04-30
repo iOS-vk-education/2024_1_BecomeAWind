@@ -87,7 +87,7 @@ extension Logger {
         }
 
         static func errorGettingDocument(_ error: Error) {
-            print("Error getting document desc = \(error.localizedDescription)\n")
+            print("Error getting document, error desc = \(error.localizedDescription)\n")
         }
 
         static func loadImageFail(by path: String, with error: Error) {
