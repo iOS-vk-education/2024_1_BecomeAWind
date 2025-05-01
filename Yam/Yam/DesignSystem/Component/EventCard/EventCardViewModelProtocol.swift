@@ -13,7 +13,7 @@ protocol EventCardViewModelProtocol {
 
     func open(link: String)
 
-    func handleSubscribeButton(for event: Event)
+    func handleSubscribeButton(for event: Event, eventType: EventType) async -> Bool
 
 }
 

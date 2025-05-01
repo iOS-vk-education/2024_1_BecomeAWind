@@ -6,19 +6,18 @@ final class BuildEventModel {
     private let dbService = DatabaseService.shared
     private let authInteractor = AuthInteractor.shared
 
-    func create(_ preparedEvent: Event) -> Bool {
+    func create(_ preparedEvent: Event) async -> Bool {
         guard let userID = authInteractor.getUserID() else {
-            Logger.BuildEvent.eventCreateFail()
+            Logger.BuildEvent.eventCreateFail(nil)
             return false
         }
 
-        dbService.addEventFor(userID: userID, event: preparedEvent)
-        Logger.BuildEvent.eventCreateSuccess()
-        return true
+        return await dbService.addEventFor(userID: userID, event: preparedEvent)
     }
 
     func edit(_ preparedEvent: Event) async -> Bool {
         guard let userID = authInteractor.getUserID() else {
+            Logger.BuildEvent.eventEditFail(nil)
             return false
         }
 
@@ -27,6 +26,7 @@ final class BuildEventModel {
 
     func delete(_ event: Event) async -> Bool {
         guard let userID = authInteractor.getUserID() else {
+            Logger.BuildEvent.eventDeleteFail(nil)
             return false
         }
 

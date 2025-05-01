@@ -1,5 +1,3 @@
-import Foundation
-import Combine
 import SwiftUI
 import FirebaseFirestore
 
@@ -10,6 +8,7 @@ final class FeedViewModel: ObservableObject {
 
     @Published var events: [Event] = []
     var myEventsIDs: Set<String> = []
+    var subcriptionsIDs: Set<String> = []
 
     /// TableFetchDataProtocol
     @Published var isLoading = false
@@ -31,6 +30,10 @@ final class FeedViewModel: ObservableObject {
     @Published var isActiveAction = false
     ///
 
+    @Published var failedToSubcribeAlert = false
+    @Published var failedToUnsubcribeAlert = false
+
+
     init() {
         Task {
             await loadItems(isFirstPack: isFirstPack)
@@ -38,10 +41,11 @@ final class FeedViewModel: ObservableObject {
     }
 
     @MainActor
-    private func getMyEventsIDs() async {
+    private func getEventsIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
-        myEventsIDs = Set(await dbService.getMyEventsIDs(userID: userID))
+        myEventsIDs = Set(await dbService.getEventsIDs(userID: userID, isMyEvent: true))
+        subcriptionsIDs = Set(await dbService.getEventsIDs(userID: userID, isMyEvent: false))
     }
 
 }
@@ -53,7 +57,7 @@ extension FeedViewModel: TableFetchDataProtocol {
         guard !isLoading,
               !isEndReached else { return }
 
-        if isFirstPack { await getMyEventsIDs() }
+        if isFirstPack { await getEventsIDs() }
 
         isLoading = true
 
@@ -105,6 +109,44 @@ extension FeedViewModel: EventCardViewModelProtocol {
         }
     }
 
-    func handleSubscribeButton(for event: Event) {}
+    @MainActor
+    func handleSubscribeButton(for event: Event, eventType: EventType) async -> Bool {
+        guard let userID = authInteractor.getUserID() else { return false }
+
+        selectedEvent = event
+
+        switch eventType {
+        case .added:
+            guard subcriptionsIDs.contains(event.id) &&
+                event.seats.busy > 0 else {
+                failedToUnsubcribeAlert = true
+                return false
+            }
+
+            var newEvent = event
+            newEvent.seats.busy -= 1
+
+            failedToUnsubcribeAlert = await !dbService.unsubscribeToTheEvent(userID: userID, event: newEvent)
+
+            return !failedToUnsubcribeAlert
+
+        case .notAdded:
+            guard !subcriptionsIDs.contains(event.id) &&
+                event.seats.busy < event.seats.all else {
+                failedToSubcribeAlert = true
+                return false
+            }
+
+            var newEvent = event
+            newEvent.seats.busy += 1
+
+            failedToSubcribeAlert = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
+
+            return !failedToSubcribeAlert
+
+        default: return false 
+        }
+
+    }
 
 }

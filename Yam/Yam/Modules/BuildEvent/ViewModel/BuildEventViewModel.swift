@@ -119,7 +119,7 @@ extension BuildEventViewModel {
         guard canCreate(),
               let imagePath = await getImagePath() else { return false }
 
-        return model.create(prepareEventForCreate(with: imagePath))
+        return await model.create(prepareEventForCreate(with: imagePath))
     }
 
     private func canCreate() -> Bool {

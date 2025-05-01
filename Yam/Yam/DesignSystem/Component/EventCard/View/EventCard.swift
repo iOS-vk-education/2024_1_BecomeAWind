@@ -3,9 +3,9 @@ import MapKit
 
 struct EventCard: View {
 
-    var viewModel: EventCardViewModelProtocol
-    let eventType: EventType
+    let viewModel: EventCardViewModelProtocol
     let event: Event
+    @Binding var eventType: EventType
 
     var body: some View {
         VStack {
@@ -32,12 +32,20 @@ struct EventCard: View {
                             viewModel.toggleAction(for: event)
                         }
                     case .added:
-                        EventCardButton(imageName: "xmark", background: Gradient.blackPink) {
-                            viewModel.handleSubscribeButton(for: event)
+                        EventCardButton(imageName: "xmark", background: Gradient.pinkIndigo) {
+                            Task {
+                                if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
+                                    eventType = .notAdded
+                                }
+                            }
                         }
                     case .notAdded:
                         EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
-                            viewModel.handleSubscribeButton(for: event)
+                            Task {
+                                if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
+                                    eventType = .added
+                                }
+                            }
                         }
                     }
                 }

@@ -10,8 +10,10 @@ struct FeedView: View {
             ForEach(viewModel.events.filter { !viewModel.myEventsIDs.contains($0.id) }, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
-                    eventType: .notAdded,
-                    event: event
+                    event: event,
+                    eventType: viewModel.subcriptionsIDs.contains(event.id)
+                    ? .added
+                    : .notAdded
                 )
                 .listRowSeparator(.hidden)
             }
@@ -37,7 +39,13 @@ struct FeedView: View {
             }
         }
         .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
-            Button("ок", role: .cancel) { }
+            Button("ок", role: .cancel) {}
+        }
+        .alert("не удалось подписаться", isPresented: $viewModel.failedToSubcribeAlert) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("не удалось отписаться", isPresented: $viewModel.failedToUnsubcribeAlert) {
+            Button("ок", role: .cancel) {}
         }
     }
 

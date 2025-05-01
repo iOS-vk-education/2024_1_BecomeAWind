@@ -78,7 +78,9 @@ extension EventsViewModel: EventCardViewModelProtocol {
         }
     }
 
-    func handleSubscribeButton(for event: Event) {}
+    func handleSubscribeButton(for event: Event, eventType: EventType) async -> Bool {
+        return false
+    }
 
 }
 
@@ -115,6 +117,7 @@ extension EventsViewModel: TableFetchDataProtocol {
         if isFirstPack { self.isFirstPack = false }
     }
 
+    @MainActor
     func refresh() async {
         guard !isLoading else { return }
 

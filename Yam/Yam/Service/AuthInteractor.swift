@@ -45,6 +45,7 @@ extension AuthInteractor {
                     id: result.user.uid,
                     email: email,
                     myEventsIDs: [],
+                    subscriptionsIDs: []
                 )
                 self.dbService.createUser(user: user) { dbResult in
                     defer {

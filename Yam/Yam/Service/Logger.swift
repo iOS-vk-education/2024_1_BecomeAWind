@@ -129,24 +129,33 @@ extension Logger {
             print("Event create success\n")
         }
 
-        static func eventCreateFail() {
-            print("Event create fail\n")
+        static func eventCreateFail(_ error: Error?) {
+            print("Event create fail ", terminator: "")
+            if let error {
+                print("error desc = \(error.localizedDescription)\n")
+            }
         }
 
         static func eventEditSuccess() {
             print("Event edit success\n")
         }
 
-        static func eventEditFail(_ error: Error) {
-            print("Event edit fail, error desc = \(error)\n")
+        static func eventEditFail(_ error: Error?) {
+            print("Event edit fail ", terminator: "")
+            if let error {
+                print("error desc = \(error.localizedDescription)\n")
+            }
         }
 
         static func eventDeleteSuccess() {
             print("Event delete success\n")
         }
 
-        static func eventDeleteFail(_ error: Error) {
-            print("Event delete fail, error desc = \(error)\n")
+        static func eventDeleteFail(_ error: Error?) {
+            print("Event delete fail, ", terminator: "")
+            if let error {
+                print("error desc = \(error.localizedDescription)\n")
+            }
         }
 
     }
@@ -167,8 +176,24 @@ extension Logger {
             print("Next pack feed load fail, error desc = \(error.localizedDescription)\n")
         }
 
-        static func getMyEventsIDsFail(_ error: Error) {
-            print("Get myEventsIDsFail, error desc = \(error.localizedDescription)\n")
+        static func getEventsIDsFail(_ error: Error) {
+            print("Get eventsIDsFail, error desc = \(error.localizedDescription)\n")
+        }
+
+        static func subscribeToTheEventSuccess() {
+            print("Subscribe to the event success\n")
+        }
+
+        static func subscribeToTheEventFail(_ error: Error) {
+            print("Subscribe to the event fail, error desc = \(error.localizedDescription)\n")
+        }
+
+        static func unsubscribeToTheEventSuccess() {
+            print("Unsubscribe to the event success\n")
+        }
+
+        static func unsubscribeToTheEventFail(_ error: Error) {
+            print("Unsubscribe to the event fail, error desc = \(error.localizedDescription)\n")
         }
 
     }
