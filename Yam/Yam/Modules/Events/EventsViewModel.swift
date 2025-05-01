@@ -27,10 +27,14 @@ final class EventsViewModel: ObservableObject {
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
     @Published var isActiveAction = false
+    @Published var failedToSubcribeAlert = false
+    @Published var failedToUnsubcribeAlert = false
     ///
 
     /// TableFetchDataProtocol
     @Published var isLoading = false
+    var lastDoc: DocumentSnapshot? = nil
+    var isEndReached = false
     var isFirstPack = true {
         didSet {
             Task {
@@ -38,14 +42,33 @@ final class EventsViewModel: ObservableObject {
             }
         }
     }
-    var lastDoc: DocumentSnapshot? = nil
-    var isEndReached = false
     ///
+
+
 
     init() {
         Task {
             await loadItems(isFirstPack: isFirstPack)
         }
+    }
+
+    func getEventType(event: Event) -> EventType {
+        switch activeTab {
+        case .myEvents:
+            .my
+        case .subscriptions:
+            if dbService.subscriptionsIDs.contains(event.id) {
+                .added
+            } else {
+                .notAdded
+            }
+        }
+    }
+
+    private func getEventsIDs() async {
+        guard let userID = authInteractor.getUserID() else { return }
+
+        await dbService.getEventsIDs(userID: userID, my: false)
     }
 
 }
@@ -84,11 +107,61 @@ extension EventsViewModel: EventCardViewModelProtocol {
         }
     }
 
-    func handleSubscribeButton(for event: Event, eventType: EventType) async -> Bool {
-        return false
+    @MainActor
+    func handleSubscribeButton(event: Event, eventType: EventType) async -> Bool {
+        guard let userID = authInteractor.getUserID() else { return false }
+
+        selectedEvent = event
+
+        guard let userID = authInteractor.getUserID() else { return false }
+
+        selectedEvent = event
+
+        switch eventType {
+        case .added:
+            guard let newEvent = await getNewEvent(
+                userID: userID,
+                event: event,
+                eventType: eventType,
+                subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
+            ) else { return false }
+
+            failedToUnsubcribeAlert = await !dbService.unsubscribeToTheEvent(
+                userID: userID,
+                event: newEvent
+            )
+
+            return !failedToUnsubcribeAlert
+
+        case .notAdded:
+            guard let newEvent = await getNewEvent(
+                userID: userID,
+                event: event,
+                eventType: eventType,
+                subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
+            ) else { return false }
+
+            failedToSubcribeAlert = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
+
+            return !failedToSubcribeAlert
+
+        default: return false
+        }
     }
 
-    func updateEvent(eventID: String) async {}
+    @MainActor
+    func updateEvent(eventID: String) async {
+        do {
+            let updatedEvent = try await dbService.getEvent(by: eventID)
+            await getEventsIDs()
+            if let index = subscriptions.firstIndex(where: { $0.id == updatedEvent.id }) {
+                subscriptions[index] = updatedEvent
+            }
+            Logger.Feed.eventUpdated()
+        } catch {
+            Logger.Feed.eventNotUpdated(error)
+        }
+    }
 
 }
 
@@ -101,6 +174,10 @@ extension EventsViewModel: TableFetchDataProtocol {
         guard let userID = authInteractor.getUserID(),
               !isLoading,
               !isEndReached else { return }
+
+        if isFirstPack {
+            await getEventsIDs()
+        }
 
         isLoading = true
 

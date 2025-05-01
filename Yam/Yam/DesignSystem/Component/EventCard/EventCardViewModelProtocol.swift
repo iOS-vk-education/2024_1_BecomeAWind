@@ -6,6 +6,8 @@ protocol EventCardViewModelProtocol {
     var invalidLink: Bool { get set }
     var isActiveEventLocation: Bool { get set }
     var isActiveAction: Bool { get set }
+    var failedToSubcribeAlert: Bool { get set }
+    var failedToUnsubcribeAlert: Bool { get set }
 
     func toggleAction(for event: Event)
 
@@ -13,13 +15,51 @@ protocol EventCardViewModelProtocol {
 
     func open(link: String)
 
-    func handleSubscribeButton(for event: Event, eventType: EventType) async -> Bool
+    func handleSubscribeButton(
+        event: Event,
+        eventType: EventType,
+    ) async -> Bool
 
     func updateEvent(eventID: String) async
 
 }
 
 extension EventCardViewModelProtocol {
+
+    func getNewEvent(
+        userID: String,
+        event: Event,
+        eventType: EventType,
+        subscriptionsContainsEvent: Bool
+    ) async -> Event? {
+
+        switch eventType {
+        case .added:
+            guard subscriptionsContainsEvent &&
+                    event.seats.busy > 0 else {
+                return nil
+            }
+
+            var newEvent = event
+            newEvent.seats.busy -= 1
+
+            return newEvent
+
+        case .notAdded:
+            guard !subscriptionsContainsEvent &&
+                    event.seats.busy < event.seats.all else {
+                return nil
+            }
+
+            var newEvent = event
+            newEvent.seats.busy += 1
+
+            return newEvent
+
+        default: return nil
+        }
+        
+    }
 
     func convertToString(from seats: Seats) -> String {
         EventHandler.getSeatsString(from: seats)

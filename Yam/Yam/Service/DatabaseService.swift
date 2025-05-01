@@ -1,14 +1,22 @@
 import Foundation
 import FirebaseFirestore
+import SwiftUI
 
-final class DatabaseService {
+final class DatabaseService: ObservableObject {
 
     static let shared = DatabaseService()
     private let db = Firestore.firestore()
 
-    var myEventsIDsTempStorage = [String]()
+    @Published var myEventsIDs = Set<String>()
+    @Published var subscriptionsIDs = Set<String>()
 
     private init() {}
+
+}
+
+// MARK: - References
+
+extension DatabaseService {
 
     ///
     private func getUsersCollection() -> CollectionReference {
@@ -47,7 +55,7 @@ final class DatabaseService {
 
 }
 
-// MARK: - Auth
+// MARK: - Auth module
 
 extension DatabaseService {
 
@@ -65,7 +73,7 @@ extension DatabaseService {
 
 }
 
-// MARK: - Events
+// MARK: - Events module
 
 extension DatabaseService {
 
@@ -102,7 +110,7 @@ extension DatabaseService {
 
 }
 
-// MARK: - Feed
+// MARK: - Feed module
 
 extension DatabaseService {
 
@@ -131,66 +139,10 @@ extension DatabaseService {
         }
     }
 
-    func getEventsIDs(userID: String, isMyEvent: Bool) async -> [String] {
-        var res = [String]()
-
-        do {
-            let user = try await getUserRef(userID: userID).getDocument(as: YUser.self)
-
-            res = isMyEvent
-            ? user.myEventsIDs
-            : user.subscriptionsIDs
-        } catch {
-            Logger.Feed.getEventsIDsFail(error)
-        }
-
-        return res
-    }
-
-    func subscribeToTheEvent(userID: String, event: Event) async -> Bool {
-        do {
-            try await getEventInSubscriptions(userID: userID, eventID: event.id).setData(event.representation)
-
-            try await getEventInFeed(eventID: event.id).updateData([
-                "seats.busy": event.seats.busy
-            ])
-
-            try await getUserRef(userID: userID).updateData([
-                "subscriptionsIDs": FieldValue.arrayUnion([event.id])
-            ])
-
-            Logger.Feed.subscribeToTheEventSuccess()
-            return true
-        } catch {
-            Logger.Feed.subscribeToTheEventFail(error)
-            return false
-        }
-    }
-
-    func unsubscribeToTheEvent(userID: String, event: Event) async -> Bool {
-        do {
-            try await getEventInSubscriptions(userID: userID, eventID: event.id).delete()
-
-            try await getEventInFeed(eventID: event.id).updateData([
-                "seats.busy": event.seats.busy
-            ])
-
-            try await getUserRef(userID: userID).updateData([
-                "subscriptionsIDs": FieldValue.arrayRemove([event.id])
-            ])
-
-            Logger.Feed.unsubscribeToTheEventSuccess()
-            return true
-        } catch {
-            Logger.Feed.unsubscribeToTheEventFail(error)
-            return false
-        }
-    }
-
 }
 
 
-// MARK: - BuildEvent
+// MARK: - Events manipulating
 
 extension DatabaseService {
 
@@ -240,6 +192,60 @@ extension DatabaseService {
         } catch {
             Logger.BuildEvent.eventDeleteFail(error)
             return false
+        }
+    }
+
+    func subscribeToTheEvent(userID: String, event: Event) async -> Bool {
+        do {
+            try await getEventInSubscriptions(userID: userID, eventID: event.id).setData(event.representation)
+
+            try await getEventInFeed(eventID: event.id).updateData([
+                "seats.busy": event.seats.busy
+            ])
+
+            try await getUserRef(userID: userID).updateData([
+                "subscriptionsIDs": FieldValue.arrayUnion([event.id])
+            ])
+
+            Logger.Feed.subscribeToTheEventSuccess()
+            return true
+        } catch {
+            Logger.Feed.subscribeToTheEventFail(error)
+            return false
+        }
+    }
+
+    func unsubscribeToTheEvent(userID: String, event: Event) async -> Bool {
+        do {
+            try await getEventInSubscriptions(userID: userID, eventID: event.id).delete()
+
+            try await getEventInFeed(eventID: event.id).updateData([
+                "seats.busy": event.seats.busy
+            ])
+
+            try await getUserRef(userID: userID).updateData([
+                "subscriptionsIDs": FieldValue.arrayRemove([event.id])
+            ])
+
+            Logger.Feed.unsubscribeToTheEventSuccess()
+            return true
+        } catch {
+            Logger.Feed.unsubscribeToTheEventFail(error)
+            return false
+        }
+    }
+
+    func getEventsIDs(userID: String, my: Bool) async {
+        do {
+            let user = try await getUserRef(userID: userID).getDocument(as: YUser.self)
+
+            if my {
+                myEventsIDs = Set(user.myEventsIDs)
+            } else {
+                subscriptionsIDs = Set(user.subscriptionsIDs)
+            }
+        } catch {
+            Logger.Feed.getEventsIDsFail(error)
         }
     }
 

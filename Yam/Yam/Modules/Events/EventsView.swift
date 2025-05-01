@@ -22,9 +22,7 @@ struct EventsView: View {
                     EventCard(
                         viewModel: viewModel,
                         event: event,
-                        eventType: viewModel.activeTab == .myEvents
-                        ? .my
-                        : .added
+                        eventType: viewModel.getEventType(event: event)
                     )
                     .listRowSeparator(.hidden)
                 }

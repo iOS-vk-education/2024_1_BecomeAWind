@@ -38,7 +38,7 @@ struct EventCard: View {
                                 Task {
                                     isActiveActionButton = true
 
-                                    if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
+                                    if await viewModel.handleSubscribeButton(event: event, eventType: eventType) {
                                         await viewModel.updateEvent(eventID: event.id)
                                     }
 
@@ -50,7 +50,7 @@ struct EventCard: View {
                                 Task {
                                     isActiveActionButton = true
 
-                                    if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
+                                    if await viewModel.handleSubscribeButton(event: event, eventType: eventType) {
                                         await viewModel.updateEvent(eventID: event.id)
                                     }
 

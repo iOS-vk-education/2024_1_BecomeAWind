@@ -466,8 +466,8 @@
 			isa = PBXGroup;
 			children = (
 				8786CF242DB4CB120010D079 /* NavigationManager.swift */,
-				8744C44D2DAD9CD6001A0A9F /* AuthInteractor.swift */,
 				8744C4682DADC05F001A0A9F /* DatabaseService.swift */,
+				8744C44D2DAD9CD6001A0A9F /* AuthInteractor.swift */,
 				879D29852DB52B96004A0B4D /* ImageService.swift */,
 				87CCF4CB2D8A054B005203CA /* Logger.swift */,
 			);

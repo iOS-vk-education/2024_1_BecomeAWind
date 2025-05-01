@@ -28,7 +28,7 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject {
             AuthorizedEntryTabItemConfig(tab: .profile, title: "профиль", imageName: "person.crop.circle")
         ]
     }
-    
+
 }
 
 // MARK: - Configure views

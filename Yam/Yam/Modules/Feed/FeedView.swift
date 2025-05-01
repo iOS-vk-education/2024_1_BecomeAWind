@@ -7,11 +7,11 @@ struct FeedView: View {
     var body: some View {
         /// events list
         List {
-            ForEach(viewModel.events.filter { !viewModel.myEventsIDs.contains($0.id) }, id: \.self) { event in
+            ForEach(viewModel.events.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
                     event: event,
-                    eventType: viewModel.subcriptionsIDs.contains(event.id)
+                    eventType: viewModel.dbService.subscriptionsIDs.contains(event.id)
                     ? .added
                     : .notAdded
                 )
