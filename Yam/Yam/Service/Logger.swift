@@ -196,6 +196,14 @@ extension Logger {
             print("Unsubscribe to the event fail, error desc = \(error.localizedDescription)\n")
         }
 
+        static func eventUpdated() {
+            print("Event updated\n")
+        }
+
+        static func eventNotUpdated(_ error: Error) {
+            print("Event not updated, error desc = \(error.localizedDescription)\n")
+        }
+
     }
 
 }

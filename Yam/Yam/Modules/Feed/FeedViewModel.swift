@@ -7,8 +7,8 @@ final class FeedViewModel: ObservableObject {
     private let dbService = DatabaseService.shared
 
     @Published var events: [Event] = []
-    var myEventsIDs: Set<String> = []
-    var subcriptionsIDs: Set<String> = []
+    @Published var myEventsIDs: Set<String> = []
+    @Published var subcriptionsIDs: Set<String> = []
 
     /// TableFetchDataProtocol
     @Published var isLoading = false
@@ -41,12 +41,28 @@ final class FeedViewModel: ObservableObject {
     }
 
     @MainActor
+    func updateEvent(eventID: String) async {
+        do {
+            let updatedEvent = try await dbService.getEvent(by: eventID)
+            await getEventsIDs()
+            if let index = events.firstIndex(where: { $0.id == updatedEvent.id }) {
+                events[index] = updatedEvent
+            }
+            Logger.Feed.eventUpdated()
+        } catch {
+            Logger.Feed.eventNotUpdated(error)
+        }
+    }
+
+
+    @MainActor
     private func getEventsIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
         myEventsIDs = Set(await dbService.getEventsIDs(userID: userID, isMyEvent: true))
         subcriptionsIDs = Set(await dbService.getEventsIDs(userID: userID, isMyEvent: false))
     }
+
 
 }
 
@@ -57,7 +73,9 @@ extension FeedViewModel: TableFetchDataProtocol {
         guard !isLoading,
               !isEndReached else { return }
 
-        if isFirstPack { await getEventsIDs() }
+        if isFirstPack {
+            await getEventsIDs()
+        }
 
         isLoading = true
 
@@ -82,11 +100,18 @@ extension FeedViewModel: TableFetchDataProtocol {
 
     @MainActor
     func refresh() async {
+        func clearFeed() {
+            events.removeAll()
+            isFirstPack = true
+            lastDoc = nil
+            isEndReached = false
+        }
+
         guard !isLoading else { return }
 
         isLoading = true
 
-        isFirstPack = true
+        clearFeed()
         await loadItems(isFirstPack: isFirstPack)
 
         isLoading = false

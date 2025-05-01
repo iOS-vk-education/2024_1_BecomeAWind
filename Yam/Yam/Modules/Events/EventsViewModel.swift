@@ -82,6 +82,8 @@ extension EventsViewModel: EventCardViewModelProtocol {
         return false
     }
 
+    func updateEvent(eventID: String) async {}
+
 }
 
 // MARK: - Table

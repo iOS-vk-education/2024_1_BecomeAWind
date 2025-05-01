@@ -5,7 +5,8 @@ struct EventCard: View {
 
     let viewModel: EventCardViewModelProtocol
     let event: Event
-    @Binding var eventType: EventType
+    let eventType: EventType
+    @State var eventTypeState: EventType = .notAdded
 
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct EventCard: View {
                     }
 
                     /// action button
-                    switch eventType {
+                    switch eventTypeState {
                     case .my:
                         EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
                             viewModel.toggleAction(for: event)
@@ -34,16 +35,16 @@ struct EventCard: View {
                     case .added:
                         EventCardButton(imageName: "xmark", background: Gradient.pinkIndigo) {
                             Task {
-                                if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
-                                    eventType = .notAdded
+                                if await viewModel.handleSubscribeButton(for: event, eventType: eventTypeState) {
+                                    await viewModel.updateEvent(eventID: event.id)
                                 }
                             }
                         }
                     case .notAdded:
                         EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
                             Task {
-                                if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
-                                    eventType = .added
+                                if await viewModel.handleSubscribeButton(for: event, eventType: eventTypeState) {
+                                    await viewModel.updateEvent(eventID: event.id)
                                 }
                             }
                         }
@@ -74,6 +75,9 @@ struct EventCard: View {
             height: Const.screenHeight * 0.5
         )
         .cornerRadius(Const.cornerRadius)
+        .onAppear {
+            eventTypeState = eventType
+        }
     }
 
 }

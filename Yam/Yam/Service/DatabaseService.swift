@@ -243,4 +243,9 @@ extension DatabaseService {
         }
     }
 
+    func getEvent(by eventID: String) async throws -> Event {
+        let eventSnapshot = try await getFeedCollection().document(eventID).getDocument()
+        return try eventSnapshot.data(as: Event.self)
+    }
+
 }

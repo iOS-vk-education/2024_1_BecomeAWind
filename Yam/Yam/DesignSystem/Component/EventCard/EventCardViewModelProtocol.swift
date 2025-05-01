@@ -15,6 +15,8 @@ protocol EventCardViewModelProtocol {
 
     func handleSubscribeButton(for event: Event, eventType: EventType) async -> Bool
 
+    func updateEvent(eventID: String) async
+
 }
 
 extension EventCardViewModelProtocol {
