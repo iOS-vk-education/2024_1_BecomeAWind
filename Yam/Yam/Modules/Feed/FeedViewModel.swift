@@ -104,6 +104,7 @@ extension FeedViewModel: EventCardViewModelProtocol {
     func updateEvent(eventID: String) async {
         do {
             let updatedEvent = try await dbService.getEvent(by: eventID)
+            print(updatedEvent.id)
             await getEventsIDs()
             if let index = events.firstIndex(where: { $0.id == updatedEvent.id }) {
                 events[index] = updatedEvent

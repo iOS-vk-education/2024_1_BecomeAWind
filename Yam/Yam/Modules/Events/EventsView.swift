@@ -45,7 +45,11 @@ struct EventsView: View {
         }
         .fullScreenCover(isPresented: $viewModel.isActiveCreateEvent) {
             BuildEventView()
-                .onDisappear {  }
+                .onDisappear {
+//                    Task {
+//                        await viewModel.refresh()
+//                    }
+                }
         }
         .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
@@ -61,7 +65,9 @@ struct EventsView: View {
                     )
                 )
                 .onDisappear {
-
+                    Task {
+                        await viewModel.updateEvent(eventID: event.id)
+                    }
                 }
             }
         }

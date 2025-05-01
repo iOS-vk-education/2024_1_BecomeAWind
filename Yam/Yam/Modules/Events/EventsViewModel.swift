@@ -44,8 +44,6 @@ final class EventsViewModel: ObservableObject {
     }
     ///
 
-
-
     init() {
         Task {
             await loadItems(isFirstPack: isFirstPack)
@@ -113,10 +111,6 @@ extension EventsViewModel: EventCardViewModelProtocol {
 
         selectedEvent = event
 
-        guard let userID = authInteractor.getUserID() else { return false }
-
-        selectedEvent = event
-
         switch eventType {
         case .added:
             guard let newEvent = await getNewEvent(
@@ -153,10 +147,20 @@ extension EventsViewModel: EventCardViewModelProtocol {
     func updateEvent(eventID: String) async {
         do {
             let updatedEvent = try await dbService.getEvent(by: eventID)
+
             await getEventsIDs()
-            if let index = subscriptions.firstIndex(where: { $0.id == updatedEvent.id }) {
-                subscriptions[index] = updatedEvent
+            
+            switch activeTab {
+            case .myEvents:
+                if let index = myEvents.firstIndex(where: { $0.id == updatedEvent.id }) {
+                    myEvents[index] = updatedEvent
+                }
+            case .subscriptions:
+                if let index = subscriptions.firstIndex(where: { $0.id == updatedEvent.id }) {
+                    subscriptions[index] = updatedEvent
+                }
             }
+
             Logger.Feed.eventUpdated()
         } catch {
             Logger.Feed.eventNotUpdated(error)
