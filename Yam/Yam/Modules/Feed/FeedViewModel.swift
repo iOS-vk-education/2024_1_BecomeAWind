@@ -100,19 +100,14 @@ extension FeedViewModel: TableFetchDataProtocol {
 
     @MainActor
     func refresh() async {
-        func clearFeed() {
-            events.removeAll()
-            isFirstPack = true
-            lastDoc = nil
-            isEndReached = false
-        }
-
         guard !isLoading else { return }
 
         isLoading = true
 
-        clearFeed()
-        await loadItems(isFirstPack: isFirstPack)
+        events.removeAll()
+        isFirstPack = true
+        lastDoc = nil
+        isEndReached = false
 
         isLoading = false
     }

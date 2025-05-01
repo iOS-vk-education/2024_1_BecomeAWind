@@ -11,7 +11,13 @@ final class EventsViewModel: ObservableObject {
 
     /// nav bar
     @Published var isActiveCreateEvent = false
-    @Published var activeTab: EventsTab = .myEvents
+    @Published var activeTab: EventsTab = .myEvents {
+        didSet {
+            Task {
+                await refresh()
+            }
+        }
+    }
     var leftTab: EventsTab = .myEvents
     var rightTab: EventsTab = .subscriptions
     var isVisibleCenterButton: Bool = true
@@ -98,17 +104,15 @@ extension EventsViewModel: TableFetchDataProtocol {
 
         isLoading = true
 
-        let result = isFirstPack
-        ? await dbService.loadEvents(isMy: true, for: userID, lastDoc: nil)
-        : await dbService.loadEvents(isMy: true, for: userID, lastDoc: lastDoc)
-//        activeTab == .myEvents
-//        ? await dbService.loadEvents(isMy: true, for: userID, lastDoc: lastDoc)
-//        : await dbService.loadEvents(isMy: false, for: userID, lastDoc: lastDoc)
+        let result: (events: [Event], newLastDoc: DocumentSnapshot?, isEndReached: Bool)
 
-        if isFirstPack {
-            myEvents = result.events
-        } else {
-            myEvents.append(contentsOf: result.events)
+        switch activeTab {
+        case .myEvents:
+            result = await dbService.loadEvents(isMy: true, for: userID, lastDoc: isFirstPack ? nil : lastDoc)
+            myEvents = isFirstPack ? result.events : myEvents + result.events
+        case .subscriptions:
+            result = await dbService.loadEvents(isMy: false, for: userID, lastDoc: isFirstPack ? nil : lastDoc)
+            subscriptions = isFirstPack ? result.events : subscriptions + result.events
         }
 
         lastDoc = result.newLastDoc
@@ -125,10 +129,13 @@ extension EventsViewModel: TableFetchDataProtocol {
 
         isLoading = true
 
+        myEvents.removeAll()
+        subscriptions.removeAll()
         isFirstPack = true
-        await loadItems(isFirstPack: isFirstPack)
+        lastDoc = nil
+        isEndReached = false
 
         isLoading = false
     }
-    
+
 }
