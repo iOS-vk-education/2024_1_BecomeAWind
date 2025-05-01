@@ -67,6 +67,7 @@
 		8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7012D464DF90017F2B8 /* FeedViewModel.swift */; };
 		8752B7062D468D3E0017F2B8 /* YImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8752B7052D468D3E0017F2B8 /* YImage.swift */; };
 		876084C22D7A37B500195B68 /* EntryTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876084C12D7A37B500195B68 /* EntryTabBar.swift */; };
+		877DE7F02DC3CFBC00E48666 /* EventCardLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DE7EF2DC3CFBC00E48666 /* EventCardLoadingButton.swift */; };
 		878432E62D512A1500A24538 /* BuildEventImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E52D512A1500A24538 /* BuildEventImagePicker.swift */; };
 		8786CF232DB3EF9D0010D079 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF222DB3EF9D0010D079 /* ProfileViewModel.swift */; };
 		8786CF252DB4CB120010D079 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF242DB4CB120010D079 /* NavigationManager.swift */; };
@@ -183,6 +184,7 @@
 		8752B7012D464DF90017F2B8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		8752B7052D468D3E0017F2B8 /* YImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YImage.swift; sourceTree = "<group>"; };
 		876084C12D7A37B500195B68 /* EntryTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTabBar.swift; sourceTree = "<group>"; };
+		877DE7EF2DC3CFBC00E48666 /* EventCardLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardLoadingButton.swift; sourceTree = "<group>"; };
 		878432E52D512A1500A24538 /* BuildEventImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventImagePicker.swift; sourceTree = "<group>"; };
 		8786CF222DB3EF9D0010D079 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8786CF242DB4CB120010D079 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				8751D8612DBAD5C80004C61B /* EventCard.swift */,
 				87DE0D7A2DBD2AD300D4DDF8 /* EventCardImage.swift */,
 				8751D8622DBAD5C80004C61B /* EventCardButton.swift */,
+				877DE7EF2DC3CFBC00E48666 /* EventCardLoadingButton.swift */,
 				8751D8632DBAD5C80004C61B /* EventCardDateLabel.swift */,
 				8751D8652DBAD5C80004C61B /* EventCardSeatsLabel.swift */,
 				8751D8662DBAD5C80004C61B /* EventCardTitleLabel.swift */,
@@ -870,6 +873,7 @@
 				87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */,
 				87DE0DA02DC002FF00D4DDF8 /* FooterButtonsPack.swift in Sources */,
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
+				877DE7F02DC3CFBC00E48666 /* EventCardLoadingButton.swift in Sources */,
 				879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */,
 				8751D8692DBAD5C80004C61B /* EventCard.swift in Sources */,
 				8751D86A2DBAD5C80004C61B /* EventCardButton.swift in Sources */,

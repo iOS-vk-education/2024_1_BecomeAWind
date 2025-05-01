@@ -6,7 +6,7 @@ struct EventCard: View {
     let viewModel: EventCardViewModelProtocol
     let event: Event
     let eventType: EventType
-    @State var eventTypeState: EventType = .notAdded
+    @State var isActiveActionButton = false
 
     var body: some View {
         VStack {
@@ -27,28 +27,45 @@ struct EventCard: View {
                     }
 
                     /// action button
-                    switch eventTypeState {
-                    case .my:
-                        EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
-                            viewModel.toggleAction(for: event)
-                        }
-                    case .added:
-                        EventCardButton(imageName: "xmark", background: Gradient.pinkIndigo) {
-                            Task {
-                                if await viewModel.handleSubscribeButton(for: event, eventType: eventTypeState) {
-                                    await viewModel.updateEvent(eventID: event.id)
+                    if !isActiveActionButton {
+                        switch eventType {
+                        case .my:
+                            EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
+                                viewModel.toggleAction(for: event)
+                            }
+                        case .added:
+                            EventCardButton(imageName: "xmark", background: Gradient.pinkIndigo) {
+                                Task {
+                                    isActiveActionButton = true
+
+                                    if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
+                                        await viewModel.updateEvent(eventID: event.id)
+                                    }
+
+                                    isActiveActionButton = false
+                                }
+                            }
+                        case .notAdded:
+                            EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
+                                Task {
+                                    isActiveActionButton = true
+
+                                    if await viewModel.handleSubscribeButton(for: event, eventType: eventType) {
+                                        await viewModel.updateEvent(eventID: event.id)
+                                    }
+
+                                    isActiveActionButton = false
                                 }
                             }
                         }
-                    case .notAdded:
-                        EventCardButton(imageName: "plus", background: Gradient.greenIndigo) {
-                            Task {
-                                if await viewModel.handleSubscribeButton(for: event, eventType: eventTypeState) {
-                                    await viewModel.updateEvent(eventID: event.id)
-                                }
-                            }
-                        }
+                    } else {
+                        EventCardLoadingButton(
+                            background: eventType == .notAdded
+                            ? Gradient.greenIndigo
+                            : Gradient.pinkIndigo
+                        )
                     }
+
                 }
                 .frame(
                     maxWidth: .infinity,
@@ -75,9 +92,6 @@ struct EventCard: View {
             height: Const.screenHeight * 0.5
         )
         .cornerRadius(Const.cornerRadius)
-        .onAppear {
-            eventTypeState = eventType
-        }
     }
 
 }

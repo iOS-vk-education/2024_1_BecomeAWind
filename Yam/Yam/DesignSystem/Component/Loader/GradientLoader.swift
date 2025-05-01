@@ -4,9 +4,9 @@ struct GradientLoader<Background: ShapeStyle>: View {
     let size: CGFloat
     let background: Background
 
-    init(size: CGFloat, background: Background = Gradient.purpleIndigo) {
-        self.size = size
+    init(background: Background = Gradient.purpleIndigo, size: CGFloat = Const.circleButtonSize) {
         self.background = background
+        self.size = size
     }
 
     var body: some View {
@@ -19,8 +19,4 @@ struct GradientLoader<Background: ShapeStyle>: View {
         }
 
     }
-}
-
-#Preview {
-    GradientLoader(size: 50, background: Gradient.purpleIndigo)
 }
