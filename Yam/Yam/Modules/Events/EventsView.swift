@@ -46,9 +46,9 @@ struct EventsView: View {
         .fullScreenCover(isPresented: $viewModel.isActiveCreateEvent) {
             BuildEventView()
                 .onDisappear {
-//                    Task {
-//                        await viewModel.refresh()
-//                    }
+                    Task {
+                        await viewModel.refresh()
+                    }
                 }
         }
         .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
@@ -73,6 +73,12 @@ struct EventsView: View {
         }
         .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
             Button("ок", role: .cancel) { }
+        }
+        .alert("не удалось подписаться", isPresented: $viewModel.failedToSubcribeAlert) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("не удалось отписаться", isPresented: $viewModel.failedToUnsubcribeAlert) {
+            Button("ок", role: .cancel) {}
         }
     }
 

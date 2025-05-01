@@ -8,7 +8,16 @@ struct BuildEventImagePicker: View {
         HStack {
             Spacer()
             VStack {
-                YImage(image: viewModel.image, size: BuildEventConst.imageSize)
+                if let event = viewModel.event {
+                    ImageDownloader(path: event.imagePath)
+                        .scaledToFill()
+                        .frame(width: BuildEventConst.imageSize, height: BuildEventConst.imageSize)
+                        .clipped()
+                        .cornerRadius(Const.cornerRadius)
+                } else {
+                    YImage(image: viewModel.image, size: BuildEventConst.imageSize)
+                }
+
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
                     CapsuleLabel(
                         title: viewModel.imagePickerButtonText,

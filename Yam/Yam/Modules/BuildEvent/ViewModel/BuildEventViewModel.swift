@@ -6,6 +6,7 @@ import FirebaseFirestore
 final class BuildEventViewModel: NSObject, ObservableObject {
 
     private let model = BuildEventModel()
+    private let app = UIApplication.shared
     private let imageService = ImageService.shared
     private let uiConfig: BuildEventUIConfig
     let buildEventType: BuildEventType
@@ -53,6 +54,10 @@ final class BuildEventViewModel: NSObject, ObservableObject {
         uiConfig = BuildEventUIConfig(type: builtEventType, event: event)
         super.init()
         applyUIConfig()
+    }
+
+    func hideKeyboard() {
+        app.endEditing()
     }
 
     private func applyUIConfig() {
@@ -258,7 +263,6 @@ extension BuildEventViewModel {
     }
 
 }
-
 
 // MARK: - Image picker
 

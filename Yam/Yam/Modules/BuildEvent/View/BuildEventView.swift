@@ -5,7 +5,7 @@ struct BuildEventView: View {
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var viewModel: BuildEventViewModel
-    @FocusState private var focus: Field?
+    @FocusState private var focusField: Field?
 
     init(viewModel: BuildEventViewModel = BuildEventViewModel()) {
         self.viewModel = viewModel
@@ -21,13 +21,15 @@ struct BuildEventView: View {
                 BuildEventImagePicker(viewModel: viewModel)
 
                 BuildEventTitle(viewModel: viewModel)
-                    .focused($focus, equals: .title)
+                    .focused($focusField, equals: .title)
+                    .submitLabel(.next)
+
+                BuildEventLink(viewModel: viewModel)
+                    .focused($focusField, equals: .link)
+                    .submitLabel(.next)
 
                 BuildEventSeats(viewModel: viewModel)
-                    .focused($focus, equals: .seats)
-
-                BuildEventLocation(viewModel: viewModel)
-                    .focused($focus, equals: .link)
+                    .focused($focusField, equals: .seats)
 
                 BuildEventDatePicker(viewModel: viewModel)
 
@@ -38,11 +40,16 @@ struct BuildEventView: View {
                 }
 
             }
-
-            BuildEventHideKeyboardButton {
-                focus = nil
+            .onSubmit {
+                switch focusField {
+                case .title:
+                    focusField = .link
+                case .link:
+                    focusField = .seats
+                default:
+                    break
+                }
             }
-            .opacity(focus == nil ? 0 : 1)
         }
         .alert(
             "ошибка. проверь, все ли поля заполнены и попробуй еще раз",
@@ -69,6 +76,9 @@ struct BuildEventView: View {
             isPresented: $viewModel.eventDeletionFailed
         ) {
             Button("ок", role: .cancel) {}
+        }
+        .onTapGesture {
+            viewModel.hideKeyboard()
         }
     }
 

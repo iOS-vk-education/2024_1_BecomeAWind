@@ -148,8 +148,10 @@ extension EventsViewModel: EventCardViewModelProtocol {
         do {
             let updatedEvent = try await dbService.getEvent(by: eventID)
 
-            await getEventsIDs()
-            
+            if activeTab == .subscriptions {
+                await getEventsIDs()
+            }
+
             switch activeTab {
             case .myEvents:
                 if let index = myEvents.firstIndex(where: { $0.id == updatedEvent.id }) {

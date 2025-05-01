@@ -11,7 +11,7 @@ struct BuildEventSeats: View {
             title: "количество мест",
             prompt: "1",
             lineLimit: BuildEventConst.lineLimit,
-            axis: .vertical
+            axis: .horizontal
         )
         .keyboardType(.decimalPad)
         .onChange(of: viewModel.allSeats) { _, newValue in

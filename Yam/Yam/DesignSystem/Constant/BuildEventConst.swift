@@ -9,7 +9,7 @@ enum BuildEventConst {
     static let titleMaxLength = Int(Const.screenHeight * 0.1)
     static let seatsMaxLength = 4
     static let contactMaxLength = Int(Const.screenHeight * 0.4)
-    static let lineLimit = 10
+    static let lineLimit = 1
 
     /// place picker
     static let emptyPlaceText = "выбери место проведения ивента"

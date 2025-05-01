@@ -11,7 +11,7 @@ struct BuildEventTitle: View {
             title: "название",
             prompt: "расскажи об ивенте",
             lineLimit: BuildEventConst.lineLimit,
-            axis: .vertical
+            axis: .horizontal
         )
         .onReceive(Just(viewModel.eventTitle)) { _ in
             viewModel.limitTextField(

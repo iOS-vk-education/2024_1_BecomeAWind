@@ -96,9 +96,8 @@
 		87D4D2962D94803700A5E4B8 /* BuildEventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2952D94803700A5E4B8 /* BuildEventHeader.swift */; };
 		87D4D2982D94809D00A5E4B8 /* BuildEventTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2972D94809D00A5E4B8 /* BuildEventTitle.swift */; };
 		87D4D29A2D94815600A5E4B8 /* BuildEventSeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2992D94815600A5E4B8 /* BuildEventSeats.swift */; };
-		87D4D29D2D94822100A5E4B8 /* BuildEventLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D29C2D94822100A5E4B8 /* BuildEventLocation.swift */; };
+		87D4D29D2D94822100A5E4B8 /* BuildEventLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D29C2D94822100A5E4B8 /* BuildEventLink.swift */; };
 		87D4D2A12D94829C00A5E4B8 /* BuildEventFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2A02D94829C00A5E4B8 /* BuildEventFooterButton.swift */; };
-		87D4D2A32D94836100A5E4B8 /* BuildEventHideKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2A22D94836100A5E4B8 /* BuildEventHideKeyboardButton.swift */; };
 		87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF8C12D4E74DA00C8C550 /* FontManager.swift */; };
 		87DAF8C82D4E775300C8C550 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C52D4E775300C8C550 /* MontserratAlternates-Medium.ttf */; };
 		87DAF8C92D4E775300C8C550 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87DAF8C62D4E775300C8C550 /* MontserratAlternates-Regular.ttf */; };
@@ -212,9 +211,8 @@
 		87D4D2952D94803700A5E4B8 /* BuildEventHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventHeader.swift; sourceTree = "<group>"; };
 		87D4D2972D94809D00A5E4B8 /* BuildEventTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventTitle.swift; sourceTree = "<group>"; };
 		87D4D2992D94815600A5E4B8 /* BuildEventSeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventSeats.swift; sourceTree = "<group>"; };
-		87D4D29C2D94822100A5E4B8 /* BuildEventLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventLocation.swift; sourceTree = "<group>"; };
+		87D4D29C2D94822100A5E4B8 /* BuildEventLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventLink.swift; sourceTree = "<group>"; };
 		87D4D2A02D94829C00A5E4B8 /* BuildEventFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventFooterButton.swift; sourceTree = "<group>"; };
-		87D4D2A22D94836100A5E4B8 /* BuildEventHideKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventHideKeyboardButton.swift; sourceTree = "<group>"; };
 		87DAF8C02D4E747D00C8C550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87DAF8C12D4E74DA00C8C550 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		87DAF8C32D4E775300C8C550 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
@@ -307,11 +305,10 @@
 				87D4D2952D94803700A5E4B8 /* BuildEventHeader.swift */,
 				878432E52D512A1500A24538 /* BuildEventImagePicker.swift */,
 				87D4D2972D94809D00A5E4B8 /* BuildEventTitle.swift */,
+				87D4D29C2D94822100A5E4B8 /* BuildEventLink.swift */,
 				87D4D2992D94815600A5E4B8 /* BuildEventSeats.swift */,
-				87D4D29C2D94822100A5E4B8 /* BuildEventLocation.swift */,
 				870E3C5E2D4388D40043DA00 /* BuildEventDatePicker.swift */,
 				87DE0D9E2DC001CC00D4DDF8 /* FooterButtonsPack */,
-				87D4D2A22D94836100A5E4B8 /* BuildEventHideKeyboardButton.swift */,
 				87FC484A2D52446900F6D8CC /* BuildEventPlace */,
 				87D4D29B2D9481FF00A5E4B8 /* BaseView */,
 			);
@@ -855,7 +852,6 @@
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
 				87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */,
 				879D29862DB52B96004A0B4D /* ImageService.swift in Sources */,
-				87D4D2A32D94836100A5E4B8 /* BuildEventHideKeyboardButton.swift in Sources */,
 				8786CF372DB4FCC60010D079 /* Event.swift in Sources */,
 				8723CFF82DB5985D00A0E194 /* Field.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
@@ -931,7 +927,7 @@
 				87336F542D7C39AC00BD699A /* AuthorizedEntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* EventsViewModel.swift in Sources */,
 				87336F8F2D7C978B00BD699A /* BuildEventConst.swift in Sources */,
-				87D4D29D2D94822100A5E4B8 /* BuildEventLocation.swift in Sources */,
+				87D4D29D2D94822100A5E4B8 /* BuildEventLink.swift in Sources */,
 				8752B7062D468D3E0017F2B8 /* YImage.swift in Sources */,
 				87D4D2982D94809D00A5E4B8 /* BuildEventTitle.swift in Sources */,
 				87D4D2A12D94829C00A5E4B8 /* BuildEventFooterButton.swift in Sources */,

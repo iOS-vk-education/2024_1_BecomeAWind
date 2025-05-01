@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-struct BuildEventLocation: View {
+struct BuildEventLink: View {
 
     @ObservedObject var viewModel: BuildEventViewModel
 
@@ -11,7 +11,7 @@ struct BuildEventLocation: View {
             title: "контакты создателя",
             prompt: "https://event.creator.link/",
             lineLimit: BuildEventConst.lineLimit,
-            axis: .vertical
+            axis: .horizontal
         )
         .onReceive(Just(link)) { _ in
             viewModel.limitTextField(
@@ -24,5 +24,5 @@ struct BuildEventLocation: View {
 }
 
 #Preview {
-    BuildEventLocation(viewModel: BuildEventViewModel())
+    BuildEventLink(viewModel: BuildEventViewModel())
 }
