@@ -27,13 +27,6 @@ struct EventsView: View {
                         event: event
                     )
                     .listRowSeparator(.hidden)
-                    .onAppear {
-                        if viewModel.myEvents.last?.id == event.id {
-                            Task {
-                                await viewModel.loadItems(isInit: false)
-                            }
-                        }
-                    }
                 }
 
                 if viewModel.isLoading {

@@ -167,6 +167,10 @@ extension Logger {
             print("Next pack feed load fail, error desc = \(error.localizedDescription)\n")
         }
 
+        static func getMyEventsIDsFail(_ error: Error) {
+            print("Get myEventsIDsFail, error desc = \(error.localizedDescription)\n")
+        }
+
     }
 
 }

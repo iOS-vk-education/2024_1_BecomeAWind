@@ -81,7 +81,7 @@ extension DatabaseService {
             if let lastDoc {
                 query = query.start(afterDocument: lastDoc)
             }
-            query = query.limit(to: 3)
+            query = query.limit(to: 25)
 
             let snapshot = try await query.getDocuments()
             let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
@@ -112,7 +112,7 @@ extension DatabaseService {
             if let lastDoc {
                 query = query.start(afterDocument: lastDoc)
             }
-            query = query.limit(to: 3)
+            query = query.limit(to: 25)
 
             let snapshot = try await query.getDocuments()
             let newEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
@@ -129,6 +129,19 @@ extension DatabaseService {
 
             return ([], lastDoc, true)
         }
+    }
+
+    func getMyEventsIDs(userID: String) async -> [String] {
+        var res = [String]()
+
+        do {
+            let user = try await getUserRef(userID: userID).getDocument(as: YUser.self)
+            res = user.myEventsIDs
+        } catch {
+            Logger.Feed.getMyEventsIDsFail(error)
+        }
+
+        return res
     }
 
 }

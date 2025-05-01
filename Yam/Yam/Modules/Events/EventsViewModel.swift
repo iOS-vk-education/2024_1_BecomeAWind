@@ -23,16 +23,22 @@ final class EventsViewModel: ObservableObject {
     @Published var isActiveAction = false
     ///
 
-
     /// TableFetchDataProtocol
     @Published var isLoading = false
+    var isFirstPack = true {
+        didSet {
+            Task {
+                await loadItems(isFirstPack: isFirstPack)
+            }
+        }
+    }
     var lastDoc: DocumentSnapshot? = nil
     var isEndReached = false
     ///
 
     init() {
         Task {
-            await loadItems(isInit: true)
+            await loadItems(isFirstPack: isFirstPack)
         }
     }
 
@@ -81,21 +87,21 @@ extension EventsViewModel: EventCardViewModelProtocol {
 extension EventsViewModel: TableFetchDataProtocol {
 
     @MainActor
-    func loadItems(isInit: Bool) async {
+    func loadItems(isFirstPack: Bool) async {
         guard let userID = authInteractor.getUserID(),
               !isLoading,
               !isEndReached else { return }
 
         isLoading = true
 
-        let result = isInit
+        let result = isFirstPack
         ? await dbService.loadEvents(isMy: true, for: userID, lastDoc: nil)
         : await dbService.loadEvents(isMy: true, for: userID, lastDoc: lastDoc)
 //        activeTab == .myEvents
 //        ? await dbService.loadEvents(isMy: true, for: userID, lastDoc: lastDoc)
 //        : await dbService.loadEvents(isMy: false, for: userID, lastDoc: lastDoc)
 
-        if isInit {
+        if isFirstPack {
             myEvents = result.events
         } else {
             myEvents.append(contentsOf: result.events)
@@ -105,13 +111,18 @@ extension EventsViewModel: TableFetchDataProtocol {
         isEndReached = result.isEndReached
 
         isLoading = false
+
+        if isFirstPack { self.isFirstPack = false }
     }
 
     func refresh() async {
         guard !isLoading else { return }
 
         isLoading = true
-        await loadItems(isInit: true)
+
+        isFirstPack = true
+        await loadItems(isFirstPack: isFirstPack)
+
         isLoading = false
     }
     

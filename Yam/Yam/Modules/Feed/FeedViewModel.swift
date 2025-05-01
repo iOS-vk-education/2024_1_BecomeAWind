@@ -9,12 +9,19 @@ final class FeedViewModel: ObservableObject {
     private let dbService = DatabaseService.shared
 
     @Published var events: [Event] = []
-    var myEventsIDs: [String] = []
+    var myEventsIDs: Set<String> = []
 
     /// TableFetchDataProtocol
     @Published var isLoading = false
+    var isFirstPack = true
     var lastDoc: DocumentSnapshot? = nil
-    var isEndReached = false
+    var isEndReached = false {
+        didSet {
+            Task {
+                await loadItems(isFirstPack: isFirstPack)
+            }
+        }
+    }
     ///
 
     /// EventCardViewModelProtocol
@@ -26,14 +33,15 @@ final class FeedViewModel: ObservableObject {
 
     init() {
         Task {
-            await loadItems(isInit: true)
+            await loadItems(isFirstPack: isFirstPack)
         }
     }
 
-    func getMyEventsIDs() async {
+    @MainActor
+    private func getMyEventsIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
-//        myEventsIDs = await dbService.getMyEventsIDs(userID: userID)
+        myEventsIDs = Set(await dbService.getMyEventsIDs(userID: userID))
     }
 
 }
@@ -41,17 +49,19 @@ final class FeedViewModel: ObservableObject {
 extension FeedViewModel: TableFetchDataProtocol {
 
     @MainActor
-    func loadItems(isInit: Bool) async {
+    func loadItems(isFirstPack: Bool) async {
         guard !isLoading,
               !isEndReached else { return }
 
+        if isFirstPack { await getMyEventsIDs() }
+
         isLoading = true
 
-        let result = isInit
+        let result = isFirstPack
         ? await dbService.loadFeed(lastDoc: nil)
         : await dbService.loadFeed(lastDoc: lastDoc)
 
-        if isInit {
+        if isFirstPack {
             events = result.events
         } else {
             events.append(contentsOf: result.events)
@@ -61,13 +71,20 @@ extension FeedViewModel: TableFetchDataProtocol {
         isEndReached = result.isEndReached
 
         isLoading = false
+
+        if isFirstPack { self.isFirstPack = false }
     }
 
+
+    @MainActor
     func refresh() async {
         guard !isLoading else { return }
 
         isLoading = true
-        await loadItems(isInit: true)
+
+        isFirstPack = true
+        await loadItems(isFirstPack: isFirstPack)
+
         isLoading = false
     }
 

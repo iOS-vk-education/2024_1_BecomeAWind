@@ -7,22 +7,13 @@ struct FeedView: View {
     var body: some View {
         /// events list
         List {
-            ForEach(viewModel.events, id: \.self) { event in
-//                if viewModel.myEventsNotContains(event.id)
+            ForEach(viewModel.events.filter { !viewModel.myEventsIDs.contains($0.id) }, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
                     eventType: .notAdded,
                     event: event
                 )
                 .listRowSeparator(.hidden)
-                .onAppear {
-//                    viewModel.
-                    if viewModel.events.last?.id == event.id {
-                        Task {
-                            await viewModel.loadItems(isInit: false)
-                        }
-                    }
-                }
             }
 
             if viewModel.isLoading {
