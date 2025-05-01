@@ -33,7 +33,7 @@ final class FeedViewModel: ObservableObject {
     func getMyEventsIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
-        myEventsIDs = await dbService.getMyEventsIDs(userID: userID)
+//        myEventsIDs = await dbService.getMyEventsIDs(userID: userID)
     }
 
 }

@@ -44,8 +44,7 @@ extension AuthInteractor {
                 let user = YUser(
                     id: result.user.uid,
                     email: email,
-                    myEvents: [],
-                    subscriptions: []
+                    myEventsIDs: [],
                 )
                 self.dbService.createUser(user: user) { dbResult in
                     defer {

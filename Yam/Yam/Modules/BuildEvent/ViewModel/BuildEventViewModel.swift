@@ -239,6 +239,7 @@ extension BuildEventViewModel {
         guard let event = event else { return false }
 
         await MainActor.run { isDeletingEventLoaderFlag = true }
+
         defer {
             Task { @MainActor in
                 isDeletingEventLoaderFlag = false

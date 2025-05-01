@@ -4,9 +4,11 @@ import CoreLocation
 final class AuthorizedEntryViewModel: NSObject, ObservableObject {
 
     private let locationManager = CLLocationManager()
-    private(set) var tabs: [AuthorizedEntryTabItemConfig] = []
+    private let dbService = DatabaseService.shared
+    private let authInteractor = AuthInteractor.shared
     private var navManager: NavigationManager
 
+    private(set) var tabs: [AuthorizedEntryTabItemConfig] = []
     @Published var activeTab: AuthorizedEntryTab = .events
     @Published var isLocationServicesEnabled = false
     @Published var authStatus: LocationAuthStatus = .notDetermined
@@ -26,7 +28,7 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject {
             AuthorizedEntryTabItemConfig(tab: .profile, title: "профиль", imageName: "person.crop.circle")
         ]
     }
-
+    
 }
 
 // MARK: - Configure views

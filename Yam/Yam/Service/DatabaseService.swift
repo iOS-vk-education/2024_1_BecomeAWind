@@ -6,7 +6,7 @@ final class DatabaseService {
     static let shared = DatabaseService()
     private let db = Firestore.firestore()
 
-    private var myEventsIDsTempStorage = [String]()
+    var myEventsIDsTempStorage = [String]()
 
     private init() {}
 
@@ -15,7 +15,7 @@ final class DatabaseService {
         db.collection("users")
     }
 
-    private func getUserDoc(userID: String) -> DocumentReference {
+    private func getUserRef(userID: String) -> DocumentReference {
         getUsersCollection().document(userID)
     }
 
@@ -30,11 +30,11 @@ final class DatabaseService {
 
     ///
     private func getMyEventsCollection(userID: String) -> CollectionReference {
-        getUserDoc(userID: userID).collection("myEvents")
+        getUserRef(userID: userID).collection("myEvents")
     }
 
     private func getSubscriptionsCollection(userID: String) -> CollectionReference {
-        getUserDoc(userID: userID).collection("subscriptions")
+        getUserRef(userID: userID).collection("subscriptions")
     }
 
     private func getEventInMyEvents(userID: String, eventID: String) -> DocumentReference {
@@ -52,7 +52,7 @@ final class DatabaseService {
 extension DatabaseService {
 
     func createUser(user: YUser, completion: @escaping (Result<YUser, Error>) -> Void) {
-        getUserDoc(userID: user.id).setData(user.representation) { error in
+        getUserRef(userID: user.id).setData(user.representation) { error in
             if let error {
                 completion(.failure(error))
                 Logger.Auth.userNotAddedToDatabase(error: error)
@@ -100,22 +100,6 @@ extension DatabaseService {
         }
     }
 
-    func getMyEventsIDs(userID: String) async -> [String] {
-        await fetchMyEventsIDs(userID: userID)
-        return myEventsIDsTempStorage
-    }
-
-    private func fetchMyEventsIDs(userID: String) async {
-        do {
-            let myEventsCollection = getMyEventsCollection(userID: userID)
-            let snapshot = try await myEventsCollection.getDocuments()
-            let myEvents = try snapshot.documents.compactMap { try $0.data(as: Event.self) }
-            myEventsIDsTempStorage = myEvents.map { $0.id }
-        } catch {
-            Logger.Events.errorGettingDocument(error)
-        }
-    }
-
 }
 
 // MARK: - Feed
@@ -157,6 +141,10 @@ extension DatabaseService {
     func addEventFor(userID: String, event: Event) {
         getEventInFeed(eventID: event.id).setData(event.representation)
         getEventInMyEvents(userID: userID, eventID: event.id).setData(event.representation)
+
+        getUserRef(userID: userID).updateData([
+            "myEventsIDs": FieldValue.arrayUnion([event.id])
+        ])
     }
 
     func editEventFor(userID: String, event: Event) async -> Bool {
@@ -176,12 +164,13 @@ extension DatabaseService {
     }
 
     func deleteEventFor(userID: String, event: Event) async -> Bool {
-        let eventInFeed = getEventInFeed(eventID: event.id)
-        let eventInMyEvents = getEventInMyEvents(userID: userID, eventID: event.id)
-
         do {
-            try await eventInFeed.delete()
-            try await eventInMyEvents.delete()
+            try await getEventInFeed(eventID: event.id).delete()
+            try await getEventInMyEvents(userID: userID, eventID: event.id).delete()
+
+            try await getUserRef(userID: userID).updateData([
+                "myEventsIDs": FieldValue.arrayRemove([event.id])
+            ])
 
             Logger.BuildEvent.eventDeleteSuccess()
             return true

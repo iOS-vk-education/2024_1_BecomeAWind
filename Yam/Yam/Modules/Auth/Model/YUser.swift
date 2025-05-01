@@ -2,17 +2,16 @@ import Foundation
 
 struct YUser: Identifiable, Codable {
 
-    var id: String = UUID().uuidString
+    var id: String
     var email: String
-
-    var myEvents: [Event]
-    var subscriptions: [Event]
+    var myEventsIDs: [String]
 
     var representation: [String: Any] {
         var res = [String: Any]()
 
         res["id"] = id
         res["email"] = email
+        res["myEventsIDs"] = myEventsIDs
 
         return res
     }
