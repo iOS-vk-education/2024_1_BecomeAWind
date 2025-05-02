@@ -7,4 +7,17 @@ final class MapViewModel: ObservableObject {
     @State private var isActiveDetailedInfoView = false
     @State private var selectedEvent: UIEvent?
 
+    @Published var mapEvents: [Event] = []
+
+}
+
+extension MapViewModel {
+
+    func getEventsInRegion(_ region: MKCoordinateRegion) async {
+        let center = region.center
+        let span = region.span
+
+
+    }
+
 }

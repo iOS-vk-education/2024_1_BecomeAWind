@@ -2,6 +2,7 @@ import _PhotosUI_SwiftUI
 import SwiftUI
 import MapKit
 import FirebaseFirestore
+import GeoFireUtils
 
 final class BuildEventViewModel: NSObject, ObservableObject {
 
@@ -44,6 +45,19 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     @Published var savingAlert = false
     var footerButtonText: String = ""
     var deleteEventButtonText: String = ""
+    var preparedPlace: Place {
+        let latitude = location?.coordinate.latitude ?? 0.0
+        let longitude = location?.coordinate.longitude ?? 0.0
+
+        let geopoint = GeoPoint(
+            latitude: latitude,
+            longitude: longitude
+        )
+        let geohash = GFUtils.geoHash(forLocation:
+                                        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        )
+        return Place(geopoint: geopoint, geohash: geohash, description: placeDescription)
+    }
 
     init(
         builtEventType: BuildEventType = .create,
@@ -143,11 +157,7 @@ extension BuildEventViewModel {
     private func prepareEventForCreate(with imagePath: String) -> Event {
         let seats = Seats(busy: 0, all: Int(allSeats) ?? 1)
 
-        let geopoint = GeoPoint(
-            latitude: location?.coordinate.latitude ?? 0.0,
-            longitude: location?.coordinate.latitude ?? 0.0
-        )
-        let place = Place(geopoint: geopoint, description: placeDescription)
+        let place = preparedPlace
 
         let event = Event(
             imagePath: imagePath,
@@ -191,9 +201,10 @@ extension BuildEventViewModel {
         guard let location = location,
               let allSeats = Int(allSeats) else { return false }
 
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
-        let geopoint = GeoPoint(latitude: latitude, longitude: longitude)
+        let geopoint = GeoPoint(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude
+        )
 
         return !imageChangedFlag &&
         eventTitle == oldEvent.title &&
@@ -215,11 +226,7 @@ extension BuildEventViewModel {
     private func prepareEventForEdit(with imagePath: String, oldEvent: Event) -> Event {
         let seats = Seats(busy: oldEvent.seats.busy, all: Int(allSeats) ?? 1)
 
-        let geopoint = GeoPoint(
-            latitude: location?.coordinate.latitude ?? 0.0,
-            longitude: location?.coordinate.latitude ?? 0.0
-        )
-        let place = Place(geopoint: geopoint, description: placeDescription)
+        let place = preparedPlace
 
         let event = Event(
             id: oldEvent.id,

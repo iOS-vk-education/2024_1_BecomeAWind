@@ -1,5 +1,8 @@
 import UIKit
 import SwiftUI
+import FirebaseFirestore
+import MapKit
+import GeoFireUtils
 
 enum Const {
 
@@ -35,5 +38,20 @@ enum Const {
     /// text field
     static let sectionTitleFont = FontManager.getFont(with: .semibold, and: 17)
     static let sectionEmptyFont = FontManager.getFont(with: .regular, and: 15)
-    
+
+    /// instances
+    static let defaultEvent: Event = Event(
+        imagePath: "1",
+        title: "1",
+        seats: Seats(busy: 0, all: 1),
+        link: "1",
+        date: Date(),
+        place: Place(
+            geopoint: GeoPoint(latitude: 0.0, longitude: 0.0),
+            geohash: GFUtils.geoHash(forLocation: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)),
+            description: "1"
+        )
+    )
+    static let defaultGeoPoint = GeoPoint(latitude: 0.0, longitude: 0.0)
+
 }

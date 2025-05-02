@@ -6,13 +6,16 @@ final class FeedViewModel: ObservableObject {
     private let authInteractor = AuthInteractor.shared
     @State var dbService = DatabaseService.shared
 
-    @Published var events: [Event] = []
+    @Published var feedEvents: [Event] = []
 
     /// EventCardViewModelProtocol
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
     @Published var isActiveAction = false
+    @Published var failedToSubcribeAlert = false
+    @Published var failedToUnsubcribeAlert = false
+    @Published var fail = false
     ///
 
     /// TableFetchDataProtocol
@@ -27,10 +30,6 @@ final class FeedViewModel: ObservableObject {
         }
     }
     ///
-
-    @Published var failedToSubcribeAlert = false
-    @Published var failedToUnsubcribeAlert = false
-
 
     init() {
         Task {
@@ -64,7 +63,10 @@ extension FeedViewModel: EventCardViewModelProtocol {
 
     @MainActor
     func handleSubscribeButton(event: Event, eventType: EventType) async -> Bool {
-        guard let userID = authInteractor.getUserID() else { return false }
+        guard let userID = authInteractor.getUserID() else {
+            fail = true
+            return !fail
+        }
 
         selectedEvent = event
 
@@ -75,7 +77,10 @@ extension FeedViewModel: EventCardViewModelProtocol {
                 event: event,
                 eventType: eventType,
                 subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
-            ) else { return false }
+            ) else {
+                failedToUnsubcribeAlert = true
+                return !failedToUnsubcribeAlert
+            }
 
             failedToUnsubcribeAlert = await !dbService.unsubscribeToTheEvent(
                 userID: userID,
@@ -90,13 +95,18 @@ extension FeedViewModel: EventCardViewModelProtocol {
                 event: event,
                 eventType: eventType,
                 subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
-            ) else { return false }
+            ) else {
+                failedToSubcribeAlert = true
+                return !failedToSubcribeAlert
+            }
 
             failedToSubcribeAlert = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
 
             return !failedToSubcribeAlert
 
-        default: return false 
+        default:
+            fail = true
+            return !fail
         }
     }
 
@@ -104,11 +114,12 @@ extension FeedViewModel: EventCardViewModelProtocol {
     func updateEvent(eventID: String) async {
         do {
             let updatedEvent = try await dbService.getEvent(by: eventID)
-            print(updatedEvent.id)
+
             await getEventsIDs()
-            if let index = events.firstIndex(where: { $0.id == updatedEvent.id }) {
-                events[index] = updatedEvent
+            if let index = feedEvents.firstIndex(where: { $0.id == updatedEvent.id }) {
+                feedEvents[index] = updatedEvent
             }
+            
             Logger.Feed.eventUpdated()
         } catch {
             Logger.Feed.eventNotUpdated(error)
@@ -135,9 +146,9 @@ extension FeedViewModel: TableFetchDataProtocol {
         : await dbService.loadFeed(lastDoc: lastDoc)
 
         if isFirstPack {
-            events = result.events
+            feedEvents = result.events
         } else {
-            events.append(contentsOf: result.events)
+            feedEvents.append(contentsOf: result.events)
         }
 
         lastDoc = result.newLastDoc
@@ -155,7 +166,7 @@ extension FeedViewModel: TableFetchDataProtocol {
 
         isLoading = true
 
-        events.removeAll()
+        feedEvents.removeAll()
         isFirstPack = true
         lastDoc = nil
         isEndReached = false

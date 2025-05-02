@@ -7,7 +7,7 @@ struct FeedView: View {
     var body: some View {
         /// events list
         List {
-            ForEach(viewModel.events.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
+            ForEach(viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
                     event: event,
@@ -45,6 +45,9 @@ struct FeedView: View {
             Button("ок", role: .cancel) {}
         }
         .alert("не удалось отписаться", isPresented: $viewModel.failedToUnsubcribeAlert) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("ошибка", isPresented: $viewModel.fail) {
             Button("ок", role: .cancel) {}
         }
     }

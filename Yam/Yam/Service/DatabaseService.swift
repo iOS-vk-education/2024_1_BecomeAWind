@@ -141,7 +141,6 @@ extension DatabaseService {
 
 }
 
-
 // MARK: - Events manipulating
 
 extension DatabaseService {
@@ -154,7 +153,7 @@ extension DatabaseService {
             try await getUserRef(userID: userID).updateData([
                 "myEventsIDs": FieldValue.arrayUnion([event.id])
             ])
-            Logger.BuildEvent.eventCreateSuccess()
+            Logger.BuildEvent.eventCreateSuccess(id: event.id)
             return true
         } catch {
             Logger.BuildEvent.eventCreateFail(error)

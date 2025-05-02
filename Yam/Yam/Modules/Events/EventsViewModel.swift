@@ -29,6 +29,7 @@ final class EventsViewModel: ObservableObject {
     @Published var isActiveAction = false
     @Published var failedToSubcribeAlert = false
     @Published var failedToUnsubcribeAlert = false
+    @Published var fail = false
     ///
 
     /// TableFetchDataProtocol
@@ -53,12 +54,14 @@ final class EventsViewModel: ObservableObject {
     func getEventType(event: Event) -> EventType {
         switch activeTab {
         case .myEvents:
-            .my
+            return .my
         case .subscriptions:
             if dbService.subscriptionsIDs.contains(event.id) {
-                .added
+                return .added
             } else {
-                .notAdded
+                print(event.id)
+                print(dbService.subscriptionsIDs, terminator: "\n\n")
+                return .notAdded
             }
         }
     }
@@ -107,7 +110,10 @@ extension EventsViewModel: EventCardViewModelProtocol {
 
     @MainActor
     func handleSubscribeButton(event: Event, eventType: EventType) async -> Bool {
-        guard let userID = authInteractor.getUserID() else { return false }
+        guard let userID = authInteractor.getUserID() else {
+            fail = true
+            return !fail
+        }
 
         selectedEvent = event
 
@@ -118,7 +124,10 @@ extension EventsViewModel: EventCardViewModelProtocol {
                 event: event,
                 eventType: eventType,
                 subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
-            ) else { return false }
+            ) else {
+                failedToUnsubcribeAlert = true
+                return !failedToSubcribeAlert
+            }
 
             failedToUnsubcribeAlert = await !dbService.unsubscribeToTheEvent(
                 userID: userID,
@@ -133,13 +142,18 @@ extension EventsViewModel: EventCardViewModelProtocol {
                 event: event,
                 eventType: eventType,
                 subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
-            ) else { return false }
+            ) else {
+                failedToSubcribeAlert = true
+                return !failedToSubcribeAlert
+            }
 
             failedToSubcribeAlert = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
 
             return !failedToSubcribeAlert
 
-        default: return false
+        default:
+            fail = true
+            return !fail
         }
     }
 

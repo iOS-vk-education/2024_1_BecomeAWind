@@ -8,6 +8,7 @@ protocol EventCardViewModelProtocol {
     var isActiveAction: Bool { get set }
     var failedToSubcribeAlert: Bool { get set }
     var failedToUnsubcribeAlert: Bool { get set }
+    var fail: Bool { get set }
 
     func toggleAction(for event: Event)
 

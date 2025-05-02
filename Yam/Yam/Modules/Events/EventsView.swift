@@ -80,6 +80,9 @@ struct EventsView: View {
         .alert("не удалось отписаться", isPresented: $viewModel.failedToUnsubcribeAlert) {
             Button("ок", role: .cancel) {}
         }
+        .alert("ошибка", isPresented: $viewModel.fail) {
+            Button("ок", role: .cancel) {}
+        }
     }
 
 }

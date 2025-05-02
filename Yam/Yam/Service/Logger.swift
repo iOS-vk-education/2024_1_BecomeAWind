@@ -18,7 +18,11 @@ extension Logger {
     static func ping() {
         print("... ping ...\n")
     }
-    
+
+    static func success() {
+        print("... success ...\n")
+    }
+
 }
 
 // MARK: - Auth
@@ -125,8 +129,8 @@ extension Logger {
             print("Image upload fail\n")
         }
 
-        static func eventCreateSuccess() {
-            print("Event create success\n")
+        static func eventCreateSuccess(id: String) {
+            print("Event create success, id = \(id)\n")
         }
 
         static func eventCreateFail(_ error: Error?) {

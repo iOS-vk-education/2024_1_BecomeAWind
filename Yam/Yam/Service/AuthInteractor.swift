@@ -1,6 +1,5 @@
 import Foundation
 import FirebaseAuth
-import FirebaseFirestore
 
 final class AuthInteractor {
 
