@@ -212,6 +212,20 @@ extension Logger {
 
 }
 
+// MARK: - Map
+
+extension Logger {
+
+    enum Map {
+
+        static func failedToFetchMatchingEvents(_ error: Error) {
+            print("Failed to fetch matching events in map module, error desc = \(error.localizedDescription)")
+        }
+
+    }
+
+}
+
 // MARK: - Database
 
 extension Logger {

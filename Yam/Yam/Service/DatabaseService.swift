@@ -1,6 +1,8 @@
 import Foundation
+import GeoFireUtils
 import FirebaseFirestore
 import SwiftUI
+import CoreLocation
 
 final class DatabaseService: ObservableObject {
 
@@ -136,6 +138,52 @@ extension DatabaseService {
             }
 
             return ([], lastDoc, true)
+        }
+    }
+
+}
+
+// MARK: - Map module
+
+extension DatabaseService {
+
+    @Sendable func fetchMatchingEvents(from query: Query,
+                             userLocation: CLLocationCoordinate2D,
+                             radiusInM: Double) async throws -> [QueryDocumentSnapshot] {
+        // кваждый квери - это геохеш квадрат
+        let snapshot = try await query.getDocuments()
+
+        // фильтрую все доки в снепшоте по дистанции от юзера до ивента
+        // тк функция fetchMatchingEvents запускается многократно - происходит многократная фильтрация массивов доков в снепшотах
+        return snapshot.documents.filter { eventSnapshot in
+            
+            do {
+                let event = try eventSnapshot.data(as: Event.self)
+                let geopoint = event.place.geopoint
+                let lat = geopoint.latitude
+                let lng = geopoint.longitude
+
+                let eventLoc = CLLocation(latitude: lat, longitude: lng)
+                let userLoc = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+
+                let distance = userLoc.distance(from: eventLoc)
+
+                return distance <= radiusInM
+            } catch {
+                Logger.Map.failedToFetchMatchingEvents(error)
+                return false
+            }
+
+        }
+    }
+
+    // на входе массив кверис баундс - возвращаю массив кверис по массиву кверис баундс
+    func getQueries(from queryBounds: [GFGeoQueryBounds]) -> [Query] {
+        queryBounds.map { bound -> Query in
+            return getFeedCollection()
+                .order(by: "place.geohash")
+                .start(at: [bound.startValue])
+                .end(at: [bound.endValue])
         }
     }
 

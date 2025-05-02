@@ -3,7 +3,6 @@ import SwiftUI
 struct RootView: View {
 
     @StateObject private var navManager = NavigationManager()
-    let delme = Delme()
 
     var body: some View {
         if !navManager.isUserAuthorized {
