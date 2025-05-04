@@ -218,8 +218,12 @@ extension Logger {
 
     enum Map {
 
-        static func failedToFetchMatchingEvents(_ error: Error) {
+        static func fetchMatchingEventsFail(_ error: Error) {
             print("Failed to fetch matching events in map module, error desc = \(error.localizedDescription)")
+        }
+
+        static func loadEventsFail(_ error: Error) {
+            print("Load events fail, error desc = \(error.localizedDescription)")
         }
 
     }

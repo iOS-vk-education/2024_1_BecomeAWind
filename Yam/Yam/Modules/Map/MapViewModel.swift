@@ -3,30 +3,48 @@ import MapKit
 import GeoFireUtils
 import FirebaseFirestore
 
-final class MapViewModel: ObservableObject {
+final class MapViewModel: NSObject, ObservableObject {
 
     private let dbService = DatabaseService.shared
+    @Published var mapEvents = Set<Event>()
 
+    private let locationManager = CLLocationManager()
     @State var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State private var isActiveDetailedInfoView = false
-    @State private var selectedEvent: UIEvent?
+    private var lastUserLocation: CLLocationCoordinate2D?
+    @Published var userLocation: CLLocationCoordinate2D? {
+        didSet {
+            guard let newLocation = userLocation else { return }
 
-    @Published var mapEvents: [Event] = []
+            if let lastUserLocation {
+                let lastLoc = CLLocation(latitude: lastUserLocation.latitude, longitude: lastUserLocation.longitude)
+                let newLoc = CLLocation(latitude: newLocation.latitude, longitude: newLocation.longitude)
 
-    init() {
-        Task {
-            await loadEvents()
+                if lastLoc.distance(from: newLoc) < 500 { return }
+            }
+
+            lastUserLocation = newLocation
+            Task {
+                await loadEvents(at: newLocation)
+            }
         }
+    }
+
+    override init() {
+        super.init()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
     }
 
 }
 
+// MARK: - Events loading
+
 extension MapViewModel {
 
-    func loadEvents() async {
+    func loadEvents(at userLocation: CLLocationCoordinate2D) async {
         do {
-            let userLocation = CLLocationCoordinate2D(latitude: 52.0496, longitude: 5.2405)
-            let radiusInM: Double = 50 * 10000 // 500 км
+            let radiusInM: Double = 50 * 1000 // 50 км
 
             // формирую баундсы для создания массива кверис - чем больше радиус, тем бльше квадратов и кверис
             let queryBounds = GFUtils.queryBounds(forLocation: userLocation, withRadius: radiusInM)
@@ -42,9 +60,7 @@ extension MapViewModel {
                 for query in queries {
                     group.addTask {
                         try await self.dbService.fetchMatchingEvents(from: query,
-                                                            userLocation: CLLocationCoordinate2D(
-                                                            latitude: 52.0496,
-                                                            longitude: 5.2405),
+                                                            userLocation: userLocation,
                                                             radiusInM: radiusInM)
                     }
                 }
@@ -59,13 +75,23 @@ extension MapViewModel {
                 return result
             }
 
-//            for now in matchingEvents {
-//                let event = try now.data(as: Event.self)
-//                print(event.id)
-//            }
+            for now in matchingEvents {
+                let event = try now.data(as: Event.self)
+                mapEvents.insert(event)
+            }
         } catch {
-            Logger.ping()
+            Logger.Map.loadEventsFail(error)
         }
+    }
+
+}
+
+// MARK: - Location manager
+
+extension MapViewModel: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.last?.coordinate
     }
 
 }

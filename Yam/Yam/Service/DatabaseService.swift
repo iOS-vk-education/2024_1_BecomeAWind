@@ -170,7 +170,7 @@ extension DatabaseService {
 
                 return distance <= radiusInM
             } catch {
-                Logger.Map.failedToFetchMatchingEvents(error)
+                Logger.Map.fetchMatchingEventsFail(error)
                 return false
             }
 
