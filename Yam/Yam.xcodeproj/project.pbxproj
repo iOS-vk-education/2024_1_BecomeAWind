@@ -72,6 +72,10 @@
 		877DE7F72DC4D9F000E48666 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 877DE7F62DC4D9F000E48666 /* GeoFireUtils */; };
 		877DE7FD2DC7BDE200E48666 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DE7FB2DC7BDE200E48666 /* MapViewModel.swift */; };
 		878432E62D512A1500A24538 /* BuildEventImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878432E52D512A1500A24538 /* BuildEventImagePicker.swift */; };
+		878637B52DC9333800410C8C /* ClusterMap in Frameworks */ = {isa = PBXBuildFile; productRef = 878637B42DC9333800410C8C /* ClusterMap */; };
+		878637B72DC9333800410C8C /* ClusterMapSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 878637B62DC9333800410C8C /* ClusterMapSwiftUI */; };
+		878637B92DC933B600410C8C /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878637B82DC933B600410C8C /* MapAnnotation.swift */; };
+		878637C22DC94F3300410C8C /* MapCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878637C12DC94F3300410C8C /* MapCluster.swift */; };
 		8786CF232DB3EF9D0010D079 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF222DB3EF9D0010D079 /* ProfileViewModel.swift */; };
 		8786CF252DB4CB120010D079 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF242DB4CB120010D079 /* NavigationManager.swift */; };
 		8786CF2B2DB4CBC80010D079 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786CF292DB4CBC80010D079 /* RootView.swift */; };
@@ -188,6 +192,8 @@
 		877DE7EF2DC3CFBC00E48666 /* EventCardLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardLoadingButton.swift; sourceTree = "<group>"; };
 		877DE7FB2DC7BDE200E48666 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		878432E52D512A1500A24538 /* BuildEventImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventImagePicker.swift; sourceTree = "<group>"; };
+		878637B82DC933B600410C8C /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		878637C12DC94F3300410C8C /* MapCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCluster.swift; sourceTree = "<group>"; };
 		8786CF222DB3EF9D0010D079 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8786CF242DB4CB120010D079 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		8786CF292DB4CBC80010D079 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -247,9 +253,11 @@
 			files = (
 				877DE7F52DC4D9F000E48666 /* GeoFire in Frameworks */,
 				879592BE2DBD057C009B63D3 /* SDWebImageSwiftUI in Frameworks */,
+				878637B52DC9333800410C8C /* ClusterMap in Frameworks */,
 				8723CFEF2DB55C8800A0E194 /* Cloudinary in Frameworks */,
 				87FDD9422D836C8300C2B5EC /* FirebaseAuth in Frameworks */,
 				87FDD9442D836C8300C2B5EC /* FirebaseFirestore in Frameworks */,
+				878637B72DC9333800410C8C /* ClusterMapSwiftUI in Frameworks */,
 				87FDD9462D836C8300C2B5EC /* FirebaseStorage in Frameworks */,
 				877DE7F72DC4D9F000E48666 /* GeoFireUtils in Frameworks */,
 				8723CFF42DB562A400A0E194 /* SDWebImageMapKit in Frameworks */,
@@ -362,6 +370,7 @@
 			children = (
 				870E3C7F2D4388D40043DA00 /* MapView.swift */,
 				877DE7FB2DC7BDE200E48666 /* MapViewModel.swift */,
+				878637C02DC94F0A00410C8C /* Model */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -498,6 +507,15 @@
 				8751D8732DBAD5E10004C61B /* NavBarTabItem.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		878637C02DC94F0A00410C8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				878637B82DC933B600410C8C /* MapAnnotation.swift */,
+				878637C12DC94F3300410C8C /* MapCluster.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8786CF2A2DB4CBC80010D079 /* Root */ = {
@@ -809,6 +827,7 @@
 				8723CFED2DB55C8800A0E194 /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
 				879592BC2DBD057C009B63D3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				877DE7F32DC4D9F000E48666 /* XCRemoteSwiftPackageReference "geofire-objc" */,
+				878637B32DC9333800410C8C /* XCRemoteSwiftPackageReference "ClusterMap" */,
 			);
 			productRefGroup = 87E6FC0B2CCE2B8000B2DA3B /* Products */;
 			projectDirPath = "";
@@ -844,6 +863,7 @@
 			files = (
 				8744C4582DADB691001A0A9F /* YSecureField.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
+				878637C22DC94F3300410C8C /* MapCluster.swift in Sources */,
 				8752B7022D464DF90017F2B8 /* FeedViewModel.swift in Sources */,
 				8786CF2D2DB4D3260010D079 /* LocationAuthStatus.swift in Sources */,
 				87336FAF2D7F6CE000BD699A /* EventLocationConst.swift in Sources */,
@@ -884,6 +904,7 @@
 				87CCF4CC2D8A054B005203CA /* Logger.swift in Sources */,
 				87FC48442D52089600F6D8CC /* BuildEventVStack.swift in Sources */,
 				870E3C912D4388D40043DA00 /* AuthorizedEntryView.swift in Sources */,
+				878637B92DC933B600410C8C /* MapAnnotation.swift in Sources */,
 				8751D8752DBAD5E10004C61B /* NavBar.swift in Sources */,
 				87DE0D7D2DBD353300D4DDF8 /* Place.swift in Sources */,
 				87DE0D752DBD285200D4DDF8 /* ImageDownloader.swift in Sources */,
@@ -1196,6 +1217,14 @@
 				kind = branch;
 			};
 		};
+		878637B32DC9333800410C8C /* XCRemoteSwiftPackageReference "ClusterMap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vospennikov/ClusterMap.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 		879592BC2DBD057C009B63D3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -1234,6 +1263,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 877DE7F32DC4D9F000E48666 /* XCRemoteSwiftPackageReference "geofire-objc" */;
 			productName = GeoFireUtils;
+		};
+		878637B42DC9333800410C8C /* ClusterMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 878637B32DC9333800410C8C /* XCRemoteSwiftPackageReference "ClusterMap" */;
+			productName = ClusterMap;
+		};
+		878637B62DC9333800410C8C /* ClusterMapSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 878637B32DC9333800410C8C /* XCRemoteSwiftPackageReference "ClusterMap" */;
+			productName = ClusterMapSwiftUI;
 		};
 		879592BD2DBD057C009B63D3 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

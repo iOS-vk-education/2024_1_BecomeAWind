@@ -2,12 +2,21 @@ import SwiftUI
 import MapKit
 import GeoFireUtils
 import FirebaseFirestore
+import ClusterMap
 
 final class MapViewModel: NSObject, ObservableObject {
 
     private let dbService = DatabaseService.shared
-    @Published var mapEvents = Set<Event>()
+    @Published var mapEvents = [Event]()
 
+    // Map clustering
+    private let clusterManager = ClusterManager<MapAnnotation>()
+    var mapSize: CGSize = .zero
+    var currentRegion: MKCoordinateRegion = .init()
+    @Published var annotations = [MapAnnotation]()
+    @Published var clusters = [MapCluster]()
+
+    // Location manager
     private let locationManager = CLLocationManager()
     @State var position: MapCameraPosition = .userLocation(fallback: .automatic)
     private var lastUserLocation: CLLocationCoordinate2D?
@@ -42,9 +51,10 @@ final class MapViewModel: NSObject, ObservableObject {
 
 extension MapViewModel {
 
+    @MainActor
     func loadEvents(at userLocation: CLLocationCoordinate2D) async {
         do {
-            let radiusInM: Double = 50 * 1000 // 50 км
+            let radiusInM: Double = 50 * 10000 // 50 км
 
             // формирую баундсы для создания массива кверис - чем больше радиус, тем бльше квадратов и кверис
             let queryBounds = GFUtils.queryBounds(forLocation: userLocation, withRadius: radiusInM)
@@ -75,13 +85,70 @@ extension MapViewModel {
                 return result
             }
 
+            var newAnnotations = [MapAnnotation]()
+
             for now in matchingEvents {
                 let event = try now.data(as: Event.self)
-                mapEvents.insert(event)
+                mapEvents.append(event)
+
+                let coordinate = CLLocationCoordinate2D(latitude: event.place.geopoint.latitude,
+                                                        longitude: event.place.geopoint.longitude)
+                let annotation = MapAnnotation(coordinate: coordinate)
+                newAnnotations.append(annotation)
             }
+
+            await addAnnotations(newAnnotations)
         } catch {
             Logger.Map.loadEventsFail(error)
         }
+    }
+
+}
+
+// MARK: - Map clustering
+
+extension MapViewModel {
+
+    @MainActor
+    func reloadAnnotations() async {
+        async let changes = clusterManager.reload(mapViewSize: mapSize, coordinateRegion: currentRegion)
+        await applyChanges(changes)
+    }
+
+    private func addAnnotations(_ annotations: [MapAnnotation]) async {
+        await clusterManager.add(annotations)
+        await reloadAnnotations()
+    }
+
+    private func removeAnnotations() async {
+        await clusterManager.removeAll()
+        await reloadAnnotations()
+    }
+
+    private func applyChanges(_ difference: ClusterManager<MapAnnotation>.Difference) {
+
+        for removal in difference.removals {
+            switch removal {
+            case .annotation(let annotation):
+                annotations.removeAll { $0 == annotation }
+            case .cluster(let cluster):
+                clusters.removeAll { $0.id == cluster.id }
+            }
+        }
+
+        for insertion in difference.insertions {
+            switch insertion {
+            case .annotation(let newAnnotation):
+                annotations.append(newAnnotation)
+            case .cluster(let newCluster):
+                clusters.append(MapCluster(
+                    id: newCluster.id,
+                    coordinate: newCluster.coordinate,
+                    count: newCluster.memberAnnotations.count
+                ))
+            }
+        }
+
     }
 
 }

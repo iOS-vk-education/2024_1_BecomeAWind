@@ -1,5 +1,5 @@
 {
-  "originHash" : "5847558cd4f82c6bdd02228f329fc4e6063ed9e296d3a5228a519335eb08ba8a",
+  "originHash" : "21c74a37d91ac11921f6500788e74b268fdd395503dba4bd03930d443d8a80a3",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "215ea1db05e7f3c0212f3c9ad027cfd52c924545",
         "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "clustermap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vospennikov/ClusterMap.git",
+      "state" : {
+        "revision" : "f3e60a742e6d3c149ce5d0c7424f373ef1b38140",
+        "version" : "2.1.1"
       }
     },
     {
