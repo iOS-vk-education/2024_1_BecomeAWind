@@ -11,19 +11,15 @@ struct MapView: View {
             UserAnnotation()
 
             ForEach(viewModel.annotations) { annotation in
-                Marker(
-                    "\(annotation.coordinate.latitude) \(annotation.coordinate.longitude)",
-                    systemImage: "mappin",
-                    coordinate: annotation.coordinate
-                )
-                .annotationTitles(.hidden)
+                Annotation("", coordinate: annotation.coordinate) {
+                    MapEventAnnotation(imagePath: annotation.imagePath)
+                }
             }
+            
             ForEach(viewModel.clusters) { annotation in
-                Marker(
-                    "\(annotation.count)",
-                    systemImage: "square.3.layers.3d",
-                    coordinate: annotation.coordinate
-                )
+                Annotation("", coordinate: annotation.coordinate) {
+                    MapClusterView(count: annotation.count)
+                }
             }
 
         }

@@ -6,7 +6,7 @@ import GeoFireUtils
 
 enum Const {
 
-    /// screen
+    // screen
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
     static let topSafeAreaSize = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
@@ -20,26 +20,29 @@ enum Const {
     static let cornerRadius: CGFloat = 20
     static let sideSpace: CGFloat = 15
 
-    /// nav bar
+    // map
+    static let eventImageSize = Const.screenWidth * 0.15
+
+    // nav bar
     static let navBarHeight = Const.screenHeight * 0.13
     static let navBarItemTitleFont: Font = FontManager.getFont(with: .medium, and: 15)
 
-    /// circle button
+    // circle button
     static let circleButtonSize = screenWidth * 0.08
     static let circleButtonCornerRadius = circleButtonSize / 2
 
-    /// square button
+    // square button
     static let squareButtonSize = screenWidth * 0.13
     static let squareButtonCornerRadius = squareButtonSize / 3
 
-    /// animations
+    // animations
     static let tabBarItemSwapAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.2)
 
-    /// text field
+    // text field
     static let sectionTitleFont = FontManager.getFont(with: .semibold, and: 17)
     static let sectionEmptyFont = FontManager.getFont(with: .regular, and: 15)
 
-    /// instances
+    // instances
     static let defaultEvent: Event = Event(
         imagePath: "1",
         title: "1",

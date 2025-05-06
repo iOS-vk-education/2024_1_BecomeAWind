@@ -94,7 +94,7 @@ extension MapViewModel {
 
                 let coordinate = CLLocationCoordinate2D(latitude: event.place.geopoint.latitude,
                                                         longitude: event.place.geopoint.longitude)
-                let annotation = MapAnnotation(coordinate: coordinate)
+                let annotation = MapAnnotation(coordinate: coordinate, imagePath: event.imagePath)
                 newAnnotations.append(annotation)
             }
 

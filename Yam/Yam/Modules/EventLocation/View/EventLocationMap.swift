@@ -14,13 +14,7 @@ struct EventLocationMap: View {
             Annotation("", coordinate: CLLocationCoordinate2D(
                 latitude: viewModel.event.place.geopoint.latitude,
                 longitude: viewModel.event.place.geopoint.longitude)
-            ) {
-                ImageDownloader(path: viewModel.event.imagePath)
-                    .scaledToFill()
-                    .frame(width: EventLocationConst.imageSize, height: EventLocationConst.imageSize)
-                    .clipped()
-                    .cornerRadius(Const.cornerRadius)
-            }
+            ) { MapEventAnnotation(imagePath: viewModel.event.imagePath) }
         }
         .tint(.purple)
         .colorScheme(.light)
