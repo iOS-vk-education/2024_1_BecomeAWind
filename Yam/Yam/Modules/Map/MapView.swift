@@ -4,11 +4,9 @@ import ClusterMapSwiftUI
 
 struct MapView: View {
 
-    @ObservedObject var viewModel: MapViewModel
+    @StateObject private var viewModel = MapViewModel()
 
     var body: some View {
-
-
         Map(position: $viewModel.position) {
             UserAnnotation()
 
@@ -38,15 +36,11 @@ struct MapView: View {
             viewModel.mapSize = newValue
         })
         .onMapCameraChange(frequency: .onEnd) { context in
-            viewModel.currentRegion = context.region
+            viewModel.region = context.region
             Task.detached {
                 await viewModel.reloadAnnotations()
             }
         }
     }
 
-}
-
-#Preview {
-    MapView(viewModel: MapViewModel())
 }

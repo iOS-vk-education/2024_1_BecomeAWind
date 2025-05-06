@@ -48,8 +48,7 @@ extension AuthorizedEntryViewModel {
     }
 
     func makeMapView() -> MapView {
-        let vm = MapViewModel()
-        let view = MapView(viewModel: vm)
+        let view = MapView()
         return view
     }
 

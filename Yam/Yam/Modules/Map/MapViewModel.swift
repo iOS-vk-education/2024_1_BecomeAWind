@@ -4,23 +4,24 @@ import GeoFireUtils
 import FirebaseFirestore
 import ClusterMap
 
+@Observable
 final class MapViewModel: NSObject, ObservableObject {
 
     private let dbService = DatabaseService.shared
-    @Published var mapEvents = [Event]()
+    var mapEvents = [Event]()
 
     // Map clustering
     private let clusterManager = ClusterManager<MapAnnotation>()
     var mapSize: CGSize = .zero
-    var currentRegion: MKCoordinateRegion = .init()
-    @Published var annotations = [MapAnnotation]()
-    @Published var clusters = [MapCluster]()
+    var region: MKCoordinateRegion = .init()
+    var annotations = [MapAnnotation]()
+    var clusters = [MapCluster]()
 
     // Location manager
     private let locationManager = CLLocationManager()
-    @State var position: MapCameraPosition = .userLocation(fallback: .automatic)
+    var position: MapCameraPosition = .userLocation(fallback: .automatic)
     private var lastUserLocation: CLLocationCoordinate2D?
-    @Published var userLocation: CLLocationCoordinate2D? {
+    private var userLocation: CLLocationCoordinate2D? {
         didSet {
             guard let newLocation = userLocation else { return }
 
@@ -111,7 +112,7 @@ extension MapViewModel {
 
     @MainActor
     func reloadAnnotations() async {
-        async let changes = clusterManager.reload(mapViewSize: mapSize, coordinateRegion: currentRegion)
+        async let changes = clusterManager.reload(mapViewSize: mapSize, coordinateRegion: region)
         await applyChanges(changes)
     }
 
@@ -125,6 +126,7 @@ extension MapViewModel {
         await reloadAnnotations()
     }
 
+    @MainActor
     private func applyChanges(_ difference: ClusterManager<MapAnnotation>.Difference) {
 
         for removal in difference.removals {
