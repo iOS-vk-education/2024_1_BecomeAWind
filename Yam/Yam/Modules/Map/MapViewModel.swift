@@ -41,6 +41,7 @@ final class MapViewModel: NSObject, ObservableObject {
 
     // EventsAccordion
     var isActiveEventsAccordion = false
+    var currentCount = 1
 
     override init() {
         super.init()
@@ -55,12 +56,13 @@ final class MapViewModel: NSObject, ObservableObject {
 
 extension MapViewModel {
 
-    func showEventsAccordion() {
+    func showEventsAccordion(numberOfEvents: Int) {
+        currentCount = numberOfEvents
         isActiveEventsAccordion = true
     }
 
-    func configureEventsAccordionView() -> EventsAccordionView {
-        let vm = EventsAccordionViewModel()
+    func configureEventsAccordionView(numberOfEvents: Int) -> EventsAccordionView {
+        let vm = EventsAccordionViewModel(numberOfEvents: numberOfEvents)
         let view = EventsAccordionView(viewModel: vm)
         return view
     }
