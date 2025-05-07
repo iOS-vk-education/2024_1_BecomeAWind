@@ -5,7 +5,6 @@ struct FeedView: View {
     @ObservedObject var viewModel: FeedViewModel
 
     var body: some View {
-        /// events list
         List {
             ForEach(viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
                 EventCard(

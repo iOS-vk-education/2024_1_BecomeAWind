@@ -14,7 +14,7 @@ struct EventLocationMap: View {
             Annotation("", coordinate: CLLocationCoordinate2D(
                 latitude: viewModel.event.place.geopoint.latitude,
                 longitude: viewModel.event.place.geopoint.longitude)
-            ) { MapEventAnnotation(imagePath: viewModel.event.imagePath) }
+            ) { EventOnMap(imagePath: viewModel.event.imagePath) }
         }
         .tint(.purple)
         .colorScheme(.light)

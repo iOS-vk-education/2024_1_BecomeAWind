@@ -9,7 +9,7 @@ final class EventsViewModel: ObservableObject {
     @Published var myEvents: [Event] = []
     @Published var subscriptions: [Event] = []
 
-    /// nav bar
+    // NavBar
     @Published var isActiveCreateEvent = false
     @Published var activeTab: EventsTab = .myEvents {
         didSet {
@@ -22,7 +22,7 @@ final class EventsViewModel: ObservableObject {
     var rightTab: EventsTab = .subscriptions
     var isVisibleCenterButton: Bool = true
 
-    /// EventCardViewModelProtocol
+    // EventCardViewModelProtocol
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
@@ -30,9 +30,8 @@ final class EventsViewModel: ObservableObject {
     @Published var failedToSubcribeAlert = false
     @Published var failedToUnsubcribeAlert = false
     @Published var fail = false
-    ///
 
-    /// TableFetchDataProtocol
+    // TableFetchDataProtocol
     @Published var isLoading = false
     var lastDoc: DocumentSnapshot? = nil
     var isEndReached = false
@@ -43,7 +42,6 @@ final class EventsViewModel: ObservableObject {
             }
         }
     }
-    ///
 
     init() {
         Task {

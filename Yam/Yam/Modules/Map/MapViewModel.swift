@@ -39,11 +39,30 @@ final class MapViewModel: NSObject, ObservableObject {
         }
     }
 
+    // EventsAccordion
+    var isActiveEventsAccordion = false
+
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+    }
+
+}
+
+// MARK: - EventsAccordion
+
+extension MapViewModel {
+
+    func showEventsAccordion() {
+        isActiveEventsAccordion = true
+    }
+
+    func configureEventsAccordionView() -> EventsAccordionView {
+        let vm = EventsAccordionViewModel()
+        let view = EventsAccordionView(viewModel: vm)
+        return view
     }
 
 }

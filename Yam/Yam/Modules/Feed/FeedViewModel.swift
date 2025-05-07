@@ -8,7 +8,7 @@ final class FeedViewModel: ObservableObject {
 
     @Published var feedEvents: [Event] = []
 
-    /// EventCardViewModelProtocol
+    // EventCardViewModelProtocol
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
@@ -16,9 +16,8 @@ final class FeedViewModel: ObservableObject {
     @Published var failedToSubcribeAlert = false
     @Published var failedToUnsubcribeAlert = false
     @Published var fail = false
-    ///
 
-    /// TableFetchDataProtocol
+    // TableFetchDataProtocol
     @Published var isLoading = false
     var isFirstPack = true
     var lastDoc: DocumentSnapshot? = nil
@@ -29,7 +28,6 @@ final class FeedViewModel: ObservableObject {
             }
         }
     }
-    ///
 
     init() {
         Task {

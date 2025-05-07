@@ -12,7 +12,7 @@ struct MapView: View {
 
             ForEach(viewModel.annotations) { annotation in
                 Annotation("", coordinate: annotation.coordinate) {
-                    MapEventAnnotation(imagePath: annotation.imagePath)
+                    MapEventAnnotation(imagePath: annotation.imagePath, action: viewModel.showEventsAccordion)
                 }
             }
             
@@ -36,6 +36,9 @@ struct MapView: View {
             Task.detached {
                 await viewModel.reloadAnnotations()
             }
+        }
+        .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
+            viewModel.configureEventsAccordionView()
         }
     }
 

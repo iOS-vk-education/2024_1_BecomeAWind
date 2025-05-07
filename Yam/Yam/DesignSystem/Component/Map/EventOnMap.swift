@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MapEventAnnotation: View {
+struct EventOnMap: View {
 
     let imagePath: String
 
@@ -15,5 +15,5 @@ struct MapEventAnnotation: View {
 }
 
 #Preview {
-    MapEventAnnotation(imagePath: "path")
+    EventOnMap(imagePath: "path")
 }
