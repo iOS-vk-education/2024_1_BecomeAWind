@@ -3,13 +3,46 @@ import SwiftUI
 struct EventsAccordionView: View {
 
     @ObservedObject var viewModel: EventsAccordionViewModel
+    @State private var currentIndex = 0
+    @State private var dragOffset: CGFloat = 0
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            ForEach(Array(viewModel.eventPack.enumerated().sorted {
+                abs($0.offset - currentIndex) > abs($1.offset - currentIndex)
+            }), id: \.element.id) { index, event in
+                EventCard(viewModel: viewModel, event: event, eventType: .my)
+                    .offset(x: CGFloat(index - currentIndex) * Const.screenWidth + dragOffset)
+                    .scaleEffect(index == currentIndex ? 1 : 0.85)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.8), value: dragOffset)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.8), value: currentIndex)
+
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                dragOffset = value.translation.width
+                            }
+
+                            .onEnded { value in
+                                if value.translation.width > 70 {
+                                    currentIndex = max(currentIndex - 1, 0)
+                                } else if value.translation.width < -70 {
+                                    currentIndex = min(currentIndex + 1, viewModel.eventPack.count - 1)
+                                }
+                                dragOffset = 0
+                            }
+                    )
+            }
+
+        }
     }
-    
+
 }
-//
-//#Preview {
-//    EventsAccordionView()
-//}
+
+#Preview {
+    EventsAccordionView(viewModel:
+                            EventsAccordionViewModel(eventPack:
+                                                        [Const.defaultEvent, Const.defaultEvent2, Const.defaultEvent3]
+                                                    )
+    )
+}

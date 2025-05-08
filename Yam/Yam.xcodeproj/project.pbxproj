@@ -97,7 +97,7 @@
 		87CCF4CC2D8A054B005203CA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCF4CB2D8A054B005203CA /* Logger.swift */; };
 		87D14F272DCBFC1B0037ACBD /* MapEventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F262DCBFC1B0037ACBD /* MapEventAnnotation.swift */; };
 		87D14F2B2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F2A2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift */; };
-		87D14F2D2DCBFF170037ACBD /* EventsAccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F2C2DCBFF170037ACBD /* EventsAccordionView.swift */; };
+		87D14F312DCCFDB90037ACBD /* EventsAccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F2F2DCCFDB90037ACBD /* EventsAccordionView.swift */; };
 		87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */; };
 		87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */; };
 		87D4D2902D947E2300A5E4B8 /* EventLocationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */; };
@@ -220,7 +220,7 @@
 		87CCF4CB2D8A054B005203CA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		87D14F262DCBFC1B0037ACBD /* MapEventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEventAnnotation.swift; sourceTree = "<group>"; };
 		87D14F2A2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAccordionViewModel.swift; sourceTree = "<group>"; };
-		87D14F2C2DCBFF170037ACBD /* EventsAccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAccordionView.swift; sourceTree = "<group>"; };
+		87D14F2F2DCCFDB90037ACBD /* EventsAccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAccordionView.swift; sourceTree = "<group>"; };
 		87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationPlaceDescription.swift; sourceTree = "<group>"; };
 		87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationBottomButtons.swift; sourceTree = "<group>"; };
 		87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationMap.swift; sourceTree = "<group>"; };
@@ -691,7 +691,7 @@
 		87D14F292DCBFDA10037ACBD /* EventsAccordion */ = {
 			isa = PBXGroup;
 			children = (
-				87D14F2C2DCBFF170037ACBD /* EventsAccordionView.swift */,
+				87D14F2F2DCCFDB90037ACBD /* EventsAccordionView.swift */,
 				87D14F2A2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift */,
 			);
 			path = EventsAccordion;
@@ -911,7 +911,7 @@
 				87DF29C22DCAAD5700332AFE /* MapView.swift in Sources */,
 				87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */,
 				879D29862DB52B96004A0B4D /* ImageService.swift in Sources */,
-				87D14F2D2DCBFF170037ACBD /* EventsAccordionView.swift in Sources */,
+				87D14F312DCCFDB90037ACBD /* EventsAccordionView.swift in Sources */,
 				8786CF372DB4FCC60010D079 /* Event.swift in Sources */,
 				8723CFF82DB5985D00A0E194 /* Field.swift in Sources */,
 				87DF29CE2DCAB2FE00332AFE /* MapConst.swift in Sources */,

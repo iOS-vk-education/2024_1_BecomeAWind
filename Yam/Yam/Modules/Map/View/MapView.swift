@@ -12,15 +12,15 @@ struct MapView: View {
 
             ForEach(viewModel.annotations) { annotation in
                 Annotation("", coordinate: annotation.coordinate) {
-                    MapEventAnnotation(imagePath: annotation.imagePath) { viewModel.showEventsAccordion(numberOfEvents: 1)
+                    MapEventAnnotation(imagePath: annotation.event.imagePath) { viewModel.showEventsAccordion(eventPack: [annotation.event])
                     }
                 }
             }
             
             ForEach(viewModel.clusters) { annotation in
                 Annotation("", coordinate: annotation.coordinate) {
-                    MapClusterView(count: annotation.count) {
-                        viewModel.showEventsAccordion(numberOfEvents: annotation.count)
+                    MapClusterView(count: annotation.eventPack.count) {
+                        viewModel.showEventsAccordion(eventPack: annotation.eventPack)
                     }
                 }
             }
@@ -41,7 +41,7 @@ struct MapView: View {
             }
         }
         .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
-            viewModel.configureEventsAccordionView(numberOfEvents: viewModel.currentCount)
+            viewModel.configureEventsAccordionView(eventPack: viewModel.currentEventPack)
         }
     }
 

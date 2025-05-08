@@ -44,6 +44,33 @@ enum Const {
 
     // instances
     static let defaultEvent: Event = Event(
+        id: "1",
+        imagePath: "1",
+        title: "1",
+        seats: Seats(busy: 0, all: 1),
+        link: "1",
+        date: Date(),
+        place: Place(
+            geopoint: GeoPoint(latitude: 0.0, longitude: 0.0),
+            geohash: GFUtils.geoHash(forLocation: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)),
+            description: "1"
+        )
+    )
+    static let defaultEvent2: Event = Event(
+        id: "2",
+        imagePath: "1",
+        title: "1",
+        seats: Seats(busy: 0, all: 1),
+        link: "1",
+        date: Date(),
+        place: Place(
+            geopoint: GeoPoint(latitude: 0.0, longitude: 0.0),
+            geohash: GFUtils.geoHash(forLocation: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)),
+            description: "1"
+        )
+    )
+    static let defaultEvent3: Event = Event(
+        id: "3",
         imagePath: "1",
         title: "1",
         seats: Seats(busy: 0, all: 1),

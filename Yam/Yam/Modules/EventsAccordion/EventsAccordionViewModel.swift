@@ -3,7 +3,7 @@ import SwiftUI
 
 final class EventsAccordionViewModel: ObservableObject {
 
-    let numberOfEvents: Int
+    let eventPack: [Event]
 
     // EventCardViewModelProtocol
     var selectedEvent: Event?
@@ -14,8 +14,8 @@ final class EventsAccordionViewModel: ObservableObject {
     var failedToUnsubcribeAlert = false
     var fail = false
 
-    init(numberOfEvents: Int) {
-        self.numberOfEvents = numberOfEvents
+    init(eventPack: [Event]) {
+        self.eventPack = eventPack
     }
 
 }

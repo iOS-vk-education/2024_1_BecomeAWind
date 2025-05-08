@@ -40,8 +40,8 @@ final class MapViewModel: NSObject, ObservableObject {
     }
 
     // EventsAccordion
+    var currentEventPack = [Event]()
     var isActiveEventsAccordion = false
-    var currentCount = 1
 
     override init() {
         super.init()
@@ -56,13 +56,13 @@ final class MapViewModel: NSObject, ObservableObject {
 
 extension MapViewModel {
 
-    func showEventsAccordion(numberOfEvents: Int) {
-        currentCount = numberOfEvents
+    func showEventsAccordion(eventPack: [Event]) {
+        currentEventPack = eventPack
         isActiveEventsAccordion = true
     }
 
-    func configureEventsAccordionView(numberOfEvents: Int) -> EventsAccordionView {
-        let vm = EventsAccordionViewModel(numberOfEvents: numberOfEvents)
+    func configureEventsAccordionView(eventPack: [Event]) -> EventsAccordionView {
+        let vm = EventsAccordionViewModel(eventPack: eventPack)
         let view = EventsAccordionView(viewModel: vm)
         return view
     }
@@ -115,7 +115,7 @@ extension MapViewModel {
 
                 let coordinate = CLLocationCoordinate2D(latitude: event.place.geopoint.latitude,
                                                         longitude: event.place.geopoint.longitude)
-                let annotation = MapAnnotation(coordinate: coordinate, imagePath: event.imagePath)
+                let annotation = MapAnnotation(event: event, coordinate: coordinate)
                 newAnnotations.append(annotation)
             }
 
@@ -167,7 +167,7 @@ extension MapViewModel {
                 clusters.append(MapCluster(
                     id: newCluster.id,
                     coordinate: newCluster.coordinate,
-                    count: newCluster.memberAnnotations.count
+                    eventPack: newCluster.memberAnnotations.map { $0.event }
                 ))
             }
         }
