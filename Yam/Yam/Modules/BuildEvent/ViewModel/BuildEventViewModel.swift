@@ -13,30 +13,31 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     let buildEventType: BuildEventType
     var event: Event?
 
-    /// header
+    // header
     var headerText: String = ""
 
-    /// image picker
-    @Published private(set) var image: UIImage = UIImage(named: "default_event_image") ?? UIImage()
+    // image picker
     @Published var photosPickerItem: PhotosPickerItem?
+    @Published var imagePath = ""
+    @Published var imageChangedFlag = false
+    private(set) var image: UIImage = Const.defaultEventImage
     var imagePickerButtonText = ""
-    private var imageChangedFlag = false
 
-    /// text fields
+    // text fields
     @Published var eventTitle = ""
     @Published var allSeats = ""
     @Published var link = ""
 
-    /// date picker
+    // date picker
     @Published var date = Date()
 
-    /// place picker
+    // place picker
     @Published var isActiveBuildEventPlace = false
     @Published private(set) var centerCoordinate: CLLocationCoordinate2D?
     @Published var placeDescription = ""
     private var location: CLLocation?
 
-    /// handle event
+    // handle event
     @Published var isBuildingEventLoaderFlag = false
     @Published var isDeletingEventLoaderFlag = false
     @Published var eventCreationFailed = false
@@ -76,6 +77,7 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
     private func applyUIConfig() {
         headerText = uiConfig.headerText
+        imagePath = uiConfig.imagePath
         imagePickerButtonText = uiConfig.imagePickerButtonText
         eventTitle = uiConfig.eventTitle
         allSeats = uiConfig.allSeats
@@ -118,9 +120,11 @@ extension BuildEventViewModel {
         : eventEditionFailed.toggle()
     }
 
+    @MainActor
     private func getImagePath() async -> String? {
         do {
             let path = try await imageService.uploadImage(image)
+            imagePath = path
             return path
         } catch {
             Logger.BuildEvent.imageUploadFail()
@@ -177,16 +181,17 @@ extension BuildEventViewModel {
 
 extension BuildEventViewModel {
 
+    @MainActor
     func imageChanged() {
         imageChangedFlag = true
     }
 
+    @MainActor
     private func editEvent() async -> Bool {
         guard let event = event else { return false }
         if isOldEqualNew(oldEvent: event) { return true }
         if !canEdit(oldEvent: event) { return false }
 
-        var imagePath = ""
         if imageChangedFlag {
             guard let path = await getImagePath() else { return false }
             imagePath = path

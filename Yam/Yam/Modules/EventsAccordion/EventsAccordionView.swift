@@ -11,7 +11,7 @@ struct EventsAccordionView: View {
             ForEach(Array(viewModel.eventPack.enumerated().sorted {
                 abs($0.offset - currentIndex) > abs($1.offset - currentIndex)
             }), id: \.element.id) { index, event in
-                EventCard(viewModel: viewModel, event: event, eventType: viewModel.getEventType(event))
+                EventCard(viewModel: viewModel, eventType: viewModel.getEventType(event), event: event)
                     .offset(x: CGFloat(index - currentIndex) * Const.screenWidth + dragOffset)
                     .scaleEffect(index == currentIndex ? 1 : 0.85)
                     .animation(.spring(response: 0.3, dampingFraction: 0.8), value: dragOffset)

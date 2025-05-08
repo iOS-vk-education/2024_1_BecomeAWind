@@ -5,7 +5,9 @@ final class ImageDownloaderViewModel: ObservableObject {
     @Published var loadFail = false
 
     func loadFailed() {
-        loadFail = true
+        DispatchQueue.main.async {
+            self.loadFail = true
+        }
     }
 
 }

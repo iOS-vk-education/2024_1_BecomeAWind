@@ -21,8 +21,8 @@ struct EventsView: View {
                 ) { event in
                     EventCard(
                         viewModel: viewModel,
-                        event: event,
-                        eventType: viewModel.getEventType(event: event)
+                        eventType: viewModel.getEventType(event: event),
+                        event: event
                     )
                     .listRowSeparator(.hidden)
                 }

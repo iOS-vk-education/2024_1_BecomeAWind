@@ -10,6 +10,10 @@ struct BuildEventUIConfig {
         type == .create ? "новый ивент" : "редактирование ивента"
     }
 
+    var imagePath: String {
+        type == .create ? "" : event?.imagePath ?? ""
+    }
+
     var imagePickerButtonText: String {
         type == .create ? "выбери превью" : "измени превью"
     }

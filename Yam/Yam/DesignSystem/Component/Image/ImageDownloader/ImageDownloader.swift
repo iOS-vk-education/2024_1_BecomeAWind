@@ -3,7 +3,7 @@ import SDWebImageSwiftUI
 
 struct ImageDownloader: View {
 
-    let path: String
+    var path: String
     @ObservedObject private var viewModel = ImageDownloaderViewModel()
 
     var body: some View {
@@ -14,6 +14,7 @@ struct ImageDownloader: View {
             WebImage(url: URL(string: path))
                 .onFailure { error in
                     viewModel.loadFailed()
+
                     Logger.Events.loadImageFail(by: path, with: error)
                 }
                 .resizable()

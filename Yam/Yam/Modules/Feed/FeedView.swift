@@ -9,10 +9,10 @@ struct FeedView: View {
             ForEach(viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
                 EventCard(
                     viewModel: viewModel,
-                    event: event,
                     eventType: viewModel.dbService.subscriptionsIDs.contains(event.id)
                     ? .added
-                    : .notAdded
+                    : .notAdded,
+                    event: event
                 )
                 .listRowSeparator(.hidden)
             }

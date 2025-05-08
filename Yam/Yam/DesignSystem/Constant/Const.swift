@@ -83,5 +83,6 @@ enum Const {
         )
     )
     static let defaultGeoPoint = GeoPoint(latitude: 0.0, longitude: 0.0)
+    static let defaultEventImage = UIImage(named: "default_event_image") ?? UIImage()
 
 }

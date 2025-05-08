@@ -4,29 +4,29 @@ import MapKit
 struct EventCard: View {
 
     let viewModel: EventCardViewModelProtocol
-    let event: Event
     let eventType: EventType
+    let event: Event
     @State var isActiveActionButton = false
 
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
-                /// image
+                // image
                 EventCardImage(path: event.imagePath)
 
-                /// buttons
+                // buttons
                 HStack {
-                    /// place
+                    // place
                     EventCardButton(imageName: "location", background: Gradient.purpleIndigo) {
                         viewModel.showLocation(of: event)
                     }
 
-                    /// link
+                    // link
                     EventCardButton(imageName: "link", background: Gradient.purpleIndigo) {
                         viewModel.open(link: event.link)
                     }
 
-                    /// action button
+                    // action button
                     if !isActiveActionButton {
                         switch eventType {
                         case .my:
@@ -76,15 +76,15 @@ struct EventCard: View {
                 )
                 .padding([.trailing, .top], Const.sideSpace)
 
-                /// labels
+                // labels
                 VStack {
-                    /// seats
+                    // seats
                     EventCardSeatsLabel(seatsTitle: viewModel.convertToString(from: event.seats))
 
-                    /// title
+                    // title
                     EventCardTitleLabel(title: event.title)
 
-                    /// date and time
+                    // date and time
                     EventCardDateLabel(title: viewModel.convertToString(from: event.date))
                 }
             }
