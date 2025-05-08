@@ -282,7 +282,7 @@ extension DatabaseService {
         }
     }
 
-    func getEventsIDs(userID: String, my: Bool) async {
+    func getEventIDs(userID: String, my: Bool) async {
         do {
             let user = try await getUserRef(userID: userID).getDocument(as: YUser.self)
 
@@ -296,7 +296,7 @@ extension DatabaseService {
         }
     }
 
-    func getEvent(by eventID: String) async throws -> Event {
+    func getEventFromFeed(by eventID: String) async throws -> Event {
         let eventSnapshot = try await getFeedCollection().document(eventID).getDocument()
         return try eventSnapshot.data(as: Event.self)
     }

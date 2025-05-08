@@ -26,9 +26,9 @@ final class EventsViewModel: ObservableObject {
     @Published var selectedEvent: Event?
     @Published var invalidLink = false
     @Published var isActiveEventLocation = false
-    @Published var isActiveAction = false
-    @Published var failedToSubcribeAlert = false
-    @Published var failedToUnsubcribeAlert = false
+    @Published var isActiveBuildEvent = false
+    @Published var subscribeFail = false
+    @Published var unsubcribeFail = false
     @Published var fail = false
 
     // TableFetchDataProtocol
@@ -67,7 +67,7 @@ final class EventsViewModel: ObservableObject {
     private func getEventsIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
-        await dbService.getEventsIDs(userID: userID, my: false)
+        await dbService.getEventIDs(userID: userID, my: false)
     }
 
 }
@@ -90,19 +90,19 @@ extension EventsViewModel: NavBarViewModelProtocol {
 
 extension EventsViewModel: EventCardViewModelProtocol {
 
-    func toggleAction(for event: Event) {
+    func showBuildEvent(for event: Event) {
         selectedEvent = event
-        isActiveAction.toggle()
+        isActiveBuildEvent = true
     }
 
-    func toggleLocation(for event: Event) {
+    func showLocation(of event: Event) {
         selectedEvent = event
-        isActiveEventLocation.toggle()
+        isActiveEventLocation = true
     }
 
     func open(link: String) {
         if !EventHandler.openLink(link) {
-            invalidLink.toggle()
+            invalidLink = true
         }
     }
 
@@ -123,16 +123,16 @@ extension EventsViewModel: EventCardViewModelProtocol {
                 eventType: eventType,
                 subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
             ) else {
-                failedToUnsubcribeAlert = true
-                return !failedToSubcribeAlert
+                unsubcribeFail = true
+                return !subscribeFail
             }
 
-            failedToUnsubcribeAlert = await !dbService.unsubscribeToTheEvent(
+            unsubcribeFail = await !dbService.unsubscribeToTheEvent(
                 userID: userID,
                 event: newEvent
             )
 
-            return !failedToUnsubcribeAlert
+            return !unsubcribeFail
 
         case .notAdded:
             guard let newEvent = await getNewEvent(
@@ -141,13 +141,13 @@ extension EventsViewModel: EventCardViewModelProtocol {
                 eventType: eventType,
                 subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
             ) else {
-                failedToSubcribeAlert = true
-                return !failedToSubcribeAlert
+                subscribeFail = true
+                return !subscribeFail
             }
 
-            failedToSubcribeAlert = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
+            subscribeFail = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
 
-            return !failedToSubcribeAlert
+            return !subscribeFail
 
         default:
             fail = true
@@ -158,7 +158,7 @@ extension EventsViewModel: EventCardViewModelProtocol {
     @MainActor
     func updateEvent(eventID: String) async {
         do {
-            let updatedEvent = try await dbService.getEvent(by: eventID)
+            let updatedEvent = try await dbService.getEventFromFeed(by: eventID)
 
             if activeTab == .subscriptions {
                 await getEventsIDs()

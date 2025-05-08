@@ -56,7 +56,7 @@ struct EventsView: View {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
             }
         }
-        .sheet(isPresented: $viewModel.isActiveAction) {
+        .sheet(isPresented: $viewModel.isActiveBuildEvent) {
             if let event = viewModel.selectedEvent {
                 BuildEventView(
                     viewModel: BuildEventViewModel(
@@ -74,10 +74,10 @@ struct EventsView: View {
         .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
             Button("ок", role: .cancel) { }
         }
-        .alert("не удалось подписаться", isPresented: $viewModel.failedToSubcribeAlert) {
+        .alert("не удалось подписаться", isPresented: $viewModel.subscribeFail) {
             Button("ок", role: .cancel) {}
         }
-        .alert("не удалось отписаться", isPresented: $viewModel.failedToUnsubcribeAlert) {
+        .alert("не удалось отписаться", isPresented: $viewModel.unsubcribeFail) {
             Button("ок", role: .cancel) {}
         }
         .alert("ошибка", isPresented: $viewModel.fail) {

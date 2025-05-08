@@ -5,14 +5,14 @@ protocol EventCardViewModelProtocol {
     var selectedEvent: Event? { get set }
     var invalidLink: Bool { get set }
     var isActiveEventLocation: Bool { get set }
-    var isActiveAction: Bool { get set }
-    var failedToSubcribeAlert: Bool { get set }
-    var failedToUnsubcribeAlert: Bool { get set }
+    var isActiveBuildEvent: Bool { get set }
+    var subscribeFail: Bool { get set }
+    var unsubcribeFail: Bool { get set }
     var fail: Bool { get set }
 
-    func toggleAction(for event: Event)
+    func showBuildEvent(for event: Event)
 
-    func toggleLocation(for event: Event)
+    func showLocation(of event: Event)
 
     func open(link: String)
 

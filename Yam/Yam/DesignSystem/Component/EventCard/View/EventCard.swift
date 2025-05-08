@@ -18,7 +18,7 @@ struct EventCard: View {
                 HStack {
                     /// place
                     EventCardButton(imageName: "location", background: Gradient.purpleIndigo) {
-                        viewModel.toggleLocation(for: event)
+                        viewModel.showLocation(of: event)
                     }
 
                     /// link
@@ -31,7 +31,7 @@ struct EventCard: View {
                         switch eventType {
                         case .my:
                             EventCardButton(imageName: "gearshape", background: Gradient.pinkIndigo) {
-                                viewModel.toggleAction(for: event)
+                                viewModel.showBuildEvent(for: event)
                             }
                         case .added:
                             EventCardButton(imageName: "xmark", background: Gradient.pinkIndigo) {

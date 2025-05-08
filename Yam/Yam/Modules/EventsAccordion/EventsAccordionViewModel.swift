@@ -3,35 +3,50 @@ import SwiftUI
 
 final class EventsAccordionViewModel: ObservableObject {
 
+    private let dbService = DatabaseService.shared
     let eventPack: [Event]
 
     // EventCardViewModelProtocol
-    var selectedEvent: Event?
-    var invalidLink = false
-    var isActiveEventLocation = false
-    var isActiveAction = false
-    var failedToSubcribeAlert = false
-    var failedToUnsubcribeAlert = false
-    var fail = false
+    @Published var selectedEvent: Event?
+    @Published var invalidLink = false
+    @Published var isActiveEventLocation = false
+    @Published var isActiveBuildEvent = false
+    @Published var subscribeFail = false
+    @Published var unsubcribeFail = false
+    @Published var fail = false
 
     init(eventPack: [Event]) {
         self.eventPack = eventPack
+    }
+
+    func getEventType(_ event: Event) -> EventType {
+        if dbService.myEventsIDs.contains(event.id) {
+            return .my
+        } else if dbService.subscriptionsIDs.contains(event.id) {
+            return .added
+        } else {
+            return .notAdded
+        }
     }
 
 }
 
 extension EventsAccordionViewModel: EventCardViewModelProtocol {
 
-    func toggleAction(for event: Event) {
-        Logger.ping()
+    func showBuildEvent(for event: Event) {
+        selectedEvent = event
+        isActiveBuildEvent = true
     }
 
-    func toggleLocation(for event: Event) {
-        Logger.ping()
+    func showLocation(of event: Event) {
+        selectedEvent = event
+        isActiveEventLocation = true
     }
 
     func open(link: String) {
-        Logger.ping()
+        if !EventHandler.openLink(link) {
+            invalidLink = true
+        }
     }
 
     func handleSubscribeButton(event: Event, eventType: EventType) async -> Bool {

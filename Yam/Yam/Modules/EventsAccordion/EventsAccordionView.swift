@@ -11,7 +11,7 @@ struct EventsAccordionView: View {
             ForEach(Array(viewModel.eventPack.enumerated().sorted {
                 abs($0.offset - currentIndex) > abs($1.offset - currentIndex)
             }), id: \.element.id) { index, event in
-                EventCard(viewModel: viewModel, event: event, eventType: .my)
+                EventCard(viewModel: viewModel, event: event, eventType: viewModel.getEventType(event))
                     .offset(x: CGFloat(index - currentIndex) * Const.screenWidth + dragOffset)
                     .scaleEffect(index == currentIndex ? 1 : 0.85)
                     .animation(.spring(response: 0.3, dampingFraction: 0.8), value: dragOffset)
@@ -33,7 +33,38 @@ struct EventsAccordionView: View {
                             }
                     )
             }
-
+        }
+        .fullScreenCover(isPresented: $viewModel.isActiveEventLocation) {
+            if let event = viewModel.selectedEvent {
+                EventLocationView(viewModel: EventLocationViewModel(event: event))
+            }
+        }
+        .sheet(isPresented: $viewModel.isActiveBuildEvent) {
+            if let event = viewModel.selectedEvent {
+                BuildEventView(
+                    viewModel: BuildEventViewModel(
+                        builtEventType: .edit,
+                        event: event
+                    )
+                )
+                .onDisappear {
+                    Task {
+                        await viewModel.updateEvent(eventID: event.id)
+                    }
+                }
+            }
+        }
+        .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("не удалось подписаться", isPresented: $viewModel.subscribeFail) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("не удалось отписаться", isPresented: $viewModel.unsubcribeFail) {
+            Button("ок", role: .cancel) {}
+        }
+        .alert("ошибка", isPresented: $viewModel.fail) {
+            Button("ок", role: .cancel) {}
         }
     }
 

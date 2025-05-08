@@ -8,6 +8,7 @@ import ClusterMap
 final class MapViewModel: NSObject, ObservableObject {
 
     private let dbService = DatabaseService.shared
+    private let authInteractor = AuthInteractor.shared
     var mapEvents = [Event]()
 
     // Map clustering
@@ -50,13 +51,22 @@ final class MapViewModel: NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
     }
 
+    private func getEventIDs() async {
+        guard let userID = authInteractor.getUserID() else { return }
+
+        await dbService.getEventIDs(userID: userID, my: true)
+        await dbService.getEventIDs(userID: userID, my: false)
+    }
+
 }
 
 // MARK: - EventsAccordion
 
 extension MapViewModel {
 
-    func showEventsAccordion(eventPack: [Event]) {
+    func showEventsAccordion(eventPack: [Event]) async {
+        await getEventIDs()
+
         currentEventPack = eventPack
         isActiveEventsAccordion = true
     }
@@ -147,7 +157,6 @@ extension MapViewModel {
         await reloadAnnotations()
     }
 
-    @MainActor
     private func applyChanges(_ difference: ClusterManager<MapAnnotation>.Difference) {
 
         for removal in difference.removals {

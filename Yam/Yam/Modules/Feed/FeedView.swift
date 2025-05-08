@@ -40,10 +40,10 @@ struct FeedView: View {
         .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {
             Button("ок", role: .cancel) {}
         }
-        .alert("не удалось подписаться", isPresented: $viewModel.failedToSubcribeAlert) {
+        .alert("не удалось подписаться", isPresented: $viewModel.subscribeFail) {
             Button("ок", role: .cancel) {}
         }
-        .alert("не удалось отписаться", isPresented: $viewModel.failedToUnsubcribeAlert) {
+        .alert("не удалось отписаться", isPresented: $viewModel.unsubcribeFail) {
             Button("ок", role: .cancel) {}
         }
         .alert("ошибка", isPresented: $viewModel.fail) {
