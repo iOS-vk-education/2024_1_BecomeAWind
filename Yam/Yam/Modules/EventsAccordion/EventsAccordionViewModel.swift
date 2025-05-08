@@ -4,7 +4,8 @@ import SwiftUI
 final class EventsAccordionViewModel: ObservableObject {
 
     private let dbService = DatabaseService.shared
-    let eventPack: [Event]
+    private let authInteractor = AuthInteractor.shared
+    @Published var eventPack: [Event]
 
     // EventCardViewModelProtocol
     @Published var selectedEvent: Event?
@@ -29,6 +30,13 @@ final class EventsAccordionViewModel: ObservableObject {
         }
     }
 
+    private func getEventIDs() async {
+        guard let userID = authInteractor.getUserID() else { return }
+
+        await dbService.getEventIDs(userID: userID, my: true)
+        await dbService.getEventIDs(userID: userID, my: false)
+    }
+
 }
 
 extension EventsAccordionViewModel: EventCardViewModelProtocol {
@@ -49,13 +57,70 @@ extension EventsAccordionViewModel: EventCardViewModelProtocol {
         }
     }
 
+    @MainActor
     func handleSubscribeButton(event: Event, eventType: EventType) async -> Bool {
-        Logger.ping()
-        return false
+        guard let userID = authInteractor.getUserID() else {
+            fail = true
+            return !fail
+        }
+
+        selectedEvent = event
+
+        switch eventType {
+        case .added:
+            guard let newEvent = await getNewEvent(
+                userID: userID,
+                event: event,
+                eventType: eventType,
+                subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
+            ) else {
+                unsubcribeFail = true
+                return !unsubcribeFail
+            }
+
+            unsubcribeFail = await !dbService.unsubscribeToTheEvent(
+                userID: userID,
+                event: newEvent
+            )
+
+            return !unsubcribeFail
+
+        case .notAdded:
+            guard let newEvent = await getNewEvent(
+                userID: userID,
+                event: event,
+                eventType: eventType,
+                subscriptionsContainsEvent: dbService.subscriptionsIDs.contains(event.id)
+            ) else {
+                subscribeFail = true
+                return !subscribeFail
+            }
+
+            subscribeFail = await !dbService.subscribeToTheEvent(userID: userID, event: newEvent)
+
+            return !subscribeFail
+
+        default:
+            fail = true
+            return !fail
+        }
     }
 
+    @MainActor
     func updateEvent(eventID: String) async {
-        Logger.ping()
+        do {
+            let updatedEvent = try await dbService.getEventFromFeed(by: eventID)
+
+            await getEventIDs()
+
+            if let index = eventPack.firstIndex(where: { $0.id == updatedEvent.id }) {
+                eventPack[index] = updatedEvent
+            }
+
+            Logger.Feed.eventUpdated()
+        } catch {
+            Logger.Feed.eventNotUpdated(error)
+        }
     }
 
 }

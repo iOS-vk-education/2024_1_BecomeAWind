@@ -64,7 +64,7 @@ final class EventsViewModel: ObservableObject {
         }
     }
 
-    private func getEventsIDs() async {
+    private func getEventIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
         await dbService.getEventIDs(userID: userID, my: false)
@@ -161,7 +161,7 @@ extension EventsViewModel: EventCardViewModelProtocol {
             let updatedEvent = try await dbService.getEventFromFeed(by: eventID)
 
             if activeTab == .subscriptions {
-                await getEventsIDs()
+                await getEventIDs()
             }
 
             switch activeTab {
@@ -194,7 +194,7 @@ extension EventsViewModel: TableFetchDataProtocol {
               !isEndReached else { return }
 
         if isFirstPack {
-            await getEventsIDs()
+            await getEventIDs()
         }
 
         isLoading = true
