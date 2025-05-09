@@ -32,8 +32,8 @@ enum Const {
     static let circleButtonCornerRadius = circleButtonSize / 2
 
     // square button
-    static let squareButtonSize = screenWidth * 0.13
-    static let squareButtonCornerRadius = squareButtonSize / 3
+    static let rectButtonSize = screenWidth * 0.13
+    static let rectButtonCornerRadius = rectButtonSize / 3
 
     // animations
     static let tabBarItemSwapAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.2)

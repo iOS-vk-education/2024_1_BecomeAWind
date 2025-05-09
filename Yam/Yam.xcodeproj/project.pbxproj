@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870045912DCE893200D9F74D /* YMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870045902DCE893200D9F74D /* YMap.swift */; };
 		8704EC702DAEF5270008611D /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */; };
 		8704EC722DAEFC530008611D /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC712DAEFC530008611D /* AuthField.swift */; };
 		870E3C8D2D4388D40043DA00 /* BuildEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C592D4388D40043DA00 /* BuildEventModel.swift */; };
@@ -19,7 +20,7 @@
 		870E3C9F2D4388D40043DA00 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C742D4388D40043DA00 /* FeedView.swift */; };
 		870E3CA02D4388D40043DA00 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C532D4388D40043DA00 /* GradientImage.swift */; };
 		870E3CA12D4388D40043DA00 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C892D4388D40043DA00 /* Gradient.swift */; };
-		870E3CA32D4388D40043DA00 /* CapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C542D4388D40043DA00 /* CapsuleLabel.swift */; };
+		870E3CA32D4388D40043DA00 /* RectText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C542D4388D40043DA00 /* RectText.swift */; };
 		870E3CA52D4388D40043DA00 /* YTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C602D4388D40043DA00 /* YTextField.swift */; };
 		870E3CA62D4388D40043DA00 /* BuildEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C632D4388D40043DA00 /* BuildEventViewModel.swift */; };
 		870E3CA92D4388D40043DA00 /* BuildEventDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870E3C5E2D4388D40043DA00 /* BuildEventDatePicker.swift */; };
@@ -98,6 +99,11 @@
 		87D14F272DCBFC1B0037ACBD /* MapEventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F262DCBFC1B0037ACBD /* MapEventAnnotation.swift */; };
 		87D14F2B2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F2A2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift */; };
 		87D14F312DCCFDB90037ACBD /* EventsAccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F2F2DCCFDB90037ACBD /* EventsAccordionView.swift */; };
+		87D14F332DCE6D8A0037ACBD /* RectImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F322DCE6D8A0037ACBD /* RectImageButton.swift */; };
+		87D14F372DCE71A90037ACBD /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F362DCE71A90037ACBD /* LocationButton.swift */; };
+		87D14F392DCE72D20037ACBD /* RectTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F382DCE72D20037ACBD /* RectTextButton.swift */; };
+		87D14F3E2DCE7D7F0037ACBD /* TabBarSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F3D2DCE7D7F0037ACBD /* TabBarSpace.swift */; };
+		87D14F402DCE7DA80037ACBD /* NavBarSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D14F3F2DCE7DA80037ACBD /* NavBarSpace.swift */; };
 		87D4D28A2D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */; };
 		87D4D28C2D947C5900A5E4B8 /* EventLocationBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */; };
 		87D4D2902D947E2300A5E4B8 /* EventLocationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */; };
@@ -137,10 +143,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		870045902DCE893200D9F74D /* YMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMap.swift; sourceTree = "<group>"; };
 		8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
 		8704EC712DAEFC530008611D /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		870E3C532D4388D40043DA00 /* GradientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientImage.swift; sourceTree = "<group>"; };
-		870E3C542D4388D40043DA00 /* CapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLabel.swift; sourceTree = "<group>"; };
+		870E3C542D4388D40043DA00 /* RectText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectText.swift; sourceTree = "<group>"; };
 		870E3C552D4388D40043DA00 /* GradientLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoader.swift; sourceTree = "<group>"; };
 		870E3C592D4388D40043DA00 /* BuildEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventModel.swift; sourceTree = "<group>"; };
 		870E3C5D2D4388D40043DA00 /* BuildEventPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildEventPlaceView.swift; sourceTree = "<group>"; };
@@ -221,6 +228,11 @@
 		87D14F262DCBFC1B0037ACBD /* MapEventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEventAnnotation.swift; sourceTree = "<group>"; };
 		87D14F2A2DCBFDBC0037ACBD /* EventsAccordionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAccordionViewModel.swift; sourceTree = "<group>"; };
 		87D14F2F2DCCFDB90037ACBD /* EventsAccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAccordionView.swift; sourceTree = "<group>"; };
+		87D14F322DCE6D8A0037ACBD /* RectImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectImageButton.swift; sourceTree = "<group>"; };
+		87D14F362DCE71A90037ACBD /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
+		87D14F382DCE72D20037ACBD /* RectTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectTextButton.swift; sourceTree = "<group>"; };
+		87D14F3D2DCE7D7F0037ACBD /* TabBarSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSpace.swift; sourceTree = "<group>"; };
+		87D14F3F2DCE7DA80037ACBD /* NavBarSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarSpace.swift; sourceTree = "<group>"; };
 		87D4D2892D947BFD00A5E4B8 /* EventLocationPlaceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationPlaceDescription.swift; sourceTree = "<group>"; };
 		87D4D28B2D947C5900A5E4B8 /* EventLocationBottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationBottomButtons.swift; sourceTree = "<group>"; };
 		87D4D28F2D947E2300A5E4B8 /* EventLocationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationMap.swift; sourceTree = "<group>"; };
@@ -309,6 +321,8 @@
 				87DE0DA82DC15D8E00D4DDF8 /* Loader */,
 				8744C4622DADB713001A0A9F /* Image */,
 				8744C4512DADA389001A0A9F /* ThinMaterialVStack.swift */,
+				87D14F3D2DCE7D7F0037ACBD /* TabBarSpace.swift */,
+				87D14F3F2DCE7DA80037ACBD /* NavBarSpace.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -460,7 +474,7 @@
 				870E3C5F2D4388D40043DA00 /* YText.swift */,
 				870E3C602D4388D40043DA00 /* YTextField.swift */,
 				8744C4572DADB691001A0A9F /* YSecureField.swift */,
-				870E3C542D4388D40043DA00 /* CapsuleLabel.swift */,
+				870E3C542D4388D40043DA00 /* RectText.swift */,
 				87DF29CB2DCAB15600332AFE /* CircleLabel.swift */,
 			);
 			path = Text;
@@ -469,9 +483,8 @@
 		8744C45E2DADB70A001A0A9F /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				8744C45B2DADB70A001A0A9F /* DismissButton.swift */,
-				8744C45C2DADB70A001A0A9F /* CircleButton.swift */,
-				8786CF342DB4EA920010D079 /* CapsuleButton.swift */,
+				87D14F3A2DCE766B0037ACBD /* YButton */,
+				87D14F352DCE71960037ACBD /* Shape */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -589,7 +602,7 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		87BA68FC2D497C39008DF823 /* Modules */ = {
+		87BA68FC2D497C39008DF823 /* Module */ = {
 			isa = PBXGroup;
 			children = (
 				8786CF2A2DB4CBC80010D079 /* Root */,
@@ -603,7 +616,7 @@
 				872CBC4D2DB18E4100C7EBC4 /* Profile */,
 				879F2C012D46EEEA0027E46D /* EventLocation */,
 			);
-			path = Modules;
+			path = Module;
 			sourceTree = "<group>";
 		};
 		87BA69002D49807D008DF823 /* Color */ = {
@@ -697,6 +710,26 @@
 			path = EventsAccordion;
 			sourceTree = "<group>";
 		};
+		87D14F352DCE71960037ACBD /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				8744C45C2DADB70A001A0A9F /* CircleButton.swift */,
+				8786CF342DB4EA920010D079 /* CapsuleButton.swift */,
+				87D14F322DCE6D8A0037ACBD /* RectImageButton.swift */,
+				87D14F382DCE72D20037ACBD /* RectTextButton.swift */,
+			);
+			path = Shape;
+			sourceTree = "<group>";
+		};
+		87D14F3A2DCE766B0037ACBD /* YButton */ = {
+			isa = PBXGroup;
+			children = (
+				8744C45B2DADB70A001A0A9F /* DismissButton.swift */,
+				87D14F362DCE71A90037ACBD /* LocationButton.swift */,
+			);
+			path = YButton;
+			sourceTree = "<group>";
+		};
 		87D4D29B2D9481FF00A5E4B8 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -767,6 +800,7 @@
 			isa = PBXGroup;
 			children = (
 				87DF29C72DCAAF2400332AFE /* EventOnMap.swift */,
+				870045902DCE893200D9F74D /* YMap.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -812,7 +846,7 @@
 			children = (
 				87DAF8C02D4E747D00C8C550 /* Info.plist */,
 				87BA68ED2D494DBD008DF823 /* Core */,
-				87BA68FC2D497C39008DF823 /* Modules */,
+				87BA68FC2D497C39008DF823 /* Module */,
 				870E3C4C2D4388860043DA00 /* DesignSystem */,
 				8744C4662DADC043001A0A9F /* Service */,
 				870E3C8C2D4388D40043DA00 /* Utility */,
@@ -917,6 +951,7 @@
 				87DF29CE2DCAB2FE00332AFE /* MapConst.swift in Sources */,
 				87336FAD2D7F6B7F00BD699A /* Seats.swift in Sources */,
 				8786CF252DB4CB120010D079 /* NavigationManager.swift in Sources */,
+				87D14F392DCE72D20037ACBD /* RectTextButton.swift in Sources */,
 				8751D85F2DBAD57C0004C61B /* EventType.swift in Sources */,
 				87FDD9352D82F25700C2B5EC /* EventCardViewModelProtocol.swift in Sources */,
 				87FDD9392D82F73400C2B5EC /* EventHandler.swift in Sources */,
@@ -934,6 +969,7 @@
 				87DAF8C22D4E74DA00C8C550 /* FontManager.swift in Sources */,
 				877DE7FD2DC7BDE200E48666 /* MapViewModel.swift in Sources */,
 				877DE7F02DC3CFBC00E48666 /* EventCardLoadingButton.swift in Sources */,
+				87D14F402DCE7DA80037ACBD /* NavBarSpace.swift in Sources */,
 				879ADAFF2D80A18400F43C04 /* LocationHandler.swift in Sources */,
 				8751D8692DBAD5C80004C61B /* EventCard.swift in Sources */,
 				8751D86A2DBAD5C80004C61B /* EventCardButton.swift in Sources */,
@@ -942,8 +978,10 @@
 				8751D86E2DBAD5C80004C61B /* EventCardTitleLabel.swift in Sources */,
 				87DF29CC2DCAB15600332AFE /* CircleLabel.swift in Sources */,
 				8751D86F2DBAD5C80004C61B /* EventCardVStack.swift in Sources */,
+				87D14F372DCE71A90037ACBD /* LocationButton.swift in Sources */,
 				8704EC722DAEFC530008611D /* AuthField.swift in Sources */,
 				87DE0D792DBD289900D4DDF8 /* ImageDownloaderViewModel.swift in Sources */,
+				870045912DCE893200D9F74D /* YMap.swift in Sources */,
 				8786CF2F2DB4D3440010D079 /* AuthorizedEntryTabItemConfig.swift in Sources */,
 				8744C45F2DADB70A001A0A9F /* DismissButton.swift in Sources */,
 				8744C4602DADB70A001A0A9F /* CircleButton.swift in Sources */,
@@ -964,6 +1002,7 @@
 				8704EC702DAEF5270008611D /* UIApplicationExt.swift in Sources */,
 				87B47A8F2D58B500007AA252 /* CornerRadius.swift in Sources */,
 				8786CF352DB4EA920010D079 /* CapsuleButton.swift in Sources */,
+				87D14F3E2DCE7D7F0037ACBD /* TabBarSpace.swift in Sources */,
 				8744C4522DADA389001A0A9F /* ThinMaterialVStack.swift in Sources */,
 				87336F572D7C3A5900BD699A /* AuthorizedEntryTab.swift in Sources */,
 				87C997DF2D9B28DD0069F73D /* NavBarViewModelProtocol.swift in Sources */,
@@ -974,6 +1013,7 @@
 				87336F4B2D7C329F00BD699A /* Const.swift in Sources */,
 				8786CF232DB3EF9D0010D079 /* ProfileViewModel.swift in Sources */,
 				8744C4692DADC05F001A0A9F /* DatabaseService.swift in Sources */,
+				87D14F332DCE6D8A0037ACBD /* RectImageButton.swift in Sources */,
 				871903612DB834B4005DED9E /* BuildEventUIConfig.swift in Sources */,
 				870E3C9C2D4388D40043DA00 /* BuildEventPlaceView.swift in Sources */,
 				87C6B69D2D809E6A00AECA90 /* EventLocationViewModel.swift in Sources */,
@@ -989,7 +1029,7 @@
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				8744C4502DADA1CF001A0A9F /* PasswordView.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* BuildEventPlacePicker.swift in Sources */,
-				870E3CA32D4388D40043DA00 /* CapsuleLabel.swift in Sources */,
+				870E3CA32D4388D40043DA00 /* RectText.swift in Sources */,
 				87336F542D7C39AC00BD699A /* AuthorizedEntryViewModel.swift in Sources */,
 				87336F5F2D7C4BBD00BD699A /* EventsViewModel.swift in Sources */,
 				87336F8F2D7C978B00BD699A /* BuildEventConst.swift in Sources */,

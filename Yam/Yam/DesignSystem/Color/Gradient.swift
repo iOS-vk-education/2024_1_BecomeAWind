@@ -3,6 +3,8 @@ import SwiftUI
 enum Gradient {
 
     static let purpleIndigo = LinearGradient(colors: [.purple, .indigo], startPoint: .top, endPoint: .bottom)
+    static let indigoPurple = LinearGradient(colors: [.indigo, .purple], startPoint: .top, endPoint: .bottom)
+
 
     static let pinkIndigo = LinearGradient(colors: [.pink, .indigo], startPoint: .top, endPoint: .bottom)
 
