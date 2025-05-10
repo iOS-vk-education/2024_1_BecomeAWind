@@ -11,6 +11,7 @@ struct EventLocationPlaceDescription: View {
             background: .thinMaterial
         )
         .frame(maxWidth: Const.screenWidth / 2)
+        .padding(.top)
     }
 
 }

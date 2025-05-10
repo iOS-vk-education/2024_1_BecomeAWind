@@ -22,14 +22,6 @@ struct NavBar<ViewModel: NavBarViewModelProtocol, Content: View>: View {
                         }
                     }
 
-                VStack {
-                    Spacer()
-                    CircleButton(imageName: "plus") {
-                        viewModel.centerButtonAction()
-                    }
-                }
-                .opacity(viewModel.isVisibleCenterButton ? 1 : 0)
-
                 NavBarTabItem(viewModel: viewModel, thisTab: viewModel.rightTab)
                     .onTapGesture {
                         withAnimation(Const.tabBarItemSwapAnimation) {

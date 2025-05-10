@@ -16,7 +16,6 @@ final class AuthViewModel: ObservableObject {
     @Published var activeTab: AuthTab = .signIn
     var leftTab: AuthTab = .signIn
     var rightTab: AuthTab = .signUp
-    var isVisibleCenterButton = false
 
     init(navManager: NavigationManager) {
         self.navManager = navManager
@@ -80,8 +79,6 @@ extension AuthViewModel: NavBarViewModelProtocol {
     func changeActiveTabTo(_ tab: AuthTab) {
         activeTab = tab
     }
-
-    func centerButtonAction() {}
 
 }
 

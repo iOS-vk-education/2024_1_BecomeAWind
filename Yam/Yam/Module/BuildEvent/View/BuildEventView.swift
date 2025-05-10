@@ -14,8 +14,6 @@ struct BuildEventView: View {
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                DismissButton { dismiss() }
-
                 BuildEventHeader(text: viewModel.headerText)
 
                 BuildEventImagePicker(viewModel: viewModel)
@@ -39,6 +37,7 @@ struct BuildEventView: View {
                     dismiss()
                 }
 
+                VerticalSpace(height: Const.rectButtonSize)
             }
             .onSubmit {
                 switch focusField {
@@ -48,6 +47,14 @@ struct BuildEventView: View {
                     focusField = .seats
                 default:
                     break
+                }
+            }
+
+            VStack {
+                Spacer()
+
+                DismissButton {
+                    dismiss()
                 }
             }
         }

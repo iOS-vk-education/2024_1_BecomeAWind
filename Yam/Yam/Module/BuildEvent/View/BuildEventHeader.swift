@@ -6,6 +6,7 @@ struct BuildEventHeader: View {
 
     var body: some View {
         YText(text, font: Const.headerTextFont)
+            .padding(.top)
     }
     
 }

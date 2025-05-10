@@ -20,7 +20,6 @@ final class EventsViewModel: ObservableObject {
     }
     var leftTab: EventsTab = .myEvents
     var rightTab: EventsTab = .subscriptions
-    var isVisibleCenterButton: Bool = true
 
     // EventCardViewModelProtocol
     @Published var selectedEvent: Event?
@@ -49,6 +48,10 @@ final class EventsViewModel: ObservableObject {
         }
     }
 
+    func showCreateEvent() {
+        isActiveCreateEvent = true
+    }
+
     func getEventType(event: Event) -> EventType {
         switch activeTab {
         case .myEvents:
@@ -75,10 +78,6 @@ final class EventsViewModel: ObservableObject {
 // MARK: - NavBar
 
 extension EventsViewModel: NavBarViewModelProtocol {
-
-    func centerButtonAction() {
-        isActiveCreateEvent.toggle()
-    }
 
     func changeActiveTabTo(_ tab: EventsTab) {
         activeTab = tab

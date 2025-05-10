@@ -5,32 +5,44 @@ struct EventsView: View {
     @ObservedObject var viewModel: EventsViewModel
 
     var body: some View {
-        NavBar(viewModel: viewModel) {
-            /// events list
-            List {
-                NavBarSpace()
+        ZStack {
+            NavBar(viewModel: viewModel) {
+                /// events list
+                List {
+                    NavBarSpace()
+                    
+                    ForEach(
+                        viewModel.activeTab == .myEvents
+                        ? viewModel.myEvents
+                        : viewModel.subscriptions,
+                        id: \.self
+                    ) { event in
+                        EventCard(
+                            viewModel: viewModel,
+                            eventType: viewModel.getEventType(event: event),
+                            event: event
+                        )
+                        .listRowSeparator(.hidden)
+                    }
 
-                ForEach(
-                    viewModel.activeTab == .myEvents
-                     ? viewModel.myEvents
-                     : viewModel.subscriptions,
-                     id: \.self
-                ) { event in
-                    EventCard(
-                        viewModel: viewModel,
-                        eventType: viewModel.getEventType(event: event),
-                        event: event
-                    )
-                    .listRowSeparator(.hidden)
+                    if viewModel.isLoading {
+                        Loader()
+                    }
+
+                    VerticalSpace(height: Const.rectButtonSize / 2)
+                    TabBarSpace()
                 }
+                .listStyle(.plain)
+            }
 
-                if viewModel.isLoading {
-                    Loader()
+            VStack {
+                Spacer()
+
+                RectImageButton(imageName: "plus", imageScale: 0.55, background: Gradient.pinkIndigo) {
+                    viewModel.showCreateEvent()
                 }
-
                 TabBarSpace()
             }
-            .listStyle(.plain)
         }
         .refreshable {
             Task {
@@ -51,7 +63,7 @@ struct EventsView: View {
                     .presentationDragIndicator(.visible)
             }
         }
-        .sheet(isPresented: $viewModel.isActiveBuildEvent) {
+        .fullScreenCover(isPresented: $viewModel.isActiveBuildEvent) {
             if let event = viewModel.selectedEvent {
                 BuildEventView(
                     viewModel: BuildEventViewModel(

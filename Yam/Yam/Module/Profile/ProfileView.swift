@@ -10,7 +10,9 @@ struct ProfileView: View {
                 .frame(height: Const.navBarHeight)
                 .foregroundColor(.clear)
             Spacer()
-            CapsuleButton(title: "выйти", background: Gradient.blackPink) {
+            RectImageButton(imageName: "iphone.and.arrow.right.outward",
+                            imageScale: 0.5,
+                            background: Gradient.blackPink) {
                 viewModel.signOut()
             }
             Rectangle()

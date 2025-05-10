@@ -5,20 +5,12 @@ struct DismissButton: View {
     let action: () -> Void
 
     var body: some View {
-        CircleButton(
-            imageName: "xmark",
-            background: Gradient.pinkIndigo
-        ) {
-            action()
-        }
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity,
-            alignment: .topTrailing
-        )
-        .padding([.trailing, .top], Const.sideSpace)
+        RectImageButton(imageName: "xmark",
+                        imageScale: 0.4,
+                        background: .thinMaterial,
+                        action: action)
     }
-    
+
 }
 
 #Preview {

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CircleButton<Background: ShapeStyle>: View {
+
     var imageName: String
     var background: Background
     var action: () -> Void

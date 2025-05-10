@@ -47,6 +47,7 @@ struct MapView: View {
                 viewModel.configureEventsAccordionView(eventPack: viewModel.currentEventPack)
             }
 
+
             VStack {
                 Spacer()
 

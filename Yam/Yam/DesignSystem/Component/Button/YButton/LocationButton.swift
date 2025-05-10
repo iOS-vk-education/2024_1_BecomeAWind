@@ -6,6 +6,7 @@ struct LocationButton: View {
 
     var body: some View {
         RectImageButton(imageName: "scope",
+                        imageScale: 0.6,
                         background: .thinMaterial,
                         action: action)
     }

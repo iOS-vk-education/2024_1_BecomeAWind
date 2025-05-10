@@ -1,16 +1,17 @@
 import SwiftUI
 
-struct TabBarSpace: View {
+struct VerticalSpace: View {
+
+    let height: CGFloat
 
     var body: some View {
         Rectangle()
-            .frame(height: AuthorizedEntryConst.tabBarHeight)
+            .frame(height: height)
             .foregroundColor(.clear)
             .listRowSeparator(.hidden)
     }
-
 }
 
 #Preview {
-    TabBarSpace()
+    VerticalSpace(height: 100)
 }

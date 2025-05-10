@@ -3,13 +3,16 @@ import SwiftUI
 struct RectImageButton<Background: ShapeStyle>: View {
 
     let imageName: String
+    let imageScale: Double
     let background: Background
     let action: () -> Void
 
     init(imageName: String,
+         imageScale: Double,
          background: Background = Gradient.purpleIndigo,
          action: @escaping () -> Void) {
         self.imageName = imageName
+        self.imageScale = imageScale
         self.background = background
         self.action = action
     }
@@ -25,8 +28,8 @@ struct RectImageButton<Background: ShapeStyle>: View {
                 .overlay(
                     Image(systemName: imageName)
                         .resizable()
-                        .frame(width: Const.rectButtonSize * 0.6,
-                               height: Const.rectButtonSize * 0.6)
+                        .frame(width: Const.rectButtonSize * imageScale,
+                               height: Const.rectButtonSize * imageScale)
                         .foregroundColor(.white)
                 )
         }
@@ -36,6 +39,7 @@ struct RectImageButton<Background: ShapeStyle>: View {
 
 #Preview {
     RectImageButton(imageName: "scope",
-               background: Gradient.purpleIndigo,
-               action: {})
+                    imageScale: 0.6,
+                    background: Gradient.purpleIndigo,
+                    action: {})
 }
