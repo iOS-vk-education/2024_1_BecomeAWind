@@ -11,7 +11,7 @@ struct BuildEventButton: View {
                 await viewModel.handleEvent() ? action() : viewModel.toggleEventHandlingFailed()
             }
         } label: {
-            if viewModel.isBuildingEventLoaderFlag {
+            if viewModel.buildingInProgress {
                 ProgressView()
                     .fixedSizeView()
             } else {
@@ -19,6 +19,7 @@ struct BuildEventButton: View {
                     .fixedSizeText()
             }
         }
+        .disabled(viewModel.buildingInProgress)
     }
 
 }

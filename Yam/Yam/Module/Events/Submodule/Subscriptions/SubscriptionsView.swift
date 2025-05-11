@@ -21,8 +21,7 @@ struct SubscriptionsView: View {
                     Loader()
                 }
 
-                VerticalSpace(height: Const.rectButtonSize / 2)
-                TabBarSpace()
+                EventsBottomSpace()
             }
             .listStyle(.plain)
 
@@ -30,8 +29,13 @@ struct SubscriptionsView: View {
             VStack {
                 Spacer()
 
-                DismissButton {
-                    dismiss()
+
+                HStack {
+                    EventsCountView(countString: viewModel.getSubscriptionsCount())
+
+                    DismissButton {
+                        dismiss()
+                    }
                 }
 
                 TabBarSpace()

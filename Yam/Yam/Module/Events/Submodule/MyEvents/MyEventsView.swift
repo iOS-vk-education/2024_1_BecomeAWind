@@ -21,11 +21,9 @@ struct MyEventsView: View {
                     Loader()
                 }
 
-                VerticalSpace(height: Const.rectButtonSize / 2)
-                TabBarSpace()
+                EventsBottomSpace()
             }
             .listStyle(.plain)
-
 
             VStack {
                 Spacer()
@@ -34,6 +32,8 @@ struct MyEventsView: View {
                     RectImageButton(imageName: "plus", imageScale: 0.55, background: Gradient.pinkIndigo) {
                         viewModel.showCreateEvent()
                     }
+
+                    EventsCountView(countString: viewModel.getMyEventsCount())
 
                     DismissButton {
                         dismiss()

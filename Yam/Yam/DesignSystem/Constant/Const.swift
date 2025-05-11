@@ -21,6 +21,7 @@ enum Const {
 
     // map
     static let eventImageSize = Const.screenWidth * 0.15
+    static let clusterCountFont = FontManager.getFont(with: .extrabold, and: 30)
 
     // nav bar
     static let navBarHeight = Const.screenHeight * 0.13
@@ -30,9 +31,10 @@ enum Const {
     static let circleButtonSize = screenWidth * 0.08
     static let circleButtonCornerRadius = circleButtonSize / 2
 
-    // square button
+    // rect button
     static let rectButtonSize = screenWidth * 0.13
     static let rectButtonCornerRadius = rectButtonSize / 3
+    static let eventsCountFont = FontManager.getFont(with: .extrabold, and: 20)
 
     // animations
     static let tabBarItemSwapAnimation = Animation.timingCurve(0.4, 0, 0.2, 1, duration: 0.2)

@@ -38,8 +38,8 @@ final class BuildEventViewModel: NSObject, ObservableObject {
     private var location: CLLocation?
 
     // handle event
-    @Published var isBuildingEventLoaderFlag = false
-    @Published var isDeletingEventLoaderFlag = false
+    @Published var buildingInProgress = false
+    @Published var deletionInProgress = false
     @Published var eventCreationFailed = false
     @Published var eventEditionFailed = false
     @Published var eventDeletionFailed = false
@@ -91,17 +91,29 @@ final class BuildEventViewModel: NSObject, ObservableObject {
 
 }
 
+// MARK: - Support
+
+extension BuildEventViewModel {
+
+    @MainActor
+    func setBuildingIn(progress: Bool) {
+        buildingInProgress = progress
+    }
+
+    @MainActor
+    func setDeletionIn(progress: Bool) {
+        deletionInProgress = progress
+    }
+
+}
+
 // MARK: - Handle event
 
 extension BuildEventViewModel {
 
+    @MainActor
     func handleEvent() async -> Bool {
-        await MainActor.run { isBuildingEventLoaderFlag = true }
-        defer {
-            Task { @MainActor in
-                isBuildingEventLoaderFlag = false
-            }
-        }
+        setBuildingIn(progress: true)
 
         var result: Bool
 
@@ -110,6 +122,8 @@ extension BuildEventViewModel {
         } else {
             result = await editEvent()
         }
+
+        setBuildingIn(progress: false)
 
         return result
     }
@@ -252,26 +266,25 @@ extension BuildEventViewModel {
 
 extension BuildEventViewModel {
 
+    @MainActor
     func deleteEvent() async -> Bool {
         guard let event = event else { return false }
 
-        await MainActor.run { isDeletingEventLoaderFlag = true }
-
         defer {
-            Task { @MainActor in
-                isDeletingEventLoaderFlag = false
-            }
+            setDeletionIn(progress: false)
         }
 
         return await model.delete(event)
     }
 
+    @MainActor
     func showSavingAlert() {
-        savingAlert.toggle()
+        setDeletionIn(progress: true)
+        savingAlert = true
     }
 
     func toggleEventDeletionFailed() {
-        eventDeletionFailed.toggle()
+        eventDeletionFailed = true
     }
 
 }

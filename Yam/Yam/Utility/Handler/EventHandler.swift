@@ -18,4 +18,10 @@ final class EventHandler {
         DateHandler.getDateString(from: date)
     }
 
+    static func getEventsCountString(_ count: Int) -> String {
+        return count < 99
+        ? String(count)
+        : "99+"
+    }
+
 }

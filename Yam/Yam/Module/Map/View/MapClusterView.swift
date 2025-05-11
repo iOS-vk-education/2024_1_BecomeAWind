@@ -9,7 +9,7 @@ struct MapClusterView: View {
         Button {
             action()
         } label: {
-            CircleLabel(count: count, font: MapConst.clusterCountFont)
+            CircleLabel(count: count, font: Const.clusterCountFont)
         }
     }
 

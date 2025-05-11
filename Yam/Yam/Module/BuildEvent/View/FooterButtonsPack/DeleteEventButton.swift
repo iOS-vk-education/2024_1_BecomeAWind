@@ -8,7 +8,7 @@ struct DeleteEventButton: View {
         Button {
             viewModel.showSavingAlert()
         } label: {
-            if viewModel.isDeletingEventLoaderFlag {
+            if viewModel.deletionInProgress {
                 ProgressView()
                     .fixedSizeView(background: Gradient.blackPink)
             } else {
@@ -16,6 +16,7 @@ struct DeleteEventButton: View {
                     .fixedSizeText(background: Gradient.blackPink)
             }
         }
+        .disabled(viewModel.deletionInProgress)
     }
 
 }

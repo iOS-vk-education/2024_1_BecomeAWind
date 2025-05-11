@@ -24,7 +24,7 @@ final class MapViewModel: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     var position: MapCameraPosition = .userLocation(fallback: .automatic)
     private var lastUserLocation: CLLocationCoordinate2D?
-    private var userLocation: CLLocationCoordinate2D? {
+    var userLocation: CLLocationCoordinate2D? {
         didSet {
             guard let newLocation = userLocation else { return }
 
@@ -36,6 +36,7 @@ final class MapViewModel: NSObject, ObservableObject {
             }
 
             lastUserLocation = newLocation
+
             Task {
                 await loadEvents(at: newLocation)
             }
@@ -82,6 +83,10 @@ extension MapViewModel {
         ) {
             UIApplication.shared.open(appSettings)
         }
+    }
+
+    func getEventsCount() -> String {
+        EventHandler.getEventsCountString(mapEvents.count)
     }
 
     private func getEventIDs() async {
@@ -144,12 +149,6 @@ extension MapViewModel {
         return view
     }
 
-    func getEventsCount() -> String {
-        return mapEvents.count < 99
-        ? String(mapEvents.count)
-        : "99+"
-    }
-
 }
 
 // MARK: - Events loading
@@ -157,12 +156,14 @@ extension MapViewModel {
 extension MapViewModel {
 
     @MainActor
-    func loadEvents(at userLocation: CLLocationCoordinate2D) async {
+    func loadEvents(at userLocation: CLLocationCoordinate2D?) async {
+        guard let loc = userLocation else { return }
+
         do {
             let radiusInM: Double = 50 * 10000 // 50 км
 
             // формирую баундсы для создания массива кверис - чем больше радиус, тем бльше квадратов и кверис
-            let queryBounds = GFUtils.queryBounds(forLocation: userLocation, withRadius: radiusInM)
+            let queryBounds = GFUtils.queryBounds(forLocation: loc, withRadius: radiusInM)
 
             // формирую массив кверис на основе баундсов
             let queries = dbService.getQueries(from: queryBounds)
@@ -175,7 +176,7 @@ extension MapViewModel {
                 for query in queries {
                     group.addTask {
                         try await self.dbService.fetchMatchingEvents(from: query,
-                                                            userLocation: userLocation,
+                                                            userLocation: loc,
                                                             radiusInM: radiusInM)
                     }
                 }
@@ -191,6 +192,7 @@ extension MapViewModel {
             }
 
             var newAnnotations = [MapAnnotation]()
+            mapEvents.removeAll()
 
             for now in matchingEvents {
                 let event = try now.data(as: Event.self)
@@ -202,6 +204,7 @@ extension MapViewModel {
                 newAnnotations.append(annotation)
             }
 
+            await removeAnnotations()
             await addAnnotations(newAnnotations)
         } catch {
             Logger.Map.loadEventsFail(error)

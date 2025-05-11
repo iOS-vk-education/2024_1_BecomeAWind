@@ -22,14 +22,20 @@ struct FeedView: View {
                 if viewModel.isLoading {
                     Loader()
                 }
+
+                EventsBottomSpace()
             }
             .listStyle(.plain)
 
             VStack {
                 Spacer()
 
-                DismissButton {
-                    dismiss()
+                HStack {
+                    EventsCountView(countString: viewModel.getFeedEventsCount())
+
+                    DismissButton {
+                        dismiss()
+                    }
                 }
 
                 TabBarSpace()

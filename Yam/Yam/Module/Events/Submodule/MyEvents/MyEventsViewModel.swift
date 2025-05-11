@@ -37,8 +37,18 @@ final class MyEventsViewModel: ObservableObject {
         }
     }
 
+}
+
+// MARK: - Support
+
+extension MyEventsViewModel {
+
     func showCreateEvent() {
         isActiveCreateEvent = true
+    }
+
+    func getMyEventsCount() -> String {
+        EventHandler.getEventsCountString(myEvents.count)
     }
 
     private func getEventIDs() async {

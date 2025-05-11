@@ -48,6 +48,11 @@ struct MapView: View {
         }
         .fullScreenCover(isPresented: $viewModel.isActiveEvents) {
             viewModel.makeEventsView()
+                .onDisappear {
+                    Task {
+                        await viewModel.loadEvents(at: viewModel.userLocation)
+                    }
+                }
         }
         .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
             viewModel.makeEventsAccordionView(eventPack: viewModel.currentEventPack)

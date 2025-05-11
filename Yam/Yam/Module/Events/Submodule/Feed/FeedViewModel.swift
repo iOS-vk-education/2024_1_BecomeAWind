@@ -35,6 +35,17 @@ final class FeedViewModel: ObservableObject {
         }
     }
 
+}
+
+// MARK: - Support
+
+extension FeedViewModel {
+
+    func getFeedEventsCount() -> String {
+        let count = feedEvents.filter { !dbService.myEventsIDs.contains($0.id) }.count
+        return EventHandler.getEventsCountString(count)
+    }
+
     private func getEventIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 

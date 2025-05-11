@@ -80,7 +80,9 @@ struct BuildEventView: View {
             Button("ок", role: .cancel) {}
         }
         .alert("удалить ивент?", isPresented: $viewModel.savingAlert) {
-            Button("отмена", role: .cancel) {}
+            Button("отмена", role: .cancel) {
+                viewModel.setDeletionIn(progress: false)
+            }
             Button("удалить", role: .destructive) {
                 Task {
                     if await viewModel.deleteEvent() {

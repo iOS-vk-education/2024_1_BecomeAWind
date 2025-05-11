@@ -35,6 +35,16 @@ final class SubscriptionsViewModel: ObservableObject {
         }
     }
 
+}
+
+// MARK: - Support
+
+extension SubscriptionsViewModel {
+
+    func getSubscriptionsCount() -> String {
+        EventHandler.getEventsCountString(subscriptions.count)
+    }
+
     func getEventType(event: Event) -> EventType {
         if dbService.subscriptionsIDs.contains(event.id) {
             return .added
@@ -50,6 +60,7 @@ final class SubscriptionsViewModel: ObservableObject {
     }
 
 }
+
 
 // MARK: - EventCard
 
