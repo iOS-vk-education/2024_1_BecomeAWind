@@ -22,7 +22,7 @@ struct EventsTabBar: View {
 
     private func configureTabs() -> some View {
         ForEach(viewModel.tabs) { tab in
-            ModuleTabItem(
+            EventTabItem(
                 viewModel: viewModel,
                 thisTab: tab.tab,
                 imageSystemName: tab.imageName,
@@ -38,7 +38,7 @@ struct EventsTabBar: View {
 
 }
 
-private struct ModuleTabItem: View {
+private struct EventTabItem: View {
 
     @ObservedObject var viewModel: EventsViewModel
     let thisTab: EventsTab

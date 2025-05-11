@@ -85,7 +85,7 @@ extension MapViewModel {
         }
     }
 
-    func getEventsCount() -> String {
+    func getMapEventsCount() -> String {
         EventHandler.getEventsCountString(mapEvents.count)
     }
 

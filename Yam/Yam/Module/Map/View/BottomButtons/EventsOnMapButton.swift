@@ -9,7 +9,7 @@ struct EventsOnMapButton: View {
         Button {
             action()
         } label: {
-            Text(viewModel.getEventsCount())
+            Text(viewModel.getMapEventsCount())
                 .font(Const.clusterCountFont)
                 .frame(width: Const.screenWidth * 0.2,
                        height: Const.screenWidth * 0.2)

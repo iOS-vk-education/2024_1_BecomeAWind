@@ -9,7 +9,7 @@ final class EventsViewModel: ObservableObject {
     init() {
         tabs = [
             EventsTabItemConfig(tab: .myEvents, title: "мои ивенты", imageName: "photo.stack"),
-            EventsTabItemConfig(tab: .feed, title: "лента", imageName: "shared.with.you"),
+            EventsTabItemConfig(tab: .feed, title: "лента", imageName: "person.2.crop.square.stack"),
             EventsTabItemConfig(tab: .subscriptions, title: "подписки", imageName: "rectangle.stack.badge.plus")
         ]
     }
