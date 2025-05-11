@@ -3,7 +3,6 @@ import SwiftUI
 struct DeleteEventButton: View {
 
     @ObservedObject var viewModel: BuildEventViewModel
-    let action: () -> Void
 
     var body: some View {
         Button {

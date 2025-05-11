@@ -322,15 +322,6 @@
 			path = BottomButtons;
 			sourceTree = "<group>";
 		};
-		870045B52DD0C15900D9F74D /* EventsOnMap */ = {
-			isa = PBXGroup;
-			children = (
-				870045B32DD0C15900D9F74D /* MapClusterView.swift */,
-				870045B42DD0C15900D9F74D /* MapEventAnnotation.swift */,
-			);
-			path = EventsOnMap;
-			sourceTree = "<group>";
-		};
 		870045B92DD0C6E600D9F74D /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,8 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				870045F12DD0D6F100D9F74D /* MyEvents */,
-				870045F42DD0D6F100D9F74D /* Subscriptions */,
 				870045EE2DD0D6F100D9F74D /* Feed */,
+				870045F42DD0D6F100D9F74D /* Subscriptions */,
 			);
 			path = Submodule;
 			sourceTree = "<group>";
@@ -838,7 +829,8 @@
 				870045FE2DD0D8A000D9F74D /* MapSwitcherView.swift */,
 				870045A12DCF244D00D9F74D /* MapView.swift */,
 				879B8A8D2D4BB81000DB28CC /* DisabledLocationServicesView.swift */,
-				870045B52DD0C15900D9F74D /* EventsOnMap */,
+				870045B32DD0C15900D9F74D /* MapClusterView.swift */,
+				870045B42DD0C15900D9F74D /* MapEventAnnotation.swift */,
 				870045AB2DD09B9B00D9F74D /* BottomButtons */,
 			);
 			path = View;

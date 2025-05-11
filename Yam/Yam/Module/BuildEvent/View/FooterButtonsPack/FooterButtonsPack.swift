@@ -7,10 +7,12 @@ struct FooterButtonsPack: View {
 
     var body: some View {
         HStack {
-            BuildEventButton(viewModel: viewModel) { action() }
+            BuildEventButton(viewModel: viewModel) {
+                action()
+            }
 
             if viewModel.buildEventType == .edit {
-                DeleteEventButton(viewModel: viewModel) { action() }
+                DeleteEventButton(viewModel: viewModel)
             }
         }
         .padding(.horizontal)

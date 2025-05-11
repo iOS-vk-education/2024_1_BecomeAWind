@@ -67,13 +67,16 @@ struct MyEventsView: View {
                     viewModel: BuildEventViewModel(
                         builtEventType: .edit,
                         event: event
-                    )
-                )
-                .onDisappear {
-                    Task {
-                        await viewModel.updateEvent(eventID: event.id)
+                    ),
+                    onBuild: {
+                        Task {
+                            await viewModel.updateEvent(eventID: event.id)
+                        }
+                    },
+                    onDelete: {
+                        viewModel.removeEventFromTable(eventID: event.id)
                     }
-                }
+                )
             }
         }
         .alert("указана неверная ссылка", isPresented: $viewModel.invalidLink) {

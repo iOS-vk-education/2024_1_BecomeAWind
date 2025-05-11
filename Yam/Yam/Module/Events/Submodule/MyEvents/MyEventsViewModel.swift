@@ -44,7 +44,7 @@ final class MyEventsViewModel: ObservableObject {
     private func getEventIDs() async {
         guard let userID = authInteractor.getUserID() else { return }
 
-        await dbService.getEventIDs(userID: userID, my: false)
+        await dbService.getEventIDs(userID: userID, my: true)
     }
 
 }
@@ -95,6 +95,17 @@ extension MyEventsViewModel: EventCardViewModelProtocol {
 // MARK: - Table
 
 extension MyEventsViewModel: TableFetchDataProtocol {
+
+    func removeEventFromTable(eventID: String) {
+        guard let index = myEvents.firstIndex(where: { $0.id == eventID} ) else {
+            Logger.MyEvents.eventNotRemovedFromTable(eventID: eventID)
+            return
+        }
+
+
+        myEvents.remove(at: index)
+        Logger.MyEvents.eventRemovedFromTable(eventID: eventID)
+    }
 
     @MainActor
     func loadItems(isFirstPack: Bool) async {

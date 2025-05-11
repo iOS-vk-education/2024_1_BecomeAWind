@@ -109,6 +109,18 @@ extension Logger {
 
     }
 
+    enum MyEvents {
+
+        static func eventRemovedFromTable(eventID: String) {
+            print("Event with ID = \(eventID) removed from table\n")
+        }
+
+        static func eventNotRemovedFromTable(eventID: String) {
+            print("Event with ID = \(eventID) not removed from table\n")
+        }
+
+    }
+
 }
 
 // MARK: - BuildEvent

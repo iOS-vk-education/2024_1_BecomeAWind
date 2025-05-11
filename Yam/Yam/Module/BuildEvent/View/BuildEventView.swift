@@ -7,8 +7,16 @@ struct BuildEventView: View {
     @ObservedObject private var viewModel: BuildEventViewModel
     @FocusState private var focusField: Field?
 
-    init(viewModel: BuildEventViewModel = BuildEventViewModel()) {
+    // callbacks
+    var onDelete: (() -> Void)?
+    var onBuild: (() -> Void)?
+
+    init(viewModel: BuildEventViewModel = BuildEventViewModel(),
+         onBuild: (() -> Void)? = nil,
+         onDelete: (() -> Void)? = nil) {
         self.viewModel = viewModel
+        self.onBuild = onBuild
+        self.onDelete = onDelete
     }
 
     var body: some View {
@@ -34,6 +42,7 @@ struct BuildEventView: View {
                 BuildEventPlacePicker(viewModel: viewModel)
 
                 FooterButtonsPack(viewModel: viewModel) {
+                    onBuild?()
                     dismiss()
                 }
 
@@ -74,7 +83,12 @@ struct BuildEventView: View {
             Button("отмена", role: .cancel) {}
             Button("удалить", role: .destructive) {
                 Task {
-                    await viewModel.deleteEvent() ? dismiss() : viewModel.toggleEventDeletionFailed()
+                    if await viewModel.deleteEvent() {
+                        onDelete?()
+                        dismiss()
+                    } else {
+                        viewModel.toggleEventDeletionFailed()
+                    }
                 }
             }
         }
