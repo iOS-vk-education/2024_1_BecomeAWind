@@ -20,7 +20,7 @@ struct EventLocationView: View {
                     viewModel.centerMapOnUserLocation()
                 }
             }
-            .padding(.vertical, Const.sideSpace)
+            .padding(.vertical)
         }
     }
 

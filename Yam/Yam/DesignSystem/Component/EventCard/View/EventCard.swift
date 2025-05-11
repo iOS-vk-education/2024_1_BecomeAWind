@@ -74,7 +74,7 @@ struct EventCard: View {
                     maxHeight: .infinity,
                     alignment: .topTrailing
                 )
-                .padding([.trailing, .top], Const.sideSpace)
+                .padding([.trailing, .top])
 
                 // labels
                 VStack {

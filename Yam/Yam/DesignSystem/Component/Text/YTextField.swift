@@ -25,7 +25,7 @@ struct YTextField: View {
     var body: some View {
         YText(title, font: Const.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, Const.sideSpace)
+            .padding(.leading)
 
         VStack {
             TextField(
@@ -47,7 +47,7 @@ struct YTextField: View {
         }
         .background(Colors.gray)
         .cornerRadius(Const.cornerRadius)
-        .padding(.horizontal, Const.sideSpace)
+        .padding(.horizontal)
         .padding(.bottom)
     }
 

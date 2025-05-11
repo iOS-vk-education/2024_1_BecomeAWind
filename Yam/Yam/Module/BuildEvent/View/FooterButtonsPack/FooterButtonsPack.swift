@@ -6,7 +6,7 @@ struct FooterButtonsPack: View {
     let action: () -> Void
 
     var body: some View {
-        HStack {
+        VStack {
             BuildEventButton(viewModel: viewModel) {
                 action()
             }
@@ -14,6 +14,7 @@ struct FooterButtonsPack: View {
             if viewModel.buildEventType == .edit {
                 DeleteEventButton(viewModel: viewModel)
             }
+
         }
         .padding(.horizontal)
     }

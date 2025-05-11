@@ -6,7 +6,7 @@ struct BuildEventPlacePicker: View {
     var body: some View {
         YText("место", font: Const.sectionTitleFont)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, Const.sideSpace)
+            .padding(.leading)
 
         BuildEventVStack {
             YText(

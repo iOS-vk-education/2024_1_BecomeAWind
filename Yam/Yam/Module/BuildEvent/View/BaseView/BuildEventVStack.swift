@@ -13,7 +13,7 @@ struct BuildEventVStack<Content: View>: View {
         }
         .background(Colors.gray)
         .cornerRadius(Const.cornerRadius)
-        .padding(.horizontal, Const.sideSpace)
+        .padding(.horizontal)
         .padding(.bottom)
     }
 }

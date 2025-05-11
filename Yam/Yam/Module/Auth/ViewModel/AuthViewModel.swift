@@ -12,7 +12,9 @@ final class AuthViewModel: ObservableObject {
     @Published var isActiveSignUpFailAlert = false
     @Published var isActiveSignInFailAlert = false
 
-    /// nav bar
+    @Published var authInProgress = false
+
+    // nav bar
     @Published var activeTab: AuthTab = .signIn
     var leftTab: AuthTab = .signIn
     var rightTab: AuthTab = .signUp
@@ -28,6 +30,8 @@ final class AuthViewModel: ObservableObject {
 extension AuthViewModel {
 
     func auth() {
+        authInProgress = true
+
         switch activeTab {
         case .signUp:
             authInteractor.signUp(email: email, password: password) { [weak self] result in
@@ -42,6 +46,8 @@ extension AuthViewModel {
                     self.isActiveSignUpFailAlert.toggle()
                     Logger.Auth.userNotCreated(error: error)
                 }
+
+                authInProgress = false
             }
         case .signIn:
             authInteractor.signIn(email: email, password: password) { [weak self] result in
@@ -56,6 +62,8 @@ extension AuthViewModel {
                     self.isActiveSignInFailAlert.toggle()
                     Logger.Auth.authFail(error: error)
                 }
+
+                authInProgress = false
             }
         }
     }

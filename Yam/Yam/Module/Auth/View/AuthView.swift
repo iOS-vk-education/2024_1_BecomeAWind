@@ -41,3 +41,7 @@ struct AuthView: View {
         }
     }
 }
+
+#Preview {
+    AuthView(viewModel: AuthViewModel(navManager: NavigationManager()))
+}

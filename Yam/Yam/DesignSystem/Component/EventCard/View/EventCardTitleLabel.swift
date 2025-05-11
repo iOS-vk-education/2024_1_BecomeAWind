@@ -9,7 +9,7 @@ struct EventCardTitleLabel: View {
             text: title,
             font: EventsConst.capsuleLabelFont,
             background: .thinMaterial)
-        .padding(.horizontal, Const.sideSpace)
+        .padding(.horizontal)
     }
 
 }

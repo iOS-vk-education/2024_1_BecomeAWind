@@ -9,13 +9,11 @@ struct DeleteEventButton: View {
             viewModel.showSavingAlert()
         } label: {
             if viewModel.isDeletingEventLoaderFlag {
-                GradientLoader(background: Gradient.blackPink, size: 50)
+                ProgressView()
+                    .fixedSizeView(background: Gradient.blackPink)
             } else {
-                UnlimitedText(
-                    text: viewModel.deleteEventButtonText,
-                    font: Const.buttonFont,
-                    background: Gradient.blackPink
-                )
+                Text(viewModel.deleteEventButtonText)
+                    .fixedSizeText(background: Gradient.blackPink)
             }
         }
     }

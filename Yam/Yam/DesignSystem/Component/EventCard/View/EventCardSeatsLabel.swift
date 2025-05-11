@@ -15,7 +15,7 @@ struct EventCardSeatsLabel: View {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        .padding([.leading, .top], Const.sideSpace)
+        .padding([.leading, .top])
     }
 
 }

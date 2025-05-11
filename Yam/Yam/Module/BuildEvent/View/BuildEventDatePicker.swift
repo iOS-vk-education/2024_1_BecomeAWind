@@ -12,7 +12,7 @@ struct BuildEventDatePicker: View {
             )
             Spacer()
         }
-        .padding(.leading, Const.sideSpace)
+        .padding(.leading)
 
         BuildEventVStack {
             DatePicker(

@@ -18,7 +18,6 @@ enum Const {
 
     static let fontSize: CGFloat = 20
     static let cornerRadius: CGFloat = 20
-    static let sideSpace: CGFloat = 15
 
     // map
     static let eventImageSize = Const.screenWidth * 0.15

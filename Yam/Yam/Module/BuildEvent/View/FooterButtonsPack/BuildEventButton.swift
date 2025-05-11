@@ -12,12 +12,11 @@ struct BuildEventButton: View {
             }
         } label: {
             if viewModel.isBuildingEventLoaderFlag {
-                GradientLoader(size: 50)
+                ProgressView()
+                    .fixedSizeView()
             } else {
-                UnlimitedText(
-                    text: viewModel.footerButtonText,
-                    font: Const.buttonFont
-                )
+                Text(viewModel.footerButtonText)
+                    .fixedSizeText()
             }
         }
     }

@@ -5,9 +5,18 @@ struct AuthButton: View {
     @ObservedObject var viewModel: AuthViewModel
 
     var body: some View {
-        CapsuleButton(title: viewModel.activeTab == .signIn ? "войти" : "создать аккаунт") {
+        Button {
             viewModel.auth()
+        } label: {
+            if !viewModel.authInProgress {
+                Text(viewModel.activeTab == .signIn ? "войти" : "создать аккаунт")
+                    .fixedSizeText()
+            } else {
+                ProgressView()
+                    .fixedSizeView()
+            }
         }
+        .disabled(viewModel.authInProgress)
     }
 
 }
