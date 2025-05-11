@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct EntryTabBar: View {
+struct EventsTabBar: View {
 
-    @ObservedObject var viewModel: AuthorizedEntryViewModel
+    @ObservedObject var viewModel: EventsViewModel
 
     var body: some View {
         VStack {
@@ -22,7 +22,7 @@ struct EntryTabBar: View {
 
     private func configureTabs() -> some View {
         ForEach(viewModel.tabs) { tab in
-            EntryTabItem(
+            ModuleTabItem(
                 viewModel: viewModel,
                 thisTab: tab.tab,
                 imageSystemName: tab.imageName,
@@ -38,10 +38,10 @@ struct EntryTabBar: View {
 
 }
 
-private struct EntryTabItem: View {
+private struct ModuleTabItem: View {
 
-    @ObservedObject var viewModel: AuthorizedEntryViewModel
-    let thisTab: AuthorizedEntryTab
+    @ObservedObject var viewModel: EventsViewModel
+    let thisTab: EventsTab
 
     let imageSystemName: String
     let title: String

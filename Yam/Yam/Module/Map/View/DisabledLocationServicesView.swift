@@ -3,7 +3,7 @@ import MapKit
 
 struct DisabledLocationServicesView: View {
 
-    @ObservedObject var viewModel: AuthorizedEntryViewModel
+    @ObservedObject var viewModel: MapViewModel
 
     var body: some View {
         ZStack {

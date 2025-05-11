@@ -1,9 +1,9 @@
 import Foundation
 
-struct AuthorizedEntryTabItemConfig: Identifiable {
+struct EventsTabItemConfig: Identifiable {
     let id = UUID()
 
-    var tab: AuthorizedEntryTab
+    var tab: EventsTab
     var title: String
     var imageName: String
 }

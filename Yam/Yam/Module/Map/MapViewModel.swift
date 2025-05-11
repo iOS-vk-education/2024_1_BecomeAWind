@@ -42,11 +42,16 @@ final class MapViewModel: NSObject, ObservableObject {
         }
     }
 
+    var isLocationServicesEnabled = false
+    var authStatus: LocationAuthStatus = .notDetermined
+    var opacityOfOpenSettingsView: Double = 0
+
     // EventsAccordion
     var currentEventPack = [Event]()
     var isActiveEventsAccordion = false
 
     // Modules
+    var isActiveEvents = false
     var isActiveProfile = false
 
     init(navManager: NavigationManager) {
@@ -59,9 +64,23 @@ final class MapViewModel: NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
     }
 
+}
+
+// MARK: - Support
+
+extension MapViewModel {
+
     func centerMapOnUserLocation() {
         withAnimation {
             position = .userLocation(fallback: .automatic)
+        }
+    }
+
+    func openSettings() {
+        if let appSettings = URL(
+            string: UIApplication.openSettingsURLString
+        ) {
+            UIApplication.shared.open(appSettings)
         }
     }
 
@@ -70,6 +89,23 @@ final class MapViewModel: NSObject, ObservableObject {
 
         await dbService.getEventIDs(userID: userID, my: true)
         await dbService.getEventIDs(userID: userID, my: false)
+    }
+
+}
+
+// MARK: - Events
+
+extension MapViewModel {
+
+    @MainActor
+    func openEvents() {
+        isActiveEvents = true
+    }
+
+    func makeEventsView() -> EventsView {
+        let vm = EventsViewModel()
+        let view = EventsView(viewModel: vm)
+        return view
     }
 
 }
@@ -230,4 +266,31 @@ extension MapViewModel: CLLocationManagerDelegate {
         userLocation = locations.last?.coordinate
     }
 
+    /*  Функция locationManagerDidChangeAuthorization(_ manager: CLLocationManager) принадлежит делегату CLLocationManagerDelegate. Она вызывается каждый раз когда создается объект класса CLLocationManager и когда меняется статус авторизации служб геолокации.
+     https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/locationmanagerdidchangeauthorization(_:)
+     */
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorizationStatus()
+    }
+
+    private func checkLocationAuthorizationStatus() {
+        authStatus = .notDetermined
+
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            authStatus = .notDetermined
+            opacityOfOpenSettingsView = 0
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
+            authStatus = .access
+            opacityOfOpenSettingsView = 0
+            isLocationServicesEnabled = true
+        default:
+            authStatus = .restricted
+            opacityOfOpenSettingsView = 1
+            isLocationServicesEnabled = false
+        }
+    }
+
 }
+

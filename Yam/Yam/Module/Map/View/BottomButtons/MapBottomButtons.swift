@@ -17,7 +17,7 @@ struct MapBottomButtons: View {
             HStack {
 
                 OpenEventsButton {
-                    Logger.ping()
+                    viewModel.openEvents()
                 }
 
                 LocationButton {

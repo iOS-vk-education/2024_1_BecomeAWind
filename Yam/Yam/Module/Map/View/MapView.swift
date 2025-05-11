@@ -46,6 +46,9 @@ struct MapView: View {
 
             MapBottomButtons(viewModel: viewModel)
         }
+        .fullScreenCover(isPresented: $viewModel.isActiveEvents) {
+            viewModel.makeEventsView()
+        }
         .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
             viewModel.makeEventsAccordionView(eventPack: viewModel.currentEventPack)
                 .presentationDragIndicator(.visible)

@@ -8,7 +8,7 @@ struct RootView: View {
         if !navManager.isUserAuthorized {
             makeAuthView()
         } else {
-            makeMapView()
+            makeMapSwitcherView()
         }
     }
 
@@ -22,9 +22,9 @@ extension RootView {
         return view
     }
 
-    func makeMapView() -> MapView {
+    func makeMapSwitcherView() -> MapSwitcherView {
         let vm = MapViewModel(navManager: navManager)
-        let view = MapView(viewModel: vm)
+        let view = MapSwitcherView(viewModel: vm)
         return view
     }
 

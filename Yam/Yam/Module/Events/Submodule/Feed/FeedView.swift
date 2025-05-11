@@ -2,28 +2,39 @@ import SwiftUI
 
 struct FeedView: View {
 
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: FeedViewModel
 
     var body: some View {
-        List {
-            ForEach(viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
-                EventCard(
-                    viewModel: viewModel,
-                    eventType: viewModel.dbService.subscriptionsIDs.contains(event.id)
-                    ? .added
-                    : .notAdded,
-                    event: event
-                )
-                .listRowSeparator(.hidden)
-            }
+        ZStack {
+            List {
+                ForEach(viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
+                    EventCard(
+                        viewModel: viewModel,
+                        eventType: viewModel.dbService.subscriptionsIDs.contains(event.id)
+                        ? .added
+                        : .notAdded,
+                        event: event
+                    )
+                    .listRowSeparator(.hidden)
+                }
 
-            if viewModel.isLoading {
-                Loader()
+                if viewModel.isLoading {
+                    Loader()
+                }
             }
+            .listStyle(.plain)
 
-            TabBarSpace()
+            VStack {
+                Spacer()
+
+                DismissButton {
+                    dismiss()
+                }
+
+                TabBarSpace()
+            }
         }
-        .listStyle(.plain)
         .refreshable {
             Task {
                 await viewModel.refresh()
