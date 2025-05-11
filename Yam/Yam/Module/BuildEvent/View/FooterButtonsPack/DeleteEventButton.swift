@@ -12,7 +12,7 @@ struct DeleteEventButton: View {
             if viewModel.isDeletingEventLoaderFlag {
                 GradientLoader(background: Gradient.blackPink, size: 50)
             } else {
-                RectText(
+                UnlimitedText(
                     text: viewModel.deleteEventButtonText,
                     font: Const.buttonFont,
                     background: Gradient.blackPink

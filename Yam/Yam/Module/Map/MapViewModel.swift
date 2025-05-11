@@ -9,6 +9,8 @@ final class MapViewModel: NSObject, ObservableObject {
 
     private let dbService = DatabaseService.shared
     private let authInteractor = AuthInteractor.shared
+    private var navManager: NavigationManager
+
     var mapEvents = [Event]()
 
     // Map clustering
@@ -44,8 +46,14 @@ final class MapViewModel: NSObject, ObservableObject {
     var currentEventPack = [Event]()
     var isActiveEventsAccordion = false
 
-    override init() {
+    // Modules
+    var isActiveProfile = false
+
+    init(navManager: NavigationManager) {
+        self.navManager = navManager
+
         super.init()
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
@@ -66,6 +74,23 @@ final class MapViewModel: NSObject, ObservableObject {
 
 }
 
+// MARK: - Profile
+
+extension MapViewModel {
+
+    @MainActor
+    func openProfile() {
+        isActiveProfile = true
+    }
+
+    func makeProfileView() -> ProfileView {
+        let vm = ProfileViewModel(navManager: navManager)
+        let view = ProfileView(viewModel: vm)
+        return view
+    }
+
+}
+
 // MARK: - EventsAccordion
 
 extension MapViewModel {
@@ -77,10 +102,16 @@ extension MapViewModel {
         isActiveEventsAccordion = true
     }
 
-    func configureEventsAccordionView(eventPack: [Event]) -> EventsAccordionView {
+    func makeEventsAccordionView(eventPack: [Event]) -> EventsAccordionView {
         let vm = EventsAccordionViewModel(eventPack: eventPack)
         let view = EventsAccordionView(viewModel: vm)
         return view
+    }
+
+    func getEventsCount() -> String {
+        return mapEvents.count < 99
+        ? String(mapEvents.count)
+        : "99+"
     }
 
 }

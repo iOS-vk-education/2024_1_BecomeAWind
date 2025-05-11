@@ -6,19 +6,15 @@ struct ProfileView: View {
 
     var body: some View {
         VStack {
-            Rectangle()
-                .frame(height: Const.navBarHeight)
-                .foregroundColor(.clear)
             Spacer()
             RectImageButton(imageName: "iphone.and.arrow.right.outward",
                             imageScale: 0.5,
                             background: Gradient.blackPink) {
                 viewModel.signOut()
             }
-            Rectangle()
-                .frame(height: AuthorizedEntryConst.tabBarHeight)
-                .foregroundColor(.clear)
         }
+        .frame(maxWidth: .infinity)
+        .background(.black)
         .alert(
             "не удалось выйти",
             isPresented: $viewModel.isActiveSignOutFailAlert) {
@@ -26,4 +22,8 @@ struct ProfileView: View {
         }
     }
 
+}
+
+#Preview {
+    ProfileView(viewModel: ProfileViewModel(navManager: NavigationManager()))
 }

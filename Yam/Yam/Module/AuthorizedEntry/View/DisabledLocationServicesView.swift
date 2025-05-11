@@ -24,7 +24,7 @@ struct DisabledLocationServicesView: View {
             Button {
                 viewModel.openSettings()
             } label: {
-                RectText(
+                UnlimitedText(
                     text: "открыть настройки",
                     font: Const.buttonFont
                 )

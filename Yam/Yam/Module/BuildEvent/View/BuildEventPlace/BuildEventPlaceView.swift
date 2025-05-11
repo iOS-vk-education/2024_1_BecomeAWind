@@ -22,7 +22,7 @@ struct BuildEventPlaceView: View {
                         } // else { alert }
                     }
                 } label: {
-                    RectText(
+                    UnlimitedText(
                         text: "выбрать",
                         font: Const.buttonFont
                     )

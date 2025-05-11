@@ -12,8 +12,6 @@ struct AuthorizedEntryView: View {
                     viewModel.makeEventsView()
                 case .feed:
                     viewModel.makeFeedView()
-                case .map:
-                    viewModel.makeMapView()
                 case .profile:
                     viewModel.makeProfileView()
                 }

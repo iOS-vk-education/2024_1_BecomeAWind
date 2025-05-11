@@ -16,7 +16,7 @@ struct CapsuleButton<Background: ShapeStyle>: View {
         Button {
             action()
         } label: {
-            RectText(
+            UnlimitedText(
                 text: title,
                 font: Const.buttonFont,
                 background: background

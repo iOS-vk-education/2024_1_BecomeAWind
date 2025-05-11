@@ -5,7 +5,7 @@ struct EventCardSeatsLabel: View {
     let seatsTitle: String
 
     var body: some View {
-        RectText(
+        UnlimitedText(
             text: seatsTitle,
             font: EventsConst.capsuleLabelFont,
             background: .thinMaterial

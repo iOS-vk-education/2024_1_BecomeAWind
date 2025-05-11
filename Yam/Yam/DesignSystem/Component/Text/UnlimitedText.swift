@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct RectText<Background: ShapeStyle>: View {
+struct UnlimitedText<Background: ShapeStyle>: View {
 
     let text: String
     let font: Font
     let background: Background
 
     init(text: String,
-         font: Font,
+         font: Font = Const.buttonFont,
          background: Background = Gradient.purpleIndigo) {
         self.text = text
         self.font = font
@@ -28,7 +28,7 @@ struct RectText<Background: ShapeStyle>: View {
 }
 
 #Preview {
-    RectText(
+    UnlimitedText(
         text: "текст text text",
         font: FontManager.def,
         background: .purple

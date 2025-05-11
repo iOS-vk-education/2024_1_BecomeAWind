@@ -6,22 +6,26 @@ struct RootView: View {
 
     var body: some View {
         if !navManager.isUserAuthorized {
-            AuthView(viewModel: makeAuthViewModel())
+            makeAuthView()
         } else {
-            AuthorizedEntryView(viewModel: makeAuthorizedEntryViewModel())
+            makeMapView()
         }
     }
 
 }
 
 extension RootView {
-    
-    func makeAuthorizedEntryViewModel() -> AuthorizedEntryViewModel {
-        AuthorizedEntryViewModel(navManager: navManager)
+
+    func makeAuthView() -> AuthView {
+        let vm = AuthViewModel(navManager: navManager)
+        let view = AuthView(viewModel: vm)
+        return view
     }
 
-    func makeAuthViewModel() -> AuthViewModel {
-        AuthViewModel(navManager: navManager)
+    func makeMapView() -> MapView {
+        let vm = MapViewModel(navManager: navManager)
+        let view = MapView(viewModel: vm)
+        return view
     }
 
 }

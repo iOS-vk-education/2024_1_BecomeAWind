@@ -24,7 +24,6 @@ final class AuthorizedEntryViewModel: NSObject, ObservableObject {
         tabs = [
             AuthorizedEntryTabItemConfig(tab: .events, title: "ивенты", imageName: "mail.stack"),
             AuthorizedEntryTabItemConfig(tab: .feed, title: "поиск", imageName: "magnifyingglass.circle"),
-            AuthorizedEntryTabItemConfig(tab: .map, title: "карта", imageName: "map"),
             AuthorizedEntryTabItemConfig(tab: .profile, title: "профиль", imageName: "person.crop.circle")
         ]
     }
@@ -44,11 +43,6 @@ extension AuthorizedEntryViewModel {
     func makeFeedView() -> FeedView {
         let vm = FeedViewModel()
         let view = FeedView(viewModel: vm)
-        return view
-    }
-
-    func makeMapView() -> MapView {
-        let view = MapView()
         return view
     }
 

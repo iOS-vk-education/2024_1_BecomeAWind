@@ -11,9 +11,11 @@ struct EventLocationBottomButtons: View {
                 showUser()
             }
 
-            RectTextButton(text: "ивент",
-                           background: Gradient.indigoPurple) {
+            Button {
                 showEvent()
+            } label: {
+                UnlimitedText(text: "ивент",
+                              background: Gradient.indigoPurple)
             }
         }
     }

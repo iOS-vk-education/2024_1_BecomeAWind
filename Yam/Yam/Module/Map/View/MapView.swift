@@ -4,7 +4,7 @@ import ClusterMapSwiftUI
 
 struct MapView: View {
 
-    @StateObject private var viewModel = MapViewModel()
+    @ObservedObject var viewModel: MapViewModel
 
     var body: some View {
         ZStack {
@@ -43,21 +43,23 @@ struct MapView: View {
                     await viewModel.reloadAnnotations()
                 }
             }
-            .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
-                viewModel.configureEventsAccordionView(eventPack: viewModel.currentEventPack)
-            }
 
-
-            VStack {
-                Spacer()
-
-                LocationButton {
-                    viewModel.centerMapOnUserLocation()
-                }
-
-                TabBarSpace()
-            }
+            MapBottomButtons(viewModel: viewModel)
+        }
+        .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
+            viewModel.makeEventsAccordionView(eventPack: viewModel.currentEventPack)
+                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $viewModel.isActiveProfile) {
+            viewModel.makeProfileView()
+                .presentationDragIndicator(.visible)
         }
     }
 
 }
+
+#Preview {
+    MapView(viewModel: MapViewModel(navManager: NavigationManager()))
+}
+
+

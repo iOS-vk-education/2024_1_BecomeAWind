@@ -20,7 +20,7 @@ struct BuildEventImagePicker: View {
                 }
 
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
-                    RectText(
+                    UnlimitedText(
                         text: viewModel.imagePickerButtonText,
                         font: Const.buttonFont
                     )

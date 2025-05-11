@@ -34,6 +34,8 @@ struct EventsAccordionView: View {
                     )
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
         .sheet(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))

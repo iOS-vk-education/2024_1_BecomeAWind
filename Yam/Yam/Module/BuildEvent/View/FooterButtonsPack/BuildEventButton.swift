@@ -14,7 +14,7 @@ struct BuildEventButton: View {
             if viewModel.isBuildingEventLoaderFlag {
                 GradientLoader(size: 50)
             } else {
-                RectText(
+                UnlimitedText(
                     text: viewModel.footerButtonText,
                     font: Const.buttonFont
                 )
