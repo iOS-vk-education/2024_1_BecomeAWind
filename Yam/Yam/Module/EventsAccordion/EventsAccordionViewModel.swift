@@ -39,6 +39,16 @@ final class EventsAccordionViewModel: ObservableObject {
 
 }
 
+// MARK: - Support
+
+extension EventsAccordionViewModel {
+
+    func getHeaderText() -> String {
+        "ивентов поблизости: \(eventPack.count)"
+    }
+
+}
+
 extension EventsAccordionViewModel: EventCardViewModelProtocol {
 
     func showBuildEvent(for event: Event) {
@@ -108,10 +118,10 @@ extension EventsAccordionViewModel: EventCardViewModelProtocol {
 
     @MainActor
     func updateEvent(eventID: String) async {
+        await getEventIDs()
+
         do {
             let updatedEvent = try await dbService.getEventFromFeed(by: eventID)
-
-            await getEventIDs()
 
             if let index = eventPack.firstIndex(where: { $0.id == updatedEvent.id }) {
                 eventPack[index] = updatedEvent
@@ -119,7 +129,12 @@ extension EventsAccordionViewModel: EventCardViewModelProtocol {
 
             Logger.Feed.eventUpdated()
         } catch {
-            Logger.Feed.eventNotUpdated(error)
+            if let index = eventPack.firstIndex(where: { $0.id == eventID} ) {
+                eventPack.remove(at: index)
+                Logger.Feed.eventUpdated()
+            } else {
+                Logger.Feed.eventNotUpdated()
+            }
         }
     }
 

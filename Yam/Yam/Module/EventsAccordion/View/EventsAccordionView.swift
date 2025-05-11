@@ -3,6 +3,7 @@ import SwiftUI
 struct EventsAccordionView: View {
 
     @ObservedObject var viewModel: EventsAccordionViewModel
+    @Environment(\.dismiss) var dismiss
     @State private var currentIndex = 0
     @State private var dragOffset: CGFloat = 0
 
@@ -33,13 +34,22 @@ struct EventsAccordionView: View {
                             }
                     )
             }
+
+            VStack {
+                EventsAccordionHeader(viewModel: viewModel)
+
+                Spacer()
+
+                DismissButton {
+                    dismiss()
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
         .sheet(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
-                    .presentationDragIndicator(.visible)
             }
         }
         .sheet(isPresented: $viewModel.isActiveBuildEvent) {

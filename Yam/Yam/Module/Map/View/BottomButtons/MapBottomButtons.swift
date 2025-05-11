@@ -15,7 +15,6 @@ struct MapBottomButtons: View {
             }
 
             HStack {
-
                 OpenEventsButton {
                     viewModel.openEvents()
                 }
@@ -27,7 +26,6 @@ struct MapBottomButtons: View {
                 OpenProfileButton {
                     viewModel.openProfile()
                 }
-
             }
         }
     }

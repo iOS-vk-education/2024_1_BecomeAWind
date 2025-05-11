@@ -216,8 +216,11 @@ extension Logger {
             print("Event updated\n")
         }
 
-        static func eventNotUpdated(_ error: Error) {
-            print("Event not updated, error desc = \(error.localizedDescription)\n")
+        static func eventNotUpdated(_ error: Error? = nil) {
+            print("Event not updated,", terminator: " ")
+            if let error {
+                print("error desc = \(error.localizedDescription)\n")
+            }
         }
 
     }

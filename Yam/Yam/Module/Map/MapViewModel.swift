@@ -53,7 +53,7 @@ final class MapViewModel: NSObject, ObservableObject {
 
     // Modules
     var isActiveEvents = false
-    var isActiveProfile = false
+    var isActiveInfo = false
 
     init(navManager: NavigationManager) {
         self.navManager = navManager
@@ -121,12 +121,12 @@ extension MapViewModel {
 
     @MainActor
     func openProfile() {
-        isActiveProfile = true
+        isActiveInfo = true
     }
 
-    func makeProfileView() -> ProfileView {
-        let vm = ProfileViewModel(navManager: navManager)
-        let view = ProfileView(viewModel: vm)
+    func makeInfoView() -> InfoView {
+        let vm = InfoViewModel(navManager: navManager)
+        let view = InfoView(viewModel: vm)
         return view
     }
 
@@ -160,7 +160,7 @@ extension MapViewModel {
         guard let loc = userLocation else { return }
 
         do {
-            let radiusInM: Double = 50 * 10000 // 50 км
+            let radiusInM: Double = 50 * 10000 // 500 км
 
             // формирую баундсы для создания массива кверис - чем больше радиус, тем бльше квадратов и кверис
             let queryBounds = GFUtils.queryBounds(forLocation: loc, withRadius: radiusInM)

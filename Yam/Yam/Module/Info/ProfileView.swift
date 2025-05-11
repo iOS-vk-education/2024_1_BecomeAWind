@@ -1,11 +1,24 @@
 import SwiftUI
 
-struct ProfileView: View {
+struct InfoView: View {
 
+    private let authInteractor = AuthInteractor.shared
     @ObservedObject var viewModel: ProfileViewModel
 
     var body: some View {
         VStack {
+            YText("профиль", font: Const.headerTextFont)
+                .padding(.top)
+
+            Text(viewModel.userEmail)
+                .fixedSizeText(background: .thinMaterial)
+                .onAppear {
+                    viewModel.getUserEmail()
+                }
+
+            Text(viewModel.getSearchRadius())
+                .fixedSizeText(background: .thinMaterial)
+
             Spacer()
             RectImageButton(imageName: "iphone.and.arrow.right.outward",
                             imageScale: 0.5,
@@ -25,5 +38,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(viewModel: ProfileViewModel(navManager: NavigationManager()))
+    InfoView(viewModel: ProfileViewModel(navManager: NavigationManager()))
 }

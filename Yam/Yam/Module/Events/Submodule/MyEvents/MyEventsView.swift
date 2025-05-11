@@ -58,7 +58,6 @@ struct MyEventsView: View {
         .sheet(isPresented: $viewModel.isActiveEventLocation) {
             if let event = viewModel.selectedEvent {
                 EventLocationView(viewModel: EventLocationViewModel(event: event))
-                    .presentationDragIndicator(.visible)
             }
         }
         .fullScreenCover(isPresented: $viewModel.isActiveBuildEvent) {

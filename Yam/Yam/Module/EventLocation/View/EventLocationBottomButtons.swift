@@ -8,21 +8,21 @@ struct EventLocationBottomButtons: View {
 
     var body: some View {
         VStack {
-            Button {
-                showEvent()
-            } label: {
-                UnlimitedText(text: "ивент",
-                              background: Gradient.indigoPurple)
-            }
-
             HStack {
+                Button {
+                    showEvent()
+                } label: {
+                    UnlimitedText(text: "ивент",
+                                  background: Gradient.indigoPurple)
+                }
+
                 LocationButton {
                     showUser()
                 }
+            }
 
-                DismissButton {
-                    dismiss()
-                }
+            DismissButton {
+                dismiss()
             }
         }
     }

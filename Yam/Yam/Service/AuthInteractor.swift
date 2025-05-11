@@ -7,7 +7,7 @@ final class AuthInteractor {
     private let auth = Auth.auth()
     private let dbService = DatabaseService.shared
 
-    private var currentUser: User? {
+    var currentUser: User? {
         auth.currentUser
     }
 

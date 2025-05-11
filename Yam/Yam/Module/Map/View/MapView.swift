@@ -56,11 +56,10 @@ struct MapView: View {
         }
         .sheet(isPresented: $viewModel.isActiveEventsAccordion) {
             viewModel.makeEventsAccordionView(eventPack: viewModel.currentEventPack)
-                .presentationDragIndicator(.visible)
         }
-        .sheet(isPresented: $viewModel.isActiveProfile) {
-            viewModel.makeProfileView()
-                .presentationDragIndicator(.visible)
+        .sheet(isPresented: $viewModel.isActiveInfo) {
+            viewModel.makeInfoView()
+                .presentationDetents([.medium])
         }
     }
 
