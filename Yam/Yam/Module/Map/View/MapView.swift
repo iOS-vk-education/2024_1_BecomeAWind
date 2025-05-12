@@ -45,6 +45,7 @@ struct MapView: View {
             }
 
             MapBottomButtons(viewModel: viewModel)
+            
         }
         .fullScreenCover(isPresented: $viewModel.isActiveEvents) {
             viewModel.makeEventsView()

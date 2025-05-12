@@ -6,7 +6,7 @@ struct BuildEventSeats: View {
     @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
-        YTextField(
+        TextFieldView(
             text: $viewModel.allSeats,
             title: "количество мест",
             prompt: "1",

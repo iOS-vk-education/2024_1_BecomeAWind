@@ -28,6 +28,7 @@ struct MapBottomButtons: View {
                 }
             }
         }
+        .padding(.bottom, 10)
     }
     
 }

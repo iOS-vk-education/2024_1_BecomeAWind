@@ -6,7 +6,7 @@ struct BuildEventLink: View {
     @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
-        YTextField(
+        TextFieldView(
             text: $viewModel.link,
             title: "контакты создателя",
             prompt: "https://event.creator.link/",

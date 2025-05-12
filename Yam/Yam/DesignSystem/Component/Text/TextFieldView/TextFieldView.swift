@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct YTextField: View {
+struct TextFieldView: View {
 
     var text: Binding<String>
     let title: String
@@ -27,35 +27,14 @@ struct YTextField: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
 
-        VStack {
-            TextField(
-                "",
-                text: text,
-                prompt:
-                    Text(prompt)
-                    .font(Const.sectionEmptyFont)
-                    .foregroundColor(Colors.white2),
-                axis: axis
-            )
-            .padding()
-            .autocorrectionDisabled()
-            .autocapitalization(.none)
-            .lineLimit(lineLimit)
-            .tint(.purple)
-            .foregroundColor(.white)
-            .font(Const.placeDescriptionFont)
-        }
-        .background(Colors.gray)
-        .cornerRadius(Const.cornerRadius)
-        .padding(.horizontal)
-        .padding(.bottom)
+        YTextField(text: text, prompt: prompt, lineLimit: lineLimit, axis: axis)
     }
 
 }
 
 #Preview {
     @Previewable @State var text = ""
-    YTextField(
+    TextFieldView(
         text: $text,
         title: "текст",
         lineLimit: 3,

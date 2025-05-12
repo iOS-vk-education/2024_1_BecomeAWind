@@ -7,6 +7,7 @@ final class FeedViewModel: ObservableObject {
     @State var dbService = DatabaseService.shared
 
     @Published var feedEvents: [Event] = []
+    @Published var searchString = ""
 
     // EventCardViewModelProtocol
     @Published var selectedEvent: Event?

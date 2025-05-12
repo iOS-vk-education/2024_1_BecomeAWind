@@ -5,7 +5,7 @@ struct EmailView: View {
     @ObservedObject var viewModel: AuthViewModel
 
     var body: some View {
-        YTextField(
+        TextFieldView(
             text: $viewModel.email,
             title: "почта",
             lineLimit: 1,

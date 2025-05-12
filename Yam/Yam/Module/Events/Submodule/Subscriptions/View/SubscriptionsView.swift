@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SubscriptionsView: View {
 
-    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: SubscriptionsViewModel
 
     var body: some View {
@@ -26,20 +25,7 @@ struct SubscriptionsView: View {
             .listStyle(.plain)
 
 
-            VStack {
-                Spacer()
-
-
-                HStack {
-                    EventsCountView(countString: viewModel.getSubscriptionsCount())
-
-                    DismissButton {
-                        dismiss()
-                    }
-                }
-
-                TabBarSpace()
-            }
+            SubscriptionsBottom(viewModel: viewModel)
         }
         .refreshable {
             Task {

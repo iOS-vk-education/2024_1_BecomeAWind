@@ -6,7 +6,7 @@ struct BuildEventTitle: View {
     @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
-        YTextField(
+        TextFieldView(
             text: $viewModel.eventTitle,
             title: "название",
             prompt: "расскажи об ивенте",
