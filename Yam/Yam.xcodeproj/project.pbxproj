@@ -87,6 +87,8 @@
 		87FDD9442D836C8300C2B5EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9432D836C8300C2B5EC /* FirebaseFirestore */; };
 		87FDD9462D836C8300C2B5EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 87FDD9452D836C8300C2B5EC /* FirebaseStorage */; };
 		CE3C33AC2DBEBE5500FC6B9B /* MakeEventDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C33AB2DBEBE3C00FC6B9B /* MakeEventDescription.swift */; };
+		CE3C33B02DC8F9C000FC6B9B /* MapSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C33AF2DC8F9B800FC6B9B /* MapSearchViewModel.swift */; };
+		CE6E70EA2DD27454007C7356 /* SearchPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E70E92DD27453007C7356 /* SearchPlace.swift */; };
 		DF7D99202CE122D70018E694 /* YamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D991B2CE122D70018E694 /* YamApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +172,8 @@
 		87FDD9382D82F73400C2B5EC /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		87FDD93A2D83471100C2B5EC /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		CE3C33AB2DBEBE3C00FC6B9B /* MakeEventDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEventDescription.swift; sourceTree = "<group>"; };
+		CE3C33AF2DC8F9B800FC6B9B /* MapSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewModel.swift; sourceTree = "<group>"; };
+		CE6E70E92DD27453007C7356 /* SearchPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlace.swift; sourceTree = "<group>"; };
 		DF7D991B2CE122D70018E694 /* YamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +288,8 @@
 		870E3C802D4388D40043DA00 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE6E70E92DD27453007C7356 /* SearchPlace.swift */,
+				CE3C33AF2DC8F9B800FC6B9B /* MapSearchViewModel.swift */,
 				870E3C7F2D4388D40043DA00 /* MapView.swift */,
 			);
 			path = View;
@@ -679,6 +685,7 @@
 				87CCF4CC2D8A054B005203CA /* Logger.swift in Sources */,
 				87CCF4DC2D8B500F005203CA /* EventCardDateLabel.swift in Sources */,
 				87FDD93B2D83471100C2B5EC /* MapViewModel.swift in Sources */,
+				CE6E70EA2DD27454007C7356 /* SearchPlace.swift in Sources */,
 				87FC48442D52089600F6D8CC /* MakeEventVStack.swift in Sources */,
 				87BA690A2D498302008DF823 /* UIViewController.swift in Sources */,
 				870E3C912D4388D40043DA00 /* EntryView.swift in Sources */,
@@ -703,6 +710,7 @@
 				87D4D29A2D94815600A5E4B8 /* MakeEventSeats.swift in Sources */,
 				87FDD9372D82F5D500C2B5EC /* DateHandler.swift in Sources */,
 				879ADB012D80AF2600F43C04 /* YSquareButton.swift in Sources */,
+				CE3C33B02DC8F9C000FC6B9B /* MapSearchViewModel.swift in Sources */,
 				CE3C33AC2DBEBE5500FC6B9B /* MakeEventDescription.swift in Sources */,
 				87BD45332D515BD0001B8E1B /* MakeEventPlacePicker.swift in Sources */,
 				870E3CA32D4388D40043DA00 /* YCapsuleLabel.swift in Sources */,

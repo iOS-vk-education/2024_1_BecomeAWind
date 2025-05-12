@@ -16,7 +16,7 @@ struct EventLocationBottomButtons: View {
                 )
             }
 
-            YCircleButton(imageName: "location") {
+            YCircleButtonSecond(imageName: "location") {
                 showUserAction()
             }
         }

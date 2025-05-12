@@ -32,7 +32,6 @@ struct Event: Identifiable, Hashable {
             let placeDescription = data["placeDescription"] as? String,
             let dateTimestamp = data["date"] as? Timestamp
         else {
-            print("govno")
             return nil
         }
     
