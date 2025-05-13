@@ -16,6 +16,10 @@ struct MyEventsView: View {
                     .listRowSeparator(.hidden)
                 }
 
+                if viewModel.myEvents.isEmpty {
+                    EmptyEventsView(text: "не создано ни одного ивента")
+                }
+
                 if viewModel.isLoading {
                     Loader()
                 }

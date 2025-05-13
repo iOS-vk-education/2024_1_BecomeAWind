@@ -21,6 +21,7 @@ struct BuildEventDatePicker: View {
             )
             .labelsHidden()
             .environment(\.locale, Locale(identifier: "ru_RU"))
+            .background(.thinMaterial)
             .tint(.purple)
             .colorScheme(.dark)
             .padding()

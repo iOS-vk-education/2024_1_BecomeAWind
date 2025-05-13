@@ -26,7 +26,7 @@ struct YTextField: View {
             .foregroundColor(.white)
             .font(Const.placeDescriptionFont)
         }
-        .background(Colors.gray)
+        .background(.thinMaterial)
         .cornerRadius(Const.cornerRadius)
         .padding(.horizontal)
         .padding(.bottom)

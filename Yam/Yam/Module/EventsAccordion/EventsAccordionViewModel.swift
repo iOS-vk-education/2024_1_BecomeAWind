@@ -44,7 +44,7 @@ final class EventsAccordionViewModel: ObservableObject {
 extension EventsAccordionViewModel {
 
     func getHeaderText() -> String {
-        "ивентов поблизости: \(eventPack.count)"
+        "количество ивентов: \(eventPack.count)"
     }
 
 }

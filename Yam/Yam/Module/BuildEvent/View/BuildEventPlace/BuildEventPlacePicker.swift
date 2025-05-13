@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct BuildEventPlacePicker: View {
+
     @ObservedObject var viewModel: BuildEventViewModel
 
     var body: some View {
@@ -27,6 +28,7 @@ struct BuildEventPlacePicker: View {
             BuildEventPlaceView(viewModel: viewModel)
         }
     }
+
 }
 
 #Preview {

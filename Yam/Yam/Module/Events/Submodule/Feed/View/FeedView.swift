@@ -5,14 +5,11 @@ struct FeedView: View {
     @ObservedObject var viewModel: FeedViewModel
 
     var body: some View {
-//        if !viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }.isEmpty {
-//
-//        }
             ZStack {
                 List {
                     VerticalSpace(height: Const.screenHeight * 0.05)
 
-                    ForEach(viewModel.feedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
+                    ForEach(viewModel.searchedFeedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }, id: \.self) { event in
                         EventCard(
                             viewModel: viewModel,
                             eventType: viewModel.dbService.subscriptionsIDs.contains(event.id)
@@ -31,7 +28,7 @@ struct FeedView: View {
                 }
                 .listStyle(.plain)
 
-                FeedBottom(viewModel: viewModel)
+                FeedInteractionView(viewModel: viewModel)
             }
             .refreshable {
                 Task {

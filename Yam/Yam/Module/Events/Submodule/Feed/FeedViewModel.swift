@@ -6,8 +6,26 @@ final class FeedViewModel: ObservableObject {
     private let authInteractor = AuthInteractor.shared
     @State var dbService = DatabaseService.shared
 
-    @Published var feedEvents: [Event] = []
-    @Published var searchString = ""
+    @Published var feedEvents = [Event]()
+    @Published var searchedFeedEvents = [Event]()
+    @Published var searchString = "" {
+        willSet {
+            guard searchString != newValue else { return }
+            
+            Logger.ping()
+            if newValue != "" {
+                searchedFeedEvents.removeAll()
+
+                for event in feedEvents {
+                    if event.title.contains(newValue) {
+                        searchedFeedEvents.append(event)
+                    }
+                }
+            } else {
+                searchedFeedEvents = feedEvents
+            }
+        }
+    }
 
     // EventCardViewModelProtocol
     @Published var selectedEvent: Event?
@@ -157,8 +175,10 @@ extension FeedViewModel: TableFetchDataProtocol {
 
         if isFirstPack {
             feedEvents = result.events
+            searchedFeedEvents = result.events
         } else {
             feedEvents.append(contentsOf: result.events)
+            searchedFeedEvents.append(contentsOf: result.events)
         }
 
         lastDoc = result.newLastDoc

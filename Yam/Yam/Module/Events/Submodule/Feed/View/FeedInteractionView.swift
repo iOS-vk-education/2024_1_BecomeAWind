@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FeedBottom: View {
+struct FeedInteractionView: View {
 
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: FeedViewModel
@@ -11,6 +11,10 @@ struct FeedBottom: View {
                        prompt: "введи название ивента",
                        lineLimit: 1,
                        axis: .horizontal)
+
+            if viewModel.searchedFeedEvents.filter { !viewModel.dbService.myEventsIDs.contains($0.id) }.isEmpty {
+                EmptyEventsView(text: "ивентов в ленте не найдено")
+            }
 
 
             Spacer()

@@ -36,7 +36,7 @@
 		8704EC702DAEF5270008611D /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */; };
 		8704EC722DAEFC530008611D /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704EC712DAEFC530008611D /* AuthField.swift */; };
 		870660202DD2779C00B89097 /* MyEventsBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706601F2DD2779C00B89097 /* MyEventsBottom.swift */; };
-		870660222DD2783100B89097 /* FeedBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870660212DD2783100B89097 /* FeedBottom.swift */; };
+		870660222DD2783100B89097 /* FeedInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870660212DD2783100B89097 /* FeedInteractionView.swift */; };
 		870660262DD2789F00B89097 /* SubscriptionsBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870660252DD2789F00B89097 /* SubscriptionsBottom.swift */; };
 		8706602C2DD27B0800B89097 /* EmptyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706602B2DD27B0800B89097 /* EmptyEventsView.swift */; };
 		8706602E2DD27C4F00B89097 /* FeedSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706602D2DD27C4F00B89097 /* FeedSearch.swift */; };
@@ -186,7 +186,7 @@
 		8704EC6F2DAEF5270008611D /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
 		8704EC712DAEFC530008611D /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		8706601F2DD2779C00B89097 /* MyEventsBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsBottom.swift; sourceTree = "<group>"; };
-		870660212DD2783100B89097 /* FeedBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBottom.swift; sourceTree = "<group>"; };
+		870660212DD2783100B89097 /* FeedInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractionView.swift; sourceTree = "<group>"; };
 		870660252DD2789F00B89097 /* SubscriptionsBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsBottom.swift; sourceTree = "<group>"; };
 		8706602B2DD27B0800B89097 /* EmptyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEventsView.swift; sourceTree = "<group>"; };
 		8706602D2DD27C4F00B89097 /* FeedSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSearch.swift; sourceTree = "<group>"; };
@@ -439,7 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				870045EC2DD0D6F100D9F74D /* FeedView.swift */,
-				870660212DD2783100B89097 /* FeedBottom.swift */,
+				870660212DD2783100B89097 /* FeedInteractionView.swift */,
 				8706602D2DD27C4F00B89097 /* FeedSearch.swift */,
 			);
 			path = View;
@@ -1036,7 +1036,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8744C4582DADB691001A0A9F /* YSecureField.swift in Sources */,
-				870660222DD2783100B89097 /* FeedBottom.swift in Sources */,
+				870660222DD2783100B89097 /* FeedInteractionView.swift in Sources */,
 				8700460B2DD13E1700D9F74D /* EventsAccordionHeader.swift in Sources */,
 				DF7D99202CE122D70018E694 /* YamApp.swift in Sources */,
 				878637C22DC94F3300410C8C /* MapCluster.swift in Sources */,

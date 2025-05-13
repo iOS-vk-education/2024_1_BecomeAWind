@@ -16,6 +16,10 @@ struct SubscriptionsView: View {
                     .listRowSeparator(.hidden)
                 }
 
+                if viewModel.subscriptions.isEmpty {
+                    EmptyEventsView(text: "подписок нет - зайди в ленту или на карту, чтобы подписаться на ивенты")
+                }
+
                 if viewModel.isLoading {
                     Loader()
                 }

@@ -11,7 +11,7 @@ struct BuildEventVStack<Content: View>: View {
         VStack {
             content
         }
-        .background(Colors.gray)
+        .background(.thinMaterial)
         .cornerRadius(Const.cornerRadius)
         .padding(.horizontal)
         .padding(.bottom)
